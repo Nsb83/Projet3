@@ -1,5 +1,7 @@
 {
   "name": "autostop",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

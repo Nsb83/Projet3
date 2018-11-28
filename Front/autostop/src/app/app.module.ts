@@ -30,6 +30,8 @@ import { SearchBarPage } from '../pages/home/connexion/main/map/search-bar/searc
 import { TabsPage } from '../pages/home/connexion/main/menu/tabs/tabs';
 import { VehiclePage } from '../pages/home/connexion/main/menu/tabs/vehicle/vehicle';
 
+import { GoogleMaps } from '@ionic-native/google-maps';
+
 
 
 
@@ -98,6 +100,7 @@ import { VehiclePage } from '../pages/home/connexion/main/menu/tabs/vehicle/vehi
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
