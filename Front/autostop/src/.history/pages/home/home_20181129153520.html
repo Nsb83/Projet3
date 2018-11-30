@@ -1,0 +1,29 @@
+<body>
+  <ion-header>
+    <ion-navbar> <ion-title> Ionic Blank </ion-title> </ion-navbar>
+  </ion-header>
+
+  <ion-content padding color="acceuil" class="home">
+    <div><img src="images/logo.png" id="logo" /></div>
+
+    <div class="container">
+      <div><ion-icon name="logo-facebook"></ion-icon> VIA FACEBOOK</div>
+      <div><ion-icon name="mail">VIA EMAIL</ion-icon></div>
+    </div>
+
+    <button ion-button full color="boutton" [navPush]="register">
+      CREER UN COMPTE
+    </button>
+    <button ion-button full color="boutton" [navPush]="connexion">
+      CONNEXION
+    </button>
+
+    <!--
+      <button ion-button round color="dark" icon-start [navPush]="main">
+            <ion-icon name="map"></ion-icon>Geolocation
+          </button>
+        </ion-content>
+      </body>
+    -->
+  </ion-content>
+</body>

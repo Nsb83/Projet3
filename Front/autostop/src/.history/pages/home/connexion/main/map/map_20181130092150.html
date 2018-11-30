@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle="right">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>AutoStop</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <button ion-button menuToggle="right">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </div>
+  <ion-menu [content]="mycontent">
+    <ion-content> <ion-list> </ion-list> </ion-content>
+  </ion-menu>
+  <div id="map"></div>
+</ion-content>

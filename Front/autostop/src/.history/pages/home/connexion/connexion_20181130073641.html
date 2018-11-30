@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar> <ion-title>connexion</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div><ion-item color="input" id="rounded">
+        <ion-input type="text" placeholder="E-mail"></ion-input>
+      </ion-item>
+  </div>
+    <div><ion-item color="input" id="rounded">
+        <ion-input type="text" placeholder="Password"></ion-input>
+      </ion-item></div>
+    
+  </div>
+
+  <div><a>Mot de passe oublié ?</a></div>
+
+  <div>
+    <button ion-button full color="button" [navPush]="main">CONNEXION</button>
+  </div>
+</ion-content>
