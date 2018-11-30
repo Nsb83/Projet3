@@ -7,10 +7,9 @@ public class Trip {
     private String destination;
     private Object itinerary;
 
-    public Trip(String origin, String destination, Object itinerary){
+    public Trip(String origin, String destination){
         this.origin = origin;
         this.destination = destination;
-        this.itinerary = itinerary;
     }
 
     public String getOrigin() {

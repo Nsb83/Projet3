@@ -11,12 +11,11 @@ public class User {
     private String sex;
     private Date dateOfBirth;
 
-    public User (String lastName, String firstName, String phone, String mail, String imgUrl, String sex, Date dateOfBirth) {
+    public User (String lastName, String firstName, String phone, String mail, String sex, Date dateOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
         this.mail = mail;
-        this.imgUrl = imgUrl;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
     }
