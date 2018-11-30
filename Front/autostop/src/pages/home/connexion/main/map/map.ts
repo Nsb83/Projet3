@@ -1,3 +1,4 @@
+import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import {

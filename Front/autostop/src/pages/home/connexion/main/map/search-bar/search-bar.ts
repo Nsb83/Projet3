@@ -14,9 +14,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SearchBarPage {
 
+  public searchValue: string; //variable for searchbar input
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+//retrieve input value from searchbar
+  submitSearch(searchValue) {
+    this.searchValue = searchValue;
+    console.log(this.searchValue)
+  }
+//retrieve input value from searchbar end
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchBarPage');
   }
