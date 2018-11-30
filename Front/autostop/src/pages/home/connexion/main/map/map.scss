@@ -1,5 +1,15 @@
 page-map {
   #map{
-    height: 80vh;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
+}
+
+SearchBarPageComponent {
+  position: relative;
+  z-index: 3;
 }
