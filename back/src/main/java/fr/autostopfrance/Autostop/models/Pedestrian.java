@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Pedestrian extends Profile{
     private int passengersNumber;
 
-    public Pedestrian (int passengersNumber) {
+    public Pedestrian () {
         super();
-        this.passengersNumber = passengersNumber;
+        this.passengersNumber = 1;
     }
 
     public int getPassengersNumber() {
