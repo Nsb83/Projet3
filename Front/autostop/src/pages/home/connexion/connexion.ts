@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { MainPage } from "./main/main";
 
 /**
  * Generated class for the ConnexionPage page.
@@ -8,18 +9,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
-  selector: 'page-connexion',
-  templateUrl: 'connexion.html',
+  selector: "page-connexion",
+  templateUrl: "connexion.html"
 })
 export class ConnexionPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConnexionPage');
+    console.log("ionViewDidLoad ConnexionPage");
   }
 
+  main = MainPage;
 }

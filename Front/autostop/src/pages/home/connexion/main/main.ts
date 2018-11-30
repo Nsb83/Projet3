@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the MainPage page.
@@ -9,16 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-main',
-  templateUrl: 'main.html',
+  selector: "page-main",
+  templateUrl: "main.html"
 })
 export class MainPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MainPage');
+    console.log("ionViewDidLoad MainPage");
   }
-
 }

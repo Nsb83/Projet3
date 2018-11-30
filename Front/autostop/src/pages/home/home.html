@@ -1,24 +1,28 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<body>
+  <ion-header>
+    <ion-navbar> <ion-title> Ionic Blank </ion-title> </ion-navbar>
+  </ion-header>
 
+  <ion-content padding color="acceuil" class="home">
+    <div><img src="../assets/imgs/logo.png" id="logo" /></div>
+    <div><ion-icon name="mail">VIA EMAIL</ion-icon></div>
 
+    <div class="container2">
+      <div>
+        <button ion-button full color="button" [navPush]="register">
+          CREER UN COMPTE
+        </button>
+      </div>
 
+      <div>
+        <button ion-button full color="button" [navPush]="connexion">
+          CONNEXION
+        </button>
+      </div>
+    </div>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-
-  <button ion-button
-          round
-          color="dark"
-          icon-start
-          [navPush]="map">
-      <ion-icon name="map"></ion-icon>Geolocation</button>
-</ion-content>
+    <div>
+      <button ion-button full color="button" [navPush]="menu">menu</button>
+    </div>
+  </ion-content>
+</body>

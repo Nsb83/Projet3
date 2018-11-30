@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { ConnexionPage } from "../connexion/connexion";
 
 /**
  * Generated class for the RegisterPage page.
@@ -9,16 +10,15 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: "page-register",
+  templateUrl: "register.html"
 })
 export class RegisterPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log("ionViewDidLoad RegisterPage");
   }
 
+  connexion = ConnexionPage;
 }
