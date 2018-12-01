@@ -1,5 +1,8 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams, IonicPage } from "ionic-angular";
+
+import { SearchBarPage } from './search-bar/search-bar';
+import { Component } from '@angular/core';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
+
 import {
   GoogleMaps,
   GoogleMap,
