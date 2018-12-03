@@ -1,1 +1,26 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar> <ion-title>Menu</ion-title> </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item icon-start (click)="onNavigate(tabsPage)">
+        MON PROFIL
+      </button>
+      <button ion-item icon-start (click)="onNavigate(ratingsPage)">
+        EVALUEZ NOUS !
+      </button>
+      <button ion-item icon-start (click)="onNavigate(legalNoticePage)">
+        MENTIONS LEGALES
+      </button>
+      <button ion-item icon-start (click)="onNavigate(helpPage)">AIDE</button>
+      <button ion-item icon-start (click)="onNavigate(contactPage)">
+        CONTACTEZ-NOUS!
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>
+
 <page-map></page-map>
