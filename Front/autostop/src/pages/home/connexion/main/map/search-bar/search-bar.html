@@ -1,21 +1,36 @@
-
 <ion-toolbar color="transparent">
   <div class="searchbar">
     <ion-row>
       <ion-col col-auto no-padding>
-        <button ion-button icon-only clear color="white">
+        <button
+          ion-button
+          icon-only
+          clear
+          color="white"
+          (click)="onToggleMenu()"
+        >
           <ion-icon name="menu" color="dark"></ion-icon>
         </button>
       </ion-col>
-      <ion-col no-padding >
-        <ion-input #search type="search" name="search" placeholder="search"></ion-input>
+      <ion-col no-padding>
+        <ion-input
+          #search
+          type="search"
+          name="search"
+          placeholder="search"
+        ></ion-input>
       </ion-col>
       <ion-col col-auto no-padding>
-        <button ion-button icon-only clear color="light"(click)="submitSearch(search.value)">
+        <button
+          ion-button
+          icon-only
+          clear
+          color="light"
+          (click)="submitSearch(search.value)"
+        >
           <ion-icon name="search" color="dark"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
   </div>
 </ion-toolbar>
-
