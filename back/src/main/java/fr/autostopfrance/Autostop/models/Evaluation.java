@@ -9,6 +9,10 @@ public class Evaluation {
         this.comment = comment;
     }
 
+    public Evaluation(int rating){
+        this.rating = rating;
+    }
+
     public int getRating() {
         return rating;
     }
@@ -25,7 +29,5 @@ public class Evaluation {
         this.comment = comment;
     }
 
-    public int rateTrip(){
-        return this.rating;
-    }
+
 }
