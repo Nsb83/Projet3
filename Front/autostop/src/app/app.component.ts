@@ -1,5 +1,3 @@
-import { MapPage } from './../pages/home/connexion/main/map/map';
-import { SearchBarPage } from './../pages/home/connexion/main/map/search-bar/search-bar';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,7 +17,7 @@ export class MyApp {
     splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      this.rootPage = MapPage;
+      this.rootPage = HomePage;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
