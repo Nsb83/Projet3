@@ -1,7 +1,8 @@
+import { RequestModalPage } from './request-modal/request-modal';
 
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, IonicPage, ModalController } from 'ionic-angular';
 
 import {
   GoogleMaps,
@@ -15,7 +16,10 @@ import {
   Circle,
   LocationService,
   MyLocationOptions,
-  MyLocation
+  MyLocation,
+  GeocoderRequest,
+  GeocoderResult,
+  Geocoder
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -26,7 +30,17 @@ import {
 export class MapPage {
   map: GoogleMap;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  // modalRequest=  RequestModalPage;
+
+  // Test data for request-modal
+  matchableUser : {} = {
+    name : "Gérard",
+    surname : "Darmon",
+    destination : "6 Le Rampeau, 69510 THURINS",
+    rating : 4
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -61,12 +75,12 @@ export class MapPage {
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
 
-      let marker: Marker = this.map.addMarkerSync({
+      let markerGeoloc: Marker = this.map.addMarkerSync({
         position: location.latLng,
         title: "Ma position"
       });
       // Affichage de ses infos
-      marker.showInfoWindow();
+      markerGeoloc.showInfoWindow();
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
@@ -83,5 +97,30 @@ export class MapPage {
         target: circle.getBounds
       });
     });
+
+
+  }
+
+  goToSpecificLocation(){
+    let options: GeocoderRequest = {
+      address: "6 Le Rampeau, 69510 THURINS"
+      // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
+    };
+    // Address -> latitude,longitude
+    Geocoder.geocode(options)
+    .then((results: GeocoderResult[]) => {
+      console.log(results);
+
+      let markerPossibleMatch : Marker = this.map.addMarkerSync({
+        'position': results[0].position,
+        'title':  JSON.stringify(results[0].position)
+      })
+      markerPossibleMatch.showInfoWindow();
+    })
+  }
+
+  showMatchModal(){
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
+    matchModal.present();
   }
 }

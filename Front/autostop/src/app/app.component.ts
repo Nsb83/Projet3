@@ -1,3 +1,5 @@
+import { MainPage } from './../pages/home/connexion/main/main';
+import { RequestModalPage } from './../pages/home/connexion/main/map/request-modal/request-modal';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +19,7 @@ export class MyApp {
     splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      this.rootPage = HomePage;
+      this.rootPage = MainPage;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
