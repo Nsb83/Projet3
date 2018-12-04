@@ -1,3 +1,5 @@
+import { Driver } from './../../../../../models/Driver';
+import { GiveRatingPage } from './request-modal/response-modal/linking/give-rating/give-rating';
 import { RequestModalPage } from './request-modal/request-modal';
 
 import { SearchBarPage } from './search-bar/search-bar';
@@ -31,13 +33,20 @@ export class MapPage {
   map: GoogleMap;
 
   // modalRequest=  RequestModalPage;
+  ratingPage = GiveRatingPage;
 
   // Test data for request-modal
-  matchableUser : {} = {
+  matchableUser : Driver = {
     name : "Gérard",
     surname : "Darmon",
+    avatar : "./assets/imgs/darmon.jpg",
+    rating : 4,
     destination : "6 Le Rampeau, 69510 THURINS",
-    rating : 4
+    carName : "Renault Clio 3",
+    carColor : "black",
+    plateCar : "AZ45VP18",
+    phoneNumber : "0836656565",
+
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
@@ -123,4 +132,6 @@ export class MapPage {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
     matchModal.present();
   }
+
+
 }

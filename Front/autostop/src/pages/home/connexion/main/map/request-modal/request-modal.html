@@ -18,9 +18,10 @@
       </ion-col>
       <ion-col>
           <div>
-              <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]"
-                 [ngStyle]="{'color' : matchableUser.rate}"
-              ></ion-icon>
+              <ion-icon name="star"
+                        *ngFor="let num of [1,2,3,4,5]"
+                        [ngStyle]="{color: getColor(num)}">
+              </ion-icon>
             </div>
       </ion-col>
     </ion-row>

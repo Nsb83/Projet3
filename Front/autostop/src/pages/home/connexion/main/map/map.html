@@ -1,7 +1,10 @@
 <ion-content>
-    <button ion-button id="button" (click)="goToSpecificLocation()">Home</button>
+    <button ion-button id="button" (click)="goToSpecificLocation()">Location search [DevBut]</button>
 
-    <button ion-button id="button" (click)="showMatchModal()">Possible Match Route</button>
+    <button ion-button id="button" [navPush]="ratingPage">Rating Page [DevBut]</button>
+
+
+    <button ion-button id="button" (click)="showMatchModal()"> Matchable User [DevBut]</button>
 
   <div id="map">
       <page-search-bar></page-search-bar>
