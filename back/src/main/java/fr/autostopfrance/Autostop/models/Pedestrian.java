@@ -23,5 +23,7 @@ public class Pedestrian extends Profile{
 
     public void canceltrip(){
     }
-
+    public void rateTrip(Driver driver, int note){
+        return null;
+    }
 }

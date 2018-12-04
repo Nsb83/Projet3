@@ -16,6 +16,14 @@ public class Driver extends Profile{
         this.imgCar = imgCar;
     }
 
+    public Driver(String licensePlate, String brand, String model, String color){
+        super();
+        this.licensePlate = licensePlate;
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+    }
+
     public String getLicensePlate() {
         return licensePlate;
     }
@@ -60,5 +68,9 @@ public class Driver extends Profile{
     }
 
     public void declineTrip(){
+    }
+
+    public void rateTrip(Pedestrian pedestrian, int note){
+        return null
     }
 }

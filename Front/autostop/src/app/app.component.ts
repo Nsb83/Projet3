@@ -1,12 +1,9 @@
-import { MainPage } from './../pages/home/connexion/main/main';
-import { RequestModalPage } from './../pages/home/connexion/main/map/request-modal/request-modal';
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
-
-import { HomePage } from "../pages/home/home";
+import { MainPage } from "../pages/home/connexion/main/main";
 @Component({
   templateUrl: "app.html"
 })
