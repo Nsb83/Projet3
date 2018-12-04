@@ -7,14 +7,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class GiveRatingPage {
   matchableUser;
+  rating;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.matchableUser = this.navParams.get('matchableUser');
+    this.rating = this.matchableUser.rating;
   }
 
-
-  rating = this.matchableUser.rating;
+  // rating = this.matchableUser.rating;
 
   COLORS = {
     GREY : "E0E0E0",
