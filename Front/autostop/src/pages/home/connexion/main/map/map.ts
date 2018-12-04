@@ -32,7 +32,6 @@ import {
 export class MapPage {
   map: GoogleMap;
 
-  // modalRequest=  RequestModalPage;
   ratingPage = GiveRatingPage;
 
   // Test data for request-modal
@@ -108,24 +107,6 @@ export class MapPage {
     });
 
 
-  }
-
-  goToSpecificLocation(){
-    let options: GeocoderRequest = {
-      address: "6 Le Rampeau, 69510 THURINS"
-      // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
-    };
-    // Address -> latitude,longitude
-    Geocoder.geocode(options)
-    .then((results: GeocoderResult[]) => {
-      console.log(results);
-
-      let markerPossibleMatch : Marker = this.map.addMarkerSync({
-        'position': results[0].position,
-        'title':  JSON.stringify(results[0].position)
-      })
-      markerPossibleMatch.showInfoWindow();
-    })
   }
 
   showMatchModal(){
