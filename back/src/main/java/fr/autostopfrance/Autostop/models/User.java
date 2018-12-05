@@ -1,8 +1,17 @@
 package fr.autostopfrance.Autostop.models;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String lastName;
     private String firstName;
     private String phone;
@@ -11,6 +20,8 @@ public class User {
     private String sex;
     private Date dateOfBirth;
 
+    public User () {}
+
     public User (String lastName, String firstName, String phone, String mail, String sex, Date dateOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -18,6 +29,10 @@ public class User {
         this.mail = mail;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getLastName() {
@@ -74,5 +89,10 @@ public class User {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return " User:" + id + firstName + lastName + dateOfBirth + sex + mail + phone + "!";
     }
 }
