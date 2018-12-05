@@ -113,4 +113,28 @@ export class MapPage {
     matchModal.present();
   }
 
+  searchValue;
+  receiveMessage($event) {
+    this.searchValue = $event
+    console.log(this.searchValue)
+    this.goToSpecificLocation();
+  }
+  goToSpecificLocation(){
+    let options: GeocoderRequest = {
+    address: this.searchValue
+    // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
+    };
+    // Address -> latitude,longitude
+    Geocoder.geocode(options)
+    .then((results: GeocoderResult[]) => {
+    console.log(results);
+
+    let markerPossibleMatch : Marker = this.map.addMarkerSync({
+    'position': results[0].position,
+    'title': JSON.stringify(results[0].position)
+    })
+    markerPossibleMatch.showInfoWindow();
+    })
+    }
+
 }

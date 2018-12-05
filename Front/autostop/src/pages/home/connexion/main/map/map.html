@@ -2,6 +2,6 @@
   <button ion-button id="button" (click)="showMatchModal()"> Matchable User [DevBut]</button>
 
   <div id="map">
-      <page-search-bar></page-search-bar>
+      <page-search-bar (searchValueEmit)='receiveMessage($event)'></page-search-bar>
   </div>
 </ion-content>
