@@ -1,24 +1,35 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { ConnexionPage } from "../connexion/connexion";
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "page-register",
   templateUrl: "register.html"
 })
-export class RegisterPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+export class RegisterPage implements OnInit {
+  connexion = ConnexionPage;
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad RegisterPage");
+  private register: FormGroup;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder
+  ) {}
+
+  ngOnInit() {
+    this.initForm();
   }
 
-  connexion = ConnexionPage;
+  initForm() {
+    this.register = this.formBuilder.group({
+      nom: ["", Validators.required],
+      prenom: [""],
+      telephone: [""],
+      sexe: [""],
+      birthday: [""],
+      email: [""],
+      password: [""]
+    });
+  }
 }

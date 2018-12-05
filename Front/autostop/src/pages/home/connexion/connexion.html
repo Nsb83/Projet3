@@ -3,22 +3,33 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="container">
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="E-mail"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="Password"></ion-input>
-      </ion-item>
-    </div>
-  </div>
-
-  <div><a>Mot de passe oublié ?</a></div>
-
+  <form [formGroup]="connexion">
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="email"
+        placeholder="E-mail"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="password"
+        placeholder="Password"
+      ></ion-input>
+    </ion-item>
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      [disabled]="!connexion.valid"
+      [navPush]="main"
+    >
+      CONNEXION
+    </button>
+  </form>
   <div>
-    <button ion-button full color="button" [navPush]="main">CONNEXION</button>
+    <a (click)="onNavigate2(lostPasswordPage)">Mot de passe oublié ?</a>
   </div>
 </ion-content>
