@@ -1,20 +1,36 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar> <ion-title>Menu</ion-title> </ion-toolbar>
-  </ion-header>
-  <ion-content>
+<ion-menu side="right" [content]="content">
+  <ion-content color="menu">
+    <img src="assets/imgs/staline.jpg" alt="photo" />
+
     <ion-list>
-      <button ion-item icon-start (click)="onNavigate(tabsPage)">
+      <button ion-item icon-start color="menu" (click)="onNavigate(tabsPage)">
         MON PROFIL
       </button>
-      <button ion-item icon-start (click)="onNavigate(ratingsPage)">
+      <button
+        ion-item
+        icon-start
+        color="menu"
+        (click)="onNavigate(ratingsPage)"
+      >
         EVALUEZ NOUS !
       </button>
-      <button ion-item icon-start (click)="onNavigate(legalNoticePage)">
+      <button
+        ion-item
+        icon-start
+        color="menu"
+        (click)="onNavigate(legalNoticePage)"
+      >
         MENTIONS LEGALES
       </button>
-      <button ion-item icon-start (click)="onNavigate(helpPage)">AIDE</button>
-      <button ion-item icon-start (click)="onNavigate(contactPage)">
+      <button ion-item icon-start color="menu" (click)="onNavigate(helpPage)">
+        AIDE
+      </button>
+      <button
+        ion-item
+        icon-start
+        color="menu"
+        (click)="onNavigate(contactPage)"
+      >
         CONTACTEZ-NOUS!
       </button>
     </ion-list>

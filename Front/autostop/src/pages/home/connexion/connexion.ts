@@ -1,24 +1,36 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { MainPage } from "./main/main";
-
-/**
- * Generated class for the ConnexionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LostPasswordPage } from "../lost-password/lost-password";
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "page-connexion",
   templateUrl: "connexion.html"
 })
-export class ConnexionPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+export class ConnexionPage implements OnInit {
+  main = MainPage;
+  lostPasswordPage = LostPasswordPage;
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad ConnexionPage");
+  private connexion: FormGroup;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder
+  ) {}
+
+  ngOnInit() {
+    this.initForm();
   }
 
-  main = MainPage;
+  initForm() {
+    this.connexion = this.formBuilder.group({
+      email: ["", Validators.required],
+      password: [""]
+    });
+  }
+
+  onNavigate2(page) {
+    this.navCtrl.push(page);
+  }
 }
