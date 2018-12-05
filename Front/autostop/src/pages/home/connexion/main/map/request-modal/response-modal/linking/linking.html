@@ -13,17 +13,13 @@
     <ion-grid>
       <ion-row>
           <ion-col>
-            <ion-avatar>
               <img class="avatarUser" src="./assets/imgs/darmon.jpg">
-          </ion-avatar>
           </ion-col>
           <ion-col>
-              <div>
                   <ion-icon name="star"
                             *ngFor="let num of [1,2,3,4,5]"
                             [ngStyle]="{color: getColor(num)}">
                   </ion-icon>
-                </div>
           </ion-col>
         </ion-row>
     </ion-grid>

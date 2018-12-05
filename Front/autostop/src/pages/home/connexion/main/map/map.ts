@@ -109,10 +109,10 @@ export class MapPage {
 
   }
 
-  showMatchModal(){
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
-    matchModal.present();
-  }
-
+  // // Show modal for matching request
+  // showMatchModal(){
+  //   const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
+  //   matchModal.present();
+  // }
 
 }
