@@ -9,43 +9,66 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="container">
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="Nom"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="Prénom"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="Téléphone"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="E-mail"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input type="text" placeholder="Mot de passe"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item color="input">
-        <ion-input
-          type="text"
-          placeholder="Confirmation de mot de passe"
-        ></ion-input>
-      </ion-item>
-    </div>
-  </div>
+  <form [formGroup]="register">
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="prenom"
+        placeholder="Prénom"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="nom"
+        placeholder="Nom"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="telephone"
+        placeholder="Téléphone"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="sexe"
+        placeholder="Sexe"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="birthday"
+        placeholder="Date de Naissance"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="email"
+        placeholder="E-mail"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="password"
+        placeholder="Password"
+      ></ion-input>
+    </ion-item>
 
-  <div>
-    <button ion-button full color="button" [navPush]="connexion">CREER</button>
-  </div>
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      [disabled]="!register.valid"
+      [navPush]="connexion"
+    >
+      CREER
+    </button>
+  </form>
 </ion-content>
