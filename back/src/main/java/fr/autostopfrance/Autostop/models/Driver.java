@@ -71,6 +71,6 @@ public class Driver extends Profile{
     }
 
     public void rateTrip(Pedestrian pedestrian, int note){
-        return null
+        
     }
 }
