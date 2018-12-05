@@ -1,7 +1,10 @@
+import { Driver } from './../../../../../models/Driver';
+import { GiveRatingPage } from './request-modal/response-modal/linking/give-rating/give-rating';
+import { RequestModalPage } from './request-modal/request-modal';
 
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, IonicPage, ModalController } from 'ionic-angular';
 
 import {
   GoogleMaps,
@@ -15,7 +18,10 @@ import {
   Circle,
   LocationService,
   MyLocationOptions,
-  MyLocation
+  MyLocation,
+  GeocoderRequest,
+  GeocoderResult,
+  Geocoder
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -26,7 +32,23 @@ import {
 export class MapPage {
   map: GoogleMap;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  ratingPage = GiveRatingPage;
+
+  // Test data for request-modal
+  matchableUser : Driver = {
+    name : "Gérard",
+    surname : "Darmon",
+    avatar : "./assets/imgs/darmon.jpg",
+    rating : 4,
+    destination : "6 Le Rampeau, 69510 THURINS",
+    carName : "Renault Clio 3",
+    carColor : "black",
+    plateCar : "AZ45VP18",
+    phoneNumber : "0836656565",
+
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -61,12 +83,12 @@ export class MapPage {
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
 
-      let marker: Marker = this.map.addMarkerSync({
+      let markerGeoloc: Marker = this.map.addMarkerSync({
         position: location.latLng,
         title: "Ma position"
       });
       // Affichage de ses infos
-      marker.showInfoWindow();
+      markerGeoloc.showInfoWindow();
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
@@ -83,5 +105,14 @@ export class MapPage {
         target: circle.getBounds
       });
     });
+
+
   }
+
+  // // Show modal for matching request
+  // showMatchModal(){
+  //   const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
+  //   matchModal.present();
+  // }
+
 }
