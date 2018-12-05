@@ -1,10 +1,7 @@
 package fr.autostopfrance.Autostop.models;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -18,6 +15,7 @@ public class User {
     private String mail;
     private String imgUrl;
     private String sex;
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     public User () {}
@@ -93,6 +91,6 @@ public class User {
 
     @Override
     public String toString() {
-        return " User:" + id + firstName + lastName + dateOfBirth + sex + mail + phone + "!";
+        return " User: " + id +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + mail + " " + phone + "!";
     }
 }
