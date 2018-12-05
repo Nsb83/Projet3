@@ -1,4 +1,5 @@
-import { Driver } from './../../../../../models/Driver';
+import { Trip } from './../../../../../models/Trip';
+import { User } from './../../../../../models/User';
 import { GiveRatingPage } from './request-modal/response-modal/linking/give-rating/give-rating';
 import { RequestModalPage } from './request-modal/request-modal';
 
@@ -35,17 +36,14 @@ export class MapPage {
   ratingPage = GiveRatingPage;
 
   // Test data for request-modal
-  matchableUser : Driver = {
-    name : "Gérard",
-    surname : "Darmon",
-    avatar : "./assets/imgs/darmon.jpg",
-    rating : 4,
-    destination : "6 Le Rampeau, 69510 THURINS",
-    carName : "Renault Clio 3",
-    carColor : "black",
-    plateCar : "AZ45VP18",
-    phoneNumber : "0836656565",
-
+  matchableUser : User = {
+    lastName: "Gérard",
+    firstName: "Darmon",
+    phone: "08 36 65 65 65",
+    mail: "gegedarmon@yahoo.fr",
+    imgUrl: "./assets/imgs/darmon.jpg",
+    sex: "male",
+    dateOfBirth: "29/02/1948",
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
@@ -109,10 +107,10 @@ export class MapPage {
 
   }
 
-  // // Show modal for matching request
-  // showMatchModal(){
-  //   const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
-  //   matchModal.present();
-  // }
+  // Show modal for matching request
+  showMatchModal(){
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
+    matchModal.present();
+  }
 
 }

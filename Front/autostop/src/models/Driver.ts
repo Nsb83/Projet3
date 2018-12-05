@@ -1,39 +1,23 @@
-export class Driver {
-  name: string;
-  surname: string;
-  avatar: string;
-  rating: number;
-  phoneNumber : string;
-
-  destination: string;
-
-  carName: string;
-  carColor : string;
-  plateCar: string;
-
+export class User {
+    licensePlate: string;
+    brand: string;
+    model: string;
+    color: string;
+    imgCar: string;
 
   constructor(
-    name: string,
-    surname: string,
-    avatar: string,
-    rating: number,
-    phoneNumber : string,
-    destination: string,
-    carName: string,
-    carColor : string,
-    plateCar : string,
+    licensePlate: string,
+    brand: string,
+    model: string,
+    color: string,
+    imgCar: string,
 
     )
   {
-    this.name = name;
-    this.surname = surname;
-    this.avatar = avatar;
-    this.rating = rating;
-    this.phoneNumber = phoneNumber;
-    this.destination = destination;
-    this.carName = carName;
-    this.carColor = carColor;
-    this.plateCar = plateCar;
-
+    this.licensePlate = licensePlate;
+    this.brand = brand;
+    this.model = model;
+    this.color = color;
+    this.imgCar = imgCar;
   }
 }
