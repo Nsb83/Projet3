@@ -1,18 +1,37 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>give-rating</ion-title>
   </ion-navbar>
 
 </ion-header>
-
+ -->
 
 <ion-content padding>
-  <h2>Note ton trajet avec {{ matchableUser.name }} {{ matchableUser.surname }}</h2>
-      <img class="avatarUser" src="./assets/imgs/darmon.jpg">
-        <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]"
+  <ion-grid>
+      <ion-row>
+          <ion-col>
+            <h1>Note ton trajet avec {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h1>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+          <ion-col col-6 offset-3>
+            <img class="avatarUser" [src]=testImgUrl>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col col-8 offset-3>
+              <img class="stars"
+              [src]="getStar(num)"
+              (click)="rate(num)"
+              *ngFor="let num of [1,2,3,4,5]">
+            </ion-col>
+        </ion-row>
+  </ion-grid>
+
+        <!-- <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]"
           (click)="rate(num)" [ngStyle]="{'color' :getColor(num)}">
-        </ion-icon>
+        </ion-icon> -->
 
     {{ rating }}
 
