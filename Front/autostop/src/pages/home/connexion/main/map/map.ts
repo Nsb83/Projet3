@@ -38,14 +38,15 @@ export class MapPage {
 
   // Test data for request-modal
   matchableUser : User = {
-    lastName: "Gérard",
-    firstName: "Darmon",
+    lastName: "John",
+    firstName: "Doe",
     phone: "08 36 65 65 65",
     mail: "gegedarmon@yahoo.fr",
     imgUrl: "./assets/imgs/darmon.jpg",
     sex: "male",
     dateOfBirth: "29/02/1948",
   };
+
   positionOtherUser  = {
     lat: 45.682808,
     lng: 4.641063000000031
@@ -106,7 +107,7 @@ export class MapPage {
       let circle: Circle = this.map.addCircleSync({
         center: centre2,
         radius: 500,
-        strokeColor: "#329032",
+        strokeColor: "button",
         strokeWidth: 1,
         // fillColor: "#c6d875"
       });
@@ -123,6 +124,7 @@ export class MapPage {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
     matchModal.present();
   }
+
 
   searchValue;
   receiveMessage($event) {

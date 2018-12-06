@@ -12,39 +12,52 @@ export class GiveRatingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.matchableUser = this.navParams.get('matchableUser');
-    this.rating = this.matchableUser.rating;
   }
 
-  // rating = this.matchableUser.rating;
+// test variables
+testTrip: string = "Chemin de la Plaine, Thurins";
+testImgUrl: string = "./assets/imgs/profileImg.jpg";
+testRating: number = 4;
+comment;
+  //Couleur d'étoiles dynamiques
+getStar(num){
+  if (num< this.testRating){
+    return "./assets/imgs/stars/starFullSm.png";
+  }
+  else return "./assets/imgs/stars/starEmptySm.png";
+}
 
-  COLORS = {
-    GREY : "E0E0E0",
-    GREEN : "#76FF03",
-    YELLOW : "#FFCA28",
-    RED : "#DD2C00"
-  };
   rate(index: number) {
     this.rating = index;
+    this.getStar(index)
     // function used to change the value of our rating
     // triggered when user, clicks a star to change the rating
  }
 
 getColor(index: number) {
   if (this.isAboveRating(index)){
-    return this.COLORS.GREY;
+    return "./assets/imgs/stars/starFullSm.png";
   }
-  switch (this.rating) {
-    case 1 :
-    case 2 :
-      return this.COLORS.RED;
-    case 3:
-      return this.COLORS.YELLOW;
-    case 4:
-    case 5:
-      return this.COLORS.GREEN;
-    default :
-      return this.COLORS.GREY;
-  }
+  else return "./assets/imgs/stars/starEmptySm.png";
+
+  // COLORS = {
+  //   GREY : "E0E0E0",
+  //   GREEN : "#76FF03",
+  //   YELLOW : "#FFCA28",
+  //   RED : "#DD2C00"
+  // };
+  // switch (this.rating) {
+  //   case 1 :
+  //   case 2 :
+  //     return this.COLORS.RED;
+  //   case 3:
+  //     return this.COLORS.YELLOW;
+  //   case 4:
+  //   case 5:
+  //     return this.COLORS.GREEN;
+  //   default :
+  //     return this.COLORS.GREY;
+  // }
     /* function to return the color of a star based on what
      index it is. All stars greater than the index are assigned
      a grey color , while those equal or less than the rating are

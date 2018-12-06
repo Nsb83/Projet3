@@ -15,13 +15,17 @@ export class ResponseModalPage {
 
   matchableUser;
 
+  // test variables
+  testTrip: string = "Chemin de la Plaine, Thurins";
+  testImgUrl: string = "./assets/imgs/profileImg.jpg";
+  testRating: number = 4;
+
   //Couleur d'étoiles dynamiques
-  starRate;
-  getColor(num){
-    if (num < this.matchableUser.rating){
-      return '#b6cb4c';
+  getStar(num){
+    if (num< this.testRating){
+      return "./assets/imgs/stars/starFullSm.png";
     }
-    else return 'grey';
+    else return "./assets/imgs/stars/starEmptySm.png";
   }
 
   goToLinking(){
