@@ -18,6 +18,7 @@ export class GiveRatingPage {
 testTrip: string = "Chemin de la Plaine, Thurins";
 testImgUrl: string = "./assets/imgs/profileImg.jpg";
 testRating: number = 4;
+comment;
   //Couleur d'étoiles dynamiques
 getStar(num){
   if (num< this.testRating){
@@ -25,12 +26,7 @@ getStar(num){
   }
   else return "./assets/imgs/stars/starEmptySm.png";
 }
-  COLORS = {
-    GREY : "E0E0E0",
-    GREEN : "#76FF03",
-    YELLOW : "#FFCA28",
-    RED : "#DD2C00"
-  };
+
   rate(index: number) {
     this.rating = index;
     this.getStar(index)
@@ -43,6 +39,13 @@ getColor(index: number) {
     return "./assets/imgs/stars/starFullSm.png";
   }
   else return "./assets/imgs/stars/starEmptySm.png";
+
+  // COLORS = {
+  //   GREY : "E0E0E0",
+  //   GREEN : "#76FF03",
+  //   YELLOW : "#FFCA28",
+  //   RED : "#DD2C00"
+  // };
   // switch (this.rating) {
   //   case 1 :
   //   case 2 :

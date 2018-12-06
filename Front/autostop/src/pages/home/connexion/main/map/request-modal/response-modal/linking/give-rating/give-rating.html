@@ -29,6 +29,11 @@
         </ion-row>
   </ion-grid>
 
+  <ion-item>
+  <ion-label>Commentaire</ion-label>
+  <ion-textarea [(ngModel)]="comment" name="comment"></ion-textarea>
+</ion-item>
+<button ion-button color="button" block>Envoyer évaluation</button>
         <!-- <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]"
           (click)="rate(num)" [ngStyle]="{'color' :getColor(num)}">
         </ion-icon> -->
