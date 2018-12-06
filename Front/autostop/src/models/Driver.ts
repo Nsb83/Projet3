@@ -1,4 +1,4 @@
-export class User {
+export class Driver {
     licensePlate: string;
     brand: string;
     model: string;
