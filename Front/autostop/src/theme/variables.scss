@@ -11,6 +11,7 @@ $font-path: "../assets/fonts";
 $app-direction: ltr;
 
 @import "ionic.globals";
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -37,6 +38,11 @@ $colors: (
   transparent: rgba(255, 255, 255, 0),
   menu: #258c3d
 );
+
+$menu-ios-background: #258c3d;
+
+$menu-md-background: #258c3d;
+$menu-wp-background: #258c3d;
 
 // App iOS Variables
 // --------------------------------------------------
