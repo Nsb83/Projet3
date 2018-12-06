@@ -22,7 +22,8 @@ import {
   MyLocation,
   GeocoderRequest,
   GeocoderResult,
-  Geocoder
+  Geocoder,
+  LatLng
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -45,6 +46,10 @@ export class MapPage {
     sex: "male",
     dateOfBirth: "29/02/1948",
   };
+  positionOtherUser  = {
+    lat: 45.682808,
+    lng: 4.641063000000031
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
 
@@ -71,7 +76,7 @@ export class MapPage {
       let options: GoogleMapOptions = {
         camera: {
           target: location.latLng,
-          zoom: 10
+          zoom: 15
         }
       };
       // Création de la carte
@@ -83,7 +88,13 @@ export class MapPage {
 
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: location.latLng,
-        title: "Ma position"
+        title: "Ma position",
+        icon: {url: "../assets/icon/thumb.png",
+              size: {
+                width: 32,
+                height: 32
+              }
+            }
       });
       // Affichage de ses infos
       markerGeoloc.showInfoWindow();
@@ -96,8 +107,8 @@ export class MapPage {
         center: centre2,
         radius: 500,
         strokeColor: "#329032",
-        strokeWidth: 5,
-        fillColor: "#c6d875"
+        strokeWidth: 1,
+        // fillColor: "#c6d875"
       });
       this.map.moveCamera({
         target: circle.getBounds
@@ -113,4 +124,49 @@ export class MapPage {
     matchModal.present();
   }
 
+  searchValue;
+  receiveMessage($event) {
+    this.searchValue = $event
+    console.log(this.searchValue)
+    this.goToSpecificLocation();
+  }
+  goToSpecificLocation(){
+    let options: GeocoderRequest = {
+    address: this.searchValue
+    // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
+    };
+    // Address -> latitude,longitude
+    Geocoder.geocode(options)
+    .then((results: GeocoderResult[]) => {
+    console.log(results);
+
+    let markerDestination : Marker = this.map.addMarkerSync({
+    'position': results[0].position,
+    'title': JSON.stringify(results[0].extra.lines),
+    icon: {url: "../assets/icon/thumb.png",
+              size: {
+                width: 32,
+                height: 32
+              }
+            }
+    })
+    markerDestination.showInfoWindow();
+    })
+
+
+        // Création faux marqueur autre utilisateur
+
+    let markerMatch : Marker = this.map.addMarkerSync({
+      'position': this.positionOtherUser,
+      icon: {url: "../assets/icon/driver.png",
+                size: {
+                  width: 32,
+                  height: 32
+                }
+              }
+      })
+      markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+        this.showMatchModal();
+      })
+    }
 }
