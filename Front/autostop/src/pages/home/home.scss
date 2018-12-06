@@ -5,7 +5,7 @@ page-home {
 
   #logo {
     margin-top: 45%;
-    margin-bottom: 15%;
+    margin-bottom: 20%;
     img {
       height: 200px;
       width: auto;
@@ -14,6 +14,9 @@ page-home {
     }
   }
 
+  #topButton {
+    padding-bottom: 7px;
+  }
   // ion-icon {
   //   margin-top: 30%;
   //   margin-left: 37%;
