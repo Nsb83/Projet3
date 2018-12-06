@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { NavController, NavParams, MenuController } from "ionic-angular";
 
 /**
@@ -13,7 +13,8 @@ import { NavController, NavParams, MenuController } from "ionic-angular";
   templateUrl: "search-bar.html"
 })
 export class SearchBarPage {
-  public searchValue: string; //variable for searchbar input
+  @Output() searchValueEmit = new EventEmitter<string>();
+  searchValue;
 
   constructor(
     public navCtrl: NavController,
@@ -21,8 +22,9 @@ export class SearchBarPage {
     public menuCtrl: MenuController
   ) {}
   //retrieve input value from searchbar
-  submitSearch(searchValue) {
-    this.searchValue = searchValue;
+  submitSearch(searchValueParam) {
+    this.searchValue = searchValueParam
+    this.searchValueEmit.emit(this.searchValue)
     console.log(this.searchValue);
   }
   //retrieve input value from searchbar end
