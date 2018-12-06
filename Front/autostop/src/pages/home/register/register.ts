@@ -23,12 +23,12 @@ export class RegisterPage implements OnInit {
 
   initForm() {
     this.register = this.formBuilder.group({
-      nom: ["", Validators.required],
-      prenom: [""],
-      telephone: [""],
-      sexe: [""],
-      birthday: [""],
-      email: [""],
+      firstName: ["", Validators.required],
+      lastName: [""],
+      phone: [""],
+      sex: [""],
+      dateOfBirth: [""],
+      mail: [""],
       password: [""]
     });
   }
