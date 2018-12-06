@@ -8,7 +8,6 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
   templateUrl: "register.html"
 })
 export class RegisterPage implements OnInit {
-  connexion = ConnexionPage;
 
   private register: FormGroup;
   constructor(
@@ -24,12 +23,13 @@ export class RegisterPage implements OnInit {
   initForm() {
     this.register = this.formBuilder.group({
       firstName: ["", Validators.required],
-      lastName: [""],
-      phone: [""],
-      sex: [""],
-      dateOfBirth: [""],
-      mail: [""],
-      password: [""]
+      lastName: ["", Validators.required],
+      phone: ["", Validators.required],
+      sex: ["", Validators.required],
+      dateOfBirth: ["", Validators.required],
+      mail: ["", Validators.required],
+      password: ["", Validators.required],
+      passwordConfirmation : ["", Validators.required]
     });
   }
 }
