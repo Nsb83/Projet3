@@ -9,7 +9,6 @@ import { User } from "../../../models/User";
   templateUrl: "register.html"
 })
 export class RegisterPage implements OnInit {
-
   main = MainPage;
   newUser: User;
 
@@ -26,28 +25,54 @@ export class RegisterPage implements OnInit {
   }
 
   initForm() {
-    this.register = this.formBuilder.group({
-      lastName: ["", Validators.required],
-      firstName: ["", Validators.required],
-      phone: ["", Validators.required],
-      mail: ["", Validators.required],
-      sex: ["", Validators.required],
-      dateOfBirth: ["", Validators.required],
-      password: ["", Validators.required],
-      passwordConfirmation : ["", Validators.required]
-    });    
+    this.register = this.formBuilder.group(
+      {
+        lastName: ["", Validators.required],
+        firstName: ["", Validators.required],
+        phone: ["", Validators.required],
+        mail: ["", Validators.required],
+        sex: ["", Validators.required],
+        dateOfBirth: ["", Validators.required],
+        password: ["", Validators.required],
+
+        passwordConfirmation: ["", Validators.required]
+      },
+      { validator: this.passwordControl("password", "passwordConfirmation") }
+    );
   }
 
-  validateForm(register){
-    this.newUser = new User(register.lastName, register.firstName, register.phone, register.mail, register.sex, register.dateOfBirth);
-    let alert = this.alertCtrl.create({
-      title: 'Nouveau compte créé pour ' + this.newUser.lastName + ", " + this.newUser.firstName,
-      subTitle: "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
-      buttons: ['Ok']
+  passwordControl(passwordKey: string, passwordConfirmationKey: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordKey],
+        passwordConfirmationInput = group.controls[passwordConfirmationKey];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({ notEquivalent: true });
+      } else {
+        return passwordConfirmationInput.setErrors(null);
+      }
+    };
+  }
 
+  validateForm(register) {
+    this.newUser = new User(
+      register.lastName,
+      register.firstName,
+      register.phone,
+      register.mail,
+      register.sex,
+      register.dateOfBirth
+    );
+    let alert = this.alertCtrl.create({
+      title:
+        "Nouveau compte créé pour " +
+        this.newUser.lastName +
+        ", " +
+        this.newUser.firstName,
+      subTitle:
+        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
+      buttons: ["Ok"]
     });
     alert.present();
     this.navCtrl.push(MainPage);
   }
-
 }
