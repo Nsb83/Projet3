@@ -39,24 +39,27 @@ $colors: (
   menu: #258c3d
 );
 
-$menu-ios-background: #258c3d;
 
-$menu-md-background: #258c3d;
-$menu-wp-background: #258c3d;
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
+$menu-ios-background: #258c3d;
 $datetime-ios-padding-start: 0;
+
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-$datetime-md-padding-start: 0;
+$menu-md-background: #258c3d;
+$datetime-md-padding-start: 7px;
+
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
+$menu-wp-background: #258c3d;
+$datetime-wp-padding-start: 0;
 
 // App Theme
 // --------------------------------------------------
