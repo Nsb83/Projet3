@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
         lastName: ["", Validators.required],
         firstName: ["", Validators.required],
         phone: ["", Validators.required],
-        mail: ["", Validators.required],
+        mail: ["", Validators.compose([Validators.email, Validators.required])],
         sex: ["", Validators.required],
         dateOfBirth: ["", Validators.required],
         password: ["", Validators.required],
