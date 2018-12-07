@@ -1,14 +1,16 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="home">
+  <div id="logo"><img src="../assets/imgs/logo.png" id="logo" /></div>
+  <!-- <div>
+    <ion-icon name="mail">VIA EMAIL</ion-icon>
+  </div> -->
+  <div id="topButton">
+    <button ion-button full color="button" [navPush]="register">
+      CRÉER UN COMPTE
+    </button>
+  </div>
+  <div id="bottomButton">
+    <button ion-button full color="button" [navPush]="connexion">
+      CONNEXION
+    </button>
+  </div>
 </ion-content>

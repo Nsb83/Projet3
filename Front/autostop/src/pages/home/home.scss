@@ -1,3 +1,26 @@
 page-home {
+  .home {
+    background: color($colors, home);
+  }
 
+  #logo {
+    margin-top: 45%;
+    margin-bottom: 20%;
+    img {
+      height: 200px;
+      width: auto;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  #topButton {
+    padding-bottom: 7px;
+  }
+  
+  // ion-icon {
+  //   margin-top: 30%;
+  //   margin-left: 37%;
+  //   justify-content: center;
+  // }
 }

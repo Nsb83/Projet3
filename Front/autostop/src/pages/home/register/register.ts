@@ -1,24 +1,78 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, OnInit } from "@angular/core";
+import { NavController, NavParams, AlertController } from "ionic-angular";
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { MainPage } from "../connexion/main/main";
+import { User } from "../../../models/User";
 
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: "page-register",
+  templateUrl: "register.html"
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
+  main = MainPage;
+  newUser: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private register: FormGroup;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder,
+    private alertCtrl: AlertController
+  ) {}
+
+  ngOnInit() {
+    this.initForm();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+  initForm() {
+    this.register = this.formBuilder.group(
+      {
+        lastName: ["", Validators.required],
+        firstName: ["", Validators.required],
+        phone: ["", Validators.required],
+        mail: ["", Validators.compose([Validators.email, Validators.required])],
+        sex: ["", Validators.required],
+        dateOfBirth: ["", Validators.required],
+        password: ["", Validators.required],
+
+        passwordConfirmation: ["", Validators.required]
+      },
+      { validator: this.passwordControl("password", "passwordConfirmation") }
+    );
   }
 
+  passwordControl(passwordKey: string, passwordConfirmationKey: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordKey],
+        passwordConfirmationInput = group.controls[passwordConfirmationKey];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({ notEquivalent: true });
+      } else {
+        return passwordConfirmationInput.setErrors(null);
+      }
+    };
+  }
+
+  validateForm(register) {
+    this.newUser = new User(
+      register.lastName,
+      register.firstName,
+      register.phone,
+      register.mail,
+      register.sex,
+      register.dateOfBirth
+    );
+    let alert = this.alertCtrl.create({
+      title:
+        "Nouveau compte créé pour " +
+        this.newUser.lastName +
+        ", " +
+        this.newUser.firstName,
+      subTitle:
+        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
+      buttons: ["Ok"]
+    });
+    alert.present();
+    this.navCtrl.push(MainPage);
+  }
 }
