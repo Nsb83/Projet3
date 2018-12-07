@@ -107,9 +107,9 @@ export class MapPage {
       let circle: Circle = this.map.addCircleSync({
         center: centre2,
         radius: 500,
-        strokeColor: "button",
-        strokeWidth: 1,
-        // fillColor: "#c6d875"
+        strokeColor: "#258c3d",
+        // strokeWidth: 30, A QUOI CA SERT???
+        fillColor: "rgba(239, 244, 225, 0.45)"
       });
       this.map.moveCamera({
         target: circle.getBounds

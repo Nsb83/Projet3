@@ -1,3 +1,4 @@
+import { MainPage } from './../../../../../main';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -6,8 +7,9 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'give-rating.html',
 })
 export class GiveRatingPage {
+  main = MainPage;
   matchableUser;
-  rating;
+  rating = 0;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -17,15 +19,9 @@ export class GiveRatingPage {
 // test variables
 testTrip: string = "Chemin de la Plaine, Thurins";
 testImgUrl: string = "./assets/imgs/profileImg.jpg";
-testRating: number = 4;
 comment;
-  //Couleur d'étoiles dynamiques
-getStar(num){
-  if (num< this.testRating){
-    return "./assets/imgs/stars/starFullSm.png";
-  }
-  else return "./assets/imgs/stars/starEmptySm.png";
-}
+starUrl = "./assets/imgs/stars/starEmptySm.png";
+
 
   rate(index: number) {
     this.rating = index;
@@ -34,6 +30,19 @@ getStar(num){
     // triggered when user, clicks a star to change the rating
  }
 
+   //Couleur d'étoiles dynamiques
+getStar(index: number){
+  if (index <= this.rating){
+    return this.starUrl= "./assets/imgs/stars/starFullSm.png";
+  }
+  else return this.starUrl= "./assets/imgs/stars/starEmptySm.png";
+}
+
+ isAboveRating(index: number): boolean {
+  return index > this.rating;
+  // returns whether or not the selected index is above ,the current rating
+  // function is called from the getColor function.
+}
 getColor(index: number) {
   if (this.isAboveRating(index)){
     return "./assets/imgs/stars/starFullSm.png";
@@ -68,12 +77,6 @@ getColor(index: number) {
           4-5 stars: green
     */
   }
-
-isAboveRating(index: number): boolean {
-  return index > this.rating;
-  // returns whether or not the selected index is above ,the current rating
-  // function is called from the getColor function.
-}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GiveRatingPage');
