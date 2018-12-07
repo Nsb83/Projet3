@@ -20,6 +20,9 @@ export class MainPage {
   helpPage = HelpPage;
   contactPage = ContactPage;
 
+  testImgUrl: string = "./assets/imgs/profileImg.jpg";
+
+
   constructor(
     platform: Platform,
     statusBar: StatusBar,

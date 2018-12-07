@@ -1,3 +1,4 @@
+import { MainPage } from './../../../../../main';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -6,6 +7,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'give-rating.html',
 })
 export class GiveRatingPage {
+  main = MainPage;
   matchableUser;
   rating = 0;
 
