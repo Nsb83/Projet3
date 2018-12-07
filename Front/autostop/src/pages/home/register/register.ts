@@ -11,6 +11,7 @@ import { User } from "../../../models/User";
 export class RegisterPage implements OnInit {
 
   main = MainPage;
+  newUser: User;
 
   private register: FormGroup;
   constructor(
@@ -29,21 +30,24 @@ export class RegisterPage implements OnInit {
       lastName: ["", Validators.required],
       firstName: ["", Validators.required],
       phone: ["", Validators.required],
+      mail: ["", Validators.required],
       sex: ["", Validators.required],
       dateOfBirth: ["", Validators.required],
-      mail: ["", Validators.required, Validators.email],
-      password: ["", Validators.required, Validators.min(8), Validators.max(16)],
+      password: ["", Validators.required],
       passwordConfirmation : ["", Validators.required]
     });    
   }
 
-  validateForm(){
-    User newUser = new User(lastName.value, firstName.value, phone.value, sex.value, mail.value, dateOfBirth.value);
+  validateForm(register){
+    this.newUser = new User(register.lastName, register.firstName, register.phone, register.mail, register.sex, register.dateOfBirth);
     let alert = this.alertCtrl.create({
-      title: 'Nouveau compte crée pour',
-      subTitle: 'Nom :' + this.firstName,
+      title: 'Nouveau compte créé pour ' + this.newUser.lastName + ", " + this.newUser.firstName,
+      subTitle: "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
       buttons: ['Ok']
+
     });
     alert.present();
+    this.navCtrl.push(MainPage);
   }
+
 }

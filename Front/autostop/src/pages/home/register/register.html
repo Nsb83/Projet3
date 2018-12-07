@@ -23,13 +23,13 @@
       <ion-input type="tel" formControlName="phone" placeholder="Téléphone"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-input type="email" formControlName="mail" placeholder="Adresse email"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-input type="text" formControlName="sex" placeholder="Sexe"></ion-input>
     </ion-item>
     <ion-item id="dateOfBirth">
-      <ion-datetime placeholder="Date de naissance" displayFormat="DD/MM/YYYY" formControlName="dateOfBirth"></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-input type="email" formControlName="mail" placeholder="Adresse email"></ion-input>
+      <ion-datetime placeholder="Date de naissance" displayFormat="DD/MM/YYYY" min="1918" max="2000-12-07" formControlName="dateOfBirth"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-input type="password" formControlName="password" placeholder="Mot de passe"></ion-input>
@@ -38,7 +38,7 @@
       <ion-input type="password" formControlName="passwordConfirmation" placeholder="Confirmer votre mot de passe"></ion-input>
     </ion-item>
 
-    <button ion-button full color="button" type="submit" [disabled]="!register.valid" [navPush]="main">
+    <button ion-button full color="button" type="submit" [disabled]="!register.valid" (click)="validateForm(register.value)">
       CRÉER
     </button>
   </form>
