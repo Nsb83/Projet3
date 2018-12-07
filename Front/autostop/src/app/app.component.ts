@@ -18,7 +18,7 @@ export class MyApp {
     splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      this.rootPage = RegisterPage;
+      this.rootPage = MainPage;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
