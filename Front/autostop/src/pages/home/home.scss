@@ -3,6 +3,10 @@ page-home {
     background: color($colors, home);
   }
 
+  .scroll-content {
+    overflow-y: hidden;
+  }
+
   #logo {
     margin-top: 45%;
     margin-bottom: 20%;
