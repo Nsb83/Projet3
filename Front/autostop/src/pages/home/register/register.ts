@@ -1,18 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController, NavParams, AlertController } from "ionic-angular";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
-import { MainPage } from "../connexion/main/main";
 import { User } from "../../../models/User";
+import { ChoicePage } from "./choice/choice";
 
 @Component({
   selector: "page-register",
   templateUrl: "register.html"
 })
 export class RegisterPage implements OnInit {
-  main = MainPage;
-  newUser: User;
 
+  private newUser: User;
   private register: FormGroup;
+  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -73,6 +73,6 @@ export class RegisterPage implements OnInit {
       buttons: ["Ok"]
     });
     alert.present();
-    this.navCtrl.push(MainPage);
+    this.navCtrl.push(ChoicePage);
   }
 }
