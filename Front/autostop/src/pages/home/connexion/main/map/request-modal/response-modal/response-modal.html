@@ -1,42 +1,36 @@
-<!-- <ion-header>
+<ion-header>
 
   <ion-navbar>
     <ion-title>Conducteur</ion-title>
   </ion-navbar>
 
 </ion-header>
- -->
+
 
 <ion-content padding>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-10 offset-1>
+    <ion-row class="row">
+      <ion-col>
           <h3>Votre demande a bien été envoyée à {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h3>
       </ion-col>
     </ion-row>
-    <ion-row>
-        <ion-col col-6 offset-3>
+    <ion-row class="row">
+        <ion-col>
             <img class="avatarUser" [src]=testImgUrl>
         </ion-col>
       </ion-row>
-    <ion-row>
-        <ion-col col-8 offset-2>
-            <img class="stars"
-            [src]="getStar(num)"
-            *ngFor="let num of [1,2,3,4,5]">
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col col-10 offset-1>
-              <button ion-button full color="button" (click)="goToLinking()">Demande acceptée</button>
-          </ion-col>
-      </ion-row>
-
-      <ion-row>
-          <ion-col col-10 offset-1>
-              <button ion-button  full color="danger" (click)="cancelRequest()">Annuler</button>
-        </ion-col>
-      </ion-row>
+    <ion-row class="row">
+      <ion-col>
+          <img class="stars"
+          [src]="getStar(num)"
+          *ngFor="let num of [1,2,3,4,5]">
+      </ion-col>
+    </ion-row>
   </ion-grid>
+
+  <button ion-button full color="button" (click)="goToLinking()">Demande acceptée</button>
+
+  <button ion-button  full color="danger" (click)="cancelRequest()">Annuler</button>
+
 </ion-content>

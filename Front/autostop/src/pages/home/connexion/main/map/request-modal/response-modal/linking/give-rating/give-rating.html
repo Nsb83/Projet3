@@ -1,40 +1,56 @@
-<!-- <ion-header>
+  <ion-header>
 
-  <ion-navbar>
-    <ion-title>give-rating</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title><h2>Qu'en pensez vous?</h2></ion-title>
+    </ion-navbar>
 
-</ion-header>
- -->
+  </ion-header>
 
-<ion-content padding>
-  <ion-grid>
-      <ion-row>
-          <ion-col>
-            <h1>Note ton trajet avec {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h1>
-          </ion-col>
+
+  <ion-content padding>
+    <ion-grid>
+        <ion-row class="row">
+            <ion-col>
+              <h4>Vous venez d'effectuer un trajet avec</h4>
+            </ion-col>
         </ion-row>
-      <ion-row>
-          <ion-col col-6 offset-3>
+        <ion-row class="row">
+          <ion-col>
             <img class="avatarUser" [src]=testImgUrl>
           </ion-col>
         </ion-row>
-          <ion-row>
-            <ion-col col-8 offset-3>
+        <ion-row class="row">
+            <ion-col>
+              <h3>{{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row class="row">
+            <ion-col>
+              <h4>Donnez votre avis</h4>
+            </ion-col>
+        </ion-row>
+        <ion-row class="row">
+            <ion-col>
               <img class="stars"
               [src]="getStar(num)"
               (click)="rate(num)"
               *ngFor="let num of [1,2,3,4,5]">
             </ion-col>
         </ion-row>
-  </ion-grid>
 
-  <ion-item>
-  <ion-label>Commentaire</ion-label>
-  <ion-textarea [(ngModel)]="comment" name="comment"></ion-textarea>
-</ion-item>
-<button ion-button color="button" block [navPush]="main">Envoyer évaluation</button>
+        <ion-row class="row">
+          <ion-col>
+            <ion-item>
+              <ion-label>Commentaire</ion-label>
+              <ion-textarea [(ngModel)]="comment" name="comment"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
 
-    {{ rating }}
+    </ion-grid>
 
-</ion-content>
+    <button ion-button color="button" block [navPush]="main">Envoyer évaluation</button>
+
+      {{ rating }}
+
+  </ion-content>
