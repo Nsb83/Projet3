@@ -34,7 +34,9 @@ import { TabsPage } from "../pages/home/connexion/main/menu/tabs/tabs";
 import { VehiclePage } from "../pages/home/connexion/main/menu/tabs/vehicle/vehicle";
 import { ChoicePage } from "../pages/home/register/choice/choice";
 
+
 import { GoogleMaps } from "@ionic-native/google-maps";
+import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     SearchBarPage,
     TabsPage,
     VehiclePage,
-    ChoicePage
+    ChoicePage,
+    DriverInfosPage
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,8 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     SearchBarPage,
     TabsPage,
     VehiclePage,
-    ChoicePage
+    ChoicePage,
+    DriverInfosPage
   ],
   providers: [
     StatusBar,

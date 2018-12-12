@@ -1,5 +1,32 @@
 page-choice {
+    .scroll-content {
+        overflow-y: hidden;
+    }
+
+    #logo {
+        margin-top: 25%;
+        img {
+          height: 100px;
+          width: auto;
+          margin: auto;
+          display: block;
+        }
+      }
+
     #choicePage {
-        background: color($colors, menu);
+        color: color($colors, secondary);
+        .title {
+            display: block;
+            margin: auto;
+            width: 75%;
+            margin-top: 20px;
+        }
+        background: color($colors, home);
+        #handIcon {
+            width: 100px;
+        }
+        #carIcon {
+            width: 100px;
+        }
     }
 }
