@@ -1,36 +1,61 @@
 package fr.autostopfrance.Autostop.models;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name="user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_user")
+    private Long idUser;
+    @Column(name="last_name")
     private String lastName;
+    @Column(name="first_name")
     private String firstName;
+    @Column(name="phone")
     private String phone;
-    private String mail;
+    @Column(name="img_url")
     private String imgUrl;
+    @Column(name="sex")
     private String sex;
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+//    @Temporal(TemporalType.DATE)
+    @Column(name="date_of_birth")
+    private LocalDate dateOfBirth;
+    @OneToOne(cascade = CascadeType.ALL)
+    public Account account;
+
+
 
     public User () {}
 
-    public User (String lastName, String firstName, String phone, String mail, String sex, Date dateOfBirth) {
+//    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, Account account) {
+//        this.lastName = lastName;
+//        this.firstName = firstName;
+//        this.phone = phone;
+//        this.sex = sex;
+//        this.dateOfBirth = dateOfBirth;
+//        account = new Account(account.getEmail(), account.getPassword());
+//    }
+
+    public User (String lastName, String firstName, String phone, String imgUrl, String sex, LocalDate dateOfBirth, String email, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
-        this.mail = mail;
+        this.imgUrl = imgUrl;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
+        this.account = new Account(email, password);
     }
 
     public Long getId() {
-        return id;
+        return idUser;
     }
 
     public String getLastName() {
@@ -57,14 +82,6 @@ public class User {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     public String getImgUrl() {
         return imgUrl;
     }
@@ -81,16 +98,16 @@ public class User {
         this.sex = sex;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
     @Override
     public String toString() {
-        return " User: " + id +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + mail + " " + phone + "!";
+        return " User: " + idUser +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + phone + " " + imgUrl + account.getEmail() + account.getPassword() + " !";
     }
 }
