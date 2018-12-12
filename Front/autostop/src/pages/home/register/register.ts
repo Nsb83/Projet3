@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController } from "ionic-angular";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { User } from "../../../models/User";
 import { ChoicePage } from "./choice/choice";
+import { UserProvider } from "../../../providers/user/user";
 
 @Component({
   selector: "page-register",
@@ -17,7 +18,8 @@ export class RegisterPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private userService: UserProvider
   ) {}
 
   ngOnInit() {
@@ -62,6 +64,12 @@ export class RegisterPage implements OnInit {
       register.sex,
       register.dateOfBirth
     );
+    this.userService.createUser(this.newUser);
+    this.navCtrl.push(ChoicePage);
+
+// ************************************
+// FOR DEVELOPMENT PURPOSES ONLY
+// ************************************
     let alert = this.alertCtrl.create({
       title:
         "Nouveau compte créé pour " +
@@ -73,6 +81,7 @@ export class RegisterPage implements OnInit {
       buttons: ["Ok"]
     });
     alert.present();
-    this.navCtrl.push(ChoicePage);
+// ************************************
+
   }
 }
