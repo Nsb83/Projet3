@@ -5,6 +5,7 @@ import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { RegisterPage } from "../pages/home/register/register";
+import { ChoicePage } from "../pages/home/register/choice/choice";
 
 @Component({
   templateUrl: "app.html"
