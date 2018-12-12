@@ -37,6 +37,9 @@ import { ChoicePage } from "../pages/home/register/choice/choice";
 
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
+import { UserProvider } from '../providers/user/user';
+import { HttpClientModule } from "@angular/common/http";
+
 
 
 @NgModule({
@@ -71,6 +74,7 @@ import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-info
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: "top" })
   ],
   bootstrap: [IonicApp],
@@ -107,7 +111,8 @@ import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-info
     StatusBar,
     SplashScreen,
     GoogleMaps,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UserProvider
   ]
 })
 export class AppModule {}
