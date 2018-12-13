@@ -5,7 +5,10 @@ import java.util.ArrayList;
 public class Trip {
     private String origin;
     private String destination;
+    private boolean isAccepted;
+    private String state;
     private Object itinerary;
+    
 
     public Trip(String origin, String destination){
         this.origin = origin;
@@ -26,6 +29,22 @@ public class Trip {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(String isAccepted) {
+        this.isAccepted = isAccepted;
+    }
+
+    public String gestState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Object getItinerary() {
