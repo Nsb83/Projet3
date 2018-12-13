@@ -1,11 +1,14 @@
 package fr.autostopfrance.Autostop.models;
 
+import java.util.LinkedList;
+
 public class Driver extends Profile{
     private String licensePlate;
     private String brand;
     private String model;
     private String color;
     private String imgCar;
+    private LinkedList<Trip> tripList;
 
     public Driver(String licensePlate, String brand, String model, String color, String imgCar){
         super();
@@ -62,6 +65,14 @@ public class Driver extends Profile{
 
     public void setImgCar(String imgCar) {
         this.imgCar = imgCar;
+    }
+
+    public LinkedList getTripList(){
+        return tripList;
+    }
+
+    public void setTripList(LinkedList tripList){
+        this.tripList = tripList;
     }
 
     public void acceptTrip(){
