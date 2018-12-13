@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../../models/User';
 
 @Injectable()
 export class UserProvider {
 
   private isDriver: boolean;
   private isPedestrian: boolean;
+  private URL_DB = "http://localhost:8080/users";
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
@@ -28,4 +30,15 @@ export class UserProvider {
   getPedestrianProfile(){
     return this.isPedestrian;
   }
+
+
+// *********************************************
+//            METHOD TO BE TESTED
+// *********************************************
+  createUser(user: User){
+    let createUserUrl = this.URL_DB + "/create";
+    
+    this.http.post(createUserUrl, user);
+  }
+// *********************************************
 }

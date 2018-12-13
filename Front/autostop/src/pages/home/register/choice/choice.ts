@@ -35,6 +35,11 @@ export class ChoicePage {
 
   choosePedestrianMode() {
     this.userService.setPedestrianProfile();
+    this.navCtrl.push(this.main);
+
+// ************************************
+// FOR DEVELOPMENT PURPOSES ONLY
+// ************************************
     let alert = this.alertCtrl.create({
       title:
         "Mode piéton choisi : isDriver = " +
@@ -44,7 +49,7 @@ export class ChoicePage {
       buttons: ["Ok"]
     });
     alert.present();
-    this.navCtrl.push(this.main);
+// ************************************
   }
 
   ionViewDidLoad() {
