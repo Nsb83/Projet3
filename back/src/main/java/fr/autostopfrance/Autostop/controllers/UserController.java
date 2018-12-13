@@ -4,26 +4,34 @@ import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
 import fr.autostopfrance.Autostop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("users")
 public class UserController {
 
     @Autowired
     UserService userService;
+
+    @GetMapping(path = "/test", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String Coucou(){
+        return "coucou";
+    }
 
     @GetMapping("/findAll")
     public List<User> findUsers() {
         return userService.findUsers();
     }
 
-    @PostMapping("/create")
-    public void postUser(@RequestBody User user) {
-        userService.postUser(user);
+    @PostMapping(path = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public User postUser(@RequestBody User user) {
+
+        User user1 = userService.postUser(user);
+        return user1;
     }
 
     @DeleteMapping("/delete/{idUser}")
