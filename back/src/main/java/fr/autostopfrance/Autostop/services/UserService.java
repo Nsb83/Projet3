@@ -23,10 +23,11 @@ public class UserService {
     }
 
     public User postUser(@RequestBody User user) {
-        User _user = userDAO.save(new User(user.getLastName(), user.getFirstName(),
-                user.getPhone(), user.getSex(), user.getSex(), user.getDateOfBirth(), user.account.getEmail(), user.account.getPassword()));
+        User _user = userDAO.save(new User(
+                user.getLastName(), user.getFirstName(),
+                user.getPhone(), user.getSex(), user.getImgUrl(), user.getDateOfBirth(),
+                user.getAccount().getEmail(), user.getAccount().getPassword()));
         return _user;
-//        Account _account = userDAO.save(new Account(account.getEmail(), _account.getPassword()))
     }
 
     public ResponseEntity<String> deleteUser(@PathVariable("idUser") long idUser) {

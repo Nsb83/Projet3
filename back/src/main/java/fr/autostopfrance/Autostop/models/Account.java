@@ -9,18 +9,19 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_account")
-    private Long idAccount;
+    @Column(name="id")
+    private Long id;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_user", referencedColumnName="id_user")
-    private User idUser;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userid", referencedColumnName = "userId")
+    private User user;
 
-    protected Account () {}
+    protected Account () {
+    }
 
     public Account (String email, String password) {
         this.email = email;
@@ -28,7 +29,7 @@ public class Account {
     }
 
     public Long getId() {
-        return idAccount;
+        return id;
     }
 
     public String getEmail() {

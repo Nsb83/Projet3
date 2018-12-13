@@ -13,8 +13,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    private Long idUser;
+    @Column(name = "userId")
+    private Long id;
     @Column(name="last_name")
     private String lastName;
     @Column(name="first_name")
@@ -25,12 +25,11 @@ public class User {
     private String imgUrl;
     @Column(name="sex")
     private String sex;
-//    @Temporal(TemporalType.DATE)
     @Column(name="date_of_birth")
     private LocalDate dateOfBirth;
-    @OneToOne(cascade = CascadeType.ALL)
-    public Account account;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Account account;
 
 
     public User () {}
@@ -55,7 +54,7 @@ public class User {
     }
 
     public Long getId() {
-        return idUser;
+        return id;
     }
 
     public String getLastName() {
@@ -108,6 +107,10 @@ public class User {
 
     @Override
     public String toString() {
-        return " User: " + idUser +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + phone + " " + imgUrl + account.getEmail() + account.getPassword() + " !";
+        return " User: " + id +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + phone + " " + imgUrl + " !";
+    }
+
+    public Account getAccount() {
+        return account;
     }
 }
