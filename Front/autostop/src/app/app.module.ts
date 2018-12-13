@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
+// ***************************************
+//        IMPORTS DES PAGES IONIC 
+// ***************************************
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
 import { AddFavoritePage } from "../pages/home/connexion/main/menu/tabs/favorites/add-favorite/add-favorite";
@@ -29,8 +32,15 @@ import { ResponseModalPage } from "../pages/home/connexion/main/map/request-moda
 import { SearchBarPage } from "../pages/home/connexion/main/map/search-bar/search-bar";
 import { TabsPage } from "../pages/home/connexion/main/menu/tabs/tabs";
 import { VehiclePage } from "../pages/home/connexion/main/menu/tabs/vehicle/vehicle";
+import { ChoicePage } from "../pages/home/register/choice/choice";
+
 
 import { GoogleMaps } from "@ionic-native/google-maps";
+import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
+import { UserProvider } from '../providers/user/user';
+import { HttpClientModule } from "@angular/common/http";
+
+
 
 @NgModule({
   declarations: [
@@ -58,10 +68,13 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     ResponseModalPage,
     SearchBarPage,
     TabsPage,
-    VehiclePage
+    VehiclePage,
+    ChoicePage,
+    DriverInfosPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: "top" })
   ],
   bootstrap: [IonicApp],
@@ -90,13 +103,16 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     ResponseModalPage,
     SearchBarPage,
     TabsPage,
-    VehiclePage
+    VehiclePage,
+    ChoicePage,
+    DriverInfosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GoogleMaps,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UserProvider
   ]
 })
 export class AppModule {}

@@ -5,37 +5,75 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>register</ion-title>
-  </ion-navbar>
+  <ion-navbar> <ion-title>Créer un compte</ion-title> </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="container">
   <form [formGroup]="register">
     <ion-item>
       <ion-input type="text" formControlName="lastName" placeholder="Nom">
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="firstName" placeholder="Prénom"></ion-input>
+      <ion-input
+        type="text"
+        formControlName="firstName"
+        placeholder="Prénom"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="phone" placeholder="Téléphone"></ion-input>
+      <ion-input
+        type="tel"
+        formControlName="phone"
+        placeholder="Téléphone"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="sex" placeholder="Sexe"></ion-input>
+      <ion-input
+        type="email"
+        formControlName="mail"
+        placeholder="Adresse email"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="dateOfBirth" placeholder="Date de Naissance"></ion-input>
+      <ion-input
+        type="text"
+        formControlName="sex"
+        placeholder="Sexe"
+      ></ion-input>
+    </ion-item>
+    <ion-item id="dateOfBirth">
+      <ion-datetime
+        placeholder="Date de naissance"
+        displayFormat="DD/MM/YYYY"
+        min="1918"
+        max="2000-12-07"
+        formControlName="dateOfBirth"
+      ></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="mail" placeholder="E-mail"></ion-input>
+      <ion-input
+        type="password"
+        formControlName="password"
+        placeholder="Mot de passe"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" formControlName="password" placeholder="Password"></ion-input>
+      <ion-input
+        type="password"
+        formControlName="passwordConfirmation"
+        placeholder="Confirmer votre mot de passe"
+      ></ion-input>
     </ion-item>
 
-    <button ion-button full color="button" type="submit" [disabled]="!register.valid" [navPush]="connexion">
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      [disabled]="register.valid"
+      (click)="validateForm(register.value)"
+    >
       CRÉER
     </button>
   </form>
