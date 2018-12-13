@@ -1,3 +1,4 @@
+import { ConnexionPage } from './../pages/home/connexion/connexion';
 import { MainPage } from "./../pages/home/connexion/main/main";
 import { HomePage } from "./../pages/home/home";
 import { Component } from "@angular/core";
@@ -19,7 +20,7 @@ export class MyApp {
     splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      this.rootPage = MainPage;
+      this.rootPage = RegisterPage;
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
