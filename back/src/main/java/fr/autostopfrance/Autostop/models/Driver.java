@@ -67,7 +67,7 @@ public class Driver extends Profile{
         this.imgCar = imgCar;
     }
 
-    public LinkedList getTripList(){
+    public LinkedList<Trip> getTripList(){
         return tripList;
     }
 
