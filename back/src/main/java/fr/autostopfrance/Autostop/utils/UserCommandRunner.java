@@ -34,23 +34,23 @@ public class UserCommandRunner implements CommandLineRunner {
 //                "Homme",
 //                LocalDate.of(1983, 05, 19)
 //                )));
-        User user1 = new User (
-                "Bourrat",
-                "JN",
-                "0987654321",
-                "hhtpp://HHHHG.fr",
-                "homme",
-                LocalDate.of(1990, 10, 19),
-                "jnb@mail.fr",
-                "ttt");
+//        User user1 = new User (
+//                "Bourrat",
+//                "JN",
+//                "0987654321",
+//                "hhtpp://HHHHG.fr",
+//                "homme",
+//                LocalDate.of(1990, 10, 19),
+//                "jnb@mail.fr",
+//                "ttt");
 
-        userController.postUser(user1);
+//        userController.postUser(user1);
 
 //        userController.deleteUser(18);
 
-        for (User myUser : userController.findUsers()) {
-            log.info(myUser.toString());
-        }
+//        for (User myUser : userController.findUsers()) {
+//            log.info(myUser.toString());
+//        }
 
     }
 }
