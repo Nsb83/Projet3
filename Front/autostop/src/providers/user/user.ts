@@ -31,8 +31,14 @@ export class UserProvider {
     return this.isPedestrian;
   }
 
+
+// *********************************************
+//            METHOD TO BE TESTED
+// *********************************************
   createUser(user: User){
-    let createUrl = this.URL_DB + "/create";
-    this.http.post(createUrl, user);
+    let createUserUrl = this.URL_DB + "/create";
+    
+    this.http.post(createUserUrl, user);
   }
+// *********************************************
 }
