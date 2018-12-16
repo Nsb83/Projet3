@@ -1,6 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
+import { Observable } from 'rxjs/Observable';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+};
+
 
 @Injectable()
 export class UserProvider {
@@ -12,7 +20,7 @@ export class UserProvider {
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
-
+  
   setDriverProfile() {
     this.isDriver = true;
     this.isPedestrian = false;
@@ -32,13 +40,20 @@ export class UserProvider {
   }
 
 
+
 // *********************************************
 //            METHOD TO BE TESTED
 // *********************************************
-  createUser(user: User){
+testServer(){
+  let obs = this.http.get(this.URL_DB + "/findAll");
+  obs.subscribe((response) => console.log(response));
+}  
+
+createUser(user: User){
     let createUserUrl = this.URL_DB + "/create";
-    
-    this.http.post(createUserUrl, user);
-  }
+    return this.http.post(createUserUrl, user, httpOptions)
+  };
+
+
 // *********************************************
 }

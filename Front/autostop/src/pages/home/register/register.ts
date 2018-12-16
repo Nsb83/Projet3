@@ -24,6 +24,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.userService.testServer();
   }
 
   initForm() {
@@ -32,7 +33,7 @@ export class RegisterPage implements OnInit {
         lastName: ["", Validators.required],
         firstName: ["", Validators.required],
         phone: ["", Validators.required],
-        mail: ["", Validators.compose([Validators.email, Validators.required])],
+        email: ["", Validators.compose([Validators.email, Validators.required])],
         sex: ["", Validators.required],
         dateOfBirth: ["", Validators.required],
         password: ["", Validators.required],
@@ -60,11 +61,13 @@ export class RegisterPage implements OnInit {
       register.lastName,
       register.firstName,
       register.phone,
-      register.mail,
       register.sex,
-      register.dateOfBirth
+      register.dateOfBirth,
+      register.email,
+      register.password
     );
     this.userService.createUser(this.newUser);
+    console.log(this.newUser);
     this.navCtrl.push(ChoicePage);
 
 // ************************************
@@ -77,7 +80,7 @@ export class RegisterPage implements OnInit {
         ", " +
         this.newUser.firstName,
       subTitle:
-        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
+        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.account.email,
       buttons: ["Ok"]
     });
     alert.present();
