@@ -8,6 +8,8 @@ import { RatingsPage } from "./menu/ratings/ratings";
 import { LegalNoticePage } from "./menu/legal-notice/legal-notice";
 import { HelpPage } from "./menu/help/help";
 import { ContactPage } from "./menu/contact/contact";
+import { User } from "../../../../models/User";
+import { UserProvider } from "../../../../providers/user/user";
 
 @Component({
   selector: "page-main",
@@ -20,6 +22,8 @@ export class MainPage {
   helpPage = HelpPage;
   contactPage = ContactPage;
 
+  user1:User;
+
   testImgUrl: string = "../../../assets/imgs/profileImg.png";
 
 
@@ -28,10 +32,15 @@ export class MainPage {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private menuCtrl: MenuController,
-    public navCtrl: NavController
+    public navCtrl: NavController, 
+    private userService: UserProvider
   ) {}
 
   onNavigate(page: any) {
     this.navCtrl.push(page);
+  }
+
+  ngOnInit() {
+    this.user1 = this.userService.getUser();
   }
 }

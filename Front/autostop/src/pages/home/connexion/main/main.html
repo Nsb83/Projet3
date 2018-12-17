@@ -1,6 +1,7 @@
 <ion-menu side="left" [content]="content" background-color="menu">
   <ion-content class="custom">
     <img padding id="avatarUser" [src]=testImgUrl>
+    <h3>{{user1.firstName}} {{user1.lastName}}</h3>
     <ion-list no-lines>
       <button ion-item (click)="onNavigate(tabsPage)">
         MON PROFIL
