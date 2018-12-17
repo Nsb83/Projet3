@@ -36,7 +36,7 @@ public class Trip {
     }
 
     public void setAccepted(String isAccepted) {
-        this.isAccepted = isAccepted;
+//        this.isAccepted = isAccepted;
     }
 
     public String gestState() {
