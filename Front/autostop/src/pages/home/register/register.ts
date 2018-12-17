@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.initForm();
     this.userService.testServer();
+    this.userService.getUser();
   }
 
   initForm() {
@@ -71,6 +72,7 @@ export class RegisterPage implements OnInit {
       this.navCtrl.push(ChoicePage);
     });
     
+    
 
 // ************************************
 // FOR DEVELOPMENT PURPOSES ONLY
@@ -78,11 +80,11 @@ export class RegisterPage implements OnInit {
     let alert = this.alertCtrl.create({
       title:
         "Nouveau compte créé pour " +
-        this.newUser.lastName +
+        this.newUser.getLastName() +
         ", " +
-        this.newUser.firstName,
+        this.newUser.getFirstName(),
       subTitle:
-        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.account.email,
+        "Tel. : " + this.newUser.getPhone() + ", Mail : " + this.newUser.getAccount().email,
       buttons: ["Ok"]
     });
     alert.present();

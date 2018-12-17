@@ -34,14 +34,14 @@ public class User {
 
     public User () {}
 
-//    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, Account account) {
-//        this.lastName = lastName;
-//        this.firstName = firstName;
-//        this.phone = phone;
-//        this.sex = sex;
-//        this.dateOfBirth = dateOfBirth;
-//        account = new Account(account.getEmail(), account.getPassword());
-//    }
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phone = phone;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.account = new Account(email, password);
+    }
 
     public User (String lastName, String firstName, String phone, String imgUrl, String sex, LocalDate dateOfBirth, String email, String password) {
         this.lastName = lastName;

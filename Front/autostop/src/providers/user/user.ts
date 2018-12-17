@@ -1,7 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of'; 
+import { EmailValidator } from '@angular/forms';
+import { from } from 'rxjs/observable/from';
+import { Account } from '../../models/Account';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,6 +17,7 @@ const httpOptions = {
 @Injectable()
 export class UserProvider {
 
+  private user: User;
   private isDriver: boolean;
   private isPedestrian: boolean;
   private URL_DB = "http://localhost:8080/users";
@@ -55,6 +60,26 @@ createUser(user: User) {
     return this.http.post<User>(createUserUrl, user, httpOptions)
   };
 
+  getUser() {
+    const user: User = new User();
+    this.http.get<User>(this.URL_DB + "/find/2").subscribe((response: any) => {
+     
+      console.log(response);
+      
+        user.setLastName(response.lastName);
+        user.setFirstName(response.firstName);
+        user.setPhone(response.phone);
+        user.setSex(response.sex);
+        user.setDateOfBirth(response.dateOfBirth);
+        const account: Account = new Account(response.account.email, response.account.password);
+        user.setAccount(account);
+      
+        console.log('REPONSE' , user)
+      }
+      
+  )
+  return user;
+};
 
 // *********************************************
 }
