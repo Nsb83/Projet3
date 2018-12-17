@@ -37,15 +37,17 @@ export class MapPage {
   ratingPage = GiveRatingPage;
 
   // Test data for request-modal
-  matchableUser : User = {
-    lastName: "John",
-    firstName: "Doe",
-    phone: "08 36 65 65 65",
-    mail: "gegedarmon@yahoo.fr",
-    imgUrl: "./assets/imgs/darmon.jpg",
-    sex: "male",
-    dateOfBirth: "29/02/1948",
-  };
+  // matchableUser : User = {
+  //   lastName: "John",
+  //   firstName: "Doe",
+  //   phone: "08 36 65 65 65",
+  //   mail: "gegedarmon@yahoo.fr",
+  //   imgUrl: "./assets/imgs/darmon.jpg",
+  //   sex: "male",
+  //   dateOfBirth: "29/02/1948",
+
+
+  // };
 
   positionOtherUser  = {
     lat: 45.682808,
@@ -121,7 +123,7 @@ export class MapPage {
 
   // Show modal for matching request
   showMatchModal(){
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser : this.matchableUser});
+    const matchModal = this.modalCtrl.create(RequestModalPage, { });
     matchModal.present();
   }
 
