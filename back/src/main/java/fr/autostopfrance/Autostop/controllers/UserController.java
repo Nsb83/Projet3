@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping(path = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public User postUser(@RequestBody User user) {
-
+        System.out.println("POST USER : " + user);
         User user1 = userService.postUser(user);
         return user1;
     }

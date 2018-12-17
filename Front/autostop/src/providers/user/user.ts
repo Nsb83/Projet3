@@ -49,9 +49,10 @@ testServer(){
   obs.subscribe((response) => console.log(response));
 }  
 
-createUser(user: User){
+createUser(user: User) {
     let createUserUrl = this.URL_DB + "/create";
-    return this.http.post(createUserUrl, user, httpOptions)
+    console.log(createUserUrl);
+    return this.http.post<User>(createUserUrl, user, httpOptions)
   };
 
 

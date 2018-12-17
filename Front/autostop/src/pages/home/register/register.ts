@@ -66,9 +66,11 @@ export class RegisterPage implements OnInit {
       register.email,
       register.password
     );
-    this.userService.createUser(this.newUser);
-    console.log(this.newUser);
-    this.navCtrl.push(ChoicePage);
+    this.userService.createUser(this.newUser).subscribe(() => {
+      console.log(this.newUser);
+      this.navCtrl.push(ChoicePage);
+    });
+    
 
 // ************************************
 // FOR DEVELOPMENT PURPOSES ONLY
