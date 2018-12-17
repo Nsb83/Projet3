@@ -1,6 +1,26 @@
 page-main{
-  .avatarUser{
-    border-radius: 50%;
-    // width: 50vw;
+  .custom {
+
+    background: color($colors, menu) !important; /* This sets the background color*/
+    
+    .scroll-content {
+      overflow-y: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #avatarUser{
+      display: block;
+      margin: 10% auto 10% auto;
+      width: 200px;
+      height: auto;
+    }
+
+    .item {
+      background-color: transparent; /*Transparent background-color for each item*/
+      color: white;    /*Text color for each item*/
+    }
+    
   }
+  
 }
