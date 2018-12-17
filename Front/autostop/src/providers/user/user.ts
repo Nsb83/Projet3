@@ -38,7 +38,7 @@ export class UserProvider {
   createUser(user: User){
     let createUserUrl = this.URL_DB + "/create";
     
-    this.http.post(createUserUrl, user);
+    this.http.post(createUserUrl, JSON.stringify(user));
   }
 // *********************************************
 }
