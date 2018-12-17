@@ -22,15 +22,17 @@ public class UserService {
         return userDAO.findAll();
     }
 
-    public User postUser(@RequestBody User user) {
+    public User postUser(User user) {
         User _user = userDAO.save(new User(
                 user.getLastName(), user.getFirstName(),
-                user.getPhone(), user.getSex(), user.getImgUrl(), user.getDateOfBirth(),
-                user.getAccount().getEmail(), user.getAccount().getPassword()));
+                user.getPhone(), user.getSex(), user.getImgUrl(),
+                user.getDateOfBirth(),
+                user.getAccount().getEmail(), user.getAccount().getPassword()
+                ));
         return _user;
     }
 
-    public ResponseEntity<String> deleteUser(@PathVariable("idUser") long idUser) {
+    public ResponseEntity<String> deleteUser(long idUser) {
         userDAO.deleteById(idUser);
         return new ResponseEntity<>("User has been deleted!", HttpStatus.OK);
     }
