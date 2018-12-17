@@ -7,6 +7,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { RegisterPage } from "../pages/home/register/register";
 import { ChoicePage } from "../pages/home/register/choice/choice";
+import { LegalNoticePage } from '../pages/home/connexion/main/menu/legal-notice/legal-notice';
 
 @Component({
   templateUrl: "app.html"

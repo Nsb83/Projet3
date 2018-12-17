@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="496aa70a-22dc-49cf-991f-b2c73733a2f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Front/autostop/package.json.13076132" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Front/autostop/src/assets/imgs/profileImg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/assets/imgs/profileDefaultLg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/assets/imgs/profileDefaultSm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/assets/imgs/profileImg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/assets/imgs/profileImg1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/user/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/user/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -46,7 +53,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="210">
               <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -291,7 +298,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545054640793" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545057474301" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -395,12 +402,12 @@
       <workItem from="1544783187892" duration="9000" />
       <workItem from="1544899778376" duration="443000" />
       <workItem from="1544972649360" duration="2274000" />
-      <workItem from="1545034395583" duration="2909000" />
+      <workItem from="1545034395583" duration="3227000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36379000" />
+    <option name="totallyTimeSpent" value="36697000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,7 +422,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69815665" visible="true" weight="0.2274678" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69815665" visible="true" weight="0.2274678" />
       <window_info id="Structure" order="1" sideWeight="0.30184332" side_tool="true" visible="true" weight="0.2274678" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -425,7 +432,7 @@
       <window_info id="Web" order="7" sideWeight="0.5008881" side_tool="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47710842" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47710842" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -638,7 +645,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
+        <state relative-caret-position="210">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
