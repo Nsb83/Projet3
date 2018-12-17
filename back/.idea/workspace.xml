@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="496aa70a-22dc-49cf-991f-b2c73733a2f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/user/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/user/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="198">
+              <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#709#710#0" expanded="true" />
@@ -54,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
+            <state relative-caret-position="93">
               <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="405">
+              <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -372,7 +373,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36816000" />
+    <option name="totallyTimeSpent" value="37480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,7 +388,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69815665" visible="true" weight="0.25178826" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69815665" visible="true" weight="0.25178826" />
       <window_info id="Structure" order="1" sideWeight="0.30184332" side_tool="true" visible="true" weight="0.2274678" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -397,7 +398,7 @@
       <window_info id="Web" order="7" sideWeight="0.5008881" side_tool="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22048193" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22048193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -564,8 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="405">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -579,16 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -599,10 +590,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1136#1137#0" expanded="true" />
+            <element signature="e#1195#1196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="198">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#709#710#0" expanded="true" />
@@ -611,18 +624,6 @@
             <element signature="e#851#852#0" expanded="true" />
             <element signature="e#1215#1216#0" expanded="true" />
             <element signature="e#1261#1262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
           </folding>
         </state>
       </provider>
