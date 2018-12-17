@@ -10,8 +10,6 @@ import { User } from '../../../../../../models/User';
 })
 export class ContactPage {
 
-  @ViewChild('message') message;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private emailComposer: EmailComposer) {
   }
 
@@ -23,13 +21,7 @@ export class ContactPage {
 //        METHOD TO BE COMPLETED WITH USER'S EMAIL ADRESS
 //          & TESTED ON DEVICE WITH MAIL APP INSTALLED
 // ****************************************************************
-  onSubmit(){
-    this.emailComposer.isAvailable().then((available: boolean) =>{
-      if(available) {
-        //Now we know we can send
-      }
-     });
-     
+  onSubmit(){   
      let email = {
        to: 'wildautostop@gmail.com',
        cc: '',
@@ -37,7 +29,7 @@ export class ContactPage {
        attachments: [
        ],
        subject: 'Message from autostop user ', // TO BE COMPLETED WITH USER'S NAME
-       body: this.message.value,
+       body: "Bonjour l'équipe autostop, voici ma question : ",
        isHtml: true
      };
      
