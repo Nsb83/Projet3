@@ -9,8 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:8000"})
 @RequestMapping("users")
 public class UserController {
 
@@ -29,10 +31,14 @@ public class UserController {
 
     @PostMapping(path = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public User postUser(@RequestBody User user) {
-
+        System.out.println("POST USER : " + user);
         User user1 = userService.postUser(user);
         return user1;
     }
+
+    @GetMapping(path = "/find/{idUser}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Optional<User> findById(@PathVariable("idUser") long idUser) {
+        return userService.findById(idUser);}
 
     @DeleteMapping("/delete/{idUser}")
     public void deleteUser(@PathVariable("idUser") long idUser){

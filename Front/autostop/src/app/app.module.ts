@@ -39,6 +39,7 @@ import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
 import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from "@angular/common/http";
+import { EmailComposer } from '@ionic-native/email-composer';
 
 
 
@@ -110,6 +111,7 @@ import { HttpClientModule } from "@angular/common/http";
   providers: [
     StatusBar,
     SplashScreen,
+    EmailComposer,
     GoogleMaps,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserProvider

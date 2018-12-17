@@ -1,1 +1,67 @@
-<ion-content padding> <page-distance></page-distance> </ion-content>
+<!-- <ion-content padding> 
+        <h2 padding>{{ user1.firstName }}</h2> -->
+
+
+    <ion-content padding class="container">
+        <form [formGroup]="updateProfil">
+          <ion-item>
+            <ion-input type="text" formControlName="lastName" placeholder="{{ user1.lastName }}">
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="text"
+              formControlName="firstName"
+              placeholder="{{ user1.firstName }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="tel"
+              formControlName="phone"
+              placeholder="{{ user1.phone }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="email"
+              formControlName="email"
+              placeholder="{{ user1.account.email }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="text"
+              formControlName="sex"
+              placeholder="{{ user1.sex }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="text"
+              formControlName="dateOfBirth"
+              placeholder="{{ user1.dateOfBirth }}"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="password"
+              formControlName="password"
+              placeholder="{{ user1.account.password }}"
+            ></ion-input>
+          </ion-item>
+     
+          <button
+            ion-button
+            full
+            color="button"
+            type="submit"
+            [disabled]="updateProfil.valid"
+            (click)="validateForm(updateProfil.value)"
+          >
+            Mettre à jour
+          </button>
+        </form>
+
+    <page-distance></page-distance> 
+</ion-content>
