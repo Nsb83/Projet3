@@ -1,19 +1,23 @@
-<ion-menu side="right" [content]="content" background-color="menu">
+<ion-menu side="left" [content]="content" background-color="menu">
   <ion-content class="custom">
     <img padding id="avatarUser" [src]=testImgUrl>
-    <ion-list>
+    <ion-list no-lines>
       <button ion-item (click)="onNavigate(tabsPage)">
         MON PROFIL
       </button>
+      <hr>
       <button ion-item (click)="onNavigate(ratingsPage)">
         ÉVALUEZ-NOUS !
       </button>
+      <hr>
       <button ion-item (click)="onNavigate(legalNoticePage)">
         MENTIONS LÉGALES
       </button>
+      <hr>
       <button ion-item (click)="onNavigate(helpPage)">
         AIDE
       </button>
+      <hr>
       <button ion-item (click)="onNavigate(contactPage)">
         CONTACTEZ-NOUS
       </button>
@@ -22,4 +26,6 @@
 </ion-menu>
 
 <ion-nav #content [root]="rootPage"></ion-nav>
-<page-map></page-map>
+
+<page-search-bar (searchValueEmit)='receiveMessage($event)'></page-search-bar>
+<!-- <page-map></page-map> -->
