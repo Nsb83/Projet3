@@ -20,7 +20,7 @@ export class MainPage {
   helpPage = HelpPage;
   contactPage = ContactPage;
 
-  testImgUrl: string = "./assets/imgs/profileImg.jpg";
+  testImgUrl: string = "../../../assets/imgs/profileImg.png";
 
 
   constructor(

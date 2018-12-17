@@ -1,41 +1,25 @@
 <ion-menu side="right" [content]="content" background-color="menu">
-  <ion-content color="menu">
+  <ion-content class="custom">
+    <img padding id="avatarUser" [src]=testImgUrl>
     <ion-list>
-        <img class="avatarUser" [src]=testImgUrl>
-      <button ion-item icon-start color="menu" (click)="onNavigate(tabsPage)">
+      <button ion-item (click)="onNavigate(tabsPage)">
         MON PROFIL
       </button>
-      <button
-        ion-item
-        icon-start
-        color="menu"
-        (click)="onNavigate(ratingsPage)"
-      >
-        EVALUEZ NOUS !
+      <button ion-item (click)="onNavigate(ratingsPage)">
+        ÉVALUEZ-NOUS !
       </button>
-      <button
-        ion-item
-        icon-start
-        color="menu"
-        (click)="onNavigate(legalNoticePage)"
-      >
-        MENTIONS LEGALES
+      <button ion-item (click)="onNavigate(legalNoticePage)">
+        MENTIONS LÉGALES
       </button>
-      <button ion-item icon-start color="menu" (click)="onNavigate(helpPage)">
+      <button ion-item (click)="onNavigate(helpPage)">
         AIDE
       </button>
-      <button
-        ion-item
-        icon-start
-        color="menu"
-        (click)="onNavigate(contactPage)"
-      >
-        CONTACTEZ-NOUS!
+      <button ion-item (click)="onNavigate(contactPage)">
+        CONTACTEZ-NOUS
       </button>
     </ion-list>
   </ion-content>
 </ion-menu>
 
 <ion-nav #content [root]="rootPage"></ion-nav>
-
 <page-map></page-map>
