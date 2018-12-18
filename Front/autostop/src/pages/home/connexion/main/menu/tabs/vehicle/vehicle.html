@@ -1,1 +1,53 @@
-<ion-content padding> </ion-content>
+
+<ion-content padding class="container">
+  <form [formGroup]="register">
+
+    <ion-item>
+        <ion-input
+          type="text"
+          formControlName="licensePlate"
+          placeholder="Plaque d'immatriculation">
+        </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" formControlName="brand" placeholder="Constructeur automobile">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="model"
+        placeholder="Modèle">
+      </ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="color"
+        placeholder="Couleur du véhicule (remplacer par color picker)">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="imgCar"
+        placeholder="Image de la voiture">
+      </ion-input>
+    </ion-item>
+
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      (click)="validateForm(register.value)"
+    >
+      CRÉER
+    </button>
+  </form>
+</ion-content>
