@@ -1,5 +1,6 @@
 package fr.autostopfrance.Autostop.models;
 
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.hibernate.annotations.Cascade;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 
@@ -31,6 +32,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private UploadFileResponse uploadFileResponse;
+
 
     public User () {}
 
@@ -43,14 +47,15 @@ public class User {
         this.account = new Account(email, password);
     }
 
-    public User (String lastName, String firstName, String phone, String imgUrl, String sex, LocalDate dateOfBirth, String email, String password) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, String fileDownloadUri) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
-        this.imgUrl = imgUrl;
+//        this.imgUrl = imgUrl;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
         this.account = new Account(email, password);
+        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
     }
 
     public Long getId() {
@@ -113,4 +118,6 @@ public class User {
     public Account getAccount() {
         return account;
     }
+
+    public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
 }

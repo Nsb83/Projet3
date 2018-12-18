@@ -73,11 +73,11 @@ createUser(user: User) {
         user.setDateOfBirth(response.dateOfBirth);
         const account: Account = new Account(response.account.email, response.account.password);
         user.setAccount(account);
+        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       
         console.log('REPONSE' , user)
-      }
-      
-  )
+    })
+
   return user;
 };
 
