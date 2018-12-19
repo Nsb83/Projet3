@@ -28,8 +28,7 @@ public class UserService {
                 user.getSex(),
                 user.getDateOfBirth(),
                 user.getAccount().getEmail(),
-                user.getAccount().getPassword(),
-                user.getUploadFileResponse().getFileDownloadUri()
+                user.getAccount().getPassword()
                 ));
         return _user;
     }
