@@ -10,12 +10,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,13 +42,13 @@ public class ImageController {
                 file.getContentType(), file.getSize());
     }
 
-    @PostMapping("/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
-        return Arrays.asList(files)
-                .stream()
-                .map(file -> uploadFile(file))
-                .collect(Collectors.toList());
-    }
+//    @PostMapping("/uploadMultipleFiles")
+//    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+//        return Arrays.asList(files)
+//                .stream()
+//                .map(file -> uploadFile(file))
+//                .collect(Collectors.toList());
+//    }
 
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {

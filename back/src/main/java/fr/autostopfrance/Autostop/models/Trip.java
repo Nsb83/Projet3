@@ -8,7 +8,7 @@ public class Trip {
     private boolean isAccepted;
     private String state;
     private Object itinerary;
-    
+
 
     public Trip(String origin, String destination){
         this.origin = origin;

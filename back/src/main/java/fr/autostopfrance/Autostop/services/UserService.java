@@ -2,7 +2,6 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

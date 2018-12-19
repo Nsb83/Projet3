@@ -1,11 +1,7 @@
 package fr.autostopfrance.Autostop.models;
-
 import fr.autostopfrance.Autostop.utils.UploadFileResponse;
-import org.hibernate.annotations.Cascade;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 
 import java.time.LocalDate;
-import java.util.Date;
 import javax.persistence.*;
 
 @Entity

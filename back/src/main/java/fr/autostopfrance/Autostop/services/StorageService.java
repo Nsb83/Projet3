@@ -1,16 +1,13 @@
 package fr.autostopfrance.Autostop.services;
 
 
-import fr.autostopfrance.Autostop.controllers.ImageController;
 import fr.autostopfrance.Autostop.exception.FileStorageException;
 import fr.autostopfrance.Autostop.exception.MyFileNotFoundException;
-import fr.autostopfrance.Autostop.repositories.UserDAO;
 import fr.autostopfrance.Autostop.utils.FileStorageProperties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +18,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.stream.Stream;
 
 
 @Service
