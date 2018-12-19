@@ -22,10 +22,14 @@ public class UserService {
 
     public User postUser(User user) {
         User _user = userDAO.save(new User(
-                user.getLastName(), user.getFirstName(),
-                user.getPhone(), user.getSex(),
+                user.getLastName(),
+                user.getFirstName(),
+                user.getPhone(),
+                user.getSex(),
                 user.getDateOfBirth(),
-                user.getAccount().getEmail(), user.getAccount().getPassword()
+                user.getAccount().getEmail(),
+                user.getAccount().getPassword(),
+                user.getUploadFileResponse().getFileDownloadUri()
                 ));
         return _user;
     }

@@ -62,7 +62,7 @@ createUser(user: User) {
 
   getUser() {
     const user: User = new User();
-    this.http.get<User>(this.URL_DB + "/find/2").subscribe((response: any) => {
+    this.http.get<User>(this.URL_DB + "/find/1").subscribe((response: any) => {
      
       console.log(response);
       
@@ -73,11 +73,11 @@ createUser(user: User) {
         user.setDateOfBirth(response.dateOfBirth);
         const account: Account = new Account(response.account.email, response.account.password);
         user.setAccount(account);
+        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       
         console.log('REPONSE' , user)
-      }
-      
-  )
+    })
+
   return user;
 };
 
