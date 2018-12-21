@@ -16,7 +16,7 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "userid", referencedColumnName = "userId")
     private User user;
 

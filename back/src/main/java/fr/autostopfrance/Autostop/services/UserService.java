@@ -21,17 +21,19 @@ public class UserService {
     }
 
     public User postUser(User user) {
-        User _user = userDAO.save(new User(
-                user.getLastName(),
-                user.getFirstName(),
-                user.getPhone(),
-                user.getSex(),
-                user.getDateOfBirth(),
-                user.getAccount().getEmail(),
-                user.getAccount().getPassword(),
-                user.getUploadFileResponse().getFileDownloadUri()
-                ));
-        return _user;
+//        User _user = userDAO.save(new User(
+//                user.getLastName(),
+//                user.getFirstName(),
+//                user.getPhone(),
+//                user.getSex(),
+//                user.getDateOfBirth(),
+//                user.getAccount().getEmail(),
+//                user.getAccount().getPassword(),
+//                user.getUploadFileResponse().getFileDownloadUri()
+//                ));
+//        return _user;
+
+       return userDAO.save(user);
     }
 
     public ResponseEntity<String> deleteUser(long idUser) {
@@ -41,6 +43,31 @@ public class UserService {
 
     public Optional<User> findById(long idUser) {
         return userDAO.findById(idUser);
+    }
+
+
+    public ResponseEntity<User> updateUser (long idUser, User user) {
+        System.out.println("Updating User " + idUser);
+
+        Optional<User> currentUserOptional = userDAO.findById(idUser);
+
+        if (!currentUserOptional.isPresent()) {
+            System.out.println("User with id " + idUser + " not found");
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        }
+
+        User currentUser = currentUserOptional.get();
+
+        currentUser.setLastName(user.getLastName());
+        currentUser.setFirstName(user.getFirstName());
+        currentUser.setPhone(user.getPhone());
+        currentUser.setSex(user.getSex());
+        currentUser.setDateOfBirth(user.getDateOfBirth());
+
+        currentUser.getUploadFileResponse().setFileDownloadUri(user.getUploadFileResponse().getFileDownloadUri());
+        userDAO.save(currentUser);
+//        userService.updateUser(currentUser);
+        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
 
 }

@@ -34,28 +34,34 @@ public class User {
 
     public User () {}
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, Account account) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
-        this.account = new Account(email, password);
+        this.account = account;
     }
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, String fileDownloadUri) {
+
+
+
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, Account account, String fileDownloadUri) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
 //        this.imgUrl = imgUrl;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
-        this.account = new Account(email, password);
+        this.account = account;
         this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
     }
 
     public Long getId() {
         return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLastName() {
@@ -114,6 +120,15 @@ public class User {
     public Account getAccount() {
         return account;
     }
+
+    public void setAccount(Account account) {
+        this.account = account;
+
+    }
+
+//    public void setUploadFileResponse(String fileDownloadUri) {
+//        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
+//    }
 
     public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
 }
