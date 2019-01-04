@@ -1,10 +1,7 @@
 package fr.autostopfrance.Autostop.models;
-
-import org.hibernate.annotations.Cascade;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 
 import java.time.LocalDate;
-import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -21,15 +18,21 @@ public class User {
     private String firstName;
     @Column(name="phone")
     private String phone;
-    @Column(name="img_url")
-    private String imgUrl;
     @Column(name="sex")
     private String sex;
     @Column(name="date_of_birth")
     private LocalDate dateOfBirth;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "password")
+    private String password;
+
+
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Account account;
+    private UploadFileResponse uploadFileResponse;
 
 
     public User () {}
@@ -40,21 +43,29 @@ public class User {
         this.phone = phone;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
-        this.account = new Account(email, password);
+        this.email = email;
+        this.password = password;
     }
 
-    public User (String lastName, String firstName, String phone, String imgUrl, String sex, LocalDate dateOfBirth, String email, String password) {
+
+
+
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, String fileDownloadUri) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
-        this.imgUrl = imgUrl;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
-        this.account = new Account(email, password);
+        this.email = email;
+        this.password = password;
+        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
     }
 
     public Long getId() {
         return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLastName() {
@@ -81,14 +92,6 @@ public class User {
         this.phone = phone;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -105,12 +108,44 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @Override
-    public String toString() {
-        return " User: " + id +" " + firstName + " " + lastName + " " + dateOfBirth + " " + sex + " " + phone + " " + imgUrl + " !";
+    public String getEmail() {
+        return email;
     }
 
-    public Account getAccount() {
-        return account;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
+        this.uploadFileResponse = uploadFileResponse;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", uploadFileResponse=" + uploadFileResponse +
+                '}';
+    }
+
+//    public void setUploadFileResponse(String fileDownloadUri) {
+//        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
+//    }
+
+    public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
 }

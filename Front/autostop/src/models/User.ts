@@ -7,7 +7,9 @@ export class User {
     private imgUrl: string;
     private sex: string;
     private dateOfBirth: string;
-    private account:Account;
+    private email: string;
+    private password: string;
+    // private account:Account;
 
     constructor(
         lastName?: string,
@@ -17,14 +19,33 @@ export class User {
         dateOfBirth?: string,
         email?:string,
         password?:string
-    ){
-    this.lastName = lastName;
-    this.firstName = firstName;
-    this.phone = phone;
-    this.sex = sex;
-    this.dateOfBirth = dateOfBirth;
-    this.account = new Account(email, password);
-   }
+       ){
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phone = phone;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.password = password;
+        // this.account = new Account(email, password);
+       }
+
+    public getEmail(): string {
+        return this.email;
+    }
+
+    public setEmail(email: string): void {
+        this.email = email;
+    }
+
+    public getPassword(): string {
+        return this.password;
+    }
+
+    public setPassword(password: string): void {
+        this.password = password;
+    }
+
 
    public getLastName(): string {
     return this.lastName;
@@ -74,13 +95,14 @@ export class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public setAccount(account: Account): void {
-        this.account = account;
-    }
+    // public setAccount(account: Account): void {
+    //     this.account = account;
+    // }
 
-    public getAccount(): Account {
-        return this.account;
-    }
+    // public getAccount(): Account {
+    //     return this.account;
+    // }
 
-    
+    // private account:Account;
+   
 }

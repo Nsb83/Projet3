@@ -1,7 +1,6 @@
 package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.User;
-import fr.autostopfrance.Autostop.repositories.UserDAO;
 import fr.autostopfrance.Autostop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -44,4 +43,10 @@ public class UserController {
     public void deleteUser(@PathVariable("idUser") long idUser){
         userService.deleteUser(idUser);
     }
+
+    @PutMapping(path = "/update/{idUser}")
+    public void updateUser(@PathVariable("idUser") long idUser, @RequestBody User user){
+        userService.updateUser(idUser, user);
+    }
+
 }

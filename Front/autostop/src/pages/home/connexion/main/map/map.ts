@@ -112,7 +112,7 @@ export class MapPage {
 
   // Show modal for matching request
   showMatchModal(){
-    const matchModal = this.modalCtrl.create(RequestModalPage, { });
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
 

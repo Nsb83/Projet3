@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of'; 
 import { EmailValidator } from '@angular/forms';
 import { from } from 'rxjs/observable/from';
-import { Account } from '../../models/Account';
+// import { Account } from '../../models/Account';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -71,13 +71,15 @@ createUser(user: User) {
         user.setPhone(response.phone);
         user.setSex(response.sex);
         user.setDateOfBirth(response.dateOfBirth);
-        const account: Account = new Account(response.account.email, response.account.password);
-        user.setAccount(account);
+        // const account: Account = new Account(response.account.email, response.account.password);
+        // user.setAccount(account);
+        user.setEmail(response.email);
+        user.setPassword(response.password);
+        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       
         console.log('REPONSE' , user)
-      }
-      
-  )
+    })
+
   return user;
 };
 
