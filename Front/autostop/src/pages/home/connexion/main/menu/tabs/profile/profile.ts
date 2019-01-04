@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { UserProvider } from '../../../../../../../providers/user/user';
+import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { User } from '../../../../../../../models/User';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 

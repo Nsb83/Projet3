@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MainPage } from '../../connexion/main/main';
 import { DriverInfosPage } from '../driver-infos/driver-infos';
-import { UserProvider } from '../../../../providers/user/user';
+import { UserProvider } from '../../../../providers/user/userProvider';
 
 @Component({
   selector: 'page-choice',

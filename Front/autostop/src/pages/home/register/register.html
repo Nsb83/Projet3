@@ -71,7 +71,7 @@
       full
       color="button"
       type="submit"
-      [disabled]="register.valid"
+      [disabled]="!register.valid"
       (click)="validateForm(register.value)"
     >
       CRÉER

@@ -3,7 +3,7 @@ import { NavController, NavParams, AlertController } from "ionic-angular";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { User } from "../../../models/User";
 import { ChoicePage } from "./choice/choice";
-import { UserProvider } from "../../../providers/user/user";
+import { UserProvider } from "../../../providers/user/userProvider";
 
 @Component({
   selector: "page-register",
@@ -84,7 +84,7 @@ export class RegisterPage implements OnInit {
         ", " +
         this.newUser.getFirstName(),
       subTitle:
-        "Tel. : " + this.newUser.getPhone() + ", Mail : " + this.newUser.getAccount().email,
+        "Tel. : " + this.newUser.getPhone() + ", Mail : " + this.newUser.getEmail(),
       buttons: ["Ok"]
     });
     alert.present();

@@ -5,49 +5,55 @@
     <ion-content padding class="container">
         <form [formGroup]="updateProfil">
           <ion-item>
-            <ion-input type="text" formControlName="lastName" placeholder="{{ user1.lastName }}">
+            <ion-input type="text" formControlName="lastName" value="{{ user1.lastName }}" placeholder="Nom">
             </ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="text"
               formControlName="firstName"
-              placeholder="{{ user1.firstName }}"
+              value="{{ user1.firstName }}"
+              placeholder="Prénom"
             ></ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="tel"
               formControlName="phone"
-              placeholder="{{ user1.phone }}"
+              value="{{ user1.phone }}"
+              placeholder="Téléphone"
             ></ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="email"
               formControlName="email"
-              placeholder="{{ user1.account.email }}"
+              value="{{ user1.email }}"
+              placeholder="Adresse mail"
             ></ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="text"
               formControlName="sex"
-              placeholder="{{ user1.sex }}"
+              value="{{ user1.sex }}"
+              placeholder="Sexe"
             ></ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="text"
               formControlName="dateOfBirth"
-              placeholder="{{ user1.dateOfBirth }}"
+              value="{{ user1.dateOfBirth }}"
+              placeholder="Date de Naissance"
             ></ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="password"
               formControlName="password"
-              placeholder="{{ user1.account.password }}"
+              value="{{ user1.password }}"
+              placeholder="Mot de passe"
             ></ion-input>
           </ion-item>
      
