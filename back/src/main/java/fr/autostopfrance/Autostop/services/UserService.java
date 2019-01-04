@@ -7,6 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+
+
+import javax.persistence.*;
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,11 +67,14 @@ public class UserService {
         currentUser.setPhone(user.getPhone());
         currentUser.setSex(user.getSex());
         currentUser.setDateOfBirth(user.getDateOfBirth());
-
+        currentUser.setEmail(user.getEmail());
+        currentUser.setPassword(user.getPassword());
         currentUser.getUploadFileResponse().setFileDownloadUri(user.getUploadFileResponse().getFileDownloadUri());
         userDAO.save(currentUser);
 //        userService.updateUser(currentUser);
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
 
-}
+
+
+    }

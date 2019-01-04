@@ -84,7 +84,7 @@ export class RegisterPage implements OnInit {
         ", " +
         this.newUser.getFirstName(),
       subTitle:
-        "Tel. : " + this.newUser.getPhone() + ", Mail : " + this.newUser.getAccount().email,
+        "Tel. : " + this.newUser.getPhone() + ", Mail : " + this.newUser.getEmail(),
       buttons: ["Ok"]
     });
     alert.present();
