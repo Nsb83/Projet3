@@ -62,7 +62,8 @@ createUser(user: User) {
 
   getUser() {
     const user: User = new User();
-    this.http.get<User>(this.URL_DB + "/find/1").subscribe((response: any) => {
+    this.http
+      .get<User>(this.URL_DB + "/find/1").subscribe((response: any) => {
      
       console.log(response);
       
@@ -82,6 +83,13 @@ createUser(user: User) {
 
   return user;
 };
+
+updateUser(user: User){
+  return this.http
+    .put<User>(this.URL_DB + "/update/1", user);
+  
+
+}
 
 // *********************************************
 }

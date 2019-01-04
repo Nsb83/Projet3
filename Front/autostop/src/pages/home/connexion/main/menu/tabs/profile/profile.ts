@@ -10,6 +10,7 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 })
 export class ProfilePage implements OnInit {
   user1: User;
+  userUpdate: User;
   private updateProfil: FormGroup;
 
   constructor(
@@ -41,6 +42,23 @@ export class ProfilePage implements OnInit {
         password: ["", Validators.required],
       },
     );
+  }
+
+  validateForm(updateProfil){
+    this.userUpdate = new User(
+      updateProfil.lastName,
+      updateProfil.firstName,
+      updateProfil.phone,
+      updateProfil.sex,
+      updateProfil.dateOfBirth,
+      updateProfil.email,
+      updateProfil.password
+    );
+
+    this.userService.updateUser(this.userUpdate).subscribe(() => {
+      console.log(this.userUpdate);
+    });
+    
   }
 
 }

@@ -50,7 +50,7 @@ public class User {
 
 
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, String fileDownloadUri) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -58,7 +58,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
-        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
+        this.uploadFileResponse = uploadFileResponse;
     }
 
     public Long getId() {
