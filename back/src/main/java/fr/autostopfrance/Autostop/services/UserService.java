@@ -69,7 +69,7 @@ public class UserService {
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
         currentUser.setPassword(user.getPassword());
-        currentUser.getUploadFileResponse().setFileDownloadUri(user.getUploadFileResponse().getFileDownloadUri());
+        currentUser.setUploadFileResponse(user.getUploadFileResponse());
         userDAO.save(currentUser);
 //        userService.updateUser(currentUser);
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
