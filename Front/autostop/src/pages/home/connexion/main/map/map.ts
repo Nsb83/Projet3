@@ -23,7 +23,9 @@ import {
   GeocoderRequest,
   GeocoderResult,
   Geocoder,
-  LatLng
+  LatLng,
+  Polyline,
+  ILatLng
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -119,7 +121,34 @@ export class MapPage {
     });
 
 
+
   }
+
+  ///////// test polylines ////////////////////
+  showPoly(){
+    let polyStart : ILatLng = { lat:45.75 , lng:4.85};
+    let polyEnd : ILatLng = { lat: 46.3, lng:4.8333};
+    let polyArray: ILatLng[] = [polyStart, polyEnd];
+
+    let polyline: Polyline = this.map.addPolylineSync({
+      points: polyArray,
+      color: '#AA00FF',
+      width: 10,
+      geodesic: true,
+      clickable: true
+    })
+    polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+      let position: LatLng = <LatLng>params[0];
+      let markerPoly: Marker = this.map.addMarkerSync({
+        position: position,
+        title: position.toUrlValue(),
+        disableAutoPan: true
+      });
+      markerPoly.showInfoWindow();
+    });
+  }
+
+    // FIN TEST POLY
 
   // Show modal for matching request
   showMatchModal(){
