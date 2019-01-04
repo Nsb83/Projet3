@@ -9,6 +9,26 @@ export class User {
     private dateOfBirth: string;
     private email: string;
     private password: string;
+    // private account:Account;
+
+    constructor(
+        lastName?: string,
+        firstName?: string,
+        phone?: string,
+        sex?: string,
+        dateOfBirth?: string,
+        email?:string,
+        password?:string
+       ){
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phone = phone;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.password = password;
+        // this.account = new Account(email, password);
+       }
 
     public getEmail(): string {
         return this.email;
@@ -27,8 +47,8 @@ export class User {
     }
 
 
-    public getLastName(): string {
-        return this.lastName;
+   public getLastName(): string {
+    return this.lastName;
     }
 
     public setLastName(lastName: string): void {
@@ -84,24 +104,5 @@ export class User {
     // }
 
     // private account:Account;
-
-   constructor(
-    lastName?: string,
-    firstName?: string,
-    phone?: string,
-    sex?: string,
-    dateOfBirth?: string,
-    email?:string,
-    password?:string
-   ){
-    this.lastName = lastName;
-    this.firstName = firstName;
-    this.phone = phone;
-    this.sex = sex;
-    this.dateOfBirth = dateOfBirth;
-    this.email = email;
-    this.password = password;
-    // this.account = new Account(email, password);
-   }
    
 }

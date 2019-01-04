@@ -16,7 +16,6 @@ export class LinkingPage {
     imgCar: "./assets/imgs/clio4.jpeg"
   }
 
-  testImgUrl: string = "./assets/imgs/profileImg.jpg";
   testRating: number = 4;
 
   //Couleur d'étoiles dynamiques
