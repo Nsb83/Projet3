@@ -17,7 +17,7 @@ export class ResponseModalPage {
 
   // test variables
   testTrip: string = "Chemin de la Plaine, Thurins";
-  testImgUrl: string = "./assets/imgs/profileImg.jpg";
+  testImgUrl: string = "../../../../assets/imgs/profileImg.jpg";
   testRating: number = 4;
 
   //Couleur d'étoiles dynamiques
