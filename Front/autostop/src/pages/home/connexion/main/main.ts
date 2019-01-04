@@ -9,7 +9,7 @@ import { LegalNoticePage } from "./menu/legal-notice/legal-notice";
 import { HelpPage } from "./menu/help/help";
 import { ContactPage } from "./menu/contact/contact";
 import { User } from "../../../../models/User";
-import { UserProvider } from "../../../../providers/user/user";
+import { UserProvider } from "../../../../providers/user/userProvider";
 
 @Component({
   selector: "page-main",
