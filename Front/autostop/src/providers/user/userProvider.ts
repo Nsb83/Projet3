@@ -78,7 +78,7 @@ createUser(user: User) {
         user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       
         console.log('REPONSE' , user)
-    })
+    });
 
   return user;
 };

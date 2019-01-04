@@ -47,7 +47,7 @@ export class MapPage {
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
-    this.matchableUser.setImgUrl("../../../../../assets/imgs/profileImg.jpg");
+    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.jpg");
   }
 
   loadMap() {

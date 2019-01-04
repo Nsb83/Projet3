@@ -22,9 +22,9 @@ export class MainPage {
   helpPage = HelpPage;
   contactPage = ContactPage;
 
-  user1:User;
+  user1: User;
 
-  testImgUrl: string = "../../../assets/imgs/profileImg.png";
+  placeholderImg: string = "./assets/imgs/profileImg.png";
 
 
   constructor(
@@ -36,11 +36,11 @@ export class MainPage {
     private userService: UserProvider
   ) {}
 
-  onNavigate(page: any) {
-    this.navCtrl.push(page);
-  }
-
   ngOnInit() {
     this.user1 = this.userService.getUser();
+  }
+
+  onNavigate(page: any) {
+    this.navCtrl.push(page);
   }
 }
