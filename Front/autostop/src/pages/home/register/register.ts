@@ -13,7 +13,7 @@ export class RegisterPage implements OnInit {
 
   private newUser: User;
   private register: FormGroup;
-  
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

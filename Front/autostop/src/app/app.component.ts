@@ -1,3 +1,4 @@
+import { TabsPage } from './../pages/home/connexion/main/menu/tabs/tabs';
 import { ConnexionPage } from './../pages/home/connexion/connexion';
 import { MainPage } from "./../pages/home/connexion/main/main";
 import { HomePage } from "./../pages/home/home";
