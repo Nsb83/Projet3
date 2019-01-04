@@ -40,6 +40,7 @@ import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-info
 import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from "@angular/common/http";
 import { EmailComposer } from '@ionic-native/email-composer';
+import { RouteProvider } from '../providers/route/route';
 
 
 
@@ -114,7 +115,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     EmailComposer,
     GoogleMaps,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UserProvider
+    UserProvider,
+    RouteProvider
   ]
 })
 export class AppModule {}

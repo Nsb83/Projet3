@@ -127,21 +127,20 @@ export class MapPage {
   ///////// test polylines ////////////////////
   showPoly(){
       const decodePolyline = require('decode-google-map-polyline');
-      let polyline2 = '{yevGgwm\\kB{APk@hAmDxBhB\\?hCzATFrIbH~n@|g@zIjH`JjHdF|DZPhALl@I|As@nAo@f@MzA]xJkBhPwCvK}A|HgA|Cs@~Ak@jIoDtK}E`DgBfDiC|CcDzAsBvA}BzCkGvEeMbBkDbAwA~BeCfKuJrQ_Q`BkArAo@rAa@p@OzH_Ar@AtCOpCJ|Bj@lBbAfAdAp@|@l@`AXVjChHdC|Ih@tBvGtXbAtFbBdItE`QhEjNtFvOlF~MjOl]|CdIrFfOt^lbA|IfVtDbL`DrLdEdSxEpWrF|Z~A~IdAbFlB~I~AtFlBnF|AfDzAlCtAtBlCdDjDdDtBzAhBfAtBjAr@h@pAvAbAdBn@|AjBrF|AvDfBnEzD|LXfAbAtC|@`Bj@x@p@l@z@f@hA^lAN~Jx@|Ir@v@DLBDCVFhHfEKtAQbBc@zDI`FGh@Yx@KXEh@FxBEp@M^oAhBm@|@eA~@c@Vo@l@_@d@eAtB[Tu@LoACkAHoAVeAZcA|@e@t@Qb@Ih@YbE]dDc@~BKvAMxDMfAMdDFvATjCCz@YjA}@pDCl@HhATjCDzACdDEbABr@TxEGd@Od@}@vBm@vDB`ANz@@`BMhBIfCIvAQdAs@pCc@fAe@t@Id@E~ADj@L\\TTd@Jh@@|@G|Df@f@X\\XBbAEPEt@QhBA~@EbEgC]eAr@g@h@]n@a@pAQPa@R{@Vc@Xq@v@Uj@Mj@QxAg@|BUt@}@bBwA|Cm@hB}A`Gq@pBMx@YbAq@zAe@j@y@~@k@nC_@bAUlAQ~ACfAPbDTfEGnAUz@]v@Y`B]v@Yf@WjA]z@aAt@}@TiA?yB?sCX}@?q@Go@XqE~FeAtBu@rB{@fDYlAURU?_@OWEWG[Ka@B[F_@?c@Qc@m@cB{Cq@w@e@w@CMQMKBIJC\\BHGnAMtAMr@[t@aAfAY\\Sd@]vAg@bBSnAOx@]`Ac@v@q@lCOf@m@lA{@hAaCxB{@~@_@f@ECK?GDITAP@FOrAi@fCi@xCW|CKhDBnBJ~D^|DRrB@h@KfGc@nRU`LBnAHr@bAvEVlBDxBQrEEnIA|CN|CEhEa@|GKzB@dDJtANnBAl@E`@]v@kAjDg@~B_@|DQhGH~H`@fHGt@QVKVSn@QAOHIXBd@Dn@Ad@NvAHvCI`Ao@nDWtBM~B?nCBdDCjCUhCSfAI`AFX`@jA\\~@ARBdAEpGA\\IAKFcBbDyApA}@hA]hAw@fFa@pC}@bCqAfC_AnA_BnAsAhB[v@s@Nk@To@F{Bs@qBaA?i@k@cBeAwBQY';
-      let arrayPoly = decodePolyline(polyline2);
-      console.log(decodePolyline(polyline2));
-
-    let polyStart : ILatLng = { lat:45.75 , lng:4.85};
-    let polyEnd : ILatLng = { lat: 46.3, lng:4.8333};
-    let polyArray: ILatLng[] = [polyStart, polyEnd];
+      let polylineOverview = '{yevGgwm\\kB{APk@hAmDxBhB\\?hCzATFrIbH~n@|g@zIjH`JjHdF|DZPhALl@I|As@nAo@f@MzA]xJkBhPwCvK}A|HgA|Cs@~Ak@jIoDtK}E`DgBfDiC|CcDzAsBvA}BzCkGvEeMbBkDbAwA~BeCfKuJrQ_Q`BkArAo@rAa@p@OzH_Ar@AtCOpCJ|Bj@lBbAfAdAp@|@l@`AXVjChHdC|Ih@tBvGtXbAtFbBdItE`QhEjNtFvOlF~MjOl]|CdIrFfOt^lbA|IfVtDbL`DrLdEdSxEpWrF|Z~A~IdAbFlB~I~AtFlBnF|AfDzAlCtAtBlCdDjDdDtBzAhBfAtBjAr@h@pAvAbAdBn@|AjBrF|AvDfBnEzD|LXfAbAtC|@`Bj@x@p@l@z@f@hA^lAN~Jx@|Ir@v@DLBDCVFhHfEKtAQbBc@zDI`FGh@Yx@KXEh@FxBEp@M^oAhBm@|@eA~@c@Vo@l@_@d@eAtB[Tu@LoACkAHoAVeAZcA|@e@t@Qb@Ih@YbE]dDc@~BKvAMxDMfAMdDFvATjCCz@YjA}@pDCl@HhATjCDzACdDEbABr@TxEGd@Od@}@vBm@vDB`ANz@@`BMhBIfCIvAQdAs@pCc@fAe@t@Id@E~ADj@L\\TTd@Jh@@|@G|Df@f@X\\XBbAEPEt@QhBA~@EbEgC]eAr@g@h@]n@a@pAQPa@R{@Vc@Xq@v@Uj@Mj@QxAg@|BUt@}@bBwA|Cm@hB}A`Gq@pBMx@YbAq@zAe@j@y@~@k@nC_@bAUlAQ~ACfAPbDTfEGnAUz@]v@Y`B]v@Yf@WjA]z@aAt@}@TiA?yB?sCX}@?q@Go@XqE~FeAtBu@rB{@fDYlAURU?_@OWEWG[Ka@B[F_@?c@Qc@m@cB{Cq@w@e@w@CMQMKBIJC\\BHGnAMtAMr@[t@aAfAY\\Sd@]vAg@bBSnAOx@]`Ac@v@q@lCOf@m@lA{@hAaCxB{@~@_@f@ECK?GDITAP@FOrAi@fCi@xCW|CKhDBnBJ~D^|DRrB@h@KfGc@nRU`LBnAHr@bAvEVlBDxBQrEEnIA|CN|CEhEa@|GKzB@dDJtANnBAl@E`@]v@kAjDg@~B_@|DQhGH~H`@fHGt@QVKVSn@QAOHIXBd@Dn@Ad@NvAHvCI`Ao@nDWtBM~B?nCBdDCjCUhCSfAI`AFX`@jA\\~@ARBdAEpGA\\IAKFcBbDyApA}@hA]hAw@fFa@pC}@bCqAfC_AnA_BnAsAhB[v@s@Nk@To@F{Bs@qBaA?i@k@cBeAwBQY';
+      let arrayPoly = decodePolyline(polylineOverview);
+      console.log(decodePolyline(polylineOverview));
 
     let polyline: Polyline = this.map.addPolylineSync({
       points: arrayPoly,
-      color: '#AA00FF',
-      width: 10,
+      color: '#258c3d',
+      width: 5,
       geodesic: true,
       clickable: true
+      // clickable a enlever, DEV PURPOSE ONLY
     })
+
+    /////// route clickable DEV PURPOSE ONLY
     polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       let position: LatLng = <LatLng>params[0];
       let markerPoly: Marker = this.map.addMarkerSync({
@@ -151,12 +150,8 @@ export class MapPage {
       });
       markerPoly.showInfoWindow();
     });
-  }
-  decodePoly(){
-    const decodePolyline = require('decode-google-map-polyline');
-    let polyline = '{yevGgwm\\kB{APk@hAmDxBhB\\?hCzATFrIbH~n@|g@zIjH`JjHdF|DZPhALl@I|As@nAo@f@MzA]xJkBhPwCvK}A|HgA|Cs@~Ak@jIoDtK}E`DgBfDiC|CcDzAsBvA}BzCkGvEeMbBkDbAwA~BeCfKuJrQ_Q`BkArAo@rAa@p@OzH_Ar@AtCOpCJ|Bj@lBbAfAdAp@|@l@`AXVjChHdC|Ih@tBvGtXbAtFbBdItE`QhEjNtFvOlF~MjOl]|CdIrFfOt^lbA|IfVtDbL`DrLdEdSxEpWrF|Z~A~IdAbFlB~I~AtFlBnF|AfDzAlCtAtBlCdDjDdDtBzAhBfAtBjAr@h@pAvAbAdBn@|AjBrF|AvDfBnEzD|LXfAbAtC|@`Bj@x@p@l@z@f@hA^lAN~Jx@|Ir@v@DLBDCVFhHfEKtAQbBc@zDI`FGh@Yx@KXEh@FxBEp@M^oAhBm@|@eA~@c@Vo@l@_@d@eAtB[Tu@LoACkAHoAVeAZcA|@e@t@Qb@Ih@YbE]dDc@~BKvAMxDMfAMdDFvATjCCz@YjA}@pDCl@HhATjCDzACdDEbABr@TxEGd@Od@}@vBm@vDB`ANz@@`BMhBIfCIvAQdAs@pCc@fAe@t@Id@E~ADj@L\\TTd@Jh@@|@G|Df@f@X\\XBbAEPEt@QhBA~@EbEgC]eAr@g@h@]n@a@pAQPa@R{@Vc@Xq@v@Uj@Mj@QxAg@|BUt@}@bBwA|Cm@hB}A`Gq@pBMx@YbAq@zAe@j@y@~@k@nC_@bAUlAQ~ACfAPbDTfEGnAUz@]v@Y`B]v@Yf@WjA]z@aAt@}@TiA?yB?sCX}@?q@Go@XqE~FeAtBu@rB{@fDYlAURU?_@OWEWG[Ka@B[F_@?c@Qc@m@cB{Cq@w@e@w@CMQMKBIJC\\BHGnAMtAMr@[t@aAfAY\\Sd@]vAg@bBSnAOx@]`Ac@v@q@lCOf@m@lA{@hAaCxB{@~@_@f@ECK?GDITAP@FOrAi@fCi@xCW|CKhDBnBJ~D^|DRrB@h@KfGc@nRU`LBnAHr@bAvEVlBDxBQrEEnIA|CN|CEhEa@|GKzB@dDJtANnBAl@E`@]v@kAjDg@~B_@|DQhGH~H`@fHGt@QVKVSn@QAOHIXBd@Dn@Ad@NvAHvCI`Ao@nDWtBM~B?nCBdDCjCUhCSfAI`AFX`@jA\\~@ARBdAEpGA\\IAKFcBbDyApA}@hA]hAw@fFa@pC}@bCqAfC_AnA_BnAsAhB[v@s@Nk@To@F{Bs@qBaA?i@k@cBeAwBQY';
-    let arrayPoly = decodePolyline(polyline);
-    console.log(decodePolyline(polyline));
+    ///////////////
+
   }
     // FIN TEST POLY
 
