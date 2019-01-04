@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
   user1: User;
   userUpdate: User;
   private updateProfil: FormGroup;
+  myDate:string;
 
   constructor(
     public navCtrl: NavController, 
@@ -26,6 +27,7 @@ export class ProfilePage implements OnInit {
    
     console.log('ionViewDidLoad ProfilePage');
     this.user1 = this.userService.getUser();
+    this.myDate = this.user1.getDateOfBirth()
     console.log(this.user1);
     this.initForm();
   }
