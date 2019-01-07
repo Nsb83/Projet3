@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { UserProvider } from '../../../../../../../providers/user/user';
+import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { User } from '../../../../../../../models/User';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 
@@ -10,7 +10,9 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 })
 export class ProfilePage implements OnInit {
   user1: User;
+  userUpdate: User;
   private updateProfil: FormGroup;
+  myDate:string;
 
   constructor(
     public navCtrl: NavController, 
@@ -25,6 +27,7 @@ export class ProfilePage implements OnInit {
    
     console.log('ionViewDidLoad ProfilePage');
     this.user1 = this.userService.getUser();
+    this.myDate = this.user1.getDateOfBirth()
     console.log(this.user1);
     this.initForm();
   }
@@ -41,6 +44,23 @@ export class ProfilePage implements OnInit {
         password: ["", Validators.required],
       },
     );
+  }
+
+  validateForm(updateProfil){
+    this.userUpdate = new User(
+      updateProfil.lastName,
+      updateProfil.firstName,
+      updateProfil.phone,
+      updateProfil.sex,
+      updateProfil.dateOfBirth,
+      updateProfil.email,
+      updateProfil.password
+    );
+
+    this.userService.updateUser(this.userUpdate).subscribe(() => {
+      console.log(this.userUpdate);
+    });
+    
   }
 
 }

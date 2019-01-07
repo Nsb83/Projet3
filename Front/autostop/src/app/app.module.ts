@@ -37,7 +37,7 @@ import { ChoicePage } from "../pages/home/register/choice/choice";
 
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
-import { UserProvider } from '../providers/user/user';
+import { UserProvider } from '../providers/user/userProvider';
 import { HttpClientModule } from "@angular/common/http";
 import { EmailComposer } from '@ionic-native/email-composer';
 import { RouteProvider } from '../providers/route/route';

@@ -39,6 +39,8 @@ export class MapPage {
   userPosition;
   searchValue;
   routeJson : any;
+  matchableUser = new User("Doe", "John", "08 36 65 65 65", "male", "29/02/1948", "gegedarmon@mail.fr", "superpassword");
+  // Test data for request-modal
 
   positionOtherUser  = {
     lat: 45.682808,
@@ -50,6 +52,7 @@ export class MapPage {
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
+    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.jpg");
   }
 
   loadMap() {
@@ -163,7 +166,7 @@ export class MapPage {
 
   // Show modal for matching request
   showMatchModal(){
-    const matchModal = this.modalCtrl.create(RequestModalPage, { });
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
 

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of'; 
 import { EmailValidator } from '@angular/forms';
 import { from } from 'rxjs/observable/from';
-import { Account } from '../../models/Account';
+// import { Account } from '../../models/Account';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -62,7 +62,8 @@ createUser(user: User) {
 
   getUser() {
     const user: User = new User();
-    this.http.get<User>(this.URL_DB + "/find/1").subscribe((response: any) => {
+    this.http
+      .get<User>(this.URL_DB + "/find/4").subscribe((response: any) => {
      
       console.log(response);
       
@@ -71,15 +72,24 @@ createUser(user: User) {
         user.setPhone(response.phone);
         user.setSex(response.sex);
         user.setDateOfBirth(response.dateOfBirth);
-        const account: Account = new Account(response.account.email, response.account.password);
-        user.setAccount(account);
+        // const account: Account = new Account(response.account.email, response.account.password);
+        // user.setAccount(account);
+        user.setEmail(response.email);
+        user.setPassword(response.password);
         user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       
         console.log('REPONSE' , user)
-    })
+    });
 
   return user;
 };
+
+updateUser(user: User){
+  return this.http
+    .put<User>(this.URL_DB + "/update/1", user);
+  
+
+}
 
 // *********************************************
 }
