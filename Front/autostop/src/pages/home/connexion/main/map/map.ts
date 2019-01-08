@@ -1,11 +1,10 @@
+import { RouteProvider } from './../../../../../providers/route/route';
 import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
-import { GiveRatingPage } from './request-modal/response-modal/linking/give-rating/give-rating';
 import { RequestModalPage } from './request-modal/request-modal';
-
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage, ModalController } from 'ionic-angular';
+import { NavController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
 
 import {
   GoogleMaps,
@@ -23,7 +22,9 @@ import {
   GeocoderRequest,
   GeocoderResult,
   Geocoder,
-  LatLng
+  LatLng,
+  Polyline,
+  ILatLng
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -31,18 +32,22 @@ import {
   selector: "page-map",
   templateUrl: "map.html"
 })
+
 export class MapPage {
   map: GoogleMap;
-  ratingPage = GiveRatingPage;
+  inputSearch;
+  userPosition;
+  searchValue;
+  routeJson : any;
   matchableUser = new User("Doe", "John", "08 36 65 65 65", "male", "29/02/1948", "gegedarmon@mail.fr", "superpassword");
   // Test data for request-modal
-  
+
   positionOtherUser  = {
     lat: 45.682808,
     lng: 4.641063000000031
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -71,6 +76,7 @@ export class MapPage {
           zoom: 15
         }
       };
+
       // Création de la carte
       this.map = GoogleMaps.create("map", options);
 
@@ -93,10 +99,10 @@ export class MapPage {
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
-      let centre2 = location.latLng;
+      let centre = location.latLng;
       // création du cercle avec comme centre la géoloc
       let circle: Circle = this.map.addCircleSync({
-        center: centre2,
+        center: centre,
         radius: 500,
         strokeColor: "#258c3d",
         // strokeWidth: 30, A QUOI CA SERT???
@@ -106,9 +112,57 @@ export class MapPage {
         target: circle.getBounds
       });
     });
-
-
   }
+
+  receiveMessage($event) {
+    this.searchValue = $event
+    this.getRouteJson(this.searchValue);
+    this.showPoly(this.routeJson);  }
+
+  getRouteJson(searchValue){
+    let option: MyLocationOptions = {
+      enableHighAccuracy: true
+    };
+    LocationService.getMyLocation(option).then((location: MyLocation) => {
+      this.RouteProvider.getRoute(location.latLng, searchValue).subscribe((data: any)=>
+        this.routeJson = data.routes[0].overview_polyline.points);
+    });
+  };
+
+  // displayRouteJson(){
+  //   this.showPoly(this.routeJson);
+  // }
+  ///////// Polylines ////////////////////
+  showPoly(polyRoute){
+      const decodePolyline = require('decode-google-map-polyline');
+      let polylineOverview = polyRoute;
+      let arrayPoly = decodePolyline(polylineOverview);
+      console.log(decodePolyline(polylineOverview));
+
+    let polyline: Polyline = this.map.addPolylineSync({
+      points: arrayPoly,
+      color: '#258c3d',
+      width: 5,
+      geodesic: true,
+      clickable: true
+      // clickable a enlever, DEV PURPOSE ONLY
+    })
+
+    /////// route clickable DEV PURPOSE ONLY
+    polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+      let position: LatLng = <LatLng>params[0];
+      let markerPoly: Marker = this.map.addMarkerSync({
+        position: position,
+        title: position.toUrlValue(),
+        disableAutoPan: true
+      });
+      markerPoly.showInfoWindow();
+    });
+    ///////////////
+  }
+    // FIN POLY
+    // fin route direction
+
 
   // Show modal for matching request
   showMatchModal(){
@@ -116,13 +170,6 @@ export class MapPage {
     matchModal.present();
   }
 
-
-  searchValue;
-  receiveMessage($event) {
-    this.searchValue = $event
-    console.log(this.searchValue)
-    this.goToSpecificLocation();
-  }
   goToSpecificLocation(){
     let options: GeocoderRequest = {
     address: this.searchValue
@@ -131,19 +178,17 @@ export class MapPage {
     // Address -> latitude,longitude
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
-    console.log(results);
-
-    let markerDestination : Marker = this.map.addMarkerSync({
-    'position': results[0].position,
-    'title': JSON.stringify(results[0].extra.lines),
-    icon: {url: "../assets/icon/thumb.png",
-              size: {
-                width: 32,
-                height: 32
+      let markerDestination : Marker = this.map.addMarkerSync({
+      'position': results[0].position,
+      'title': JSON.stringify(results[0].extra.lines),
+      icon: {url: "../assets/icon/thumb.png",
+                size: {
+                  width: 32,
+                  height: 32
+                }
               }
-            }
-    })
-    markerDestination.showInfoWindow();
+      })
+      markerDestination.showInfoWindow();
     })
 
 

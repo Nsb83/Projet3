@@ -1,0 +1,443 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ2Q1mHjrA9EcREHrkQS6rCBw",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJvYfMnZbs9EcRUHPkQS6rCBw",
+         "types" : [ "postal_code" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 45.794044,
+               "lng" : 4.892722
+            },
+            "southwest" : {
+               "lat" : 45.7647547,
+               "lng" : 4.7691423
+            }
+         },
+         "copyrights" : "Données cartographiques ©2019 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "15,8 km",
+                  "value" : 15806
+               },
+               "duration" : {
+                  "text" : "21 minutes",
+                  "value" : 1262
+               },
+               "end_address" : "69130 Écully, France",
+               "end_location" : {
+                  "lat" : 45.7808523,
+                  "lng" : 4.773756
+               },
+               "start_address" : "69100 Villeurbanne, France",
+               "start_location" : {
+                  "lat" : 45.7713146,
+                  "lng" : 4.8844582
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "53 m",
+                        "value" : 53
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 14
+                     },
+                     "end_location" : {
+                        "lat" : 45.7712595,
+                        "lng" : 4.8851385
+                     },
+                     "html_instructions" : "Prendre la direction \u003cb\u003eest\u003c/b\u003e sur \u003cb\u003eRue Francis de Pressensé\u003c/b\u003e vers \u003cb\u003eAvenue Commandant l'Herminier\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "uujvG{~x\\HgC"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7713146,
+                        "lng" : 4.8844582
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,4 km",
+                        "value" : 379
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 62
+                     },
+                     "end_location" : {
+                        "lat" : 45.7744996,
+                        "lng" : 4.884598599999999
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà gauche\u003c/b\u003e sur \u003cb\u003eRue des Bienvenus\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "kujvGccy\\?c@qJrAG?uBXwC`@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7712595,
+                        "lng" : 4.8851385
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 283
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 33
+                     },
+                     "end_location" : {
+                        "lat" : 45.7747993,
+                        "lng" : 4.888215499999999
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà droite\u003c/b\u003e sur \u003cb\u003eRue Louis Fort\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "sikvGw_y\\GwAGyAIwBEsACw@KwBA]@QAOCg@AYASAO"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7744996,
+                        "lng" : 4.884598599999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,4 km",
+                        "value" : 391
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 51
+                     },
+                     "end_location" : {
+                        "lat" : 45.776275,
+                        "lng" : 4.892722
+                     },
+                     "html_instructions" : "Au rond-point, continuer tout droit sur \u003cb\u003eRue Michel Dupeuble\u003c/b\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "okkvGkvy\\BC@E?I?CAA?CAA?AAACAAAA?ACCEGUACCAgCiLCIAIKc@S{@I_@sAwF"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7747993,
+                        "lng" : 4.888215499999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,7 km",
+                        "value" : 725
+                     },
+                     "duration" : {
+                        "text" : "2 minutes",
+                        "value" : 125
+                     },
+                     "end_location" : {
+                        "lat" : 45.7825909,
+                        "lng" : 4.890694400000001
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà gauche\u003c/b\u003e sur \u003cb\u003eRue du 8 Mai 1945\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "wtkvGorz\\cAb@GBm@R_@HIBa@HgAPE?yBXA@K@a@Fe@FeDh@aC`@gBXeBXYFUFGAOBQHYLKBE@c@NULIFKJQPOLE@C?E?KA"
+                     },
+                     "start_location" : {
+                        "lat" : 45.776275,
+                        "lng" : 4.892722
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,2 km",
+                        "value" : 198
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 27
+                     },
+                     "end_location" : {
+                        "lat" : 45.7838307,
+                        "lng" : 4.8922705
+                     },
+                     "html_instructions" : "Au rond-point, prendre la \u003cb\u003e2e\u003c/b\u003e sortie",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "e|lvGyez\\CGCGEAECM@IBGMSUeAiBGGEGMMCEGCIGACAACAOGGEEC?AAACEAECICG?MAI?G?Q"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7825909,
+                        "lng" : 4.890694400000001
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,4 km",
+                        "value" : 425
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 36
+                     },
+                     "end_location" : {
+                        "lat" : 45.7863335,
+                        "lng" : 4.8889342
+                     },
+                     "html_instructions" : "Au rond-point, prendre la \u003cb\u003e2e\u003c/b\u003e sortie (\u003cb\u003eD383\u003c/b\u003e)",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "}cmvGuoz\\?A@A?A?A@A?A?A?A?A?A?A?A?A?A?AAA?A?A?AAA?AAA?AA??AAAAAA??AA?AAA?A??AA?A?A??@A?A?A@A?A@A@A??@A@?@A??@A@?@?@A@?@?@?@?@?@?@?@?@?@?@?@?@?@IJQXMXKTM\\Wr@M^MXINILKPMR[b@GRsAdBa@h@sBlCQf@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7838307,
+                        "lng" : 4.8922705
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "9,4 km",
+                        "value" : 9435
+                     },
+                     "duration" : {
+                        "text" : "8 minutes",
+                        "value" : 454
+                     },
+                     "end_location" : {
+                        "lat" : 45.77247999999999,
+                        "lng" : 4.7896706
+                     },
+                     "html_instructions" : "Rejoindre \u003cb\u003eBoulevard Périphérique Nord\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRoute avec sections à péage\u003c/div\u003e",
+                     "maneuver" : "merge",
+                     "polyline" : {
+                        "points" : "qsmvGyzy\\i@l@gBpBm@r@yDpEmBzBUVkBxBeCtCm@p@iB|B}@lAc@l@CDSXW\\Yd@a@t@e@v@a@t@GLy@|AEL_@t@GLYt@ABADSf@Qh@Oj@Md@Kf@Ib@Kj@Gb@EZGp@Gh@Cb@APANAZ?FArAAl@?\\@f@@^Bj@B^Fv@Fn@Fn@N|@F\\DVDNZxA^rAZtAVx@~E`SJ\\JXXt@LXLXLV\\n@PV^l@^n@PT^n@`@p@Tf@Tt@~@rCb@vAXp@jBfE\\fADHH^H\\H\\DZPbAF^J~@D^D^B^Bd@B^B|@Bz@?~AAjAA^Af@Ad@?f@APEpBCpBGtDMhME`DEnBQvCS~BOzA]rCU~AQ|@a@fB_@xAa@xA[|@S|@Qt@WhAUhASrAWxBc@jDaEf]OhAqDv\\cAhJkBpSCP]|CIn@Ed@_@jDEZAJIdAEn@ARGz@Et@ANANGlAGfBKbE@fGFhE?@ZzEh@~EZlBXhBPt@Jd@@B~AlHvArFv@pClAvDp@nB\\t@Vn@JXNb@ZbA\\xA\\hBJf@?@DRJf@h@lCp@vDR~@`AjDhAzCFP@DRf@NXP^t@vAf@r@t@bAbAlANPHHj@j@vBfBxChBdBdAf@`@\\R@@@?NHjB`ARRd@d@JLp@hAr@tA\\p@Pb@DJFLVb@R\\R^`@j@j@t@v@z@x@z@~@hAj@x@n@dAf@dAJP|@lBNZVl@BB@DN\\Zr@l@zAZt@t@`BzAdDXh@zClGd@z@PZNVX`@BDn@`ABBp@dA^j@nAbBl@h@nA`ApBv@lA^^HlDt@NDlAXvCf@h@NJ@HB"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7863335,
+                        "lng" : 4.8889342
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,4 km",
+                        "value" : 375
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 21
+                     },
+                     "end_location" : {
+                        "lat" : 45.7700977,
+                        "lng" : 4.7864873
+                     },
+                     "html_instructions" : "Rester sur la file de \u003cb\u003egauche\u003c/b\u003e pour continuer sur \u003cb\u003eBoulevard Périphérique Nord\u003c/b\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "_}jvGmnf\\h@Ld@RNHNHDD@?LHNLVR`@`@x@~@BFRXT`@LXP`@JTf@~Al@hB`@pA"
+                     },
+                     "start_location" : {
+                        "lat" : 45.77247999999999,
+                        "lng" : 4.7896706
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1,6 km",
+                        "value" : 1568
+                     },
+                     "duration" : {
+                        "text" : "3 minutes",
+                        "value" : 158
+                     },
+                     "end_location" : {
+                        "lat" : 45.7663464,
+                        "lng" : 4.7693958
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eBoulevard du Valvert\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "cnjvGqze\\P`@DJHNR^lAxBJPJRJPDFDDPRLRJPJPLTpAzB`@r@h@|@PX\\n@dBxCXd@~@hBh@jAP`@^dADNFPNn@Pr@\\pBJh@T~Ax@zF`ApG\\zBb@bDP~AF~@@f@ATCbAATI|@Ot@EHKb@Qh@M^u@nBm@~Aw@fB?@IRIRg@lAKVCPCT"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7700977,
+                        "lng" : 4.7864873
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,1 km",
+                        "value" : 117
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 15
+                     },
+                     "end_location" : {
+                        "lat" : 45.767391,
+                        "lng" : 4.769394999999999
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà droite\u003c/b\u003e sur \u003cb\u003eAvenue Franklin Roosevelt\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "uvivGwob\\WI[Eo@Ba@BE?QB]BS@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7663464,
+                        "lng" : 4.7693958
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,8 km",
+                        "value" : 844
+                     },
+                     "duration" : {
+                        "text" : "2 minutes",
+                        "value" : 90
+                     },
+                     "end_location" : {
+                        "lat" : 45.7741376,
+                        "lng" : 4.7727883
+                     },
+                     "html_instructions" : "Rester sur la file de \u003cb\u003egauche\u003c/b\u003e pour continuer sur \u003cb\u003eAvenue Paul Santy\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eTraverser 2 ronds-points\u003c/div\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "e}ivGuob\\Q@WFMDED_@N]DW@A?c@?u@?A?eA?KB_@Gw@WYQe@_@MKQUQYWg@]s@KQY]MY[e@[UCGCECAA?C?A?CBSMYO[Ke@IICC?q@G_@GICM@UEa@OKEmBmA}AgA_@Y?AAA?AAAA??AA?KE?A?A?A?A?AAA?A?A?AA??A?AA??AAAAAAAA?AAA?A?A?A?A?A@A?[UGCA?AAE?C@A?"
+                     },
+                     "start_location" : {
+                        "lat" : 45.767391,
+                        "lng" : 4.769394999999999
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 252
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 39
+                     },
+                     "end_location" : {
+                        "lat" : 45.7759543,
+                        "lng" : 4.7745367
+                     },
+                     "html_instructions" : "\u003cb\u003eAvenue Paul Santy\u003c/b\u003e tourne légèrement \u003cb\u003eà droite\u003c/b\u003e et devient \u003cb\u003eAvenue Paul Santy\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "kgkvG}dc\\y@i@[QCCyA_Am@a@yAaAWe@GOCKCK?GAG?GCS"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7741376,
+                        "lng" : 4.7727883
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 266
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 46
+                     },
+                     "end_location" : {
+                        "lat" : 45.777995,
+                        "lng" : 4.776127
+                     },
+                     "html_instructions" : "Prendre légèrement \u003cb\u003eà gauche\u003c/b\u003e sur \u003cb\u003eChemin du Chancelier\u003c/b\u003e",
+                     "maneuver" : "turn-slight-left",
+                     "polyline" : {
+                        "points" : "urkvG{oc\\CKAEACEACAE?a@Bg@OWMu@a@mAcA]c@MOq@o@MK[]SU"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7759543,
+                        "lng" : 4.7745367
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 307
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 38
+                     },
+                     "end_location" : {
+                        "lat" : 45.77929,
+                        "lng" : 4.773455
+                     },
+                     "html_instructions" : "Au rond-point, prendre la \u003cb\u003e2e\u003c/b\u003e sortie sur \u003cb\u003eChemin de Charrière Blanche\u003c/b\u003e",
+                     "maneuver" : "roundabout-right",
+                     "polyline" : {
+                        "points" : "o_lvGyyc\\@??A@A?A?A?A@??A?A?A?A?AA??A?A?AAA?AAA?AA??AA?AAA?A?A?A?A?A??@A??@A??@A??@?@A??@?@?@A??@?@?@?@?@?@@@?@WTQ\\Sd@Y^ORa@`@]Xe@l@ITGVE\\AbB?N?bB"
+                     },
+                     "start_location" : {
+                        "lat" : 45.777995,
+                        "lng" : 4.776127
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,2 km",
+                        "value" : 188
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 53
+                     },
+                     "end_location" : {
+                        "lat" : 45.7808523,
+                        "lng" : 4.773756
+                     },
+                     "html_instructions" : "Tourner à \u003cb\u003edroite\u003c/b\u003e pour rester sur \u003cb\u003eChemin de Charrière Blanche\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eVoie à accès limité\u003c/div\u003e\u003cdiv style=\"font-size:0.9em\"\u003eVotre destination se trouvera sur la gauche.\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "qglvGcic\\KAGAECAAAACECECCo@]{@_@w@WKAG?C@KDeAn@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.77929,
+                        "lng" : 4.773455
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "uujvG{~x\\HkDyJrAmGz@OqD_@{JEgBCm@@S?UCIIGQa@yCaN]{AsAwFcAb@u@Vi@LiBZ_CXuARuN~Bo@NW@}@\\y@\\URa@^I@QAGOKEWD[c@mAqB_@_@QO]SKWEg@@W@OAOGKKEI?KHEL?N?F[d@Yn@aAjCm@bA[b@GRuBnCsBlCQf@qC~CkJxKqFnGwCnDyBzCq@bAgAlBiBnDg@bA[x@w@bCo@|C]zCI`BCfDJrCNfBVlBn@~CrHdZ~@fCjAxBpBbDv@xAtAhE|@hCjBfE\\fANh@Rz@j@~DRdCF|ABzCGxDK|GU~RKpGQvCS~Bm@nFg@|CaA`E}@vCe@rBm@rCk@lEeFrb@aE`_@cAhJkBpSa@nDu@|Ge@fHOtDKbE@fGFjEZzEh@~Et@vE\\zA`BpHvArFv@pC~BfHt@dBZ|@x@|Ch@rCz@hEdAvF`AjDhAzCHVb@`AP^t@vAf@r@xBpCXZbDrC~FnDf@`@\\RB@zBjAx@x@|@vApAfCv@`Bf@|@lA`BpBvBjBbCn@dAf@dAhA~Bl@rAtBbFpCfGtDvHv@vAh@x@hBpCnBnC|BjBpBv@lA^lE~@|A^vCf@h@NTDh@Ld@R^RFD\\Vx@t@|@fAh@z@^z@r@tBnAzDVl@vBzDb@r@^f@Vb@jDbGnDhGhBtDp@fBn@dCh@zCnAzI~AlKt@bGHfBExAKrAOt@EH]lAcAnCoB|Eq@`BOh@CTWI[Eo@Bg@Bo@Fe@Be@Le@Tu@F}A?qAB_@Gw@W_Aq@_@a@sAgCg@w@[e@[UGMEAE?CBSMu@[o@M_BSM@UEm@UkEuC_@[ACQICUKIM@g@[I@{@i@gDwByAaAWe@K[Ec@Ki@ICg@B_A]u@a@mAcAk@s@_A{@m@s@@E?MCKGEI@GFAL@DWVe@bAi@r@_Az@e@l@ITMt@ArB?bBKAMEKOs@a@sBw@SAOFeAn@"
+         },
+         "summary" : "Boulevard Périphérique Nord",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
