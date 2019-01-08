@@ -2,6 +2,7 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,7 @@ public class UserService implements UserDetailsService {
 
     public User postUser(User user) {
         User _user = userDAO.save(new User(
+                user.getUserID(),
                 user.getLastName(),
                 user.getFirstName(),
                 user.getPhone(),
@@ -76,11 +78,19 @@ public class UserService implements UserDetailsService {
         currentUser.setSex(user.getSex());
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
-        currentUser.setPassword(user.getPassword());
+        currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         currentUser.setUploadFileResponse(user.getUploadFileResponse());
         userDAO.save(currentUser);
 //        userService.updateUser(currentUser);
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+    }
+
+    public User getUser(String email) {
+        User user = userDAO.findByEmail(email);
+        if(user == null) throw new UsernameNotFoundException(email);
+        User returnValue = new User();
+        BeanUtils.copyProperties(user, returnValue);
+        return returnValue;
     }
 
     @Override
