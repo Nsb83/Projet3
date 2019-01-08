@@ -5,39 +5,47 @@ import fr.autostopfrance.Autostop.repositories.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 
 import javax.persistence.*;
 import javax.swing.text.html.parser.Entity;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     UserDAO userDAO;
+
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public List<User> findUsers() {
         return userDAO.findAll();
     }
 
     public User postUser(User user) {
-//        User _user = userDAO.save(new User(
-//                user.getLastName(),
-//                user.getFirstName(),
-//                user.getPhone(),
-//                user.getSex(),
-//                user.getDateOfBirth(),
-//                user.getAccount().getEmail(),
-//                user.getAccount().getPassword(),
-//                user.getUploadFileResponse().getFileDownloadUri()
-//                ));
-//        return _user;
+        User _user = userDAO.save(new User(
+                user.getLastName(),
+                user.getFirstName(),
+                user.getPhone(),
+                user.getSex(),
+                user.getDateOfBirth(),
+                user.getEmail(),
+                bCryptPasswordEncoder.encode(user.getPassword()),
+                user.getUploadFileResponse()
+                ));
+        return _user;
 
-       return userDAO.save(user);
+//       return userDAO.save(user);
     }
 
     public ResponseEntity<String> deleteUser(long idUser) {
@@ -75,6 +83,10 @@ public class UserService {
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
 
-
-
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userDAO.findByEmail(email);
+        if(user == null) throw new UsernameNotFoundException(email);
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
+}
