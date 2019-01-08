@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:8000"})
 public class ImageController {
 
     private static final Logger logger = LoggerFactory.getLogger(ImageController.class);
