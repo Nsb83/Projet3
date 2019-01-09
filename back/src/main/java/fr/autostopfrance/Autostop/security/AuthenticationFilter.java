@@ -1,6 +1,9 @@
 package fr.autostopfrance.Autostop.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.autostopfrance.Autostop.SpringApplicationContext;
+import fr.autostopfrance.Autostop.models.User;
+import fr.autostopfrance.Autostop.services.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -55,7 +58,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 .setExpiration(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SecurityConstants.TOKEN_SECRET )
                 .compact();
+        UserService userService = (UserService) SpringApplicationContext.getBean("userService");
+        User user = userService.getUser(userName);
 
         res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+
+        res.addHeader("UserID", Long.toString(user.getId()));
     }
 }
