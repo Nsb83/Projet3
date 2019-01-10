@@ -7,7 +7,6 @@ import { StatusBar } from "@ionic-native/status-bar";
 // ***************************************
 //        IMPORTS DES PAGES IONIC 
 // ***************************************
-import { TimerPage } from "../pages/home/connexion/main/map/request-modal/timer/timer";
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
 import { AddFavoritePage } from "../pages/home/connexion/main/menu/tabs/favorites/add-favorite/add-favorite";
@@ -73,8 +72,7 @@ import { RouteProvider } from '../providers/route/route';
     TabsPage,
     VehiclePage,
     ChoicePage,
-    DriverInfosPage,
-    TimerPage,
+    DriverInfosPage
   ],
   imports: [
     BrowserModule,
@@ -109,8 +107,7 @@ import { RouteProvider } from '../providers/route/route';
     TabsPage,
     VehiclePage,
     ChoicePage,
-    DriverInfosPage,
-    TimerPage
+    DriverInfosPage
   ],
   providers: [
     StatusBar,
