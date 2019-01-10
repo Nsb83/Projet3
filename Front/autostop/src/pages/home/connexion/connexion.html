@@ -2,13 +2,14 @@
   <ion-navbar> <ion-title>connexion</ion-title> </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<!-- <ion-content padding>
   <form [formGroup]="connexion">
     <ion-item>
       <ion-input
         type="text"
         formControlName="email"
         placeholder="E-mail"
+        [(ngModel)]="username"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -16,6 +17,7 @@
         type="text"
         formControlName="password"
         placeholder="Password"
+        [(ngModel)]="password"
       ></ion-input>
     </ion-item>
     <button
@@ -24,7 +26,8 @@
       color="button"
       type="submit"
       [disabled]="!connexion.valid"
-      [navPush]="main"
+      (click)="login()"
+
     >
       CONNEXION
     </button>
@@ -32,4 +35,39 @@
   <div>
     <a (click)="onNavigate2(lostPasswordPage)">Mot de passe oublié ?</a>
   </div>
-</ion-content>
+</ion-content> -->
+
+
+<!-- <ion-content>
+  <form #FormLogin="ngForm" (ngSubmit)="login(FormLogin)">
+    <ion-item>
+      <ion-label floating>email</ion-label>
+      <ion-input [(ngModel)]="FormLogin.email" name="email" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="FormLogin.password" name="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <button [disabled]="!FormLogin.form.valid" type="submit" full ion-button>Login</button>
+    </ion-item>
+  </form>
+</ion-content> -->
+
+<ion-content padding>
+  <ion-list>
+  
+    <ion-item>
+      <ion-label fixed>email</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label fixed>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  
+    <button ion-button block color="primary" (click)="login()">Login</button>
+  
+  </ion-list>
+  </ion-content>
