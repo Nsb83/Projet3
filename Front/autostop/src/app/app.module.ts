@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
-import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
@@ -38,11 +38,12 @@ import { ChoicePage } from "../pages/home/register/choice/choice";
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
 import { UserProvider } from '../providers/user/userProvider';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { EmailComposer } from '@ionic-native/email-composer';
 import { RouteProvider } from '../providers/route/route';
-
-
+import { TokenInterceptor } from "./http-interceptors/token-interceptor";
+import { AuthService } from '../providers/auth/auth.service';
+import { TokenStorage } from '../providers/auth/token.storage'
 
 @NgModule({
   declarations: [
@@ -111,11 +112,14 @@ import { RouteProvider } from '../providers/route/route';
   ],
   providers: [
     StatusBar,
+    AuthService,
     SplashScreen,
     EmailComposer,
     GoogleMaps,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    TokenStorage,
     RouteProvider
   ]
 })

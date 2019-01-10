@@ -1,18 +1,18 @@
 <!-- <ion-content padding> 
-        <h2 padding>{{ user1.firstName }}</h2> -->
+        <h2 padding>{{ user.firstName }}</h2> -->
 
 
     <ion-content padding class="container">
         <form [formGroup]="updateProfil">
           <ion-item>
-            <ion-input type="text" formControlName="lastName" value="{{ user1.lastName }}" placeholder="Nom">
+            <ion-input type="text" formControlName="lastName" value="{{ user.lastName }}" placeholder="Nom">
             </ion-input>
           </ion-item>
           <ion-item>
             <ion-input
               type="text"
               formControlName="firstName"
-              value="{{ user1.firstName }}"
+              value="{{ user.firstName }}"
               placeholder="Prénom"
             ></ion-input>
           </ion-item>
@@ -20,7 +20,7 @@
             <ion-input
               type="tel"
               formControlName="phone"
-              value="{{ user1.phone }}"
+              value="{{ user.phone }}"
               placeholder="Téléphone"
             ></ion-input>
           </ion-item>
@@ -28,7 +28,7 @@
             <ion-input
               type="email"
               formControlName="email"
-              value="{{ user1.email }}"
+              value="{{ user.email }}"
               placeholder="Adresse mail"
             ></ion-input>
           </ion-item>
@@ -36,13 +36,13 @@
             <ion-input
               type="text"
               formControlName="sex"
-              value="{{ user1.sex }}"
+              value="{{ user.sex }}"
               placeholder="Sexe"
             ></ion-input>
           </ion-item>
           <ion-item id="dateOfBirth">
             <ion-datetime
-              placeholder={{user1.dateOfBirth}}
+              placeholder={{ user.dateOfBirth }}
               displayFormat="DD/MM/YYYY"
               pickerFormat="DD/MM/YYYY"
               min="1918"
@@ -54,7 +54,7 @@
             <ion-input
               type="text"
               formControlName="dateOfBirth"
-              value="{{ user1.dateOfBirth }}"
+              value="{{ user.dateOfBirth }}"
               placeholder="Date de Naissance"
             ></ion-input>
           </ion-item> -->
@@ -62,7 +62,7 @@
             <ion-input
               type="password"
               formControlName="password"
-              value="{{ user1.password }}"
+              value="{{ user.password }}"
               placeholder="Mot de passe"
             ></ion-input>
           </ion-item>
@@ -72,7 +72,7 @@
             full
             color="button"
             type="submit"
-            [disabled]="!updateProfil.valid"
+            [disabled]="updateProfil.valid"
             (click)="validateForm(updateProfil.value)"
           >
             Mettre à jour

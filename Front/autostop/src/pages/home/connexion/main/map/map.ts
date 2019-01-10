@@ -1,5 +1,5 @@
 import { RouteProvider } from './../../../../../providers/route/route';
-import { Trip } from './../../../../../models/Trip';
+// import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
 import { SearchBarPage } from './search-bar/search-bar';
@@ -108,9 +108,9 @@ export class MapPage {
         // strokeWidth: 30, A QUOI CA SERT???
         fillColor: "rgba(239, 244, 225, 0.45)"
       });
-      this.map.moveCamera({
-        target: circle.getBounds
-      });
+      // this.map.moveCamera({
+      //   target: circle.getBounds
+      // });
     });
   }
 
