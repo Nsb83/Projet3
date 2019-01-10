@@ -4,7 +4,7 @@ import { MainPage } from "./main/main";
 import { LostPasswordPage } from "../lost-password/lost-password";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Credentials } from "../../../models/Credentials";
-// import { UserProvider } from "../../../providers/user/userProvider";
+import { UserProvider } from "../../../providers/user/userProvider";
 import { AuthService } from '../../../providers/auth/auth.service';
 import { TokenStorage } from '../../../providers/auth/token.storage';
 import { HttpResponse } from "@angular/common/http";
@@ -23,7 +23,7 @@ export class ConnexionPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    // private userService: UserProvider
+    private userService: UserProvider,
     private authService: AuthService, 
     private token: TokenStorage
   ) { }
@@ -49,8 +49,8 @@ export class ConnexionPage implements OnInit {
     this.authService.attemptAuth(credentials)
     .subscribe(
       (data: HttpResponse<any>) => {
-        console.log(data);
         this.token.saveToken(data.headers.get('Authorization'));
+        this.userService.setUserId(data.headers.get('UserID'));
         this.navCtrl.push(MainPage);
       }
     );

@@ -42,9 +42,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { EmailComposer } from '@ionic-native/email-composer';
 import { RouteProvider } from '../providers/route/route';
 import { TokenInterceptor } from "./http-interceptors/token-interceptor";
-
 import { AuthService } from '../providers/auth/auth.service';
-import { Interceptor } from '../providers/auth/interceptor';
 import { TokenStorage } from '../providers/auth/token.storage'
 
 @NgModule({

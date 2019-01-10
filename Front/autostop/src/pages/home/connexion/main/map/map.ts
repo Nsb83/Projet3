@@ -1,5 +1,5 @@
 import { RouteProvider } from './../../../../../providers/route/route';
-import { Trip } from './../../../../../models/Trip';
+// import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
 import { SearchBarPage } from './search-bar/search-bar';

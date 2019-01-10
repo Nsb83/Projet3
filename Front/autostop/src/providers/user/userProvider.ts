@@ -1,12 +1,6 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs/observable/of'; 
-import { EmailValidator } from '@angular/forms';
-import { from } from 'rxjs/observable/from';
-import { Credentials } from '../../models/Credentials';
-// import { Account } from '../../models/Account';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,12 +13,12 @@ const httpOptions = {
 export class UserProvider {
 
   private user: User;
+  private userId;
   private isDriver: boolean;
   private isPedestrian: boolean;
   private URL_DB = "http://localhost:8080/users";
 
   constructor(public http: HttpClient) {
-    console.log('Hello UserProvider Provider');
   }
   
   setDriverProfile() {
@@ -45,55 +39,44 @@ export class UserProvider {
     return this.isPedestrian;
   }
 
+  getUserId() {
+    return localStorage.getItem("userId");
+  }
 
-
-// *********************************************
-//            METHOD TO BE TESTED
-// *********************************************
-testServer(){
-  let obs = this.http.get(this.URL_DB + "/findAll");
-  obs.subscribe((response) => console.log(response));
-}  
+  setUserId(userId) {
+    localStorage.setItem("userId", userId);
+    this.userId = userId;
+  }
 
 createUser(user: User) {
     let createUserUrl = this.URL_DB + "/create";
-    console.log(createUserUrl);
     return this.http.post<User>(createUserUrl, user, httpOptions)
   };
 
-  getUser() {
-    const user: User = new User();
-    this.http
-      .get<User>(this.URL_DB + "/find/1").subscribe((response: any) => {
-     
+getUser() {
+  const user: User = new User();
+  this.http
+    .get<User>(`${this.URL_DB}/find/${this.getUserId()}`).subscribe((response: any) => {
+    
       console.log(response);
-      
-        user.setLastName(response.lastName);
-        user.setFirstName(response.firstName);
-        user.setPhone(response.phone);
-        user.setSex(response.sex);
-        user.setDateOfBirth(response.dateOfBirth);
-        // const account: Account = new Account(response.account.email, response.account.password);
-        // user.setAccount(account);
-        user.setEmail(response.email);
-        user.setPassword(response.password);
-        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
-      
-        console.log('REPONSE' , user)
-    });
+    
+      user.setLastName(response.lastName);
+      user.setFirstName(response.firstName);
+      user.setPhone(response.phone);
+      user.setSex(response.sex);
+      user.setDateOfBirth(response.dateOfBirth);
+      user.setEmail(response.email);
+      user.setPassword(response.password);
+      user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
+    
+      console.log('REPONSE' , user)
+  });
 
   return user;
 };
 
-updateUser(user: User){
-  return this.http
-    .put<User>(this.URL_DB + "/update/1", user);
-}
-
-connectUser(credentials: Credentials) {
-  return this.http.post(this.URL_DB + '/login', credentials, 
-  {headers: new HttpHeaders(), observe: "response"});
-}
-
-// *********************************************
+  updateUser(user: User){
+    return this.http
+      .put<User>(`${this.URL_DB}/update/${this.getUserId()}`, user);
+  }
 }

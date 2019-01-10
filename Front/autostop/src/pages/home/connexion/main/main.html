@@ -1,16 +1,16 @@
 <ion-menu side="left" [content]="content" background-color="menu">
   <ion-content class="custom">
-    <div *ngIf="!user1.imgUrl">
+    <div *ngIf="!user.imgUrl">
       <img padding id="avatarUser" [src]="placeholderImg">
     </div>
-    <div *ngIf="user1.imgUrl">
-      <img padding id="avatarUser" [src]="user1.imgUrl">
+    <div *ngIf="user.imgUrl">
+      <img padding id="avatarUser" [src]="user.imgUrl">
     </div>
-    <div *ngIf="!user1.lastName">
+    <div *ngIf="!user.lastName">
       <h3>Prénom Nom</h3>
     </div>
-    <div *ngIf="user1.lastName">
-      <h3>{{user1.firstName}} {{user1.lastName}}</h3>
+    <div *ngIf="user.lastName">
+      <h3>{{user.firstName}} {{user.lastName}}</h3>
     </div>
     <ion-list no-lines>
       <button ion-item (click)="onNavigate(tabsPage)">

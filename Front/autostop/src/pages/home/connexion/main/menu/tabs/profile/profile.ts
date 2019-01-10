@@ -9,7 +9,7 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
   templateUrl: 'profile.html',
 })
 export class ProfilePage implements OnInit {
-  user1: User;
+  user: User;
   userUpdate: User;
   private updateProfil: FormGroup;
   myDate:string;
@@ -24,11 +24,10 @@ export class ProfilePage implements OnInit {
 
 
   ngOnInit() {
-   
-    console.log('ionViewDidLoad ProfilePage');
-    this.user1 = this.userService.getUser();
-    this.myDate = this.user1.getDateOfBirth()
-    console.log(this.user1);
+  
+    this.user = this.userService.getUser();
+    this.myDate = this.user.getDateOfBirth()
+    console.log(this.user);
     this.initForm();
   }
 

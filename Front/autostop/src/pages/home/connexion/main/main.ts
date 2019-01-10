@@ -22,7 +22,7 @@ export class MainPage {
   helpPage = HelpPage;
   contactPage = ContactPage;
 
-  user1: User;
+  user: User;
 
   placeholderImg: string = "./assets/imgs/profileImg.png";
 
@@ -37,7 +37,7 @@ export class MainPage {
   ) {}
 
   ngOnInit() {
-    this.user1 = this.userService.getUser();
+    this.user = this.userService.getUser();
   }
 
   onNavigate(page: any) {
