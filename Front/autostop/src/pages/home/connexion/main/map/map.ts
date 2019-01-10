@@ -108,9 +108,9 @@ export class MapPage {
         // strokeWidth: 30, A QUOI CA SERT???
         fillColor: "rgba(239, 244, 225, 0.45)"
       });
-      this.map.moveCamera({
-        target: circle.getBounds
-      });
+      // this.map.moveCamera({
+      //   target: circle.getBounds
+      // });
     });
   }
 
