@@ -24,7 +24,7 @@
       color="button"
       type="submit"
       [disabled]="!connexion.valid"
-      [navPush]="main"
+      (click)="validateForm(connexion.value)"
     >
       CONNEXION
     </button>

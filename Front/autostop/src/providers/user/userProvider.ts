@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of'; 
 import { EmailValidator } from '@angular/forms';
 import { from } from 'rxjs/observable/from';
+import { Credentials } from '../../models/Credentials';
 // import { Account } from '../../models/Account';
 
 const httpOptions = {
@@ -87,8 +88,11 @@ createUser(user: User) {
 updateUser(user: User){
   return this.http
     .put<User>(this.URL_DB + "/update/1", user);
-  
+}
 
+connectUser(credentials: Credentials) {
+  return this.http.post(this.URL_DB + '/login', credentials, 
+  {headers: new HttpHeaders(), observe: "response"});
 }
 
 // *********************************************
