@@ -115,6 +115,10 @@ export class MapPage {
     this.getRouteJson($event);
     setTimeout(() => {
       this.map.clear();
+      
+      // MARKER
+      // Création d'un marqueur et son ajout à map avec la géoloc
+      // Possibilité de passer un objet Options en param
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: this.userPosition.latLng,
         icon: {url: "../assets/icon/thumb.png",
