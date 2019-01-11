@@ -40,15 +40,15 @@ export class ChoicePage {
 // ************************************
 // FOR DEVELOPMENT PURPOSES ONLY
 // ************************************
-    let alert = this.alertCtrl.create({
-      title:
-        "Mode piéton choisi : isDriver = " +
-        this.userService.getDriverProfile() +
-        ", isPedestrian = " +
-        this.userService.getPedestrianProfile(),
-      buttons: ["Ok"]
-    });
-    alert.present();
+    // let alert = this.alertCtrl.create({
+    //   title:
+    //     "Mode piéton choisi : isDriver = " +
+    //     this.userService.getDriverProfile() +
+    //     ", isPedestrian = " +
+    //     this.userService.getPedestrianProfile(),
+    //   buttons: ["Ok"]
+    // });
+    // alert.present();
 // ************************************
   }
 

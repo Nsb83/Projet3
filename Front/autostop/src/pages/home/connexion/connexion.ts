@@ -8,6 +8,7 @@ import { UserProvider } from "../../../providers/user/userProvider";
 import { AuthService } from '../../../providers/auth/auth.service';
 import { TokenStorage } from '../../../providers/auth/token.storage';
 import { HttpResponse } from "@angular/common/http";
+import { ChoicePage } from "../register/choice/choice";
 
 @Component({
   selector: "page-connexion",
@@ -51,7 +52,7 @@ export class ConnexionPage implements OnInit {
       (data: HttpResponse<any>) => {
         this.token.saveToken(data.headers.get('Authorization'));
         this.userService.setUserId(data.headers.get('UserID'));
-        this.navCtrl.push(MainPage);
+        this.navCtrl.push(ChoicePage);
       }
     );
     // this.userService.connectUser(credentials).subscribe((data: HttpResponse<any>) => {
