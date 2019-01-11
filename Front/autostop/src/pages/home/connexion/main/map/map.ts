@@ -117,7 +117,9 @@ export class MapPage {
   receiveMessage($event) {
     this.searchValue = $event
     this.getRouteJson(this.searchValue);
-    this.showPoly(this.routeJson);  }
+    this.showPoly(this.routeJson);  
+    this.goToSpecificLocation();
+  }
 
   getRouteJson(searchValue){
     let option: MyLocationOptions = {
