@@ -36,11 +36,11 @@
       ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input
-        type="text"
-        formControlName="sex"
-        placeholder="Sexe"
-      ></ion-input>
+      <ion-label>Sexe</ion-label>
+      <ion-select formControlName="sex" interface="popover">
+        <ion-option value="Homme">Homme</ion-option>
+        <ion-option value="Femme">Femme</ion-option>
+      </ion-select>
     </ion-item>
     <ion-item id="dateOfBirth">
       <ion-datetime

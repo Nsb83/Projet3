@@ -10,6 +10,8 @@ import { HelpPage } from "./menu/help/help";
 import { ContactPage } from "./menu/contact/contact";
 import { User } from "../../../../models/User";
 import { UserProvider } from "../../../../providers/user/userProvider";
+import { TokenStorage } from '../../../../providers/auth/token.storage';
+import { HomePage } from "../../home";
 
 @Component({
   selector: "page-main",
@@ -33,7 +35,8 @@ export class MainPage {
     splashScreen: SplashScreen,
     private menuCtrl: MenuController,
     public navCtrl: NavController, 
-    private userService: UserProvider
+    private userService: UserProvider,
+    private token: TokenStorage
   ) {}
 
   ngOnInit() {
@@ -43,4 +46,10 @@ export class MainPage {
   onNavigate(page: any) {
     this.navCtrl.push(page);
   }
+
+  SignOut() {
+    this.token.signOut();
+    console.log("You are disconnected");
+    this.navCtrl.push(HomePage);
+    }
 }

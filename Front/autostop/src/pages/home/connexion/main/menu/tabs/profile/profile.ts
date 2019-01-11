@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { User } from '../../../../../../../models/User';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { MainPage } from '../../../main';
 
 @Component({
   selector: 'page-profile',
@@ -13,6 +14,7 @@ export class ProfilePage implements OnInit {
   userUpdate: User;
   private updateProfil: FormGroup;
   myDate:string;
+
 
   constructor(
     public navCtrl: NavController, 
@@ -39,7 +41,7 @@ export class ProfilePage implements OnInit {
         phone: ["", Validators.required],
         email: ["", Validators.compose([Validators.email, Validators.required])],
         sex: ["", Validators.required],
-        dateOfBirth: ["", Validators.required],
+        dateOfBirth: [""],
         password: ["", Validators.required],
       },
     );
