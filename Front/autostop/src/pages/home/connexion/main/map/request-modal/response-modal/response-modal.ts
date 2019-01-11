@@ -67,6 +67,7 @@ export class ResponseModalPage {
   }
 
   hasFinished() {
+    // place here  function to launch when timer finished
     return this.timer.hasFinished;
   }
   initProgressBar() {
