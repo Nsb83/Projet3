@@ -42,7 +42,6 @@ export class ProfilePage implements OnInit {
         email: ["", Validators.compose([Validators.email, Validators.required])],
         sex: ["", Validators.required],
         dateOfBirth: [""],
-        password: ["", Validators.required],
       },
     );
   }
@@ -55,13 +54,15 @@ export class ProfilePage implements OnInit {
       updateProfil.sex,
       updateProfil.dateOfBirth,
       updateProfil.email,
-      updateProfil.password
+      // updateProfil.password
     );
 
     this.userService.updateUser(this.userUpdate).subscribe(() => {
       console.log(this.userUpdate);
+      this.userService.getUser();
     });
     
+
   }
 
 }
