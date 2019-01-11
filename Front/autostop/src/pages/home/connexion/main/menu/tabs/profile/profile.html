@@ -42,7 +42,7 @@
           </ion-item>
           <ion-item id="dateOfBirth">
             <ion-datetime
-              placeholder={{ user.dateOfBirth }}
+              placeholder="{{ user.dateOfBirth }}"
               displayFormat="DD/MM/YYYY"
               pickerFormat="DD/MM/YYYY"
               min="1918"
@@ -72,7 +72,7 @@
             full
             color="button"
             type="submit"
-            [disabled]="updateProfil.valid"
+            [disabled]="!updateProfil.valid"
             (click)="validateForm(updateProfil.value)"
           >
             Mettre à jour

@@ -6,4 +6,5 @@ public class SecurityConstants {
     public static final String HEADER_STRING = "Authorization";
     public static final String SIGN_UP_URL = "/users/create";
     public static final String TOKEN_SECRET = "jf9i4jgu83ngl0";
+    public static final String IMAGE_PROFILE = "/downloadFile/**";
 }

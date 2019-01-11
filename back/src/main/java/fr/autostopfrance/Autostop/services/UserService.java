@@ -35,7 +35,7 @@ public class UserService implements UserDetailsService {
 
     public User postUser(User user) {
         User _user = userDAO.save(new User(
-                user.getUserID(),
+//                user.getUserID(),
                 user.getLastName(),
                 user.getFirstName(),
                 user.getPhone(),
@@ -78,8 +78,10 @@ public class UserService implements UserDetailsService {
         currentUser.setSex(user.getSex());
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
-        currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        currentUser.setUploadFileResponse(user.getUploadFileResponse());
+        /*currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));*/
+        if(user.getUploadFileResponse() != null) {
+            currentUser.setUploadFileResponse(user.getUploadFileResponse());
+        }
         userDAO.save(currentUser);
 //        userService.updateUser(currentUser);
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);

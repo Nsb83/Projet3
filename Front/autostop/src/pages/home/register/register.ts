@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { User } from "../../../models/User";
 import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
+import { ConnexionPage } from "../connexion/connexion";
 
 @Component({
   selector: "page-register",
@@ -68,7 +69,7 @@ export class RegisterPage implements OnInit {
     );
     this.userService.createUser(this.newUser).subscribe(() => {
       console.log(this.newUser);
-      this.navCtrl.push(ChoicePage);
+      this.navCtrl.push(ConnexionPage);
     });
   }
 }
