@@ -141,7 +141,8 @@ export class MapPage {
         fillColor: "rgba(239, 244, 225, 0.45)"
       });
       this.showPoly(this.routeJson);
-    }, 1000); 
+      this.goToSpecificLocation();
+    }, 1000);
   }
 
   getRouteJson(searchValue){
