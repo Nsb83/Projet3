@@ -52,7 +52,6 @@ export class MapPage {
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
-    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.jpg");
   }
 
   loadMap() {
@@ -116,8 +115,12 @@ export class MapPage {
 
   receiveMessage($event) {
     this.searchValue = $event
-    this.getRouteJson(this.searchValue);
-    this.showPoly(this.routeJson);  }
+    this.getRouteJson($event);
+    setTimeout(() => {
+      console.log(this.routeJson);
+      this.showPoly(this.routeJson);
+    }, 1000); 
+  }
 
   getRouteJson(searchValue){
     let option: MyLocationOptions = {
@@ -135,9 +138,8 @@ export class MapPage {
   ///////// Polylines ////////////////////
   showPoly(polyRoute){
       const decodePolyline = require('decode-google-map-polyline');
-      let polylineOverview = polyRoute;
-      let arrayPoly = decodePolyline(polylineOverview);
-      console.log(decodePolyline(polylineOverview));
+      let arrayPoly = decodePolyline(polyRoute);
+      console.log(decodePolyline(polyRoute));
 
     let polyline: Polyline = this.map.addPolylineSync({
       points: arrayPoly,
@@ -151,6 +153,7 @@ export class MapPage {
     /////// route clickable DEV PURPOSE ONLY
     polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       let position: LatLng = <LatLng>params[0];
+      this.map.destroy();
       let markerPoly: Marker = this.map.addMarkerSync({
         position: position,
         title: position.toUrlValue(),
