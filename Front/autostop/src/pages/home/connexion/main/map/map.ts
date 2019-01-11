@@ -68,7 +68,7 @@ export class MapPage {
 
     // Réception de la géoloc et affichage de la carte centrée dessus avec les options
     LocationService.getMyLocation(option).then((location: MyLocation) => {
-      console.log(location);
+      this.userPosition = location;
       let options: GoogleMapOptions = {
         camera: {
           target: location.latLng,
@@ -85,7 +85,6 @@ export class MapPage {
 
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: location.latLng,
-        title: "Ma position",
         icon: {url: "../assets/icon/thumb.png",
               size: {
                 width: 32,
@@ -93,8 +92,6 @@ export class MapPage {
               }
             }
       });
-      // Affichage de ses infos
-      markerGeoloc.showInfoWindow();
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
@@ -117,7 +114,28 @@ export class MapPage {
     this.searchValue = $event
     this.getRouteJson($event);
     setTimeout(() => {
-      console.log(this.routeJson);
+      this.map.clear();
+      let markerGeoloc: Marker = this.map.addMarkerSync({
+        position: this.userPosition.latLng,
+        icon: {url: "../assets/icon/thumb.png",
+              size: {
+                width: 32,
+                height: 32
+              }
+            }
+      });
+
+      // CERCLE
+      // création d'un objet avec lat et lng à partir d la géoloc
+      let centre = this.userPosition.latLng;
+      // création du cercle avec comme centre la géoloc
+      let circle: Circle = this.map.addCircleSync({
+        center: centre,
+        radius: 500,
+        strokeColor: "#258c3d",
+        // strokeWidth: 30, A QUOI CA SERT???
+        fillColor: "rgba(239, 244, 225, 0.45)"
+      });
       this.showPoly(this.routeJson);
     }, 1000); 
   }
@@ -153,7 +171,6 @@ export class MapPage {
     /////// route clickable DEV PURPOSE ONLY
     polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       let position: LatLng = <LatLng>params[0];
-      this.map.destroy();
       let markerPoly: Marker = this.map.addMarkerSync({
         position: position,
         title: position.toUrlValue(),
