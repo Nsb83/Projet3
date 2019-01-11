@@ -40,13 +40,17 @@ export class MainPage {
     this.user = this.userService.getUser();
   }
 
+  ionViewWillEnter() {
+    this.user = this.userService.getUser();
+  }
+
   onNavigate(page: any) {
     this.navCtrl.push(page);
   }
 
   SignOut() {
     this.token.signOut();
-    console.log("You are disconnected");
+    // console.log("You are disconnected");
     this.navCtrl.push(HomePage);
     }
 }

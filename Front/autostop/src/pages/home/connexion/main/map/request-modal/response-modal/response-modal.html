@@ -27,10 +27,28 @@
           *ngFor="let num of [1,2,3,4,5]">
       </ion-col>
     </ion-row>
+    <ion-row class="row">
+      <ion-col>
+        <div class="radial-progress" data-progress="0">
+          <div class="circle">
+              <div class="mask full" [style.transform]="transform">
+              <div class="fill" [style.transform]="transform"></div>
+              </div>
+              <div class="mask half">
+              <div class="fill" [style.transform]="transform"></div>
+              <div class="fill fix" [style.transform]="fixTransform"></div>
+              </div>
+              <div class="shadow"></div>
+          </div>
+          <div class="inset">
+              <div class="percentage">{{timer.displayTime}}</div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-
-  <button ion-button full color="button" (click)="goToLinking()">Demande acceptée</button>
-
   <button ion-button  full color="danger" (click)="cancelRequest()">Annuler</button>
+  <button ion-button full color="button" (click)="goToLinking()">Demande acceptée (dev shit)</button>
+
 
 </ion-content>

@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a09f9f6-ab6e-4741-9a72-48e0a511f78d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Evaluation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/SecurityConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/SecurityConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/WebSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +28,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
+            <state relative-caret-position="289">
               <caret line="155" column="65" selection-start-line="155" selection-start-column="65" selection-end-line="155" selection-end-column="65" />
             </state>
           </provider>
@@ -114,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
+            <state relative-caret-position="705">
               <caret line="69" column="66" selection-start-line="69" selection-start-column="66" selection-end-line="69" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,7 +161,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -184,7 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -293,6 +281,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,17 +340,17 @@
       <workItem from="1547106474773" duration="4878000" />
       <workItem from="1547134607555" duration="3277000" />
       <workItem from="1547144110052" duration="433000" />
+      <workItem from="1547200091780" duration="165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24711000" />
+    <option name="totallyTimeSpent" value="24876000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2353362" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23819743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -632,7 +621,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
+        <state relative-caret-position="705">
           <caret line="69" column="66" selection-start-line="69" selection-start-column="66" selection-end-line="69" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -642,7 +631,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
+        <state relative-caret-position="289">
           <caret line="155" column="65" selection-start-line="155" selection-start-column="65" selection-end-line="155" selection-end-column="65" />
         </state>
       </provider>
