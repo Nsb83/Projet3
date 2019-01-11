@@ -26,9 +26,6 @@ export class MainPage {
 
   user: User;
 
-  placeholderImg: string = "./assets/imgs/profileImg.png";
-
-
   constructor(
     platform: Platform,
     statusBar: StatusBar,

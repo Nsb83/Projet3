@@ -67,8 +67,12 @@ getUser() {
       user.setDateOfBirth(response.dateOfBirth);
       user.setEmail(response.email);
       user.setPassword(response.password);
-      user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
-    
+      if (response.uploadFileResponse !== null) {
+        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
+      } else {
+        user.setImgUrl('./assets/imgs/profileImg.png');
+      }
+          
       console.log('REPONSE' , user)
   });
 
