@@ -87,11 +87,11 @@ public class UserService implements UserDetailsService {
         Optional<User> currentUserOptional = userDAO.findById(idUser);
 
         User currentUser = currentUserOptional.get();
-        currentUser.setUploadFileResponse(uploadFileResponse);
-//        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
-//        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
-//        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
-//        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
+//        currentUser.setUploadFileResponse(uploadFileResponse);
+        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
+        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
+        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
+        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
 
         userDAO.save(currentUser);
         return new ResponseEntity<>(currentUser, HttpStatus.OK);

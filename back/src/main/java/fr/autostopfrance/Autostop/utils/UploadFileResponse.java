@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class UploadFileResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
+        private Long id;
         private String fileName;
         private String fileDownloadUri;
         private String fileType;
@@ -18,6 +18,10 @@ public class UploadFileResponse {
 //        @OneToOne
 //        @JoinColumn(name = "userId", referencedColumnName = "id")
 //        private User user;
+
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
         public UploadFileResponse(){}
 
