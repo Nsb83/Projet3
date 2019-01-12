@@ -6,7 +6,6 @@ import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
 import { ConnexionPage } from "../connexion/connexion";
 import { HttpResponse, HttpEventType } from "@angular/common/http";
-import { ImageProvider } from "../../../providers/Image/imageProvider";
 
 @Component({
   selector: "page-register",
@@ -17,16 +16,12 @@ export class RegisterPage implements OnInit {
   private newUser: User;
   private register: FormGroup;
 
-  userId: string;
-  currentFileUpload = File;
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private userService: UserProvider,
-    private imageProvider: ImageProvider
   ) {}
 
   ngOnInit() {
@@ -74,25 +69,8 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
-      console.log(this.newUser);
+      // console.log(this.newUser);
       this.navCtrl.push(ConnexionPage);
     });
   }
-
-  //For uploading image during dev
-  onFileChanged(event) {
-    const file = event.target.files[0];
-  }
-  onUpload() {
-    this.imageProvider.pushFileToStorage(this.userId, this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        console.log('File is completely uploaded!');
-      }
-    });
-
-    this.currentFileUpload = undefined;
-  }
-
 }

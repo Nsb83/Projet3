@@ -80,20 +80,21 @@ public class UserService implements UserDetailsService {
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
         userDAO.save(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
     public ResponseEntity<User> updatePicture (long idUser, UploadFileResponse uploadFileResponse) {
         Optional<User> currentUserOptional = userDAO.findById(idUser);
 
         User currentUser = currentUserOptional.get();
-        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
-        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
-        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
-        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
+        currentUser.setUploadFileResponse(uploadFileResponse);
+//        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
+//        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
+//        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
+//        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
 
         userDAO.save(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
     public User getUser(String email) {

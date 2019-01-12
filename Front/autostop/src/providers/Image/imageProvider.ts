@@ -7,12 +7,12 @@ export class ImageProvider{
 
   constructor(private http: HttpClient) { }
 
-  pushFileToStorage(userId: string, file: File): Observable<HttpEvent<{}>> {
+  pushFileToStorage(userId, file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
 
     formdata.append('file', file);
 
-    const req = new HttpRequest('POST', "http://localhost:8080/" + `users/${userId}/profile_pic`, formdata, {
+    const req = new HttpRequest('POST', `http://localhost:8080/uploadFile/${userId}`, formdata, {
       reportProgress: true,
       responseType: 'text'
     });

@@ -51,10 +51,7 @@ public class ImageController {
         UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
 
-
         userService.updatePicture(idUser, uploadFileResponse);
-
-
 
         return uploadFileResponse;
     }
