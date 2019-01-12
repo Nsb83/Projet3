@@ -48,9 +48,6 @@ public class User {
         this.password = password;
     }
 
-
-
-
     public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse) {
         this.lastName = lastName;
         this.firstName = firstName;
