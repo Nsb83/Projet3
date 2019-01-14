@@ -18,6 +18,7 @@ export class ConnexionPage implements OnInit {
   main = MainPage;
   lostPasswordPage = LostPasswordPage;
 
+
   private connexion: FormGroup;
 
   constructor(
@@ -25,7 +26,7 @@ export class ConnexionPage implements OnInit {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     private userService: UserProvider,
-    private authService: AuthService, 
+    private authService: AuthService,
     private token: TokenStorage
   ) { }
 
@@ -53,6 +54,7 @@ export class ConnexionPage implements OnInit {
         this.token.saveToken(data.headers.get('Authorization'));
         this.userService.setUserId(data.headers.get('UserID'));
         this.navCtrl.push(ChoicePage);
+        console.log(data);
       }
     );
     // this.userService.connectUser(credentials).subscribe((data: HttpResponse<any>) => {

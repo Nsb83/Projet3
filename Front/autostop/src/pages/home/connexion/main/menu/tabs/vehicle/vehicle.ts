@@ -1,3 +1,5 @@
+import { ChoicePage } from './../../../../../register/choice/choice';
+import { DriverProvider } from './../../../../../../../providers/driver/driver';
 import { Driver } from './../../../../../../../models/Driver';
 import { Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
@@ -7,6 +9,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
+import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
 
 @Component({
   selector: 'page-vehicle',
@@ -16,12 +19,15 @@ export class VehiclePage implements OnInit{
 
   private driverInfos: Driver;
   private register: FormGroup;
+  private tokenId;
 
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
               private alertCtrl: AlertController,
+              private driverProvider: DriverProvider,
+              private token: TokenStorage,
               private userService: UserProvider) { }
 
   ngOnInit() {
@@ -50,9 +56,11 @@ export class VehiclePage implements OnInit{
       register.color,
       register.imgCar,
     );
-    console.log(this.driverInfos)
-//     this.userService.createUser(this.newUser);
-//     this.navCtrl.push(ChoicePage);
+    console.log(this.driverInfos);
+    this.tokenId = this.driverProvider.getToken();
+    console.log(this.tokenId);
+    this.driverProvider.createDriver(this.driverInfos);
+    this.navCtrl.push(ChoicePage);
 
 // // ************************************
 // // FOR DEVELOPMENT PURPOSES ONLY

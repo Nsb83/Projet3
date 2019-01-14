@@ -5,7 +5,7 @@ import { Headers } from '@angular/http';
 import { Credentials } from '../../models/Credentials';
 
 const httpOptions = {
-  
+
 };
 
 @Injectable()
@@ -19,7 +19,7 @@ export class AuthService {
 
   attemptAuth(credentials: Credentials): Observable<HttpResponse<any>> {
     // console.log('attempAuth ::' + JSON.stringify(credentials));
-    return this.http.post('http://localhost:8080/users/login', credentials, 
+    return this.http.post('http://localhost:8080/users/login', credentials,
     {headers: new HttpHeaders({ 'Content-Type': 'application/json' }), observe: "response"});
 
   }
