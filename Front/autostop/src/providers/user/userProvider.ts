@@ -16,8 +16,8 @@ export class UserProvider {
   private userId;
   private isDriver: boolean;
   private isPedestrian: boolean;
-  private URL_DB = "http://10.0.2.2:8080/users";
-  // private URL_DB = "http://localhost:8080/users";
+  // private URL_DB = "http://10.0.2.2:8080/users";
+  private URL_DB = "http://localhost:8080/users";
 
   constructor(public http: HttpClient) {
   }
