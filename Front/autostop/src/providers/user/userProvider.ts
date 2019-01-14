@@ -58,7 +58,7 @@ getUser() {
   this.http
     .get<User>(`${this.URL_DB}/find/${this.getUserId()}`).subscribe((response: any) => {
     
-      console.log(response);
+      // console.log(response);
     
       user.setLastName(response.lastName);
       user.setFirstName(response.firstName);
@@ -67,13 +67,13 @@ getUser() {
       user.setDateOfBirth(response.dateOfBirth);
       user.setEmail(response.email);
       user.setPassword(response.password);
-      if (response.uploadFileResponse !== null) {
+      if (response.uploadFileResponse.fileDownloadUri !== null) {
         user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
       } else {
         user.setImgUrl('./assets/imgs/profileImg.png');
       }
           
-      console.log('REPONSE' , user)
+      // console.log('REPONSE' , user)
   });
 
   return user;

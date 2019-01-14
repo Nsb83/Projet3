@@ -2,6 +2,7 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -78,13 +79,22 @@ public class UserService implements UserDetailsService {
         currentUser.setSex(user.getSex());
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
-        /*currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));*/
-        if(user.getUploadFileResponse() != null) {
-            currentUser.setUploadFileResponse(user.getUploadFileResponse());
-        }
         userDAO.save(currentUser);
-//        userService.updateUser(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+    }
+
+    public ResponseEntity<User> updatePicture (long idUser, UploadFileResponse uploadFileResponse) {
+        Optional<User> currentUserOptional = userDAO.findById(idUser);
+
+        User currentUser = currentUserOptional.get();
+//        currentUser.setUploadFileResponse(uploadFileResponse);
+        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
+        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
+        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
+        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
+
+        userDAO.save(currentUser);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
     public User getUser(String email) {
@@ -101,4 +111,6 @@ public class UserService implements UserDetailsService {
         if(user == null) throw new UsernameNotFoundException(email);
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
+
+
 }

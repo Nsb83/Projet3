@@ -11,8 +11,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "userID")
-//    private String userID;
+    @Column(name = "userID")
+    private String userID;
     @Column(name="last_name")
     private String lastName;
     @Column(name="first_name")
@@ -48,9 +48,6 @@ public class User {
         this.password = password;
     }
 
-
-
-
     public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -59,7 +56,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
-        this.uploadFileResponse = uploadFileResponse;
+        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public Long getId() {
@@ -70,13 +67,13 @@ public class User {
         this.id = id;
     }
 
-//    public String getUserID() {
-//        return userID;
-//    }
-//
-//    public void setUserID(String userID) {
-//        this.userID = userID;
-//    }
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getLastName() {
         return lastName;

@@ -1,14 +1,18 @@
 
 package fr.autostopfrance.Autostop.controllers;
 
+import fr.autostopfrance.Autostop.models.User;
+import fr.autostopfrance.Autostop.repositories.UserDAO;
 import fr.autostopfrance.Autostop.services.StorageService;
 
+import fr.autostopfrance.Autostop.services.UserService;
 import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -29,10 +34,13 @@ public class ImageController {
     private static final Logger logger = LoggerFactory.getLogger(ImageController.class);
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private StorageService storageService;
 
-    @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/uploadFile/{idUser}")
+    public UploadFileResponse uploadFile(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
         String fileName = storageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -40,8 +48,12 @@ public class ImageController {
                 .path(fileName)
                 .toUriString();
 
-        return new UploadFileResponse(fileName, fileDownloadUri,
+        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
+
+        userService.updatePicture(idUser, uploadFileResponse);
+
+        return uploadFileResponse;
     }
 
 //    @PostMapping("/uploadMultipleFiles")
