@@ -10,7 +10,6 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
 import { AddFavoritePage } from "../pages/home/connexion/main/menu/tabs/favorites/add-favorite/add-favorite";
-import { ColorsPage } from "../pages/home/connexion/main/menu/tabs/vehicle/colors/colors";
 import { ConnexionPage } from "../pages/home/connexion/connexion";
 import { ContactPage } from "../pages/home/connexion/main/menu/contact/contact";
 import { DistancePage } from "../pages/home/connexion/main/menu/tabs/profile/distance/distance";
@@ -50,7 +49,6 @@ import { TokenStorage } from '../providers/auth/token.storage'
     MyApp,
     HomePage,
     AddFavoritePage,
-    ColorsPage,
     ConnexionPage,
     ContactPage,
     DistancePage,
@@ -85,7 +83,6 @@ import { TokenStorage } from '../providers/auth/token.storage'
     MyApp,
     HomePage,
     AddFavoritePage,
-    ColorsPage,
     ConnexionPage,
     ContactPage,
     DistancePage,
