@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a09f9f6-ab6e-4741-9a72-48e0a511f78d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/colors/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/colors/colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0a09f9f6-ab6e-4741-9a72-48e0a511f78d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="405">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -71,7 +62,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/StorageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
+            <state relative-caret-position="15">
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
             </state>
           </provider>
@@ -165,7 +156,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="1834" />
@@ -180,7 +171,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,6 +224,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -300,12 +291,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29260000" />
+    <option name="totallyTimeSpent" value="29270000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="1053" extended-state="7" />
+    <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2562258" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2589928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -315,7 +306,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17775354" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17775354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -580,14 +571,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="405">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/StorageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
+        <state relative-caret-position="15">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
