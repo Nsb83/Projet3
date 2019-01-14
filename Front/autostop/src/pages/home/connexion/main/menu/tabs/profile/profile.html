@@ -60,6 +60,11 @@
             ></ion-input>
           </ion-item> -->
      
+          <ion-item>
+            <input type="file" (change)="selectFile($event)">
+          </ion-item>
+          <button ion-button (click)="onUpload()">Upload!</button>
+
           <button
             ion-button
             full

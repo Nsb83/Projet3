@@ -1,5 +1,7 @@
 package fr.autostopfrance.Autostop.utils;
 
+import fr.autostopfrance.Autostop.models.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,12 +9,19 @@ import javax.persistence.*;
 public class UploadFileResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
         private Long id;
         private String fileName;
         private String fileDownloadUri;
         private String fileType;
         private long size;
+
+//        @OneToOne
+//        @JoinColumn(name = "userId", referencedColumnName = "id")
+//        private User user;
+
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
         public UploadFileResponse(){}
 

@@ -5,6 +5,7 @@ import { User } from "../../../models/User";
 import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
 import { ConnexionPage } from "../connexion/connexion";
+import { HttpResponse, HttpEventType } from "@angular/common/http";
 
 @Component({
   selector: "page-register",
@@ -20,7 +21,7 @@ export class RegisterPage implements OnInit {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
-    private userService: UserProvider
+    private userService: UserProvider,
   ) {}
 
   ngOnInit() {
@@ -68,7 +69,7 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
-      console.log(this.newUser);
+      // console.log(this.newUser);
       this.navCtrl.push(ConnexionPage);
     });
   }

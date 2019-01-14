@@ -52,7 +52,7 @@ export class MapPage {
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
-    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.jpg");
+    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png")
   }
 
   loadMap() {
@@ -69,7 +69,7 @@ export class MapPage {
 
     // Réception de la géoloc et affichage de la carte centrée dessus avec les options
     LocationService.getMyLocation(option).then((location: MyLocation) => {
-      console.log(location);
+      this.userPosition = location;
       let options: GoogleMapOptions = {
         camera: {
           target: location.latLng,
@@ -86,7 +86,6 @@ export class MapPage {
 
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: location.latLng,
-        title: "Ma position",
         icon: {url: "../assets/icon/thumb.png",
               size: {
                 width: 32,
@@ -94,8 +93,6 @@ export class MapPage {
               }
             }
       });
-      // Affichage de ses infos
-      markerGeoloc.showInfoWindow();
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
@@ -116,9 +113,37 @@ export class MapPage {
 
   receiveMessage($event) {
     this.searchValue = $event
-    this.getRouteJson(this.searchValue);
-    this.showPoly(this.routeJson);  
-    this.goToSpecificLocation();
+    this.getRouteJson($event);
+    setTimeout(() => {
+      this.map.clear();
+      
+      // MARKER
+      // Création d'un marqueur et son ajout à map avec la géoloc
+      // Possibilité de passer un objet Options en param
+      let markerGeoloc: Marker = this.map.addMarkerSync({
+        position: this.userPosition.latLng,
+        icon: {url: "../assets/icon/thumb.png",
+              size: {
+                width: 32,
+                height: 32
+              }
+            }
+      });
+
+      // CERCLE
+      // création d'un objet avec lat et lng à partir d la géoloc
+      let centre = this.userPosition.latLng;
+      // création du cercle avec comme centre la géoloc
+      let circle: Circle = this.map.addCircleSync({
+        center: centre,
+        radius: 500,
+        strokeColor: "#258c3d",
+        // strokeWidth: 30, A QUOI CA SERT???
+        fillColor: "rgba(239, 244, 225, 0.45)"
+      });
+      this.showPoly(this.routeJson);
+      this.goToSpecificLocation();
+    }, 1000);
   }
 
   getRouteJson(searchValue){
@@ -137,9 +162,8 @@ export class MapPage {
   ///////// Polylines ////////////////////
   showPoly(polyRoute){
       const decodePolyline = require('decode-google-map-polyline');
-      let polylineOverview = polyRoute;
-      let arrayPoly = decodePolyline(polylineOverview);
-      console.log(decodePolyline(polylineOverview));
+      let arrayPoly = decodePolyline(polyRoute);
+      console.log(decodePolyline(polyRoute));
 
     let polyline: Polyline = this.map.addPolylineSync({
       points: arrayPoly,

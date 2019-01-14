@@ -43,6 +43,7 @@ import { RouteProvider } from '../providers/route/route';
 import { TokenInterceptor } from "./http-interceptors/token-interceptor";
 import { AuthService } from '../providers/auth/auth.service';
 import { TokenStorage } from '../providers/auth/token.storage'
+import { ImageProvider } from "../providers/Image/imageProvider";
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { TokenStorage } from '../providers/auth/token.storage'
     UserProvider,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     TokenStorage,
+    ImageProvider,
     RouteProvider
   ]
 })
