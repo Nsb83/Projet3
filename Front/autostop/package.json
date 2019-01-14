@@ -28,8 +28,9 @@
     "@ionic/storage": "2.2.0",
     "@types/node": "^10.12.18",
     "angular-svg-round-progressbar": "^1.1.1",
+    "bowser": "2.0.0-beta.3",
     "browse": "0.4.0",
-    "cordova-android": "7.1.4",
+    "cordova-android": "^7.1.0",
     "cordova-browser": "5.0.4",
     "cordova-ios": "^4.5.5",
     "cordova-plugin-device": "^2.0.2",
@@ -71,8 +72,8 @@
     },
     "platforms": [
       "browser",
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
