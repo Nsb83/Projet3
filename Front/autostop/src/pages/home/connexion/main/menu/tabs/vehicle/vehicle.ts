@@ -50,7 +50,7 @@ export class VehiclePage implements OnInit{
       register.licensePlate,
       register.brand,
       register.model,
-      register.color,
+      this.color,
       register.imgCar,
     );
     console.log(this.driverInfos)
