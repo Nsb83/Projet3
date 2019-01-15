@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from "ionic-angular";
+import { IonicApp, IonicErrorHandler, IonicModule, NavController, AlertController } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
@@ -44,6 +44,7 @@ import { TokenInterceptor } from "./http-interceptors/token-interceptor";
 import { AuthService } from '../providers/auth/auth.service';
 import { TokenStorage } from '../providers/auth/token.storage'
 import { ImageProvider } from "../providers/Image/imageProvider";
+import { MessageProvider } from "../providers/Messages/MessageProvider";
 
 @NgModule({
   declarations: [
@@ -119,6 +120,7 @@ import { ImageProvider } from "../providers/Image/imageProvider";
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     TokenStorage,
     ImageProvider,
+    MessageProvider,
     RouteProvider
   ]
 })
