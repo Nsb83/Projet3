@@ -157,6 +157,10 @@ export class MapPage {
 
       markerPoly.showInfoWindow();
     });
+
+    this.map.moveCamera({
+      'target': arrayPoly
+    });
   }
     // FIN POLY
     // fin route direction
@@ -178,12 +182,7 @@ export class MapPage {
                 }
               }
       })
-      this.getCenterRoute(this.userPosition.latLng,results[0].position)
     });
-
-    // this.getCenterRoute();
-    // this.setZoomCamera(centerRoute);
-
 
     // Création faux marqueur autre utilisateur
     let markerMatch : Marker = this.map.addMarkerSync({
@@ -200,75 +199,6 @@ export class MapPage {
       this.showMatchModal();
     });
   }
-  getCenterRoute(start, end){
-
-    let bounds: LatLngBounds = new LatLngBounds([
-      start,
-      end
-    ]);
-    let center = bounds.getCenter();
-    let cameraPos : CameraPosition<ILatLng> = {
-      target: center,
-      zoom : this.defineZoom(bounds)
-      // .northeast.lat, bounds.southwest.lat
-    };
-    console.log(center);
-    this.map.animateCamera(cameraPos);
-  }
-
-  defineZoom(bounds: LatLngBounds){
-    console.log(bounds);
-
-    let ecartMaxLat = bounds.northeast.lat - bounds.southwest.lat;
-    let ecartMaxLng = bounds.northeast.lng - bounds.southwest.lng;
-    console.log(ecartMaxLng)
-    let ecartMax;
-    if(ecartMaxLat>ecartMaxLng){
-      ecartMax = ecartMaxLat;
-    }
-    else ecartMax = ecartMaxLng;
-
-    console.log(ecartMax);
-    let answer;
-    if(ecartMax<0.01){
-      answer = 15;
-    }
-    else if(ecartMaxLat<0.03 && ecartMaxLat>=0.01 || ecartMaxLng<0.05 && ecartMaxLng>=0.01){
-      answer = 14;
-    }
-    else if(ecartMaxLat<0.05 && ecartMaxLat>=0.03 || ecartMaxLng<0.08 && ecartMaxLng>=0.05){
-      answer = 13;
-    }
-    else if(ecartMaxLat<0.07 && ecartMaxLat>=0.05 || ecartMaxLng<0.10 && ecartMaxLng>=0.08){
-      answer = 12;
-    }
-    else if(ecartMaxLat<0.09 && ecartMaxLat>=0.07 || ecartMaxLng<0.13 && ecartMaxLng>=0.10){
-      answer = 11;
-    }
-    else if(ecartMaxLat<0.11 && ecartMaxLat>=0.09 || ecartMaxLng<0.16 && ecartMaxLng>=0.13){
-      answer = 10;
-    }
-    else if(ecartMaxLat<0.13 && ecartMaxLat>=0.11 || ecartMaxLng<0.20 && ecartMaxLng>=0.16){
-      answer = 10;
-    }
-    else if(ecartMaxLat<0.15 && ecartMaxLat>=0.13 || ecartMaxLng<0.24 && ecartMaxLng>=0.20){
-      answer = 9;
-    }
-    else if(ecartMaxLat<0.17 && ecartMaxLat>=0.15 || ecartMaxLng<0.28 && ecartMaxLng>=0.24){
-      answer = 9;
-    }
-    else if(ecartMaxLat<0.19 && ecartMaxLat>=0.17 || ecartMaxLng<0.32 && ecartMaxLng>=0.28){
-      answer = 8;
-    }
-    else if(ecartMaxLat<0.21 && ecartMaxLat>=0.19 || ecartMaxLng<0.36 && ecartMaxLng>=0.32){
-      answer = 8;
-    }
-    else {
-      answer = 7;
-    }
-    return answer;
-  }
-
 
   // Show modal for matching request
   showMatchModal() {
