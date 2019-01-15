@@ -44,7 +44,7 @@ import { TokenInterceptor } from "./http-interceptors/token-interceptor";
 import { AuthService } from '../providers/auth/auth.service';
 import { TokenStorage } from '../providers/auth/token.storage'
 import { ImageProvider } from "../providers/Image/imageProvider";
-import { DriverProvider } from '../providers/driver/driver';
+import { DriverProvider } from '../providers/driver/driverProvider';
 import { MessageProvider } from "../providers/Messages/MessageProvider";
 
 @NgModule({

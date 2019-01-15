@@ -1,5 +1,5 @@
 import { ChoicePage } from './../../../../../register/choice/choice';
-import { DriverProvider } from './../../../../../../../providers/driver/driver';
+import { DriverProvider } from '../../../../../../../providers/driver/driverProvider';
 import { Driver } from './../../../../../../../models/Driver';
 import { Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
+import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
 
 @Component({
   selector: 'page-vehicle',
@@ -22,6 +23,9 @@ export class VehiclePage implements OnInit{
   private register: FormGroup;
   private tokenId;
 
+  currentFileUpload: File;
+  selectedFiles: FileList;
+  driver:Driver;
 
   constructor(public modal: ModalController,
               public navCtrl: NavController,
@@ -30,10 +34,14 @@ export class VehiclePage implements OnInit{
               private alertCtrl: AlertController,
               private driverProvider: DriverProvider,
               private token: TokenStorage,
+              private imageProvider: ImageProvider,
               private userService: UserProvider) { }
+
+  userId = this.userService.getUserId();
 
   ngOnInit() {
     this.initForm();
+    this.driver = this.driverProvider.getDriver();
   }
 
 
@@ -57,14 +65,14 @@ export class VehiclePage implements OnInit{
       register.licensePlate,
       register.brand,
       register.model,
-      register.color,
-      register.imgCar,
+      this.color,
     );
     console.log(this.driverInfos);
-    this.tokenId = this.driverProvider.getToken();
-    console.log(this.tokenId);
-    this.driverProvider.createDriver(this.driverInfos);
+    this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{});
     this.navCtrl.push(ChoicePage);
+
+  
+
 
 // // ************************************
 // // FOR DEVELOPMENT PURPOSES ONLY
@@ -128,7 +136,17 @@ export class VehiclePage implements OnInit{
 
 	setColor(color) {
 		console.log('Selected Color is', color);
-
 	}
 
+    //For uploading image during dev
+    selectFile(event) {
+      this.selectedFiles = event.target.files;
+    }
+    onUpload() {   
+      this.currentFileUpload = this.selectedFiles.item(0);
+      this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+          console.log('File is completely uploaded!');
+        })
+      this.currentFileUpload = undefined;
+    }
 }

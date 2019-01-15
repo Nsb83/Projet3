@@ -35,6 +35,12 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private UploadFileResponse uploadFileResponse;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Driver driver;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Pedestrian pedestrian;
+
 
     public User () {}
 
@@ -48,7 +54,7 @@ public class User {
         this.password = password;
     }
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse, Driver driver, Pedestrian pedestrian) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -57,6 +63,8 @@ public class User {
         this.email = email;
         this.password = password;
         this.uploadFileResponse = new UploadFileResponse();
+        this.driver = new Driver();
+        this.pedestrian = new Pedestrian();
     }
 
     public Long getId() {
@@ -135,6 +143,22 @@ public class User {
         this.uploadFileResponse = uploadFileResponse;
     }
 
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Pedestrian getPedestrian() {
+        return pedestrian;
+    }
+
+    public void setPedestrian(Pedestrian pedestrian) {
+        this.pedestrian = pedestrian;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -147,12 +171,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", uploadFileResponse=" + uploadFileResponse +
+                ", driver=" + driver +
+                ", pedestrian=" + pedestrian +
                 '}';
     }
-
-//    public void setUploadFileResponse(String fileDownloadUri) {
-//        this.uploadFileResponse = new UploadFileResponse(fileDownloadUri);
-//    }
 
     public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
 }

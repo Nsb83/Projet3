@@ -1,13 +1,16 @@
 package fr.autostopfrance.Autostop.models;
 
 // import java.util.LinkedList;
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name="driver")
-public class Driver {
-    // extends Profile
+public class Driver
+//        extends Profile
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,20 +24,22 @@ public class Driver {
     private String model;
     @Column(name="color")
     private String color;
-    @Column(name="img_car")
-    private String imgCar;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private UploadFileResponse uploadFileResponse;
+
+
     
     // private LinkedList<Trip> tripList;
 
     public Driver () {}
 
-    public Driver(String licensePlate, String brand, String model, String color, String imgCar){
+    public Driver(String licensePlate, String brand, String model, String color, UploadFileResponse uploadFileResponse){
         // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.color = color;
-        this.imgCar = imgCar;
+//        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public Driver(String licensePlate, String brand, String model, String color){
@@ -77,15 +82,15 @@ public class Driver {
         this.color = color;
     }
 
-    public String getImgCar() {
-        return imgCar;
-    }
+//    public UploadFileResponse getUploadFileResponse() {
+//        return uploadFileResponse;
+//    }
+//
+//    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
+//        this.uploadFileResponse = uploadFileResponse;
+//    }
 
-    public void setImgCar(String imgCar) {
-        this.imgCar = imgCar;
-    }
-
-    // public LinkedList<Trip> getTripList(){
+// public LinkedList<Trip> getTripList(){
     //     return tripList;
     // }
 

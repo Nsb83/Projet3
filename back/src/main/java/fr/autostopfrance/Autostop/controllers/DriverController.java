@@ -1,6 +1,7 @@
 package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.Driver;
+import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,16 +19,10 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-    @GetMapping(path = "/testprout", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String Coucou(){
-        return "coucouprout";
+    @PutMapping(path = "/update/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public void addOrUpdateDriver(@PathVariable("idUser") long idUser, @RequestBody Driver driver){
+        driverService.addOrUpdateDriver(idUser, driver);
     }
 
-    @PostMapping(path = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Driver postDriver(@RequestBody Driver driver) {
-        System.out.println("POST DRIVER : " + driver);
-        Driver driver1 = driverService.postDriver(driver);
-        return driver1;
-    }
 
 }

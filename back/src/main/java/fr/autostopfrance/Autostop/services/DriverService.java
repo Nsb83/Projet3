@@ -1,7 +1,10 @@
 package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.Driver;
+import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.DriverDAO;
+import fr.autostopfrance.Autostop.repositories.UserDAO;
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,43 +21,33 @@ import java.util.Optional;
 public class DriverService {
 
     @Autowired
-    DriverDAO driverDAO;
+    UserDAO userDAO;
 
- 
+    public ResponseEntity<User> addOrUpdateDriver (long idUser, Driver driver) {
+        System.out.println("Updating Driver " + idUser);
+        Optional<User> currentUserOptional = userDAO.findById(idUser);
 
-    public Driver postDriver(Driver driver) {
+        User currentUser = currentUserOptional.get();
+        currentUser.getDriver().setBrand(driver.getBrand());
+        currentUser.getDriver().setModel(driver.getModel());
+        currentUser.getDriver().setColor(driver.getColor());
+        currentUser.getDriver().setLicensePlate(driver.getLicensePlate());
 
-       return driverDAO.save(driver);
-   }
+        userDAO.save(currentUser);
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+    }
 
-    public ResponseEntity<String> deleteUser(long idUser) {
-      driverDAO.deleteById(idUser);
-      return new ResponseEntity<>("Driver has been deleted!", HttpStatus.OK);
-   }
-
-  public Optional<Driver> findById(long idUser) {
-      return driverDAO.findById(idUser);
-   }
-
-   public ResponseEntity<Driver> updateUser (long idDriver, Driver driver) {
-      System.out.println("Updating Driver " + idDriver);
-
-      Optional<Driver> currentDriverOptional = driverDAO.findById(idDriver);
-
-      if (!currentDriverOptional.isPresent()) {
-          System.out.println("Driver with id " + idDriver + " not found");
-          return new ResponseEntity<Driver>(HttpStatus.NOT_FOUND);
-      }
-
-      Driver currentDriver = currentDriverOptional.get();
-
-      currentDriver.setBrand(driver.getBrand());
-      currentDriver.setColor(driver.getColor());
-      currentDriver.setImgCar(driver.getImgCar());
-      currentDriver.setLicensePlate(driver.getLicensePlate());
-      currentDriver.setModel(driver.getModel());
-      driverDAO.save(currentDriver);
-      return new ResponseEntity<>(currentDriver, HttpStatus.OK);
-  }
+//    public ResponseEntity<User> postCarPicture (long idUser, UploadFileResponse uploadFileResponse) {
+//        Optional<User> currentUserOptional = userDAO.findById(idUser);
+//
+//        User currentUser = currentUserOptional.get();
+//        currentUser.getDriver().getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
+//        currentUser.getDriver().getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
+//        currentUser.getDriver().getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
+//        currentUser.getDriver().getUploadFileResponse().setSize(uploadFileResponse.getSize());
+//
+//        userDAO.save(currentUser);
+//        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+//    }
 
 }
