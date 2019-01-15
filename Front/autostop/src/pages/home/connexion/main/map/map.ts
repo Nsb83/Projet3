@@ -24,7 +24,8 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng
+  ILatLng,
+  LatLngBounds
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -111,14 +112,16 @@ export class MapPage {
     this.searchValue = $event
     this.getRouteJson($event).subscribe((data: any) => {
       this.displayRoute(data.routes[0].overview_polyline.points);
-      this.addMarkerAndCircle();
-      this.goToSpecificLocation();
+      // this.addMarkerAndCircle();
+      // this.goToSpecificLocation();
     });
   }
 
   displayRoute(routeJson) {
     this.map.clear().then(() => {
       this.showPoly(routeJson);
+      this.addMarkerAndCircle();
+      this.goToSpecificLocation();
     });
   }
 
@@ -167,9 +170,8 @@ export class MapPage {
   goToSpecificLocation() {
     let options: GeocoderRequest = {
     address: this.searchValue
-    // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
     };
-    // Address -> latitude,longitude
+
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
       let markerDestination : Marker = this.map.addMarkerSync({
@@ -182,8 +184,11 @@ export class MapPage {
                 }
               }
       })
-      markerDestination.showInfoWindow();
+      this.getCenterRoute(this.userPosition.latLng,results[0].position)
     });
+
+    // this.getCenterRoute();
+    // this.setZoomCamera(centerRoute);
 
 
     // Création faux marqueur autre utilisateur
@@ -201,4 +206,38 @@ export class MapPage {
       this.showMatchModal();
     });
   }
+  getCenterRoute(start, end){
+
+    let bounds: LatLngBounds = new LatLngBounds([
+      start,
+      end
+    ]);
+    let center = bounds.getCenter();
+    let cameraPos : CameraPosition<ILatLng> = {
+      target: center,
+      zoom : this.defineZoom(bounds)
+      // .northeast.lat, bounds.southwest.lat
+    };
+    console.log(center);
+    this.map.animateCamera(cameraPos);
+  }
+
+  defineZoom(bounds: LatLngBounds){
+    console.log(bounds);
+
+    let ecartMax = bounds.northeast.lat - bounds.southwest.lat;
+    console.log(ecartMax);
+    let answer;
+    if(ecartMax<0.01){
+      answer = 15;
+    }
+    else if(ecartMax<0.02 && ecartMax>=0.01){
+      answer = 5;
+    }
+    else {
+      answer = 1;
+    }
+    return answer;
+  }
+
 }
