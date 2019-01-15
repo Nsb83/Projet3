@@ -39,6 +39,8 @@ export class MapPage {
   userPosition: MyLocation;
   searchValue: any;
   routeJson : any;
+  polyline: Polyline;
+  markerDestination : Marker;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -117,9 +119,11 @@ export class MapPage {
   }
 
   displayRoute(routeJson) {
-    this.map.clear().then(() => {
-      this.showPoly(routeJson);
-    });
+    if (this.polyline !== undefined) {
+      this.polyline.remove();
+      this.markerDestination.remove();
+    }
+    this.showPoly(routeJson);
   }
 
   getRouteJson(searchValue) {
@@ -132,7 +136,7 @@ export class MapPage {
       let arrayPoly = decodePolyline(polyRoute);
       // console.log(decodePolyline(polyRoute));
 
-    let polyline: Polyline = this.map.addPolylineSync({
+    this.polyline = this.map.addPolylineSync({
       points: arrayPoly,
       color: '#258c3d',
       width: 5,
@@ -142,7 +146,7 @@ export class MapPage {
     })
 
     /////// route clickable DEV PURPOSE ONLY
-    polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+    this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       let position: LatLng = <LatLng>params[0];
       let markerPoly: Marker = this.map.addMarkerSync({
         position: position,
@@ -151,18 +155,10 @@ export class MapPage {
       });
 
       markerPoly.showInfoWindow();
-
     });
   }
     // FIN POLY
     // fin route direction
-
-
-  // Show modal for matching request
-  showMatchModal() {
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
-    matchModal.present();
-  }
 
   goToSpecificLocation() {
     let options: GeocoderRequest = {
@@ -172,7 +168,7 @@ export class MapPage {
     // Address -> latitude,longitude
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
-      let markerDestination : Marker = this.map.addMarkerSync({
+      this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
       icon: {url: "../assets/icon/thumb.png",
@@ -182,7 +178,7 @@ export class MapPage {
                 }
               }
       })
-      markerDestination.showInfoWindow();
+      // markerDestination.showInfoWindow();
     });
 
 
@@ -200,5 +196,11 @@ export class MapPage {
     markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       this.showMatchModal();
     });
+  }
+
+  // Show modal for matching request
+  showMatchModal() {
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
+    matchModal.present();
   }
 }
