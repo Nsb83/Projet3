@@ -76,16 +76,14 @@ export class MapPage {
         target: this.userPosition.latLng,
         zoom: 15
       });
-      this.addMarkerandCircle();
+      this.addMarkerAndCircle();
     });
   }
 
-  addMarkerandCircle() {
-
+  addMarkerAndCircle() {
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
-
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: this.userPosition.latLng,
         icon: {url: "../assets/icon/thumb.png",
@@ -113,12 +111,12 @@ export class MapPage {
     this.searchValue = $event
     this.getRouteJson($event).subscribe((data: any) => {
       this.displayRoute(data.routes[0].overview_polyline.points);
-      this.addMarkerandCircle();
+      this.addMarkerAndCircle();
       this.goToSpecificLocation();
     });
   }
 
-  displayRoute(routeJson){
+  displayRoute(routeJson) {
     this.map.clear().then(() => {
       this.showPoly(routeJson);
     });
@@ -128,13 +126,8 @@ export class MapPage {
       return this.RouteProvider.getRoute(this.userPosition.latLng, searchValue);
   }
 
-
-  // displayRouteJson(){
-  //   this.showPoly(this.routeJson);
-  // }
-
   ///////// Polylines ////////////////////
-  showPoly(polyRoute){
+  showPoly(polyRoute) {
       const decodePolyline = require('decode-google-map-polyline');
       let arrayPoly = decodePolyline(polyRoute);
       // console.log(decodePolyline(polyRoute));
@@ -160,19 +153,18 @@ export class MapPage {
       markerPoly.showInfoWindow();
 
     });
-    ///////////////
   }
     // FIN POLY
     // fin route direction
 
 
   // Show modal for matching request
-  showMatchModal(){
+  showMatchModal() {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
 
-  goToSpecificLocation(){
+  goToSpecificLocation() {
     let options: GeocoderRequest = {
     address: this.searchValue
     // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
@@ -191,11 +183,10 @@ export class MapPage {
               }
       })
       markerDestination.showInfoWindow();
-    })
+    });
 
 
-        // Création faux marqueur autre utilisateur
-
+    // Création faux marqueur autre utilisateur
     let markerMatch : Marker = this.map.addMarkerSync({
       'position': this.positionOtherUser,
       icon: {url: "../assets/icon/driver.png",
@@ -204,9 +195,10 @@ export class MapPage {
                   height: 32
                 }
               }
-      })
-      markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-        this.showMatchModal();
-      })
-    }
+      });
+
+    markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      this.showMatchModal();
+    });
+  }
 }
