@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from "ionic-angular";
+import { IonicApp, IonicErrorHandler, IonicModule, NavController, AlertController } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
@@ -10,7 +10,6 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
 import { AddFavoritePage } from "../pages/home/connexion/main/menu/tabs/favorites/add-favorite/add-favorite";
-import { ColorsPage } from "../pages/home/connexion/main/menu/tabs/vehicle/colors/colors";
 import { ConnexionPage } from "../pages/home/connexion/connexion";
 import { ContactPage } from "../pages/home/connexion/main/menu/contact/contact";
 import { DistancePage } from "../pages/home/connexion/main/menu/tabs/profile/distance/distance";
@@ -46,13 +45,13 @@ import { AuthService } from '../providers/auth/auth.service';
 import { TokenStorage } from '../providers/auth/token.storage'
 import { ImageProvider } from "../providers/Image/imageProvider";
 import { DriverProvider } from '../providers/driver/driver';
+import { MessageProvider } from "../providers/Messages/MessageProvider";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddFavoritePage,
-    ColorsPage,
     ConnexionPage,
     ContactPage,
     DistancePage,
@@ -87,7 +86,6 @@ import { DriverProvider } from '../providers/driver/driver';
     MyApp,
     HomePage,
     AddFavoritePage,
-    ColorsPage,
     ConnexionPage,
     ContactPage,
     DistancePage,
@@ -124,7 +122,9 @@ import { DriverProvider } from '../providers/driver/driver';
     TokenStorage,
     ImageProvider,
     RouteProvider,
-    DriverProvider
+    DriverProvider,
+    MessageProvider,
+    RouteProvider
   ]
 })
 export class AppModule {}

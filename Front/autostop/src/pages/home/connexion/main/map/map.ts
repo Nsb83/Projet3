@@ -35,10 +35,17 @@ import {
 
 export class MapPage {
   map: GoogleMap;
-  inputSearch;
-  userPosition;
-  searchValue;
+  inputSearch: String;
+  userPosition: MyLocation;
+  searchValue: any;
   routeJson : any;
+
+  option: MyLocationOptions = {
+    // true use GPS as much as possible (lot battery)
+    // false network location (save battery)
+    enableHighAccuracy: true
+  };
+
   matchableUser = new User("Doe", "John", "08 36 65 65 65", "male", "29/02/1948", "gegedarmon@mail.fr", "superpassword");
   // Test data for request-modal
 
@@ -61,62 +68,19 @@ export class MapPage {
       API_KEY_FOR_BROWSER_DEBUG: "AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44"
     });
 
-    let option: MyLocationOptions = {
-      // true use GPS as much as possible (lot battery)
-      // false network location (save battery)
-      enableHighAccuracy: true
-    };
-
-    // Réception de la géoloc et affichage de la carte centrée dessus avec les options
-    LocationService.getMyLocation(option).then((location: MyLocation) => {
+    // Création de la carte avec géolocalisation
+    LocationService.getMyLocation(this.option).then((location: MyLocation) => {
       this.userPosition = location;
-      let options: GoogleMapOptions = {
-        camera: {
-          target: location.latLng,
-          zoom: 15
-        }
-      };
-
-      // Création de la carte
-      this.map = GoogleMaps.create("map", options);
-
-      // MARKER
-      // Création d'un marqueur et son ajout à map avec la géoloc
-      // Possibilité de passer un objet Options en param
-
-      let markerGeoloc: Marker = this.map.addMarkerSync({
-        position: location.latLng,
-        icon: {url: "../assets/icon/thumb.png",
-              size: {
-                width: 32,
-                height: 32
-              }
-            }
+      this.map = GoogleMaps.create("map");
+      this.map.moveCamera({
+        target: this.userPosition.latLng,
+        zoom: 15
       });
-
-      // CERCLE
-      // création d'un objet avec lat et lng à partir d la géoloc
-      let centre = location.latLng;
-      // création du cercle avec comme centre la géoloc
-      let circle: Circle = this.map.addCircleSync({
-        center: centre,
-        radius: 500,
-        strokeColor: "#258c3d",
-        // strokeWidth: 30, A QUOI CA SERT???
-        fillColor: "rgba(239, 244, 225, 0.45)"
-      });
-      // this.map.moveCamera({
-      //   target: circle.getBounds
-      // });
+      this.addMarkerAndCircle();
     });
   }
 
-  receiveMessage($event) {
-    this.searchValue = $event
-    this.getRouteJson($event);
-    setTimeout(() => {
-      this.map.clear();
-      
+  addMarkerAndCircle() {
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
@@ -132,38 +96,41 @@ export class MapPage {
 
       // CERCLE
       // création d'un objet avec lat et lng à partir d la géoloc
-      let centre = this.userPosition.latLng;
+      let center = this.userPosition.latLng;
       // création du cercle avec comme centre la géoloc
       let circle: Circle = this.map.addCircleSync({
-        center: centre,
+        center: center,
         radius: 500,
         strokeColor: "#258c3d",
         // strokeWidth: 30, A QUOI CA SERT???
         fillColor: "rgba(239, 244, 225, 0.45)"
       });
-      this.showPoly(this.routeJson);
+    }
+
+  receiveMessage($event) {
+    this.searchValue = $event
+    this.getRouteJson($event).subscribe((data: any) => {
+      this.displayRoute(data.routes[0].overview_polyline.points);
+      this.addMarkerAndCircle();
       this.goToSpecificLocation();
-    }, 1000);
+    });
   }
 
-  getRouteJson(searchValue){
-    let option: MyLocationOptions = {
-      enableHighAccuracy: true
-    };
-    LocationService.getMyLocation(option).then((location: MyLocation) => {
-      this.RouteProvider.getRoute(location.latLng, searchValue).subscribe((data: any)=>
-        this.routeJson = data.routes[0].overview_polyline.points);
+  displayRoute(routeJson) {
+    this.map.clear().then(() => {
+      this.showPoly(routeJson);
     });
-  };
+  }
 
-  // displayRouteJson(){
-  //   this.showPoly(this.routeJson);
-  // }
+  getRouteJson(searchValue) {
+      return this.RouteProvider.getRoute(this.userPosition.latLng, searchValue);
+  }
+
   ///////// Polylines ////////////////////
-  showPoly(polyRoute){
+  showPoly(polyRoute) {
       const decodePolyline = require('decode-google-map-polyline');
       let arrayPoly = decodePolyline(polyRoute);
-      console.log(decodePolyline(polyRoute));
+      // console.log(decodePolyline(polyRoute));
 
     let polyline: Polyline = this.map.addPolylineSync({
       points: arrayPoly,
@@ -182,21 +149,22 @@ export class MapPage {
         title: position.toUrlValue(),
         disableAutoPan: true
       });
+
       markerPoly.showInfoWindow();
+
     });
-    ///////////////
   }
     // FIN POLY
     // fin route direction
 
 
   // Show modal for matching request
-  showMatchModal(){
+  showMatchModal() {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
 
-  goToSpecificLocation(){
+  goToSpecificLocation() {
     let options: GeocoderRequest = {
     address: this.searchValue
     // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
@@ -215,11 +183,10 @@ export class MapPage {
               }
       })
       markerDestination.showInfoWindow();
-    })
+    });
 
 
-        // Création faux marqueur autre utilisateur
-
+    // Création faux marqueur autre utilisateur
     let markerMatch : Marker = this.map.addMarkerSync({
       'position': this.positionOtherUser,
       icon: {url: "../assets/icon/driver.png",
@@ -228,9 +195,10 @@ export class MapPage {
                   height: 32
                 }
               }
-      })
-      markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-        this.showMatchModal();
-      })
-    }
+      });
+
+    markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      this.showMatchModal();
+    });
+  }
 }

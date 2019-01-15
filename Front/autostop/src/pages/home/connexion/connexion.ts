@@ -9,6 +9,7 @@ import { AuthService } from '../../../providers/auth/auth.service';
 import { TokenStorage } from '../../../providers/auth/token.storage';
 import { HttpResponse } from "@angular/common/http";
 import { ChoicePage } from "../register/choice/choice";
+import { MessageProvider } from "../../../providers/Messages/MessageProvider";
 
 @Component({
   selector: "page-connexion",
@@ -26,8 +27,9 @@ export class ConnexionPage implements OnInit {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     private userService: UserProvider,
-    private authService: AuthService,
-    private token: TokenStorage
+    private authService: AuthService, 
+    private token: TokenStorage,
+    private messageService: MessageProvider
   ) { }
 
   ngOnInit() {
@@ -53,6 +55,7 @@ export class ConnexionPage implements OnInit {
       (data: HttpResponse<any>) => {
         this.token.saveToken(data.headers.get('Authorization'));
         this.userService.setUserId(data.headers.get('UserID'));
+        this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté", false)
         this.navCtrl.push(ChoicePage);
         console.log(data);
       }

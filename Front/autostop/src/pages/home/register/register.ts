@@ -6,6 +6,7 @@ import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
 import { ConnexionPage } from "../connexion/connexion";
 import { HttpResponse, HttpEventType } from "@angular/common/http";
+import { MessageProvider } from "../../../providers/Messages/MessageProvider";
 
 @Component({
   selector: "page-register",
@@ -22,6 +23,7 @@ export class RegisterPage implements OnInit {
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private userService: UserProvider,
+    private messageService: MessageProvider
   ) {}
 
   ngOnInit() {
@@ -69,6 +71,7 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
+      this.messageService.myAlertMethod("Félicitation !", "Vous êtes désormais inscrit", false)
       // console.log(this.newUser);
       this.navCtrl.push(ConnexionPage);
     });

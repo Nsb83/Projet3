@@ -54,8 +54,7 @@ export class ResponseModalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResponseModalPage');
-  
+    // console.log('ionViewDidLoad ResponseModalPage');
   }
 
 

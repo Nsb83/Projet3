@@ -1,8 +1,5 @@
 <ion-menu side="left" [content]="content" background-color="menu">
   <ion-content class="custom">
-    <div *ngIf="!user.imgUrl">
-      <img padding id="avatarUser" [src]="placeholderImg">
-    </div>
     <div *ngIf="user.imgUrl">
       <img padding id="avatarUser" [src]="user.imgUrl">
     </div>

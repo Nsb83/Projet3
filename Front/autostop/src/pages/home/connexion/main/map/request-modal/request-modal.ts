@@ -26,7 +26,7 @@ export class RequestModalPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.matchableUser);
+    // console.log(this.matchableUser);
   }
 
 //Couleur d'étoiles dynamiques
