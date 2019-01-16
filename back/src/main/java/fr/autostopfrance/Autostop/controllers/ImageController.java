@@ -45,7 +45,7 @@ public class ImageController {
 
     @PostMapping("/uploadFile/{idUser}")
     public UploadFileResponse uploadUserPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(file);
+        String fileName = storageService.storeFile(idUser, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
@@ -62,7 +62,7 @@ public class ImageController {
 
     @PostMapping("/uploadFile/drivers/{idUser}")
     public UploadFileResponse uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(file);
+        String fileName = storageService.storeFile(idUser, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")

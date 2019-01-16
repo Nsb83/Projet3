@@ -1,14 +1,21 @@
 package fr.autostopfrance.Autostop.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="trip")
 public class Trip {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String origin;
     private String destination;
     private boolean isAccepted;
     private String state;
-    private Object itinerary;
+//    private Object itinerary;
 
+    public Trip () {}
 
     public Trip(String origin, String destination){
         this.origin = origin;
@@ -35,8 +42,8 @@ public class Trip {
         return isAccepted;
     }
 
-    public void setAccepted(String isAccepted) {
-//        this.isAccepted = isAccepted;
+    public void setAccepted(boolean isAccepted) {
+        this.isAccepted = isAccepted;
     }
 
     public String gestState() {
@@ -47,13 +54,13 @@ public class Trip {
         this.state = state;
     }
 
-    public Object getItinerary() {
-        return itinerary;
-    }
-
-    public void setItinerary(Object itinerary) {
-        this.itinerary = itinerary;
-    }
+//    public Object getItinerary() {
+//        return itinerary;
+//    }
+//
+//    public void setItinerary(Object itinerary) {
+//        this.itinerary = itinerary;
+//    }
 
     public ArrayList<Object> calculateTrip(){
         return null;

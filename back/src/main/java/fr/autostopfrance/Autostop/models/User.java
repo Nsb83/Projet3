@@ -11,8 +11,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // @Column(name = "userID")
-    // private String userID;
     @Column(name="last_name")
     private String lastName;
     @Column(name="first_name")
@@ -27,10 +25,8 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Account account;
+    @Column(name = "Vehiculed")
+    private boolean vehiculed;
 
     @OneToOne(cascade = CascadeType.ALL)
     private UploadFileResponse uploadFileResponse;
@@ -41,6 +37,8 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Pedestrian pedestrian;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Trip trip;
 
     public User () {}
 
@@ -54,7 +52,7 @@ public class User {
         this.password = password;
     }
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadFileResponse uploadFileResponse, Driver driver, Pedestrian pedestrian) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed, UploadFileResponse uploadFileResponse, Driver driver, Pedestrian pedestrian, Trip trip) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -62,9 +60,11 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
+        this.vehiculed = false;
         this.uploadFileResponse = new UploadFileResponse();
         this.driver = new Driver();
         this.pedestrian = new Pedestrian();
+        this.trip = new Trip();
     }
 
     public Long getId() {
@@ -74,14 +74,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-
-    // public String getUserID() {
-    //     return userID;
-    // }
-
-    // public void setUserID(String userID) {
-    //     this.userID = userID;
-    // }
 
     public String getLastName() {
         return lastName;
@@ -143,6 +135,8 @@ public class User {
         this.uploadFileResponse = uploadFileResponse;
     }
 
+    public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
+
     public Driver getDriver() {
         return driver;
     }
@@ -159,6 +153,22 @@ public class User {
         this.pedestrian = pedestrian;
     }
 
+    public boolean isVehiculed() {
+        return vehiculed;
+    }
+
+    public void setVehiculed(boolean vehiculed) {
+        this.vehiculed = vehiculed;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -170,11 +180,13 @@ public class User {
                 ", dateOfBirth=" + dateOfBirth +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", isVehiculed=" + vehiculed +
                 ", uploadFileResponse=" + uploadFileResponse +
                 ", driver=" + driver +
                 ", pedestrian=" + pedestrian +
+                ", trip=" + trip +
                 '}';
     }
 
-    public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
 }
+

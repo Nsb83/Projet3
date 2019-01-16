@@ -43,9 +43,11 @@ public class UserService implements UserDetailsService {
                 user.getDateOfBirth(),
                 user.getEmail(),
                 bCryptPasswordEncoder.encode(user.getPassword()),
+                user.isVehiculed(),
                 user.getUploadFileResponse(),
                 user.getDriver(),
-                user.getPedestrian()
+                user.getPedestrian(),
+                user.getTrip()
                 ));
         return _user;
     }
