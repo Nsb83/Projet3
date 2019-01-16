@@ -1,30 +1,56 @@
 package fr.autostopfrance.Autostop.models;
 
-import java.util.LinkedList;
+// import java.util.LinkedList;
+import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 
-public class Driver extends Profile{
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="driver")
+public class Driver
+//        extends Profile
+{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "driverId")
+    private Long id;
+    @Column(name="license_plate")
     private String licensePlate;
+    @Column(name="brand")
     private String brand;
+    @Column(name="model")
     private String model;
+    @Column(name="color")
     private String color;
-    private String imgCar;
-    private LinkedList<Trip> tripList;
+    @OneToOne(cascade = CascadeType.ALL)
+    private UploadFileResponse uploadFileResponse;
 
-    public Driver(String licensePlate, String brand, String model, String color, String imgCar){
-        super();
+
+    
+    // private LinkedList<Trip> tripList;
+
+    public Driver () {
+        this.uploadFileResponse = new UploadFileResponse();
+    }
+
+    public Driver(String licensePlate, String brand, String model, String color, UploadFileResponse uploadFileResponse){
+        // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.color = color;
-        this.imgCar = imgCar;
+        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public Driver(String licensePlate, String brand, String model, String color){
-        super();
+        // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.color = color;
+        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public String getLicensePlate() {
@@ -59,21 +85,21 @@ public class Driver extends Profile{
         this.color = color;
     }
 
-    public String getImgCar() {
-        return imgCar;
+    public UploadFileResponse getUploadFileResponse() {
+        return uploadFileResponse;
     }
 
-    public void setImgCar(String imgCar) {
-        this.imgCar = imgCar;
+    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
+        this.uploadFileResponse = uploadFileResponse;
     }
 
-    public LinkedList<Trip> getTripList(){
-        return tripList;
-    }
+// public LinkedList<Trip> getTripList(){
+    //     return tripList;
+    // }
 
-    public void setTripList(LinkedList tripList){
-        this.tripList = tripList;
-    }
+    // public void setTripList(LinkedList tripList){
+    //     this.tripList = tripList;
+    // }
 
     public void acceptTrip(){
     }
@@ -84,4 +110,10 @@ public class Driver extends Profile{
     public void rateTrip(Pedestrian pedestrian, int note){
         
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" + licensePlate + brand + model + color + '}';
+    }
+
 }

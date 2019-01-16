@@ -19,6 +19,7 @@ export class ConnexionPage implements OnInit {
   main = MainPage;
   lostPasswordPage = LostPasswordPage;
 
+
   private connexion: FormGroup;
 
   constructor(
@@ -56,6 +57,7 @@ export class ConnexionPage implements OnInit {
         this.userService.setUserId(data.headers.get('UserID'));
         this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté", false)
         this.navCtrl.push(ChoicePage);
+        console.log(data);
       }
     );
     // this.userService.connectUser(credentials).subscribe((data: HttpResponse<any>) => {

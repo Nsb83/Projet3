@@ -36,7 +36,7 @@ export class MainPage {
     private userService: UserProvider,
     private token: TokenStorage,
     private messageService: MessageProvider
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.user = this.userService.getUser();
@@ -54,6 +54,6 @@ export class MainPage {
     this.token.signOut();
     this.messageService.myAlertMethod("Au revoir !", "Vous êtes désormais déconnecté", false)
     // console.log("You are disconnected");
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
     }
 }

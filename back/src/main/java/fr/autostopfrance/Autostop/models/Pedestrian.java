@@ -1,13 +1,21 @@
 package fr.autostopfrance.Autostop.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="pedestrian")
 public class Pedestrian extends Profile{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int passengersNumber;
+    private int searchRadius;
 
     public Pedestrian () {
         super();
         this.passengersNumber = 1;
+        this.searchRadius = 300;
     }
 
     public int getPassengersNumber() {

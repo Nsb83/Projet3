@@ -1,6 +1,8 @@
 import { GiveRatingPage } from './give-rating/give-rating';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DriverProvider } from '../../../../../../../../providers/driver/driverProvider';
+import { Driver } from '../../../../../../../../models/Driver';
 
 
 @Component({
@@ -16,7 +18,9 @@ export class LinkingPage {
     imgCar: "./assets/imgs/clio4.jpeg"
   }
 
+  driver:Driver;
   testRating: number = 4;
+
 
   //Couleur d'étoiles dynamiques
   getStar(num){
@@ -26,9 +30,15 @@ export class LinkingPage {
     else return "./assets/imgs/stars/starEmptySm.png";
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public driverProvider:DriverProvider) {
     this.matchableUser = this.navParams.get('matchableUser');
   }
+
+
+
+ngOnInit(){
+  this.driver = this.driverProvider.getDriver();
+}
 
   //Couleur d'étoiles dynamiques
   starRate;
