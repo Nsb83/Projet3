@@ -1,3 +1,4 @@
+import { MainPage } from './../../../main';
 import { Driver } from './../../../../../../../models/Driver';
 import { Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
@@ -7,6 +8,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
+import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 @Component({
   selector: 'page-vehicle',
   templateUrl: 'vehicle.html',
@@ -16,6 +18,7 @@ export class VehiclePage implements OnInit{
 	color: string = '#d435a2';
   private driverInfos: Driver;
   private register: FormGroup;
+  private main = MainPage;
 
 
   constructor(public modal: ModalController,
@@ -23,7 +26,8 @@ export class VehiclePage implements OnInit{
               public navParams: NavParams,
               private formBuilder: FormBuilder,
               private alertCtrl: AlertController,
-              private userService: UserProvider) { }
+              private userService: UserProvider,
+              private messageService: MessageProvider) { }
 
   ngOnInit() {
     this.initForm();
@@ -53,25 +57,12 @@ export class VehiclePage implements OnInit{
       this.color,
       register.imgCar,
     );
-    console.log(this.driverInfos)
-//     this.userService.createUser(this.newUser);
-//     this.navCtrl.push(ChoicePage);
+    console.log(this.driverInfos);
+    this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
 
-// // ************************************
-// // FOR DEVELOPMENT PURPOSES ONLY
-// // ************************************
-//     let alert = this.alertCtrl.create({
-//       title:
-//         "Nouveau compte créé pour " +
-//         this.newUser.lastName +
-//         ", " +
-//         this.newUser.firstName,
-//       subTitle:
-//         "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
-//       buttons: ["Ok"]
-//     });
-//     alert.present();
-// // ************************************
+//     this.userService.createUser(this.newUser);
+    this.navCtrl.push(this.main);
+
 
   }
 
