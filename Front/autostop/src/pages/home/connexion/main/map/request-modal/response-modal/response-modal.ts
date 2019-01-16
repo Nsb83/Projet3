@@ -50,7 +50,7 @@ export class ResponseModalPage {
   }
 
   cancelRequest(){
-    this.navCtrl.push(MapPage);
+    this.navCtrl.popAll();
   }
 
   ionViewDidLoad() {
