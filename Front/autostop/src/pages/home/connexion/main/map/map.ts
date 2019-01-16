@@ -5,7 +5,7 @@ import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
+import { NavController, AlertController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
 
 import {
   GoogleMaps,
@@ -28,6 +28,7 @@ import {
   ILatLng,
   LatLngBounds
 } from "@ionic-native/google-maps";
+import { Trip } from '../../../../../models/Trip';
 
 // @IonicPage()
 @Component({
@@ -44,6 +45,9 @@ export class MapPage {
   polyline: Polyline;
   markerDestination : Marker;
   iconPath: String;
+  arrayPoly;
+  validatedTrip: Trip;
+  destinationILatLng: ILatLng;
 
   // Dev purpose
   isVehiculed : boolean;
@@ -63,7 +67,7 @@ export class MapPage {
     lng: 4.641063000000031
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider, public UserProvider: UserProvider) {}
+  constructor(public navCtrl: NavController, public alrtCtrl: AlertController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider, public UserProvider: UserProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -149,11 +153,11 @@ export class MapPage {
   ///////// Polylines ////////////////////
   showPoly(polyRoute) {
       const decodePolyline = require('decode-google-map-polyline');
-      let arrayPoly = decodePolyline(polyRoute);
+      this.arrayPoly = decodePolyline(polyRoute);
       // console.log(decodePolyline(polyRoute));
 
     this.polyline = this.map.addPolylineSync({
-      points: arrayPoly,
+      points: this.arrayPoly,
       color: '#258c3d',
       width: 5,
       geodesic: true,
@@ -174,9 +178,28 @@ export class MapPage {
     });
 
     this.map.moveCamera({
-      'target': arrayPoly
+      'target': this.arrayPoly
     });
+
   }
+  sendTrip() {
+    this.validatedTrip = new Trip (this.userPosition.latLng, this.searchValue, this.markerDestination.getPosition(), this.arrayPoly);
+    let alert = this.alrtCtrl.create({
+      title: 'Trajet enregistré',
+      message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+      buttons: [
+        {
+          text: "C'est compris!",
+          handler: () => {
+            console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+    console.log(this.validatedTrip);
+    alert.present();
+  }
+
     // FIN POLY
     // fin route direction
 
@@ -187,6 +210,7 @@ export class MapPage {
 
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
+      this.destinationILatLng = results[0].position;
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
@@ -220,4 +244,5 @@ export class MapPage {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
+
 }
