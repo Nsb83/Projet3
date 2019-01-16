@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1d39855-5622-403d-b020-fa24e8ec9ad4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/uploads/Jerome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Luc2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/wcslogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" afterDir="false" />
@@ -23,7 +26,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="378">
               <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
             </state>
           </provider>
@@ -249,7 +252,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.idea/workspace.xml" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547633648442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547633694172" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -293,12 +296,12 @@
       <workItem from="1547544346066" duration="516000" />
       <workItem from="1547560662290" duration="8816000" />
       <workItem from="1547588588952" duration="943000" />
-      <workItem from="1547627067667" duration="3646000" />
+      <workItem from="1547627067667" duration="3952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13953000" />
+    <option name="totallyTimeSpent" value="14259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -475,7 +478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="378">
           <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
         </state>
       </provider>
