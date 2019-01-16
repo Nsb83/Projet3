@@ -1,3 +1,4 @@
+import { UserProvider } from './../../../../../providers/user/userProvider';
 import { RouteProvider } from './../../../../../providers/route/route';
 // import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
@@ -42,6 +43,11 @@ export class MapPage {
   routeJson : any;
   polyline: Polyline;
   markerDestination : Marker;
+  iconPath: String;
+
+  // Dev purpose
+  isVehiculed : boolean;
+  //
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -57,12 +63,21 @@ export class MapPage {
     lng: 4.641063000000031
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider, public UserProvider: UserProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
-    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png")
+    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png");
+    this.isVehiculed = this.UserProvider.getIsVehiculed();
+    this.setIconUser();
+  }
+
+  setIconUser(){
+    if(this.isVehiculed){
+      this.iconPath = "../assets/icon/driver.png";
+    }
+    else this.iconPath = "../assets/icon/thumb.png";
   }
 
   loadMap() {
@@ -89,7 +104,7 @@ export class MapPage {
       // Possibilité de passer un objet Options en param
       let markerGeoloc: Marker = this.map.addMarkerSync({
         position: this.userPosition.latLng,
-        icon: {url: "../assets/icon/thumb.png",
+        icon: {url: this.iconPath,
               size: {
                 width: 32,
                 height: 32
@@ -175,7 +190,7 @@ export class MapPage {
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
-      icon: {url: "../assets/icon/thumb.png",
+      icon: {url: this.iconPath,
                 size: {
                   width: 32,
                   height: 32
