@@ -24,7 +24,8 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng
+  ILatLng,
+  LatLngBounds
 } from "@ionic-native/google-maps";
 
 // @IonicPage()
@@ -156,6 +157,10 @@ export class MapPage {
 
       markerPoly.showInfoWindow();
     });
+
+    this.map.moveCamera({
+      'target': arrayPoly
+    });
   }
     // FIN POLY
     // fin route direction
@@ -163,9 +168,8 @@ export class MapPage {
   goToSpecificLocation() {
     let options: GeocoderRequest = {
     address: this.searchValue
-    // Marche avec plus d'infos genre '6 Le Rampeau, 69510, Thurins, FRANCE'
     };
-    // Address -> latitude,longitude
+
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
       this.markerDestination = this.map.addMarkerSync({
@@ -178,9 +182,7 @@ export class MapPage {
                 }
               }
       })
-      // markerDestination.showInfoWindow();
     });
-
 
     // Création faux marqueur autre utilisateur
     let markerMatch : Marker = this.map.addMarkerSync({
