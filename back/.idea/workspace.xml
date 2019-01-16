@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a1d39855-5622-403d-b020-fa24e8ec9ad4" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/uploads/Jerome.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/uploads/Luc2.png" afterDir="false" />
@@ -9,6 +10,17 @@
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" afterDir="false" />
+=======
+    <list default="true" id="5364c71d-cab2-43fa-8e58-1a96cf2582b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Image/imageProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Driver.java" afterDir="false" />
@@ -21,6 +33,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
@@ -134,11 +147,22 @@
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="328" />
+    <option name="y" value="130" />
+    <option name="width" value="1430" />
+    <option name="height" value="907" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
+<<<<<<< HEAD
     <panes>
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -243,6 +267,9 @@
       </pane>
       <pane id="PackagesPane" />
     </panes>
+=======
+    <panes />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
   </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -252,7 +279,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.idea/workspace.xml" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547633694172" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -287,27 +318,40 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a1d39855-5622-403d-b020-fa24e8ec9ad4" name="Default Changelist" comment="" />
-      <created>1547544276977</created>
+      <changelist id="5364c71d-cab2-43fa-8e58-1a96cf2582b9" name="Default Changelist" comment="" />
+      <created>1547541740287</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1547544276977</updated>
       <workItem from="1547544283763" duration="29000" />
       <workItem from="1547544346066" duration="516000" />
       <workItem from="1547560662290" duration="8816000" />
       <workItem from="1547588588952" duration="943000" />
       <workItem from="1547627067667" duration="3952000" />
+=======
+      <updated>1547541740287</updated>
+      <workItem from="1547541750137" duration="54000" />
+      <workItem from="1547559400676" duration="883000" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="14259000" />
+=======
+    <option name="totallyTimeSpent" value="937000" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="328" y="130" width="1430" height="907" extended-state="1" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20958512" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -316,8 +360,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+=======
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3294423" />
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -325,7 +374,7 @@
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32871014" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -345,6 +394,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/AutostopApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -484,6 +534,8 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> 49ac67abe9edc6f10938874ae1b60131b6fb2069
   <component name="masterDetails">
     <states>
       <state key="GlobalLibrariesConfigurable.UI">

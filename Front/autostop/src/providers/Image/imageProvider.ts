@@ -13,7 +13,7 @@ export class ImageProvider{
     formdata.append('file', file);
 
     
-    // const req = new HttpRequest('POST', `http://10.0.2.2:8080/uploadFile/${userId}`, formdata, {
+      //const req = new HttpRequest('POST', `http://10.0.2.2:8080/uploadFile/${userId}`, formdata, {
       const req = new HttpRequest('POST', `http://localhost:8080/uploadFile/${userId}`, formdata, {
       // reportProgress: true,
       responseType: 'text'
