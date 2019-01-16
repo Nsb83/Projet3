@@ -46,10 +46,6 @@ export class MainPage {
     this.user = this.userService.getUser();
   }
 
-  ngAfterContentInit(): void {
-    this.navCtrl.push;
-  }
-
   onNavigate(page: any) {
     this.navCtrl.push(page);
   }
