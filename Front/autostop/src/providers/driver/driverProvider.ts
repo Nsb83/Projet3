@@ -18,7 +18,8 @@ export class DriverProvider {
   private user: User;
   private tokenId;
   private driver: Driver;
-  private URL_DB = "http://localhost:8080/drivers";
+  private DRIVER_URL = "http://localhost:8080/drivers";
+  private USER_URL = "http://localhost:8080/users";
 
 
   constructor(public http: HttpClient, 
@@ -27,26 +28,26 @@ export class DriverProvider {
     console.log('Hello DriverProvider Provider');
   }
 
-  getToken(){
-    this.tokenId = localStorage.getItem(TOKEN_KEY);
-    console.log(this.tokenId);
-    // console.log(this.httpOptions)
-    return this.tokenId;
-  }
+  // getToken(){
+  //   this.tokenId = localStorage.getItem(TOKEN_KEY);
+  //   console.log(this.tokenId);
+  //   // console.log(this.httpOptions)
+  //   return this.tokenId;
+  // }
 
-  createDriver(driver: Driver) {
-    let createDriverUrl = this.URL_DB + "/create";
-    console.log(createDriverUrl);
-    console.log(driver);
-    return this.http.post<Driver>(createDriverUrl, driver, httpOptions)
-  };
+  // createDriver(driver: Driver) {
+  //   let createDriverUrl = this.URL_DB + "/create";
+  //   console.log(createDriverUrl);
+  //   console.log(driver);
+  //   return this.http.post<Driver>(createDriverUrl, driver, httpOptions)
+  // };
 
   getDriver() {
     const driver: Driver = new Driver();
     this.http
-      .get<User>(`${this.URL_DB}/find/${this.userProvider.getUserId()}`).subscribe((response: any) => {
+      .get<User>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`).subscribe((response: any) => {
 
-        console.log(response);
+        console.log("getUserId dans driverService " + response);
 
         driver.setBrand(response.driver.brand);
         driver.setModel(response.driver.model);
@@ -68,7 +69,7 @@ export class DriverProvider {
 
   updateDriver(driver: Driver){
     return this.http
-      .put<Driver>(`${this.URL_DB}/update/${this.userProvider.getUserId()}`, driver);
+      .put<Driver>(`${this.DRIVER_URL}/update/${this.userProvider.getUserId()}`, driver);
   }
 
 }

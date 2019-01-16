@@ -24,14 +24,16 @@ public class Driver
     private String model;
     @Column(name="color")
     private String color;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private UploadFileResponse uploadFileResponse;
+    @OneToOne(cascade = CascadeType.ALL)
+    private UploadFileResponse uploadFileResponse;
 
 
     
     // private LinkedList<Trip> tripList;
 
-    public Driver () {}
+    public Driver () {
+        this.uploadFileResponse = new UploadFileResponse();
+    }
 
     public Driver(String licensePlate, String brand, String model, String color, UploadFileResponse uploadFileResponse){
         // super();
@@ -39,7 +41,7 @@ public class Driver
         this.brand = brand;
         this.model = model;
         this.color = color;
-//        this.uploadFileResponse = new UploadFileResponse();
+        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public Driver(String licensePlate, String brand, String model, String color){
@@ -48,6 +50,7 @@ public class Driver
         this.brand = brand;
         this.model = model;
         this.color = color;
+        this.uploadFileResponse = new UploadFileResponse();
     }
 
     public String getLicensePlate() {
@@ -82,13 +85,13 @@ public class Driver
         this.color = color;
     }
 
-//    public UploadFileResponse getUploadFileResponse() {
-//        return uploadFileResponse;
-//    }
-//
-//    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
-//        this.uploadFileResponse = uploadFileResponse;
-//    }
+    public UploadFileResponse getUploadFileResponse() {
+        return uploadFileResponse;
+    }
+
+    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
+        this.uploadFileResponse = uploadFileResponse;
+    }
 
 // public LinkedList<Trip> getTripList(){
     //     return tripList;

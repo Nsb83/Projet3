@@ -37,17 +37,23 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-//    public ResponseEntity<User> postCarPicture (long idUser, UploadFileResponse uploadFileResponse) {
-//        Optional<User> currentUserOptional = userDAO.findById(idUser);
-//
-//        User currentUser = currentUserOptional.get();
-//        currentUser.getDriver().getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
-//        currentUser.getDriver().getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
-//        currentUser.getDriver().getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
-//        currentUser.getDriver().getUploadFileResponse().setSize(uploadFileResponse.getSize());
-//
-//        userDAO.save(currentUser);
-//        return new ResponseEntity<>(currentUser, HttpStatus.OK);
-//    }
+    public ResponseEntity<User> postCarPicture (long idUser, UploadFileResponse uploadFileResponse) {
+        Optional<User> currentUserOptional = userDAO.findById(idUser);
+        User currentUser = new User();
+        if (currentUserOptional.isPresent()) {
+            currentUser = currentUserOptional.get();
+            Driver driver = currentUser.getDriver();
+            UploadFileResponse fileResponse = driver.getUploadFileResponse();
+
+            System.out.println(fileResponse);
+            fileResponse.setFileName(uploadFileResponse.getFileName());
+            fileResponse.setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
+            fileResponse.setFileType(uploadFileResponse.getFileType());
+            fileResponse.setSize(uploadFileResponse.getSize());
+
+            userDAO.save(currentUser);
+        }
+        return new ResponseEntity<>(currentUser, HttpStatus.OK);
+    }
 
 }

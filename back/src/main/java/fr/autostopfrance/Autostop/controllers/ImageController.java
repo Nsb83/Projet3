@@ -59,23 +59,23 @@ public class ImageController {
 
         return uploadFileResponse;
     }
-//
-//    @PostMapping("/uploadFile/drivers/{idUser}")
-//    public UploadFileResponse uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-//        String fileName = storageService.storeFile(file);
-//
-//        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-//                .path("/downloadFile/")
-//                .path(fileName)
-//                .toUriString();
-//
-//        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
-//                file.getContentType(), file.getSize());
-//
-//        driverService.postCarPicture(idUser, uploadFileResponse);
-//
-//        return uploadFileResponse;
-//    }
+
+    @PostMapping("/uploadFile/drivers/{idUser}")
+    public UploadFileResponse uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(file);
+
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(fileName)
+                .toUriString();
+
+        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+                file.getContentType(), file.getSize());
+
+        driverService.postCarPicture(idUser, uploadFileResponse);
+
+        return uploadFileResponse;
+    }
 
 //    @PostMapping("/uploadMultipleFiles")
 //    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
