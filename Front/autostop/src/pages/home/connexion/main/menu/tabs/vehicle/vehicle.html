@@ -6,12 +6,17 @@
         <ion-input
           type="text"
           formControlName="licensePlate"
+          value="{{ driver.licensePlate }}"
           placeholder="Plaque d'immatriculation">
         </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="text" formControlName="brand" placeholder="Constructeur automobile">
+      <ion-input 
+        type="text" 
+        formControlName="brand" 
+        value="{{ driver.brand }}"
+        placeholder="Constructeur automobile">
       </ion-input>
     </ion-item>
 
@@ -19,6 +24,7 @@
       <ion-input
         type="text"
         formControlName="model"
+        value="{{ driver.model }}"
         placeholder="Modèle">
       </ion-input>
     </ion-item>
@@ -34,12 +40,10 @@
 		</ion-row>
 
     <ion-item>
-      <ion-input
-        type="text"
-        formControlName="imgCar"
-        placeholder="Image de la voiture">
-      </ion-input>
+      <input type="file" (change)="selectFile($event)">
     </ion-item>
+    <button ion-button (click)="onUpload()">Télécharger la photo de votre voiture!</button>
+    
 
     <button
       ion-button

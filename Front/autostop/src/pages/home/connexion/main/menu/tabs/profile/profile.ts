@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
   
   currentFileUpload: File;
   selectedFiles: FileList;
-  progress: { percentage: number } = { percentage: 0 }
+
 
   constructor(
     public navCtrl: NavController, 
@@ -71,19 +71,13 @@ export class ProfilePage implements OnInit {
   //For uploading image during dev
   selectFile(event) {
     this.selectedFiles = event.target.files;
+    console.log(this.selectedFiles);
   }
-  onUpload() {
-    this.progress.percentage = 0;
- 
+  onUpload() { 
     this.currentFileUpload = this.selectedFiles.item(0);
     this.imageProvider.pushFileToStorage(this.userId, this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
-      }
-    })
-
+      })
     this.currentFileUpload = undefined;
   }
 }

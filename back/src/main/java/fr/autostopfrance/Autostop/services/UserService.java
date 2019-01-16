@@ -36,7 +36,6 @@ public class UserService implements UserDetailsService {
 
     public User postUser(User user) {
         User _user = userDAO.save(new User(
-//                user.getUserID(),
                 user.getLastName(),
                 user.getFirstName(),
                 user.getPhone(),
@@ -44,11 +43,11 @@ public class UserService implements UserDetailsService {
                 user.getDateOfBirth(),
                 user.getEmail(),
                 bCryptPasswordEncoder.encode(user.getPassword()),
-                user.getUploadFileResponse()
+                user.getUploadFileResponse(),
+                user.getDriver(),
+                user.getPedestrian()
                 ));
         return _user;
-
-//       return userDAO.save(user);
     }
 
     public ResponseEntity<String> deleteUser(long idUser) {
@@ -87,7 +86,6 @@ public class UserService implements UserDetailsService {
         Optional<User> currentUserOptional = userDAO.findById(idUser);
 
         User currentUser = currentUserOptional.get();
-//        currentUser.setUploadFileResponse(uploadFileResponse);
         currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
         currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
         currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());

@@ -3,6 +3,7 @@ package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
+import fr.autostopfrance.Autostop.services.DriverService;
 import fr.autostopfrance.Autostop.services.StorageService;
 
 import fr.autostopfrance.Autostop.services.UserService;
@@ -37,10 +38,13 @@ public class ImageController {
     private UserService userService;
 
     @Autowired
+    private DriverService driverService;
+
+    @Autowired
     private StorageService storageService;
 
     @PostMapping("/uploadFile/{idUser}")
-    public UploadFileResponse uploadFile(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
+    public UploadFileResponse uploadUserPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
         String fileName = storageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -52,6 +56,23 @@ public class ImageController {
                 file.getContentType(), file.getSize());
 
         userService.updatePicture(idUser, uploadFileResponse);
+
+        return uploadFileResponse;
+    }
+
+    @PostMapping("/uploadFile/drivers/{idUser}")
+    public UploadFileResponse uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(file);
+
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(fileName)
+                .toUriString();
+
+        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+                file.getContentType(), file.getSize());
+
+        driverService.postCarPicture(idUser, uploadFileResponse);
 
         return uploadFileResponse;
     }
