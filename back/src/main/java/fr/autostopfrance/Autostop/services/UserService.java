@@ -3,6 +3,7 @@ package fr.autostopfrance.Autostop.services;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
 import fr.autostopfrance.Autostop.models.UploadPicture;
+import fr.autostopfrance.Autostop.utils.Utils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -27,12 +27,21 @@ public class UserService implements UserDetailsService {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Autowired
+    Utils utils;
+
     public List<User> findUsers() {
         return userDAO.findAll();
     }
 
     public User postUser(User user) {
-        User _user = userDAO.save(new User(
+
+        if(userDAO.findByEmail(user.getEmail()) != null) throw new RuntimeException("Cet email existe déjà");
+
+        String publicUserId = utils.generateUserId(20);
+
+        User _user = new User(
+                user.getPublicId(),
                 user.getLastName(),
                 user.getFirstName(),
                 user.getPhone(),
@@ -45,31 +54,39 @@ public class UserService implements UserDetailsService {
                 user.getDriver(),
                 user.getPedestrian(),
                 user.getTrip()
-                ));
+                );
+
+        _user.setPublicId(publicUserId);
+        userDAO.save(_user);
         return _user;
     }
 
-    public ResponseEntity<String> deleteUser(long idUser) {
-        userDAO.deleteById(idUser);
+    public ResponseEntity<String> deleteUser(String publicId) {
+        User user = userDAO.findByPublicId(publicId);
+        userDAO.delete(user);
         return new ResponseEntity<>("User has been deleted!", HttpStatus.OK);
     }
 
-    public Optional<User> findById(long idUser) {
-        return userDAO.findById(idUser);
+    public User findById(String publicId) {
+        User user = userDAO.findByPublicId(publicId);
+        if (user == null)
+            throw new UsernameNotFoundException("User with ID: " + publicId + " not found");
+        return user;
     }
 
 
-    public ResponseEntity<User> updateUser (long idUser, User user) {
-        System.out.println("Updating User " + idUser);
+    public ResponseEntity<User> updateUser (String publicId, User user) {
+        System.out.println("Updating User " + publicId);
 
-        Optional<User> currentUserOptional = userDAO.findById(idUser);
+        User currentUser = userDAO.findByPublicId(publicId);
 
-        if (!currentUserOptional.isPresent()) {
-            System.out.println("User with id " + idUser + " not found");
+
+        if (currentUser == null) {
+            System.out.println("User with id " + publicId + " not found");
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
 
-        User currentUser = currentUserOptional.get();
+//        User currentUser = currentUserOptional.get();
 
         currentUser.setLastName(user.getLastName());
         currentUser.setFirstName(user.getFirstName());
@@ -81,10 +98,10 @@ public class UserService implements UserDetailsService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    public ResponseEntity<User> updatePicture (long idUser, UploadPicture uploadPicture) {
-        Optional<User> currentUserOptional = userDAO.findById(idUser);
+    public ResponseEntity<User> updatePicture (String publicId, UploadPicture uploadPicture) {
+        User currentUser = userDAO.findByPublicId(publicId);
 
-        User currentUser = currentUserOptional.get();
+//        User currentUser = currentUserOptional.get();
         currentUser.getUploadPicture().setFileName(uploadPicture.getFileName());
         currentUser.getUploadPicture().setFileDownloadUri(uploadPicture.getFileDownloadUri());
         currentUser.getUploadPicture().setFileType(uploadPicture.getFileType());

@@ -20,8 +20,8 @@ public class DriverController {
     DriverService driverService;
 
     @PutMapping(path = "/update/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public void addOrUpdateDriver(@PathVariable("idUser") long idUser, @RequestBody Driver driver){
-        driverService.addOrUpdateDriver(idUser, driver);
+    public void addOrUpdateDriver(@PathVariable("idUser") String publicId, @RequestBody Driver driver){
+        driverService.addOrUpdateDriver(publicId, driver);
     }
 
 

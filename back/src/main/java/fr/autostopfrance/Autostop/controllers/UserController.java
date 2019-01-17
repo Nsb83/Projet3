@@ -18,15 +18,10 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping(path = "/test", produces =  { MediaType.APPLICATION_JSON_VALUE })
-    public String Coucou(){
-        return "coucou";
-    }
-
-    @GetMapping(path = "/findAll", produces = {  MediaType.APPLICATION_JSON_VALUE })
-    public List<User> findUsers() {
-        return userService.findUsers();
-    }
+//    @GetMapping(path = "/findAll", produces = {  MediaType.APPLICATION_JSON_VALUE })
+//    public List<User> findUsers() {
+//        return userService.findUsers();
+//    }
 
     @PostMapping(path = "/create", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces =  { MediaType.APPLICATION_JSON_VALUE })
     public User postUser(@RequestBody User user) {
@@ -36,17 +31,17 @@ public class UserController {
     }
 
     @GetMapping(path = "/find/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
-    public Optional<User> findById(@PathVariable("idUser") long idUser) {
-        return userService.findById(idUser);}
+    public User findById(@PathVariable("idUser") String publicId) {
+        return userService.findById(publicId);}
 
     @DeleteMapping(path = "/delete/{idUser}", consumes = {  MediaType.APPLICATION_JSON_VALUE })
-    public void deleteUser(@PathVariable("idUser") long idUser){
-        userService.deleteUser(idUser);
+    public void deleteUser(@PathVariable("idUser") String publicId){
+        userService.deleteUser(publicId);
     }
 
     @PutMapping(path = "/update/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces =  { MediaType.APPLICATION_JSON_VALUE })
-    public void updateUser(@PathVariable("idUser") long idUser, @RequestBody User user){
-        userService.updateUser(idUser, user);
+    public void updateUser(@PathVariable("idUser") String publicId, @RequestBody User user){
+        userService.updateUser(publicId, user);
     }
 
 
