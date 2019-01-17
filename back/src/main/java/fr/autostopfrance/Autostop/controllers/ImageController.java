@@ -37,8 +37,8 @@ public class ImageController {
     private StorageService storageService;
 
     @PostMapping("/uploadFile/{idUser}")
-    public UploadPicture uploadUserPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(idUser, file);
+    public UploadPicture uploadUserPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(publicId, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
@@ -48,14 +48,14 @@ public class ImageController {
         UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
 
-        userService.updatePicture(idUser, uploadPicture);
+        userService.updatePicture(publicId, uploadPicture);
 
         return uploadPicture;
     }
 
     @PostMapping("/uploadFile/drivers/{idUser}")
-    public UploadPicture uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(idUser, file);
+    public UploadPicture uploadCarPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(publicId, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
@@ -65,7 +65,7 @@ public class ImageController {
         UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
 
-        driverService.postCarPicture(idUser, uploadPicture);
+        driverService.postCarPicture(publicId, uploadPicture);
 
         return uploadPicture;
     }

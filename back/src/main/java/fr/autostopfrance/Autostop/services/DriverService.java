@@ -9,20 +9,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
-import java.util.Optional;
-
 @Service
 public class DriverService {
 
     @Autowired
     UserDAO userDAO;
 
-    public ResponseEntity<User> addOrUpdateDriver (long idUser, Driver driver) {
-        System.out.println("Updating Driver " + idUser);
-        Optional<User> currentUserOptional = userDAO.findById(idUser);
+    public ResponseEntity<User> addOrUpdateDriver (String publicId, Driver driver) {
+        System.out.println("Updating Driver " + publicId);
+        User currentUser = userDAO.findByPublicId(publicId);
 
-        User currentUser = currentUserOptional.get();
+//        User currentUser = currentUserOptional.get();
         currentUser.getDriver().setBrand(driver.getBrand());
         currentUser.getDriver().setModel(driver.getModel());
         currentUser.getDriver().setColor(driver.getColor());
@@ -32,11 +29,11 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    public ResponseEntity<User> postCarPicture (long idUser, UploadPicture uploadPicture) {
-        Optional<User> currentUserOptional = userDAO.findById(idUser);
-        User currentUser = new User();
-        if (currentUserOptional.isPresent()) {
-            currentUser = currentUserOptional.get();
+    public ResponseEntity<User> postCarPicture (String publicId, UploadPicture uploadPicture) {
+        User currentUser = userDAO.findByPublicId(publicId);
+//        User currentUser = new User();
+        if (currentUser != null) {
+//            currentUser = currentUserOptional.get();
             Driver driver = currentUser.getDriver();
             UploadPicture fileResponse = driver.getUploadPicture();
 
