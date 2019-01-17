@@ -25,7 +25,7 @@ export class TripProvider {
         trip.setOrigin(response.trip.origin);
         trip.setDestinationString(response.trip.destinationSting);
         trip.setDestinationLatLng(response.trip.destinationLatLng);
-        trip.setItinerary(response.trip.citinerary);
+        trip.setItinerary(response.trip.itinerary);
         trip.setIsAccepted(response.trip.isAccepted);
     });
     return trip;

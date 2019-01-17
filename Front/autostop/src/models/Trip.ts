@@ -22,7 +22,7 @@ export class Trip {
     this.isAccepted = false;
   }
 
-  public getOriginl(): LatLng {
+  public getOrigin(): LatLng {
     return this.origin;
   }
 
