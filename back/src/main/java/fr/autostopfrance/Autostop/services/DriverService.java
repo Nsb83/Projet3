@@ -2,19 +2,14 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.Driver;
 import fr.autostopfrance.Autostop.models.User;
-import fr.autostopfrance.Autostop.repositories.DriverDAO;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
+import fr.autostopfrance.Autostop.models.UploadPicture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
-
-import javax.persistence.*;
-import javax.swing.text.html.parser.Entity;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,19 +32,19 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    public ResponseEntity<User> postCarPicture (long idUser, UploadFileResponse uploadFileResponse) {
+    public ResponseEntity<User> postCarPicture (long idUser, UploadPicture uploadPicture) {
         Optional<User> currentUserOptional = userDAO.findById(idUser);
         User currentUser = new User();
         if (currentUserOptional.isPresent()) {
             currentUser = currentUserOptional.get();
             Driver driver = currentUser.getDriver();
-            UploadFileResponse fileResponse = driver.getUploadFileResponse();
+            UploadPicture fileResponse = driver.getUploadPicture();
 
             System.out.println(fileResponse);
-            fileResponse.setFileName(uploadFileResponse.getFileName());
-            fileResponse.setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
-            fileResponse.setFileType(uploadFileResponse.getFileType());
-            fileResponse.setSize(uploadFileResponse.getSize());
+            fileResponse.setFileName(uploadPicture.getFileName());
+            fileResponse.setFileDownloadUri(uploadPicture.getFileDownloadUri());
+            fileResponse.setFileType(uploadPicture.getFileType());
+            fileResponse.setSize(uploadPicture.getSize());
 
             userDAO.save(currentUser);
         }

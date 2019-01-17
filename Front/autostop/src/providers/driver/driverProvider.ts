@@ -53,10 +53,10 @@ export class DriverProvider {
         driver.setModel(response.driver.model);
         driver.setLicensePlate(response.driver.licensePlate);
         driver.setColor(response.driver.color);
-        driver.setImgCarUrl(response.driver.uploadFileResponse.fileDownloadUri);
+        driver.setImgCarUrl(response.driver.uploadPicture.fileDownloadUri);
 
-        // if (response.uploadFileResponse.fileDownloadUri !== null) {
-        //   user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
+        // if (response.uploadPicture.fileDownloadUri !== null) {
+        //   user.setImgUrl(response.uploadPicture.fileDownloadUri);
         // } else {
         //   user.setImgUrl('./assets/imgs/profileImg.png');
         // }

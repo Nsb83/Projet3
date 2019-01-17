@@ -1,4 +1,4 @@
-package fr.autostopfrance.Autostop.utils;
+package fr.autostopfrance.Autostop.models;
 
 import fr.autostopfrance.Autostop.models.User;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="upload")
-public class UploadFileResponse {
+public class UploadPicture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
@@ -23,13 +23,13 @@ public class UploadFileResponse {
 //    @JoinColumn(name = "user_id")
 //    private User user;
 
-        public UploadFileResponse(){}
+        public UploadPicture(){}
 
-        public UploadFileResponse(String fileDownloadUri){
+        public UploadPicture(String fileDownloadUri){
             this.fileDownloadUri = fileDownloadUri;
         }
 
-        public UploadFileResponse(String fileName, String fileDownloadUri, String fileType, long size) {
+        public UploadPicture(String fileName, String fileDownloadUri, String fileType, long size) {
             this.fileName = fileName;
             this.fileDownloadUri = fileDownloadUri;
             this.fileType = fileType;
