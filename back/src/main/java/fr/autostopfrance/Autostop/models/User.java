@@ -1,5 +1,4 @@
 package fr.autostopfrance.Autostop.models;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -29,7 +28,7 @@ public class User {
     private boolean vehiculed;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private UploadFileResponse uploadFileResponse;
+    private UploadPicture uploadPicture;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Driver driver;
@@ -52,7 +51,7 @@ public class User {
         this.password = password;
     }
 
-    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed, UploadFileResponse uploadFileResponse, Driver driver, Pedestrian pedestrian, Trip trip) {
+    public User (String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -61,7 +60,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.vehiculed = false;
-        this.uploadFileResponse = new UploadFileResponse();
+        this.uploadPicture = new UploadPicture();
         this.driver = new Driver();
         this.pedestrian = new Pedestrian();
         this.trip = new Trip();
@@ -131,11 +130,11 @@ public class User {
         this.password = password;
     }
 
-    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
-        this.uploadFileResponse = uploadFileResponse;
+    public void setUploadPicture(UploadPicture uploadPicture) {
+        this.uploadPicture = uploadPicture;
     }
 
-    public UploadFileResponse getUploadFileResponse() {return uploadFileResponse;}
+    public UploadPicture getUploadPicture() {return uploadPicture;}
 
     public Driver getDriver() {
         return driver;
@@ -181,7 +180,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isVehiculed=" + vehiculed +
-                ", uploadFileResponse=" + uploadFileResponse +
+                ", uploadPicture=" + uploadPicture +
                 ", driver=" + driver +
                 ", pedestrian=" + pedestrian +
                 ", trip=" + trip +

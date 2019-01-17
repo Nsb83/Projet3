@@ -60,8 +60,8 @@ getUser() {
       user.setDateOfBirth(response.dateOfBirth);
       user.setEmail(response.email);
       user.setPassword(response.password);
-      if (response.uploadFileResponse.fileDownloadUri !== null) {
-        user.setImgUrl(response.uploadFileResponse.fileDownloadUri);
+      if (response.uploadPicture.fileDownloadUri !== null) {
+        user.setImgUrl(response.uploadPicture.fileDownloadUri);
       } else {
         user.setImgUrl('./assets/imgs/profileImg.png');
       }

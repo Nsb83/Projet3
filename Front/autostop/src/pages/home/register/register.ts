@@ -28,7 +28,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.userService.getUser();
+    // this.userService.getUser();
   }
 
   initForm() {

@@ -2,7 +2,7 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
+import fr.autostopfrance.Autostop.models.UploadPicture;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
-
-import javax.persistence.*;
-import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +41,7 @@ public class UserService implements UserDetailsService {
                 user.getEmail(),
                 bCryptPasswordEncoder.encode(user.getPassword()),
                 user.isVehiculed(),
-                user.getUploadFileResponse(),
+                user.getUploadPicture(),
                 user.getDriver(),
                 user.getPedestrian(),
                 user.getTrip()
@@ -84,14 +81,14 @@ public class UserService implements UserDetailsService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    public ResponseEntity<User> updatePicture (long idUser, UploadFileResponse uploadFileResponse) {
+    public ResponseEntity<User> updatePicture (long idUser, UploadPicture uploadPicture) {
         Optional<User> currentUserOptional = userDAO.findById(idUser);
 
         User currentUser = currentUserOptional.get();
-        currentUser.getUploadFileResponse().setFileName(uploadFileResponse.getFileName());
-        currentUser.getUploadFileResponse().setFileDownloadUri(uploadFileResponse.getFileDownloadUri());
-        currentUser.getUploadFileResponse().setFileType(uploadFileResponse.getFileType());
-        currentUser.getUploadFileResponse().setSize(uploadFileResponse.getSize());
+        currentUser.getUploadPicture().setFileName(uploadPicture.getFileName());
+        currentUser.getUploadPicture().setFileDownloadUri(uploadPicture.getFileDownloadUri());
+        currentUser.getUploadPicture().setFileType(uploadPicture.getFileType());
+        currentUser.getUploadPicture().setSize(uploadPicture.getSize());
 
         userDAO.save(currentUser);
         return new ResponseEntity<>(currentUser, HttpStatus.OK);

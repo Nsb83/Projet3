@@ -14,12 +14,15 @@ public class Pedestrian
     private int passengersNumber;
     private int searchRadius;
 
-    public Pedestrian () {}
+    public Pedestrian () {
+        this.passengersNumber = 1;
+        this.searchRadius = 300;
+    }
 
     public Pedestrian (int passengersNumber, int searchRadius) {
 //        super();
-        this.passengersNumber = 1;
-        this.searchRadius = 300;
+        this.passengersNumber = passengersNumber;
+        this.searchRadius = searchRadius;
 
     }
 
@@ -38,5 +41,13 @@ public class Pedestrian
     }
     public void rateTrip(Driver driver, int note){
         
+    }
+
+    public int getSearchRadius() {
+        return searchRadius;
+    }
+
+    public void setSearchRadius(int searchRadius) {
+        this.searchRadius = searchRadius;
     }
 }
