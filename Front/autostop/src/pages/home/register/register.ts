@@ -28,7 +28,6 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    // this.userService.getUser();
   }
 
   initForm() {
@@ -72,7 +71,6 @@ export class RegisterPage implements OnInit {
     );
     this.userService.createUser(this.newUser).subscribe(() => {
       this.messageService.myAlertMethod("Félicitation !", "Vous êtes désormais inscrit", false)
-      // console.log(this.newUser);
       this.navCtrl.push(ConnexionPage);
     });
   }

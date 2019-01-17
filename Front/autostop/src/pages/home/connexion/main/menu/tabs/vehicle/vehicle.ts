@@ -79,9 +79,7 @@ export class VehiclePage implements OnInit{
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VehiclePage');
-  }
+  ionViewDidLoad() {}
 
   prepareColorSelector() {
 		setTimeout(() => {
