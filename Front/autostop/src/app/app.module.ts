@@ -47,6 +47,8 @@ import { ImageProvider } from "../providers/Image/imageProvider";
 import { DriverProvider } from '../providers/driver/driverProvider';
 import { MessageProvider } from "../providers/Messages/MessageProvider";
 
+
+
 @NgModule({
   declarations: [
     MyApp,
