@@ -74,7 +74,6 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-
     public ResponseEntity<User> updateUser (String publicId, User user) {
         System.out.println("Updating User " + publicId);
 
@@ -85,9 +84,6 @@ public class UserService implements UserDetailsService {
             System.out.println("User with id " + publicId + " not found");
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
-
-//        User currentUser = currentUserOptional.get();
-
         currentUser.setLastName(user.getLastName());
         currentUser.setFirstName(user.getFirstName());
         currentUser.setPhone(user.getPhone());
@@ -101,7 +97,6 @@ public class UserService implements UserDetailsService {
     public ResponseEntity<User> updatePicture (String publicId, UploadPicture uploadPicture) {
         User currentUser = userDAO.findByPublicId(publicId);
 
-//        User currentUser = currentUserOptional.get();
         currentUser.getUploadPicture().setFileName(uploadPicture.getFileName());
         currentUser.getUploadPicture().setFileDownloadUri(uploadPicture.getFileDownloadUri());
         currentUser.getUploadPicture().setFileType(uploadPicture.getFileType());

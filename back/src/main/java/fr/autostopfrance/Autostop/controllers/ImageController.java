@@ -6,6 +6,7 @@ import fr.autostopfrance.Autostop.services.DriverService;
 import fr.autostopfrance.Autostop.services.StorageService;
 
 import fr.autostopfrance.Autostop.services.UserService;
+import net.bytebuddy.dynamic.scaffold.TypeWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,38 +37,22 @@ public class ImageController {
     @Autowired
     private StorageService storageService;
 
-    @PostMapping("/uploadFile/{idUser}")
+    @PostMapping(path = "/uploadFile/{idUser}")
     public UploadPicture uploadUserPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(publicId, file);
+        UploadPicture profilePic = storageService.creatingFileObject(publicId, file);
 
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(fileName)
-                .toUriString();
+        userService.updatePicture(publicId, profilePic);
 
-        UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
-                file.getContentType(), file.getSize());
-
-        userService.updatePicture(publicId, uploadPicture);
-
-        return uploadPicture;
+        return profilePic;
     }
 
     @PostMapping("/uploadFile/drivers/{idUser}")
     public UploadPicture uploadCarPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(publicId, file);
+        UploadPicture carPic = storageService.creatingFileObject(publicId, file);
 
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(fileName)
-                .toUriString();
+        driverService.postCarPicture(publicId, carPic);
 
-        UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
-                file.getContentType(), file.getSize());
-
-        driverService.postCarPicture(publicId, uploadPicture);
-
-        return uploadPicture;
+        return carPic;
     }
 
 //    @PostMapping("/uploadMultipleFiles")

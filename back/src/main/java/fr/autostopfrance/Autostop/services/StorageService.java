@@ -3,6 +3,7 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.exception.FileStorageException;
 import fr.autostopfrance.Autostop.exception.MyFileNotFoundException;
+import fr.autostopfrance.Autostop.models.UploadPicture;
 import fr.autostopfrance.Autostop.utils.FileStorageProperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -69,6 +71,20 @@ public class StorageService {
         } catch (MalformedURLException ex) {
             throw new MyFileNotFoundException("File not found " + fileName, ex);
         }
+    }
+
+    public UploadPicture creatingFileObject(String publicId, MultipartFile file) {
+        String fileName = storeFile(publicId, file);
+
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/downloadFile/")
+                .path(fileName)
+                .toUriString();
+
+        UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
+                file.getContentType(), file.getSize());
+
+        return uploadPicture;
     }
 
 }

@@ -18,11 +18,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    @GetMapping(path = "/findAll", produces = {  MediaType.APPLICATION_JSON_VALUE })
-//    public List<User> findUsers() {
-//        return userService.findUsers();
-//    }
-
     @PostMapping(path = "/create", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces =  { MediaType.APPLICATION_JSON_VALUE })
     public User postUser(@RequestBody User user) {
         System.out.println("POST USER : " + user);
