@@ -1,13 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { from } from 'rxjs';
 
 @Injectable()
 export class RouteProvider {
 
   url;
   data;
-  
 
   constructor(public http: HttpClient) {
     console.log('Hello RouteProvider Provider');
@@ -27,6 +25,5 @@ export class RouteProvider {
     return this.http.get(this.url);
   }
 // "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44"
-
 }
 
