@@ -29,8 +29,6 @@ import {
   LatLngBounds
 } from "@ionic-native/google-maps";
 import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 // @IonicPage()
 @Component({
