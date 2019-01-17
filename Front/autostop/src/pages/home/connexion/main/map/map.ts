@@ -1,12 +1,12 @@
 import { UserProvider } from './../../../../../providers/user/userProvider';
 import { RouteProvider } from './../../../../../providers/route/route';
-// import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
-
+import { Trip } from '../../../../../models/Trip';
+import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
 import {
   GoogleMaps,
   GoogleMap,
@@ -28,7 +28,8 @@ import {
   ILatLng,
   LatLngBounds
 } from "@ionic-native/google-maps";
-import { Trip } from '../../../../../models/Trip';
+import { TripProvider } from '../../../../../providers/trip/trip';
+
 
 // @IonicPage()
 @Component({
@@ -45,7 +46,7 @@ export class MapPage {
   polyline: Polyline;
   markerDestination : Marker;
   iconPath: String;
-  arrayPoly;
+  arrayPoly: LatLng[];
   validatedTrip: Trip;
   destinationILatLng: ILatLng;
 
@@ -67,13 +68,20 @@ export class MapPage {
     lng: 4.641063000000031
   }
 
-  constructor(public navCtrl: NavController, public alrtCtrl: AlertController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider, public UserProvider: UserProvider) {}
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public modalCtrl: ModalController,
+              public routeProvider: RouteProvider,
+              public messageProvider: MessageProvider,
+              public alrtCtrl: AlertController,
+              public userProvider: UserProvider,
+              public tripProvider: TripProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
     this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png");
-    this.isVehiculed = this.UserProvider.getIsVehiculed();
+    this.isVehiculed = this.userProvider.getIsVehiculed();
     this.setIconUser();
   }
 
@@ -130,12 +138,23 @@ export class MapPage {
     }
 
   receiveMessage($event) {
-    this.searchValue = $event
-    this.getRouteJson($event).subscribe((data: any) => {
-      this.displayRoute(data.routes[0].overview_polyline.points);
-      this.addMarkerAndCircle();
-      this.goToSpecificLocation();
-    });
+    this.searchValue = $event;
+    this.getRouteJson($event).subscribe(
+      (data: any) => {
+        if (data.status === "OK") {
+          console.log(data);
+          this.validatedTrip  = new Trip(data.routes[0].legs[0].start_location,
+                              data.routes[0].legs[0].end_address,
+                              data.routes[0].legs[0].end_location,
+                              this.arrayPoly);
+                              console.log(this.validatedTrip);
+          this.displayRoute(data.routes[0].overview_polyline.points);
+          this.addMarkerAndCircle();
+          this.goToSpecificLocation();
+        } else {
+          this.messageProvider.myAlertMethod("Désolé", "Nous n'avons pas trouvé votre adresse de destination...", false);
+        }
+      });
   }
 
   displayRoute(routeJson) {
@@ -147,7 +166,7 @@ export class MapPage {
   }
 
   getRouteJson(searchValue) {
-      return this.RouteProvider.getRoute(this.userPosition.latLng, searchValue);
+      return this.routeProvider.getRoute(this.userPosition.latLng, searchValue);
   }
 
   ///////// Polylines ////////////////////
@@ -183,7 +202,7 @@ export class MapPage {
 
   }
   sendTrip() {
-    this.validatedTrip = new Trip (this.userPosition.latLng, this.searchValue, this.markerDestination.getPosition(), this.arrayPoly);
+    // this.validatedTrip = new Trip (this.userPosition.latLng, this.searchValue, this.markerDestination.getPosition(), this.arrayPoly);
     let alert = this.alrtCtrl.create({
       title: 'Trajet enregistré',
       message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',

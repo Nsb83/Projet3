@@ -1,7 +1,6 @@
 package fr.autostopfrance.Autostop.models;
 
 // import java.util.LinkedList;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 
 import javax.persistence.*;
 
@@ -25,23 +24,23 @@ public class Driver
     @Column(name="color")
     private String color;
     @OneToOne(cascade = CascadeType.ALL)
-    private UploadFileResponse uploadFileResponse;
+    private UploadPicture uploadPicture;
 
 
     
     // private LinkedList<Trip> tripList;
 
     public Driver () {
-        this.uploadFileResponse = new UploadFileResponse();
+        this.uploadPicture = new UploadPicture();
     }
 
-    public Driver(String licensePlate, String brand, String model, String color, UploadFileResponse uploadFileResponse){
+    public Driver(String licensePlate, String brand, String model, String color, UploadPicture uploadPicture){
         // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.color = color;
-        this.uploadFileResponse = new UploadFileResponse();
+        this.uploadPicture = new UploadPicture();
     }
 
     public Driver(String licensePlate, String brand, String model, String color){
@@ -50,7 +49,7 @@ public class Driver
         this.brand = brand;
         this.model = model;
         this.color = color;
-        this.uploadFileResponse = new UploadFileResponse();
+        this.uploadPicture = new UploadPicture();
     }
 
     public String getLicensePlate() {
@@ -85,12 +84,12 @@ public class Driver
         this.color = color;
     }
 
-    public UploadFileResponse getUploadFileResponse() {
-        return uploadFileResponse;
+    public UploadPicture getUploadPicture() {
+        return uploadPicture;
     }
 
-    public void setUploadFileResponse(UploadFileResponse uploadFileResponse) {
-        this.uploadFileResponse = uploadFileResponse;
+    public void setUploadPicture(UploadPicture uploadPicture) {
+        this.uploadPicture = uploadPicture;
     }
 
 // public LinkedList<Trip> getTripList(){

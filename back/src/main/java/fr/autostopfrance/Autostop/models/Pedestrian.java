@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name="pedestrian")
-public class Pedestrian extends Profile{
+public class Pedestrian
+//        extends Profile
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,9 +15,15 @@ public class Pedestrian extends Profile{
     private int searchRadius;
 
     public Pedestrian () {
-        super();
         this.passengersNumber = 1;
         this.searchRadius = 300;
+    }
+
+    public Pedestrian (int passengersNumber, int searchRadius) {
+//        super();
+        this.passengersNumber = passengersNumber;
+        this.searchRadius = searchRadius;
+
     }
 
     public int getPassengersNumber() {
@@ -33,5 +41,13 @@ public class Pedestrian extends Profile{
     }
     public void rateTrip(Driver driver, int note){
         
+    }
+
+    public int getSearchRadius() {
+        return searchRadius;
+    }
+
+    public void setSearchRadius(int searchRadius) {
+        this.searchRadius = searchRadius;
     }
 }

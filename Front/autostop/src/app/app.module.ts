@@ -5,7 +5,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
 // ***************************************
-//        IMPORTS DES PAGES IONIC 
+//        IMPORTS DES PAGES IONIC
 // ***************************************
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
@@ -46,6 +46,9 @@ import { TokenStorage } from '../providers/auth/token.storage'
 import { ImageProvider } from "../providers/Image/imageProvider";
 import { DriverProvider } from '../providers/driver/driverProvider';
 import { MessageProvider } from "../providers/Messages/MessageProvider";
+import { TripProvider } from "../providers/trip/trip";
+
+
 
 @NgModule({
   declarations: [
@@ -124,7 +127,8 @@ import { MessageProvider } from "../providers/Messages/MessageProvider";
     RouteProvider,
     DriverProvider,
     MessageProvider,
-    RouteProvider
+    RouteProvider,
+    TripProvider
   ]
 })
 export class AppModule {}

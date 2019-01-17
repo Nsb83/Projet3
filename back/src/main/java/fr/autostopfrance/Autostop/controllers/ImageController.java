@@ -1,19 +1,16 @@
 
 package fr.autostopfrance.Autostop.controllers;
 
-import fr.autostopfrance.Autostop.models.User;
-import fr.autostopfrance.Autostop.repositories.UserDAO;
+import fr.autostopfrance.Autostop.models.UploadPicture;
 import fr.autostopfrance.Autostop.services.DriverService;
 import fr.autostopfrance.Autostop.services.StorageService;
 
 import fr.autostopfrance.Autostop.services.UserService;
-import fr.autostopfrance.Autostop.utils.UploadFileResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 @RestController
@@ -44,41 +37,41 @@ public class ImageController {
     private StorageService storageService;
 
     @PostMapping("/uploadFile/{idUser}")
-    public UploadFileResponse uploadUserPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(file);
+    public UploadPicture uploadUserPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(idUser, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
                 .path(fileName)
                 .toUriString();
 
-        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+        UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
 
-        userService.updatePicture(idUser, uploadFileResponse);
+        userService.updatePicture(idUser, uploadPicture);
 
-        return uploadFileResponse;
+        return uploadPicture;
     }
 
     @PostMapping("/uploadFile/drivers/{idUser}")
-    public UploadFileResponse uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
-        String fileName = storageService.storeFile(file);
+    public UploadPicture uploadCarPicture(@PathVariable("idUser") long idUser, @RequestParam("file") MultipartFile file) {
+        String fileName = storageService.storeFile(idUser, file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
                 .path(fileName)
                 .toUriString();
 
-        UploadFileResponse uploadFileResponse = new UploadFileResponse(fileName, fileDownloadUri,
+        UploadPicture uploadPicture = new UploadPicture(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
 
-        driverService.postCarPicture(idUser, uploadFileResponse);
+        driverService.postCarPicture(idUser, uploadPicture);
 
-        return uploadFileResponse;
+        return uploadPicture;
     }
 
 //    @PostMapping("/uploadMultipleFiles")
-//    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+//    public List<UploadPicture> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
 //        return Arrays.asList(files)
 //                .stream()
 //                .map(file -> uploadFile(file))
