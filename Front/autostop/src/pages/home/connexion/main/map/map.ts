@@ -1,12 +1,12 @@
 import { UserProvider } from './../../../../../providers/user/userProvider';
 import { RouteProvider } from './../../../../../providers/route/route';
-// import { Trip } from './../../../../../models/Trip';
 import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
 import { SearchBarPage } from './search-bar/search-bar';
 import { Component } from '@angular/core';
-import { NavController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
-
+import { NavController, AlertController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
+import { Trip } from '../../../../../models/Trip';
+import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
 import {
   GoogleMaps,
   GoogleMap,
@@ -28,7 +28,8 @@ import {
   ILatLng,
   LatLngBounds
 } from "@ionic-native/google-maps";
-import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
+import { TripProvider } from '../../../../../providers/trip/trip';
+
 
 // @IonicPage()
 @Component({
@@ -45,6 +46,9 @@ export class MapPage {
   polyline: Polyline;
   markerDestination : Marker;
   iconPath: String;
+  arrayPoly: LatLng[];
+  validatedTrip: Trip;
+  destinationILatLng: ILatLng;
 
   // Dev purpose
   isVehiculed : boolean;
@@ -69,7 +73,9 @@ export class MapPage {
               public modalCtrl: ModalController,
               public routeProvider: RouteProvider,
               public messageProvider: MessageProvider,
-              public userProvider: UserProvider) {}
+              public alrtCtrl: AlertController,
+              public userProvider: UserProvider,
+              public tripProvider: TripProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -136,6 +142,12 @@ export class MapPage {
     this.getRouteJson($event).subscribe(
       (data: any) => {
         if (data.status === "OK") {
+          console.log(data);
+          this.validatedTrip  = new Trip(data.routes[0].legs[0].start_location,
+                              data.routes[0].legs[0].end_address,
+                              data.routes[0].legs[0].end_location,
+                              this.arrayPoly);
+                              console.log(this.validatedTrip);
           this.displayRoute(data.routes[0].overview_polyline.points);
           this.addMarkerAndCircle();
           this.goToSpecificLocation();
@@ -160,11 +172,11 @@ export class MapPage {
   ///////// Polylines ////////////////////
   showPoly(polyRoute) {
       const decodePolyline = require('decode-google-map-polyline');
-      let arrayPoly = decodePolyline(polyRoute);
+      this.arrayPoly = decodePolyline(polyRoute);
       // console.log(decodePolyline(polyRoute));
 
     this.polyline = this.map.addPolylineSync({
-      points: arrayPoly,
+      points: this.arrayPoly,
       color: '#258c3d',
       width: 5,
       geodesic: true,
@@ -185,9 +197,28 @@ export class MapPage {
     });
 
     this.map.moveCamera({
-      'target': arrayPoly
+      'target': this.arrayPoly
     });
+
   }
+  sendTrip() {
+    // this.validatedTrip = new Trip (this.userPosition.latLng, this.searchValue, this.markerDestination.getPosition(), this.arrayPoly);
+    let alert = this.alrtCtrl.create({
+      title: 'Trajet enregistré',
+      message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+      buttons: [
+        {
+          text: "C'est compris!",
+          handler: () => {
+            console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+    console.log(this.validatedTrip);
+    alert.present();
+  }
+
     // FIN POLY
     // fin route direction
 
@@ -198,6 +229,7 @@ export class MapPage {
 
     Geocoder.geocode(options)
     .then((results: GeocoderResult[]) => {
+      this.destinationILatLng = results[0].position;
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
@@ -231,4 +263,5 @@ export class MapPage {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
   }
+
 }

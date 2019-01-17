@@ -1,3 +1,5 @@
+import { Driver } from './../../../../models/Driver';
+import { DriverProvider } from './../../../../providers/driver/driverProvider';
 import { MessageProvider } from './../../../../providers/Messages/MessageProvider';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
@@ -13,11 +15,12 @@ export class ChoicePage {
 
   private main = MainPage;
   private driveInfosPage = DriverInfosPage;
-  private driverInfos;
+  private driverInfos: Driver;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private userService: UserProvider,
+              private driverProvider: DriverProvider,
               private alertCtrl: AlertController,
               private messageService: MessageProvider
               ) {
@@ -25,7 +28,7 @@ export class ChoicePage {
 
   chooseDriverMode() {
     this.userService.setIsVehiculed(true);
-
+    this.driverInfos = this.driverProvider.getDriver();
     if(this.driverInfos == null){
       this.navCtrl.push(this.driveInfosPage);
     }

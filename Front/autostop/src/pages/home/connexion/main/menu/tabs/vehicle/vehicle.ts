@@ -71,7 +71,6 @@ export class VehiclePage implements OnInit{
       register.model,
       this.color,
     );
-    console.log(this.driverInfos);
     this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
     this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{});
     this.navCtrl.push(this.main);
