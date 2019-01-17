@@ -30,7 +30,7 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 .history/
-
+workspace.xml
 
 # Compiled source #
 ###################
