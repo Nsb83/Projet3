@@ -27,6 +27,9 @@ import {
   ILatLng,
   LatLngBounds
 } from "@ionic-native/google-maps";
+import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // @IonicPage()
 @Component({
@@ -57,7 +60,11 @@ export class MapPage {
     lng: 4.641063000000031
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public RouteProvider: RouteProvider) {}
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public modalCtrl: ModalController,
+              public RouteProvider: RouteProvider,
+              public messageProvider: MessageProvider) {}
 
   // Load map only after view is initialized
   ngAfterViewInit() {
@@ -111,12 +118,17 @@ export class MapPage {
     }
 
   receiveMessage($event) {
-    this.searchValue = $event
-    this.getRouteJson($event).subscribe((data: any) => {
-      this.displayRoute(data.routes[0].overview_polyline.points);
-      this.addMarkerAndCircle();
-      this.goToSpecificLocation();
-    });
+    this.searchValue = $event;
+    this.getRouteJson($event).subscribe(
+      (data: any) => {
+        if (data.status === "OK") {
+          this.displayRoute(data.routes[0].overview_polyline.points);
+          this.addMarkerAndCircle();
+          this.goToSpecificLocation();
+        } else {
+          this.messageProvider.myAlertMethod("Désolé", "Nous n'avons pas trouvé votre adresse de destination...", false);
+        }
+      });
   }
 
   displayRoute(routeJson) {
