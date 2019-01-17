@@ -14,31 +14,23 @@ export class UserProvider {
 
   private user: User;
   private userId;
-  private isDriver: boolean;
-  private isPedestrian: boolean;
+
+  private isVehiculed: boolean;
+
   //private URL_DB = "http://10.0.2.2:8080/users";
   private URL_DB = "http://localhost:8080/users";
 
   constructor(public http: HttpClient) {
   }
-  
-  setDriverProfile() {
-    this.isDriver = true;
-    this.isPedestrian = false;
-  }
 
-  setPedestrianProfile() {
-    this.isDriver = false;
-    this.isPedestrian = true;
-  }
-
-  getDriverProfile(){
-    return this.isDriver;
-  }
-
-  getPedestrianProfile(){
-    return this.isPedestrian;
-  }
+  // Dev Only
+setIsVehiculed(param){
+  this.isVehiculed = param;
+}
+getIsVehiculed(){
+  return this.isVehiculed;
+}
+  //
 
   getUserId() {
     return localStorage.getItem("userId");
@@ -58,9 +50,9 @@ getUser() {
   const user: User = new User();
   this.http
     .get<User>(`${this.URL_DB}/find/${this.getUserId()}`).subscribe((response: any) => {
-    
+
       // console.log(response);
-    
+
       user.setLastName(response.lastName);
       user.setFirstName(response.firstName);
       user.setPhone(response.phone);
@@ -73,7 +65,7 @@ getUser() {
       } else {
         user.setImgUrl('./assets/imgs/profileImg.png');
       }
-          
+
       // console.log('REPONSE' , user)
   });
 

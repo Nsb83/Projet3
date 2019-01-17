@@ -1,3 +1,4 @@
+import { MainPage } from './../../../main';
 import { ChoicePage } from './../../../../../register/choice/choice';
 import { DriverProvider } from '../../../../../../../providers/driver/driverProvider';
 import { Driver } from './../../../../../../../models/Driver';
@@ -9,6 +10,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
+import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
 
@@ -21,6 +23,7 @@ export class VehiclePage implements OnInit{
 	color: string = '#d435a2';
   private driverInfos: Driver;
   private register: FormGroup;
+  private main = MainPage;
   private tokenId;
 
   currentFileUpload: File;
@@ -33,6 +36,7 @@ export class VehiclePage implements OnInit{
               private formBuilder: FormBuilder,
               private alertCtrl: AlertController,
               private driverProvider: DriverProvider,
+              private messageService: MessageProvider,
               private token: TokenStorage,
               private imageProvider: ImageProvider,
               private userService: UserProvider) { }
@@ -68,27 +72,10 @@ export class VehiclePage implements OnInit{
       this.color,
     );
     console.log(this.driverInfos);
+    this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
     this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{});
-    this.navCtrl.push(ChoicePage);
+    this.navCtrl.push(this.main);
 
-  
-
-
-// // ************************************
-// // FOR DEVELOPMENT PURPOSES ONLY
-// // ************************************
-//     let alert = this.alertCtrl.create({
-//       title:
-//         "Nouveau compte créé pour " +
-//         this.newUser.lastName +
-//         ", " +
-//         this.newUser.firstName,
-//       subTitle:
-//         "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
-//       buttons: ["Ok"]
-//     });
-//     alert.present();
-// // ************************************
 
   }
 
@@ -142,7 +129,7 @@ export class VehiclePage implements OnInit{
     selectFile(event) {
       this.selectedFiles = event.target.files;
     }
-    onUpload() {   
+    onUpload() {
       this.currentFileUpload = this.selectedFiles.item(0);
       this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
           console.log('File is completely uploaded!');
