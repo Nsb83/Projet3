@@ -57,6 +57,7 @@ public class MatchService {
 	}
 	
 	public LatLng getNearestDriverStep(AlgoObject[] algoTable, LatLng pedestrianLocation) {
+		
 		return algoTable[0].getCoordinate();
 	}
 	

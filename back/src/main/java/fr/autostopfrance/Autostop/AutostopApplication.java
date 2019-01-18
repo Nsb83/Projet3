@@ -1,5 +1,6 @@
 package fr.autostopfrance.Autostop;
 
+import fr.autostopfrance.Autostop.models.AlgoObject;
 import fr.autostopfrance.Autostop.services.MatchService;
 import fr.autostopfrance.Autostop.utils.FileStorageProperties;
 import org.springframework.boot.SpringApplication;
@@ -23,6 +24,13 @@ public class AutostopApplication {
 		
 		int searchRadius = 18627;
 		
+		AlgoObject[] algoTable = {new AlgoObject(pedestrianLocation, 1),
+								  new AlgoObject(pedestrianLocation, 0.5),
+								  new AlgoObject(pedestrianLocation, 4),
+								  new AlgoObject(pedestrianLocation, 0.0001),
+								  new AlgoObject(pedestrianLocation, 0.0003259)
+								  };
+		
 		MatchService test = new MatchService();
 		
 		long distance = test.calculateDistance(pedestrianLocation, driverNearestStep);
@@ -30,6 +38,8 @@ public class AutostopApplication {
 		boolean areUsersMatchable = test.areUsersMatchable(searchRadius, distance);
 		
 		System.out.println("Résultat algo:" + String.valueOf(areUsersMatchable));
+		
+		
 	}
 
 	@Bean

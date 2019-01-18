@@ -6,7 +6,7 @@ public class AlgoObject {
 	
 	private LatLng coordinate;
 	
-	private long proximityIndex;
+	private double proximityIndex;
 	
 	
 
@@ -14,7 +14,7 @@ public class AlgoObject {
 		
 	}
 
-	public AlgoObject(LatLng coordinate, long proximityIndex) {
+	public AlgoObject(LatLng coordinate, double proximityIndex) {
 		this.coordinate = coordinate;
 		this.proximityIndex = proximityIndex;
 	}
@@ -27,11 +27,11 @@ public class AlgoObject {
 		this.coordinate = coordinate;
 	}
 
-	public long getProximityIndex() {
+	public double getProximityIndex() {
 		return proximityIndex;
 	}
 
-	public void setProximityIndex(long proximityIndex) {
+	public void setProximityIndex(double proximityIndex) {
 		this.proximityIndex = proximityIndex;
 	}
 	
