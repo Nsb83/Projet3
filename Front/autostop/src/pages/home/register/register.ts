@@ -5,7 +5,7 @@ import { User } from "../../../models/User";
 import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
 import { ConnexionPage } from "../connexion/connexion";
-import { HttpResponse, HttpEventType } from "@angular/common/http";
+import { HttpResponse, HttpEventType, HttpErrorResponse } from "@angular/common/http";
 import { MessageProvider } from "../../../providers/Messages/MessageProvider";
 
 @Component({
@@ -70,8 +70,12 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
-      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`);
+      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`)
       this.navCtrl.push(ConnexionPage);
-    });
+    }, (error: HttpErrorResponse) => {
+      console.log('Error: ', error);
+      this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+    }
+    );
   }
 }

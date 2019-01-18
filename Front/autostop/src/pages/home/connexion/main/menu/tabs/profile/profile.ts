@@ -5,7 +5,8 @@ import { User } from '../../../../../../../models/User';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { MainPage } from '../../../main';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { HttpEventType, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 
 @Component({
   selector: 'page-profile',
@@ -27,15 +28,15 @@ export class ProfilePage implements OnInit {
     public navParams: NavParams,
     private formBuilder: FormBuilder, 
     private userService : UserProvider, 
-    private imageProvider: ImageProvider
+    private imageProvider: ImageProvider,
+    private messageService: MessageProvider
     ) {
   }
   userId = this.userService.getUserId();
 
   ngOnInit() {
-  
-    this.user = this.userService.getUser();
-    this.myDate = this.user.getDateOfBirth()
+    this.userService.getUser().subscribe(response => { this.user = response});
+    this.myDate = this.user.getDateOfBirth();
     this.initForm();
   }
 
@@ -60,12 +61,16 @@ export class ProfilePage implements OnInit {
       updateProfil.sex,
       updateProfil.dateOfBirth,
       updateProfil.email,
-      // updateProfil.password
     );
 
     this.userService.updateUser(this.userUpdate).subscribe(() => {
       this.userService.getUser();
-    });
+      this.messageService.myToastMethod("Votre profil a été actualisé")
+    }, (error: HttpErrorResponse) => {
+      console.log('Error: ', error);
+      this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+    }
+    );
   }
 
   //For uploading image during dev
