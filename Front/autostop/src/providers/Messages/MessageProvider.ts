@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 
 @Injectable()
 export class MessageProvider {
 
-    constructor(public alertCtrl: AlertController) {}
+    constructor(
+                public alertCtrl: AlertController,
+                public toastCtrl: ToastController
+              ) {}
 
     myAlertMethod(title: string, message: string, handler: any) {
       let confirm = this.alertCtrl.create({
@@ -19,5 +22,15 @@ export class MessageProvider {
         ]
       });
       confirm.present();
+    }
+
+    myToastMethod(message: string, duration = 3000, position?: string) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        position: position,
+        duration: duration
+      });
+
+      toast.present();
     }
 }

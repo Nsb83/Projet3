@@ -70,8 +70,8 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
-      this.messageService.myAlertMethod("Félicitation !", "Vous êtes désormais inscrit", false);
-    this.navCtrl.push(ConnexionPage);
+      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`);
+      this.navCtrl.push(ConnexionPage);
     });
   }
 }

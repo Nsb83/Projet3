@@ -208,10 +208,7 @@ export class MapPage {
       message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
       buttons: [
         {
-          text: "C'est compris!",
-          handler: () => {
-            console.log('Buy clicked');
-          }
+          text: "C'est compris !",
         }
       ]
     });
