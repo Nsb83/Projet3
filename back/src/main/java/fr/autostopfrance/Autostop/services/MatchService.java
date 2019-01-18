@@ -31,8 +31,8 @@ public class MatchService {
 		DistanceMatrix results;
 		try {
 			results = DistanceMatrixApi.getDistanceMatrix(context, origins, destinations).await();
-			Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			System.out.println(gson.toJson(results));
+//			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//			System.out.println(gson.toJson(results));
 			distance = results.rows[0].elements[0].distance.inMeters;
 		} catch (ApiException e) {
 			// TODO Auto-generated catch block
@@ -57,8 +57,15 @@ public class MatchService {
 	}
 	
 	public LatLng getNearestDriverStep(AlgoObject[] algoTable, LatLng pedestrianLocation) {
+		int indexMin = 0;
 		
-		return algoTable[0].getCoordinate();
+		for (int i = 1; i < algoTable.length; i++) {
+//			System.out.println(gson.toJson(algoTable[i].getProximityIndex()));
+			if (algoTable[i].getProximityIndex() <= algoTable[indexMin].getProximityIndex()) {
+				indexMin = i;
+			}
+		}
+		return algoTable[indexMin].getCoordinate();
 	}
 	
 }
