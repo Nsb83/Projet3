@@ -33,14 +33,14 @@ export class ChoicePage {
       this.navCtrl.push(this.driveInfosPage);
     }
     else {
-    this.navCtrl.push(this.main);
-    this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
+      this.navCtrl.push(this.main);
+      this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.");
     }
   }
 
   choosePedestrianMode() {
     this.userService.setIsVehiculed(false);
-    this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que pieton. Enregistrez votre destination pour trouver les conducteur autour de vous.", false)
+    this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
     this.navCtrl.push(this.main);
   }
 
