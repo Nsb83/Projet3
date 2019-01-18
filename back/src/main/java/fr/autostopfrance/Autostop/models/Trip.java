@@ -1,6 +1,9 @@
 package fr.autostopfrance.Autostop.models;
 
 import javax.persistence.*;
+
+import com.google.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 @Entity
@@ -12,8 +15,8 @@ public class Trip {
     private String origin;
     private String destination;
     private boolean isAccepted;
-    private String state;
-//    private Object itinerary;
+    private ArrayList<LatLng> itinerary;
+//    private int 
 
     public Trip () {}
 
@@ -46,21 +49,13 @@ public class Trip {
         this.isAccepted = isAccepted;
     }
 
-    public String gestState() {
-        return state;
+    public ArrayList<LatLng> getItinerary() {
+        return itinerary;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setItinerary(ArrayList<LatLng> itinerary) {
+        this.itinerary = itinerary;
     }
-
-//    public Object getItinerary() {
-//        return itinerary;
-//    }
-//
-//    public void setItinerary(Object itinerary) {
-//        this.itinerary = itinerary;
-//    }
 
     public ArrayList<Object> calculateTrip(){
         return null;

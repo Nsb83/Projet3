@@ -7,8 +7,6 @@ public class AlgoObject {
 	private LatLng coordinate;
 	
 	private double proximityIndex;
-	
-	
 
 	public AlgoObject() {
 		
