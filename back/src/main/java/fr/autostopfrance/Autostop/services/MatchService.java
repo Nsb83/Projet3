@@ -10,6 +10,8 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
 
+import fr.autostopfrance.Autostop.models.AlgoObject;
+
 public class MatchService {
 
 	private String apiKey = "AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44";
@@ -52,6 +54,10 @@ public class MatchService {
 		} else {
 			return false;
 		}
+	}
+	
+	public LatLng getNearestDriverStep(AlgoObject[] algoTable, LatLng pedestrianLocation) {
+		return algoTable[0].getCoordinate();
 	}
 	
 }
