@@ -54,7 +54,7 @@ export class ResponseModalPage {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad ResponseModalPage');
+    this.startTimer();
   }
 
 
@@ -62,7 +62,7 @@ export class ResponseModalPage {
   
   ngOnInit() {
     this.initTimer();
-    this.startTimer();
+    
   }
 
   hasFinished() {

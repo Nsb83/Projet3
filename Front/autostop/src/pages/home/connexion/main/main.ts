@@ -39,11 +39,11 @@ export class MainPage {
   ) { }
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    this.userService.getUser().subscribe(response => { this.user = response });
   }
 
   ionViewWillEnter() {
-    this.user = this.userService.getUser();
+  this.userService.getUser().subscribe(response => { this.user = response });
   }
 
   onNavigate(page: any) {
@@ -52,8 +52,7 @@ export class MainPage {
 
   SignOut() {
     this.token.signOut();
-    this.messageService.myAlertMethod("Au revoir !", "Vous êtes désormais déconnecté", false)
-    // console.log("You are disconnected");
+    this.messageService.myToastMethod("Au revoir !, Vous êtes désormais déconnecté")
     this.navCtrl.setRoot(HomePage);
     }
 }

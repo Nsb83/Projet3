@@ -13,6 +13,7 @@ import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'page-vehicle',
@@ -71,9 +72,15 @@ export class VehiclePage implements OnInit{
       register.model,
       this.color,
     );
-    this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
-    this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{});
-    this.navCtrl.push(this.main);
+    // this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
+    this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{ 
+      this.messageService.myToastMethod("Votre profil a bien été actualisé")
+    }, (error: HttpErrorResponse) => {
+      console.log('Error: ', error);
+      this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+    }
+      );
+    // this.navCtrl.push(this.main);
 
 
   }
@@ -130,7 +137,11 @@ export class VehiclePage implements OnInit{
       this.currentFileUpload = this.selectedFiles.item(0);
       this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
           console.log('File is completely uploaded!');
-        })
+        }, (error: HttpErrorResponse) => {
+          console.log('Error: ', error);
+          this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+        }
+          )
       this.currentFileUpload = undefined;
     }
 }
