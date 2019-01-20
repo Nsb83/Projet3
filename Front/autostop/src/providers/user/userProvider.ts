@@ -15,6 +15,7 @@ export class UserProvider {
 
   private user: User;
   private userId;
+  private localUser: User;
 
   private isVehiculed: boolean;
 
@@ -43,7 +44,7 @@ export class UserProvider {
     return this.http.post<User>(createUserUrl, user, httpOptions)
   };
 
-  getUser() {
+  getUser():Observable<User> {
     const user: User = new User();
     this.http
       .get<User>(`${environment.SERVER_URL}/users/find/${this.getUserId()}`).subscribe((response: any) => {
@@ -60,8 +61,7 @@ export class UserProvider {
           user.setImgUrl('./assets/imgs/profileImg.png');
         }
       });
-
-    return user;
+    return Observable.of(user);
   };
 
   updateUser(user: User) {

@@ -28,7 +28,6 @@ export class ConnexionPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    private userService: UserProvider,
     private authService: AuthService, 
     private token: TokenStorage,
     private messageService: MessageProvider,
@@ -57,22 +56,14 @@ export class ConnexionPage implements OnInit {
     .subscribe(
       (data: HttpResponse<any>) => {
         this.token.saveToken(data.headers.get('Authorization'));
-        this.userService.setUserId(data.headers.get('UserID'));
-        this.user = this.userProvider.getUser();
-        this.messageService.myToastMethod(`Vous êtes désormais connecté !`);
+        this.userProvider.setUserId(data.headers.get('UserID'));
+        this.userProvider.getUser().subscribe(response => { this.user = response});
         this.navCtrl.push(ChoicePage);
-        // console.log(data);
       }, (error: HttpErrorResponse) => {
         console.log('Error: ', error);
         this.messageService.myToastMethod(`Une erreur est survenue, veuillez vérifier vos identifiants de connexion.`);
       }
     );
-    // this.userService.connectUser(credentials).subscribe((data: HttpResponse<any>) => {
-    //   console.log("headers: ", data.headers.get('Authorization'));
-    //   // response = data;
-    //   // console.log("Response: ", response);
-    // }, err => {console.log(err);
-    // });
   }
 
   onNavigate2(page) {

@@ -6,6 +6,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { MainPage } from '../../connexion/main/main';
 import { UserProvider } from '../../../../providers/user/userProvider';
 import { DriverInfosPage } from '../driver-infos/driver-infos';
+import { User } from '../../../../models/User';
 
 @Component({
   selector: 'page-choice',
@@ -16,6 +17,7 @@ export class ChoicePage {
   private main = MainPage;
   private driveInfosPage = DriverInfosPage;
   private driverInfos: Driver;
+  private user:User;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -25,6 +27,14 @@ export class ChoicePage {
               private messageService: MessageProvider
               ) {
   }
+
+  ngOnInit() {
+    this.userService.getUser().subscribe(response => {this.user = response});
+
+      setTimeout(() =>
+      this.messageService.myToastMethod(`Bonjour ${this.user.getFirstName()}, vous êtes désormais connecté !`), 300)
+      };
+  
 
   chooseDriverMode() {
     this.userService.setIsVehiculed(true);
@@ -45,7 +55,7 @@ export class ChoicePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChoicePage');
+
   }
 
 }
