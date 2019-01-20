@@ -36,9 +36,9 @@ public class MatchController {
 	}
 	
 	@GetMapping (path = "/getallusers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public List<User> getAllUsersAround(@RequestBody User pedestrian) {
+	public List<User> getMatchingDriversAround(@RequestBody User pedestrian) {
 		
-		List<User> response = new ArrayList<User>();
+		List<User> matchingDrivers = new ArrayList<User>();
 		
 		List<User> allDrivers = userService.findAllDrivers();
 		
@@ -54,7 +54,7 @@ public class MatchController {
 			ArrayList<LatLng> driverItinerary = driver.getTrip().getItinerary();
 			
 		    if (filterMatchService.filterItineraries(driverItinerary, pedestrianStartLatLng, searchRadius)) {
-		    	response.add(driver);
+		    	matchingDrivers.add(driver);
 		    }
 		}
 		
@@ -64,7 +64,7 @@ public class MatchController {
 
 		System.out.println("searchRadius: " + searchRadius);
 		
-		return response;
+		return matchingDrivers;
 	}
 	
 	@GetMapping (path = "/algomatch", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })

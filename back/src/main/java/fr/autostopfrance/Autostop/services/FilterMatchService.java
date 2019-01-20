@@ -35,6 +35,8 @@ public class FilterMatchService {
 		
 //		return areUsersMatchable;
 		
+		
+	// RETURN DE TEST POUR LA FONCTION MatchController.getMatchingDriversAround()
 		return true;
 	}
 	
