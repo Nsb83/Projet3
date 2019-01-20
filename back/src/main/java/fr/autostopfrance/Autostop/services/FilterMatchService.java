@@ -19,27 +19,29 @@ public class FilterMatchService {
 		
 //		ArrayList<LatLng> filteredItineraries = new ArrayList<LatLng>();
 		
-		ArrayList<AlgoObject> algoTable = matchService.getAlgoTable(driverItinerary, pedestrianLatLng);
+//		ArrayList<AlgoObject> algoTable = matchService.getAlgoTable(driverItinerary, pedestrianLatLng);
+//		
+//		LatLng driverNearestStep = matchService.getNearestDriverStep(algoTable, pedestrianLatLng);
+//		System.out.println(" ");
+//		System.out.println("Driver nearest coordinate : " + driverNearestStep.toString());
+//		
+//		long distance = matchService.calculateDistance(pedestrianLatLng, driverNearestStep);
+//		System.out.println(" ");
+//		System.out.println("Distance between driver nearest coordinate and pedestrian : " + distance + " mètres");
+//		
+//		boolean areUsersMatchable = matchService.areUsersMatchable(searchRadius, distance);
+//		System.out.println(" ");
+//		System.out.println("Résultat algo : " + String.valueOf(areUsersMatchable));
 		
-		LatLng driverNearestStep = matchService.getNearestDriverStep(algoTable, pedestrianLatLng);
-		System.out.println(" ");
-		System.out.println("Driver nearest coordinate : " + driverNearestStep.toString());
+//		return areUsersMatchable;
 		
-		long distance = matchService.calculateDistance(pedestrianLatLng, driverNearestStep);
-		System.out.println(" ");
-		System.out.println("Distance between driver nearest coordinate and pedestrian : " + distance + " mètres");
-		
-		boolean areUsersMatchable = matchService.areUsersMatchable(searchRadius, distance);
-		System.out.println(" ");
-		System.out.println("Résultat algo : " + String.valueOf(areUsersMatchable));
-		
-		
-		return areUsersMatchable;
+		return true;
 	}
 	
 
 }
 
+// À SUPPRIMER APRÈS VÉRIFICATION DE L'ALGO
 
 //LatLng pedestrianLocation = new LatLng(45.7462409, 4.8268639);
 //
