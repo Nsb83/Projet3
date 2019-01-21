@@ -92,14 +92,6 @@ public class Driver
         this.uploadPicture = uploadPicture;
     }
 
-// public LinkedList<Trip> getTripList(){
-    //     return tripList;
-    // }
-
-    // public void setTripList(LinkedList tripList){
-    //     this.tripList = tripList;
-    // }
-
     public void acceptTrip(){
     }
 
