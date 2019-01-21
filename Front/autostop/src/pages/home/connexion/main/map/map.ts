@@ -210,18 +210,18 @@ export class MapPage {
 
   }
   sendTrip() {
-    // this.validatedTrip = new Trip (this.userPosition.latLng, this.searchValue, this.markerDestination.getPosition(), this.arrayPoly);
-    let alert = this.alrtCtrl.create({
-      title: 'Trajet enregistré',
-      message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
-      buttons: [
-        {
-          text: "C'est compris !",
-        }
-      ]
-    });
-    console.log(this.validatedTrip);
-    alert.present();
+    this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
+      let alert = this.alrtCtrl.create({
+        title: 'Trajet enregistré',
+        message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+        buttons: [
+          {
+            text: "C'est compris !",
+          }
+        ]
+      });
+      alert.present();
+    })
   }
 
     // FIN POLY
