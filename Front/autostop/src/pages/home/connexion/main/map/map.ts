@@ -273,14 +273,14 @@ export class MapPage {
   }
 
   showMatchedUsersPoly(){
-    this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers) => {
+    this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers: any[]) => {
       console.log(matchingDrivers);
       
       if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length; i++){
           console.log(matchingDrivers[i]);
           
-          // this.showPoly(matchingDrivers[i].trip.itinerary);
+          this.showPoly(matchingDrivers[i].trip.itinerary);
         }
       }
     });
