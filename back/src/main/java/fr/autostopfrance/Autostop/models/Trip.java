@@ -1,6 +1,9 @@
 package fr.autostopfrance.Autostop.models;
 
 import javax.persistence.*;
+
+import com.google.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 @Entity
@@ -8,59 +11,70 @@ import java.util.ArrayList;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String origin;
-    private String destination;
-    private boolean isAccepted;
-    private String state;
-//    private Object itinerary;
+    @Column(name = "tripId")
+    private Long id;
+    @Column(name="origin")
+    private LatLng origin;
+    @Column(name="destination_string")
+    private String destinationString;
+    @Column(name="destination_lat_lng")
+    private LatLng destinationLatLng;
+    @Column(name="accepted")
+    private boolean accepted;
+    @Column(name="itinerary")
+    private ArrayList<LatLng> itinerary;
+//    private int 
 
-    public Trip () {}
-
-    public Trip(String origin, String destination){
-        this.origin = origin;
-        this.destination = destination;
+    public Trip () {
+    	this.itinerary = new ArrayList<LatLng>();
     }
 
-    public String getOrigin() {
+    public Trip(LatLng origin, String destinationString, LatLng destinationLatLng){
+        this.origin = origin;
+        this.destinationString = destinationString;
+        this.destinationLatLng = destinationLatLng;
+    	this.itinerary = new ArrayList<LatLng>();
+    }
+
+    public LatLng getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(LatLng origin) {
         this.origin = origin;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getDestinationString() {
+        return destinationString;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDestinationString(String destination) {
+        this.destinationString = destination;
+    }
+    
+    public LatLng getDestinationLatLng() {
+        return destinationLatLng;
+    }
+
+    public void setDestinationLatLng(LatLng destinationLatLng) {
+        this.destinationLatLng = destinationLatLng;
     }
 
     public boolean isAccepted() {
-        return isAccepted;
+        return accepted;
     }
 
-    public void setAccepted(boolean isAccepted) {
-        this.isAccepted = isAccepted;
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 
-    public String gestState() {
-        return state;
+    public ArrayList<LatLng> getItinerary() {
+        return itinerary;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setItinerary(ArrayList<LatLng> itinerary) {
+        this.itinerary = itinerary;
     }
-
-//    public Object getItinerary() {
-//        return itinerary;
-//    }
-//
-//    public void setItinerary(Object itinerary) {
-//        this.itinerary = itinerary;
-//    }
 
     public ArrayList<Object> calculateTrip(){
         return null;
