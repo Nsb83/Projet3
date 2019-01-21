@@ -45,7 +45,7 @@ public class MatchController {
 		
 		for (User driver : allDrivers) {
 
-			EncodedPolyline driverOverviewPolyline = driver.getTrip().getItinerary();
+			EncodedPolyline driverOverviewPolyline = new EncodedPolyline(driver.getTrip().getItinerary());
 			
 			List<LatLng> driverItinerary = driverOverviewPolyline.decodePath();
 			

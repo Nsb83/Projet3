@@ -22,14 +22,14 @@ public class Trip {
     private LatLng destinationLatLng;
     @Column(name="accepted")
     private boolean accepted;
-    @Column(name="itinerary")
-    private EncodedPolyline itinerary;
+    @Column(name="itinerary", columnDefinition = "text")
+    private String itinerary;
 //    private int 
 
     public Trip () {
     }
 
-    public Trip(LatLng origin, String destinationString, LatLng destinationLatLng, EncodedPolyline itinerary){
+    public Trip(LatLng origin, String destinationString, LatLng destinationLatLng, String itinerary){
         this.origin = origin;
         this.destinationString = destinationString;
         this.destinationLatLng = destinationLatLng;
@@ -68,11 +68,11 @@ public class Trip {
         this.accepted = accepted;
     }
 
-    public EncodedPolyline getItinerary() {
+    public String getItinerary() {
         return itinerary;
     }
 
-    public void setItinerary(EncodedPolyline itinerary) {
+    public void setItinerary(String itinerary) {
         this.itinerary = itinerary;
     }
 
