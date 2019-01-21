@@ -1,6 +1,7 @@
 package fr.autostopfrance.Autostop.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class FilterMatchService {
 	@Autowired
 	MatchService matchService;
 	
-	public boolean filterItineraries(ArrayList<LatLng> driverItinerary, LatLng pedestrianLatLng, int searchRadius) {
+	public boolean filterItineraries(List<LatLng> driverItinerary, LatLng pedestrianLatLng, int searchRadius) {
 		
 //		ArrayList<LatLng> filteredItineraries = new ArrayList<LatLng>();
 		

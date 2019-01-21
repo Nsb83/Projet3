@@ -1,7 +1,6 @@
 package fr.autostopfrance.Autostop.controllers;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
-import fr.autostopfrance.Autostop.services.MatchService;
 import fr.autostopfrance.Autostop.services.UserService;
 
 @RestController
@@ -30,7 +29,6 @@ public class MatchController {
 	@Autowired
 	UserService userService;
 	
-	
 	@GetMapping (path = "/getmatchingdrivers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<User> getMatchingDriversAround(@RequestBody User pedestrian) {
 		
@@ -38,16 +36,18 @@ public class MatchController {
 		
 		List<User> allDrivers = userService.findAllDrivers();
 		
-		LatLng pedestrianStartLatLng = pedestrian.getTrip().getItinerary().get(0);
+		LatLng pedestrianStartLatLng = pedestrian.getTrip().getOrigin();
 		
-		LatLng pedestrianLastLatLng = pedestrian.getTrip().getItinerary().get(pedestrian.getTrip().getItinerary().size() - 1);
+		LatLng pedestrianLastLatLng = pedestrian.getTrip().getDestinationLatLng();
 		
 		int searchRadius = pedestrian.getPedestrian().getSearchRadius();
 		
 		
 		for (User driver : allDrivers) {
 
-			ArrayList<LatLng> driverItinerary = driver.getTrip().getItinerary();
+			EncodedPolyline driverOverviewPolyline = driver.getTrip().getItinerary();
+			
+			List<LatLng> driverItinerary = driverOverviewPolyline.decodePath();
 			
 		    if (filterMatchService.filterItineraries(driverItinerary, pedestrianStartLatLng, searchRadius)) {
 		    	matchingDrivers.add(driver);

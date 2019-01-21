@@ -2,6 +2,7 @@ package fr.autostopfrance.Autostop.models;
 
 import javax.persistence.*;
 
+import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -22,18 +23,17 @@ public class Trip {
     @Column(name="accepted")
     private boolean accepted;
     @Column(name="itinerary")
-    private ArrayList<LatLng> itinerary;
+    private EncodedPolyline itinerary;
 //    private int 
 
     public Trip () {
-    	this.itinerary = new ArrayList<LatLng>();
     }
 
-    public Trip(LatLng origin, String destinationString, LatLng destinationLatLng){
+    public Trip(LatLng origin, String destinationString, LatLng destinationLatLng, EncodedPolyline itinerary){
         this.origin = origin;
         this.destinationString = destinationString;
         this.destinationLatLng = destinationLatLng;
-    	this.itinerary = new ArrayList<LatLng>();
+    	this.itinerary = itinerary;
     }
 
     public LatLng getOrigin() {
@@ -68,11 +68,11 @@ public class Trip {
         this.accepted = accepted;
     }
 
-    public ArrayList<LatLng> getItinerary() {
+    public EncodedPolyline getItinerary() {
         return itinerary;
     }
 
-    public void setItinerary(ArrayList<LatLng> itinerary) {
+    public void setItinerary(EncodedPolyline itinerary) {
         this.itinerary = itinerary;
     }
 
