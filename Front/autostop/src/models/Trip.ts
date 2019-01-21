@@ -1,17 +1,17 @@
 import { LatLng, ILatLng } from "@ionic-native/google-maps";
 
 export class Trip {
-    origin: LatLng;
+    origin: ILatLng;
     destinationString: string;
     destinationLatLng: ILatLng;
-    itinerary: LatLng[];
+    itinerary: ILatLng[];
     accepted: boolean;
 
   constructor(
-    origin?: LatLng,
+    origin?: ILatLng,
     destinationString?: string,
     destinationLatLng?: ILatLng,
-    itinerary?: LatLng[],
+    itinerary?: ILatLng[],
   )
 
   {
@@ -22,11 +22,11 @@ export class Trip {
     this.accepted = false;
   }
 
-  public getOrigin(): LatLng {
+  public getOrigin(): ILatLng {
     return this.origin;
   }
 
-  public setOrigin(origin: LatLng): void {
+  public setOrigin(origin: ILatLng): void {
     this.origin = origin;
   }
 
@@ -48,11 +48,11 @@ export class Trip {
     this.destinationLatLng = destinationLatLng;
   }
 
-  public getItinerary(): LatLng[] {
+  public getItinerary(): ILatLng[] {
     return this.itinerary;
   }
 
-  public setItinerary(itinerary: LatLng[]): void {
+  public setItinerary(itinerary: ILatLng[]): void {
     this.itinerary = itinerary;
   }
   public isAccepted(): boolean {

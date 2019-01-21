@@ -269,4 +269,10 @@ export class MapPage {
     matchModal.present();
   }
 
+  showMatchedUsersPoly(arrayTrips: Trip[]){
+    for(let i=0; i<=arrayTrips.length; i++){
+        this.showPoly(arrayTrips[i].itinerary);
+    }
+  }
+
 }
