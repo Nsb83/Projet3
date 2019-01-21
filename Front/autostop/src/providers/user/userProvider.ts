@@ -17,17 +17,9 @@ export class UserProvider {
   private userId;
   private localUser: User;
 
-  private isVehiculed: boolean;
+  // private isVehiculed: boolean;
 
   constructor(public http: HttpClient) {
-  }
-
-  // Dev Only
-  setIsVehiculed(param) {
-    this.isVehiculed = param;
-  }
-  getIsVehiculed() {
-    return this.isVehiculed;
   }
 
   getUserId() {
@@ -55,6 +47,7 @@ export class UserProvider {
         user.setDateOfBirth(response.dateOfBirth);
         user.setEmail(response.email);
         user.setPassword(response.password);
+        user.setVehiculed(response.vehiculed);
         if (response.uploadPicture.fileDownloadUri !== null) {
           user.setImgUrl(response.uploadPicture.fileDownloadUri);
         } else {

@@ -29,6 +29,7 @@ import {
   LatLngBounds
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
+import { Observable } from 'rxjs';
 
 
 // @IonicPage()
@@ -49,10 +50,8 @@ export class MapPage {
   arrayPoly: LatLng[];
   validatedTrip: Trip;
   destinationILatLng: ILatLng;
+  user: User;
 
-  // Dev purpose
-  isVehiculed : boolean;
-  //
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -77,19 +76,28 @@ export class MapPage {
               public userProvider: UserProvider,
               public tripProvider: TripProvider) {}
 
+  ngOnInit(){
+    this.userProvider.getUser().subscribe(response => {
+      this.user = response;
+    });
+  }
+
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
     this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png");
-    this.isVehiculed = this.userProvider.getIsVehiculed();
+  }
+
+  ngAfterViewChecked(){
     this.setIconUser();
   }
 
   setIconUser(){
-    if(this.isVehiculed){
+    if(this.user.isVehiculed()) {
       this.iconPath = "../assets/icon/driver.png";
     }
     else this.iconPath = "../assets/icon/thumb.png";
+
   }
 
   loadMap() {

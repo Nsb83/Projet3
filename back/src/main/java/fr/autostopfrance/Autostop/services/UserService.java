@@ -53,7 +53,6 @@ public class UserService implements UserDetailsService {
                 user.getDateOfBirth(),
                 user.getEmail(),
                 bCryptPasswordEncoder.encode(user.getPassword()),
-                user.isVehiculed(),
                 user.getUploadPicture(),
                 user.getDriver(),
                 user.getPedestrian(),
@@ -94,6 +93,7 @@ public class UserService implements UserDetailsService {
         currentUser.setSex(user.getSex());
         currentUser.setDateOfBirth(user.getDateOfBirth());
         currentUser.setEmail(user.getEmail());
+        currentUser.setVehiculed(user.isVehiculed());
         userDAO.save(currentUser);
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }

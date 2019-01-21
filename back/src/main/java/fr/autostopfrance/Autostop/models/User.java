@@ -42,7 +42,7 @@ public class User {
     private Trip trip;
 
     public User () {
-    	this.vehiculed = false;
+        this.vehiculed = false;
     }
 
     public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password) {
@@ -57,7 +57,7 @@ public class User {
         this.vehiculed = false;
     }
 
-    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
+    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -66,7 +66,18 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
-        this.vehiculed = false;
+        this.vehiculed = vehiculed;
+    }
+
+    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
+        this.publicId = publicId;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.phone = phone;
+        this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.password = password;
         this.uploadPicture = new UploadPicture();
         this.driver = new Driver();
         this.pedestrian = new Pedestrian();

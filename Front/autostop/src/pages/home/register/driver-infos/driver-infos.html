@@ -1,3 +1,58 @@
-<ion-content padding text-center>
-    <page-vehicle></page-vehicle>
+
+<ion-content padding class="container">
+  <form [formGroup]="register">
+
+    <ion-item>
+        <ion-input
+          type="text"
+          formControlName="licensePlate"
+          value="{{ driver.licensePlate }}"
+          placeholder="Plaque d'immatriculation">
+        </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="brand"
+        value="{{ driver.brand }}"
+        placeholder="Constructeur automobile">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="model"
+        value="{{ driver.model }}"
+        placeholder="Modèle">
+      </ion-input>
+    </ion-item>
+
+
+		<ion-row class="colorselect color_{{color.slice(1,7)}}">
+			<ion-item>
+				<ion-label class="primarylabel">Color</ion-label>
+				<ion-select  (click)="prepareColorSelector()" (ionChange)="setColor(this.color)" [(ngModel)]="color" [ngModelOptions]="{standalone: true}">
+					<ion-option (ionSelect)="selectColor(optioncolor)" *ngFor="let optioncolor of colors" [value]="optioncolor">{{optioncolor}}</ion-option>
+				</ion-select>
+			</ion-item>
+		</ion-row>
+
+    <ion-item>
+      <input type="file" (change)="selectFile($event)">
+    </ion-item>
+    <button ion-button (click)="onUpload()">Télécharger la photo de votre voiture!</button>
+
+
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      (click)="validateForm(register.value)"
+    >
+      CRÉER
+    </button>
+  </form>
 </ion-content>
