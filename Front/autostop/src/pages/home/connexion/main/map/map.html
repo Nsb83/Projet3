@@ -2,5 +2,6 @@
   <div id="map">
       <page-search-bar (searchValueEmit)='receiveMessage($event)'></page-search-bar>
       <button ion-button strong round color="button" [hidden]="polyline==null" (click)="sendTrip()" id="validateButton"> Valider ce trajet? </button>
-  </div>
+      <button ion-button strong round color="button" (click)="showMatchedUsersPoly()" id="matchedButton"> Matchable users </button>
+    </div>
 </ion-content>
