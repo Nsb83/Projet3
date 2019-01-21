@@ -1,4 +1,4 @@
-package fr.autostopfrance.Autostop.controllers;
+	package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.UserService;

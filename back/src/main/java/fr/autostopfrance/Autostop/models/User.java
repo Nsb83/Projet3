@@ -26,7 +26,7 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name = "Vehiculed")
+    @Column(name = "vehiculed")
     private boolean vehiculed;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -41,7 +41,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Trip trip;
 
-    public User () {}
+    public User () {
+    	this.vehiculed = false;
+    }
 
     public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password) {
         this.publicId = publicId;
@@ -52,6 +54,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
+        this.vehiculed = false;
     }
 
     public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {

@@ -5,7 +5,7 @@ export class Trip {
     destinationString: string;
     destinationLatLng: ILatLng;
     itinerary: LatLng[];
-    isAccepted: boolean;
+    accepted: boolean;
 
   constructor(
     origin?: LatLng,
@@ -19,7 +19,7 @@ export class Trip {
     this.destinationString = destinationString;
     this.destinationLatLng = destinationLatLng;
     this.itinerary = itinerary;
-    this.isAccepted = false;
+    this.accepted = false;
   }
 
   public getOrigin(): LatLng {
@@ -55,12 +55,12 @@ export class Trip {
   public setItinerary(itinerary: LatLng[]): void {
     this.itinerary = itinerary;
   }
-  public getIsAccepted(): boolean {
-    return this.isAccepted;
+  public isAccepted(): boolean {
+    return this.accepted;
   }
 
-  public setIsAccepted(isAccepted: boolean): void {
-    this.isAccepted = isAccepted;
+  public setIsAccepted(accepted: boolean): void {
+    this.accepted = accepted;
   }
 
 }
