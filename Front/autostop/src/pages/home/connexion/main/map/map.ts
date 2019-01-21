@@ -154,7 +154,8 @@ export class MapPage {
           this.validatedTrip  = new Trip(data.routes[0].legs[0].start_location,
                               data.routes[0].legs[0].end_address,
                               data.routes[0].legs[0].end_location,
-                              this.arrayPoly);
+                              data.routes[0].overview_polyline.points,
+                              );
                               console.log(this.validatedTrip);
           this.displayRoute(data.routes[0].overview_polyline.points);
           this.addMarkerAndCircle();
@@ -267,6 +268,12 @@ export class MapPage {
   showMatchModal() {
     const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
     matchModal.present();
+  }
+
+  showMatchedUsersPoly(arrayTrips: Trip[]){
+    for(let i=0; i<=arrayTrips.length; i++){
+        this.showPoly(arrayTrips[i].itinerary);
+    }
   }
 
 }
