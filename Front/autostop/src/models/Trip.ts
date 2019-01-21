@@ -59,7 +59,7 @@ export class Trip {
     return this.accepted;
   }
 
-  public setIsAccepted(accepted: boolean): void {
+  public setAccepted(accepted: boolean): void {
     this.accepted = accepted;
   }
 

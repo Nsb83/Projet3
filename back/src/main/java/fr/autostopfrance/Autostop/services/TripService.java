@@ -20,16 +20,20 @@ public class TripService {
 	
 	public ResponseEntity<User> updateTrip(String publicId, Trip trip) {
 		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
 		System.out.println("Updating user's (" + publicId + ") trip.");
+
+		System.out.println("Trip : " + gson.toJson(trip));
 		
 		User currentUser = userDAO.findByPublicId(publicId);
 		
 		currentUser.getTrip().setOrigin(trip.getOrigin());
 		currentUser.getTrip().setDestinationString(trip.getDestinationString());
-//		currentUser.getTrip().setDestinationLatLng(trip.getDestinationLatLng());
-//		currentUser.getTrip().setItinerary(trip.getItinerary());
+		currentUser.getTrip().setDestinationLatLng(trip.getDestinationLatLng());
+		currentUser.getTrip().setItinerary(trip.getItinerary());
 
-//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//		
 //		System.out.println(gson.toJson(currentUser));
 		
 		userDAO.save(currentUser);

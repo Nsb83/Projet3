@@ -6,7 +6,6 @@ import fr.autostopfrance.Autostop.services.DriverService;
 import fr.autostopfrance.Autostop.services.StorageService;
 
 import fr.autostopfrance.Autostop.services.UserService;
-import net.bytebuddy.dynamic.scaffold.TypeWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 

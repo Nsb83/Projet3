@@ -24,8 +24,8 @@ public class TripController {
 	@Autowired
 	TripService tripService;
 	
-	@PutMapping(path = "/update/{publicUserId}", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<User> addOrUpdateTrip(@PathVariable("publicUserId") String publicId, @RequestBody Trip trip){
+	@PutMapping(path = "/update/{publicId}", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<User> addOrUpdateTrip(@PathVariable("publicId") String publicId, @RequestBody Trip trip){
         return tripService.updateTrip(publicId, trip);
     }
 	

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "tripId")
+    private Long id;
     @Column(name="origin")
     private LatLng origin;
     @Column(name="destination_string")
