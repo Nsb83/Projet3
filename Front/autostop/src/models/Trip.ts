@@ -4,14 +4,14 @@ export class Trip {
     origin: ILatLng;
     destinationString: string;
     destinationLatLng: ILatLng;
-    itinerary: ILatLng[];
+    itinerary: string;
     accepted: boolean;
 
   constructor(
     origin?: ILatLng,
     destinationString?: string,
     destinationLatLng?: ILatLng,
-    itinerary?: ILatLng[],
+    itinerary?: string,
   )
 
   {
@@ -48,11 +48,11 @@ export class Trip {
     this.destinationLatLng = destinationLatLng;
   }
 
-  public getItinerary(): ILatLng[] {
+  public getItinerary(): string {
     return this.itinerary;
   }
 
-  public setItinerary(itinerary: ILatLng[]): void {
+  public setItinerary(itinerary: string): void {
     this.itinerary = itinerary;
   }
   public isAccepted(): boolean {
