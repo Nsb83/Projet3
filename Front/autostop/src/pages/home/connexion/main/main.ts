@@ -26,13 +26,16 @@ export class MainPage {
   contactPage = ContactPage;
 
   user: User;
+  updatedUser: User;
+  private main = MainPage;
+
 
   constructor(
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private menuCtrl: MenuController,
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     private userService: UserProvider,
     private token: TokenStorage,
     private messageService: MessageProvider
@@ -48,6 +51,43 @@ export class MainPage {
 
   onNavigate(page: any) {
     this.navCtrl.push(page);
+  }
+
+  chooseMode() {
+    if(this.user.isVehiculed()){
+      this.updatedUser = new User (
+        this.user.getLastName(),
+        this.user.getFirstName(),
+        this.user.getPhone(),
+        this.user.getSex(),
+        this.user.getDateOfBirth(),
+        this.user.getEmail(),
+        this.user.getPassword(),
+        false,
+      )
+    }
+
+    else{
+      this.updatedUser = new User (
+        this.user.getLastName(),
+        this.user.getFirstName(),
+        this.user.getPhone(),
+        this.user.getSex(),
+        this.user.getDateOfBirth(),
+        this.user.getEmail(),
+        this.user.getPassword(),
+        true,
+      )
+    }
+
+    this.userService.updateUser(this.updatedUser).subscribe(() => {
+      this.userService.getUser().subscribe(response => {
+        this.user = response;
+        console.log(this.updatedUser)
+      });
+
+      this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
+    });
   }
 
   SignOut() {

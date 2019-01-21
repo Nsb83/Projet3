@@ -75,7 +75,6 @@ export class ChoicePage {
       this.user.getPassword(),
       false,
     )
-    this.driverInfos = this.driverProvider.getDriver();
     this.userService.updateUser(this.updatedUser).subscribe(() => {
       this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
       this.navCtrl.push(this.main);
