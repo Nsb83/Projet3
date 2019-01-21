@@ -30,12 +30,8 @@ public class MatchController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping (path = "/test")
-	 public String test() {
-		return "Coucou";
-	}
 	
-	@GetMapping (path = "/getallusers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping (path = "/getmatchingdrivers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<User> getMatchingDriversAround(@RequestBody User pedestrian) {
 		
 		List<User> matchingDrivers = new ArrayList<User>();

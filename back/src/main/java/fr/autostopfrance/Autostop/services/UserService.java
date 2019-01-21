@@ -35,7 +35,7 @@ public class UserService implements UserDetailsService {
     }
     
     public List<User> findAllDrivers() {
-        return userDAO.findByVehiculed(true);
+        return userDAO.findByVehiculed(false);
     }
     
     public User postUser(User user) {
