@@ -53,6 +53,9 @@ export class UserProvider {
         } else {
           user.setImgUrl('./assets/imgs/profileImg.png');
         }
+        user.setDriver(response.driver);
+        user.setPedestrian(response.pedestrian);
+        user.setTrip(response.trip);
       });
     return Observable.of(user);
   };

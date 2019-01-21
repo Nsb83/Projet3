@@ -1,4 +1,7 @@
 import { Account } from "./Account";
+import { Driver } from "./Driver";
+import { Pedestrian } from "./Pedestrian";
+import { Trip } from "./Trip";
 
 export class User {
     private lastName: string;
@@ -10,6 +13,9 @@ export class User {
     private email: string;
     private password: string;
     private vehiculed: boolean;
+    private driver: Driver;
+    private pedestrian: Pedestrian;
+    private trip: Trip;
     // private account:Account;
 
     constructor(
@@ -104,6 +110,30 @@ export class User {
 
     public setDateOfBirth(dateOfBirth: string): void {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public setDriver(driver: Driver) {
+        this.driver = driver;
+    }
+
+    public getDriver() {
+        return this.driver;
+    }
+
+    public setPedestrian(pedestrian: Pedestrian) {
+        this.pedestrian = pedestrian;
+    }
+
+    public getPedestrian() {
+        return this.pedestrian;
+    }
+
+    public setTrip(trip: Trip) {
+        this.trip = trip;
+    }
+
+    public getTrip() {
+        return this.trip;
     }
 
     // public setAccount(account: Account): void {
