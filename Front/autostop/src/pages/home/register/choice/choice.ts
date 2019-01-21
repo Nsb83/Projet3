@@ -18,6 +18,7 @@ export class ChoicePage {
   private driveInfosPage = DriverInfosPage;
   private driverInfos: Driver;
   private user:User;
+  private updatedUser:User;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -30,28 +31,55 @@ export class ChoicePage {
 
   ngOnInit() {
     this.userService.getUser().subscribe(response => {this.user = response});
-
       setTimeout(() =>
       this.messageService.myToastMethod(`Bonjour ${this.user.getFirstName()}, vous êtes désormais connecté !`), 300)
       };
-  
+
+      // this.userService.updateUser(this.userUpdate).subscribe(() => {
+      //   this.userService.getUser();
+      //   this.messageService.myToastMethod("Votre profil a été actualisé")
+      // }
 
   chooseDriverMode() {
-    this.userService.setIsVehiculed(true);
+      this.updatedUser = new User (
+      this.user.getLastName(),
+      this.user.getFirstName(),
+      this.user.getPhone(),
+      this.user.getSex(),
+      this.user.getDateOfBirth(),
+      this.user.getEmail(),
+      this.user.getPassword(),
+      true,
+    )
     this.driverInfos = this.driverProvider.getDriver();
-    if(this.driverInfos == null){
-      this.navCtrl.push(this.driveInfosPage);
-    }
-    else {
-      this.navCtrl.push(this.main);
-      this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.");
-    }
+    this.userService.updateUser(this.updatedUser).subscribe(() => {
+      console.log(this.updatedUser)
+      if(this.driverInfos.getModel() == null){
+        this.navCtrl.push(this.driveInfosPage);
+      }
+      else {
+        this.navCtrl.push(this.main);
+        this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.");
+      }
+    });
   }
 
   choosePedestrianMode() {
-    this.userService.setIsVehiculed(false);
-    this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
-    this.navCtrl.push(this.main);
+    this.updatedUser = new User (
+      this.user.getLastName(),
+      this.user.getFirstName(),
+      this.user.getPhone(),
+      this.user.getSex(),
+      this.user.getDateOfBirth(),
+      this.user.getEmail(),
+      this.user.getPassword(),
+      false,
+    )
+    this.driverInfos = this.driverProvider.getDriver();
+    this.userService.updateUser(this.updatedUser).subscribe(() => {
+      this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
+      this.navCtrl.push(this.main);
+    });
   }
 
   ionViewDidLoad() {

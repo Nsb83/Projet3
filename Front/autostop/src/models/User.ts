@@ -9,6 +9,7 @@ export class User {
     private dateOfBirth: string;
     private email: string;
     private password: string;
+    private vehiculed: boolean;
     // private account:Account;
 
     constructor(
@@ -18,7 +19,8 @@ export class User {
         sex?: string,
         dateOfBirth?: string,
         email?:string,
-        password?:string
+        password?:string,
+        vehiculed?:boolean,
        ){
         this.lastName = lastName;
         this.firstName = firstName;
@@ -27,8 +29,17 @@ export class User {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
+        this.vehiculed = vehiculed;
         // this.account = new Account(email, password);
        }
+
+    public isVehiculed(){
+      return this.vehiculed;
+    }
+
+    public setVehiculed(vehiculed:boolean){
+      this.vehiculed = vehiculed;
+    }
 
     public getEmail(): string {
         return this.email;
@@ -104,5 +115,5 @@ export class User {
     // }
 
     // private account:Account;
-   
+
 }
