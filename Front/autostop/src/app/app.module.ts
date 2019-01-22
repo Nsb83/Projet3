@@ -9,11 +9,9 @@ import { StatusBar } from "@ionic-native/status-bar";
 // ***************************************
 import { HomePage } from "../pages/home/home";
 import { MyApp } from "./app.component";
-import { AddFavoritePage } from "../pages/home/connexion/main/menu/tabs/favorites/add-favorite/add-favorite";
 import { ConnexionPage } from "../pages/home/connexion/connexion";
 import { ContactPage } from "../pages/home/connexion/main/menu/contact/contact";
-import { DistancePage } from "../pages/home/connexion/main/menu/tabs/profile/distance/distance";
-import { FavoritesPage } from "../pages/home/connexion/main/menu/tabs/favorites/favorites";
+import { DistancePage } from "../pages/home/connexion/main/menu/tabs/distance/distance";
 import { FavoritesSbPage } from "../pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb";
 import { GiveRatingPage } from "../pages/home/connexion/main/map/request-modal/response-modal/linking/give-rating/give-rating";
 import { HelpPage } from "../pages/home/connexion/main/menu/help/help";
@@ -32,7 +30,7 @@ import { SearchBarPage } from "../pages/home/connexion/main/map/search-bar/searc
 import { TabsPage } from "../pages/home/connexion/main/menu/tabs/tabs";
 import { VehiclePage } from "../pages/home/connexion/main/menu/tabs/vehicle/vehicle";
 import { ChoicePage } from "../pages/home/register/choice/choice";
-
+import { PedestrianPage } from "../pages/home/connexion/main/menu/tabs/pedestrian/pedestrian";
 
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
@@ -47,18 +45,17 @@ import { ImageProvider } from "../providers/Image/imageProvider";
 import { DriverProvider } from '../providers/driver/driverProvider';
 import { MessageProvider } from "../providers/Messages/MessageProvider";
 import { TripProvider } from "../providers/trip/trip";
-
+import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AddFavoritePage,
     ConnexionPage,
     ContactPage,
     DistancePage,
-    FavoritesPage,
+    PedestrianPage,
     FavoritesSbPage,
     GiveRatingPage,
     HelpPage,
@@ -88,11 +85,10 @@ import { TripProvider } from "../providers/trip/trip";
   entryComponents: [
     MyApp,
     HomePage,
-    AddFavoritePage,
     ConnexionPage,
     ContactPage,
     DistancePage,
-    FavoritesPage,
+    PedestrianPage,
     FavoritesSbPage,
     GiveRatingPage,
     HelpPage,
@@ -128,7 +124,8 @@ import { TripProvider } from "../providers/trip/trip";
     DriverProvider,
     MessageProvider,
     RouteProvider,
-    TripProvider
+    TripProvider,
+    PedestrianProvider
   ]
 })
 export class AppModule {}

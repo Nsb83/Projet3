@@ -42,6 +42,7 @@ export class ChoicePage {
 
   chooseDriverMode() {
       this.updatedUser = new User (
+      this.user.getPublicId(),
       this.user.getLastName(),
       this.user.getFirstName(),
       this.user.getPhone(),
@@ -66,6 +67,7 @@ export class ChoicePage {
 
   choosePedestrianMode() {
     this.updatedUser = new User (
+      this.user.getPublicId(),
       this.user.getLastName(),
       this.user.getFirstName(),
       this.user.getPhone(),

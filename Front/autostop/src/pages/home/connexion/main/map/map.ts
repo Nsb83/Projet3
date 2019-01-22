@@ -52,6 +52,7 @@ export class MapPage {
   validatedTrip: Trip;
   destinationILatLng: ILatLng;
   user: User;
+  pollingPedestrian: any;
 
 
   option: MyLocationOptions = {
@@ -274,15 +275,18 @@ export class MapPage {
 
   showMatchedUsersPoly(){
     this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers: any[]) => {
-      console.log(matchingDrivers);
+
       
       if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
-          console.log(matchingDrivers[i]);
+          console.log("matchingDrivers de i : " + matchingDrivers[i]);
           
           this.showPoly(matchingDrivers[i].trip.itinerary);
         }
       }
     });
   }
+
+ 
+
 }

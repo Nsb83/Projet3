@@ -40,6 +40,7 @@ export class UserProvider {
     const user: User = new User();
     this.http
       .get<User>(`${environment.SERVER_URL}/users/find/${this.getUserId()}`).subscribe((response: any) => {
+        user.setPublicId(response.publicId);
         user.setLastName(response.lastName);
         user.setFirstName(response.firstName);
         user.setPhone(response.phone);

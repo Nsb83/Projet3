@@ -20,7 +20,7 @@ export class DriverProvider {
   private driver: Driver;
   private DRIVER_URL = environment.SERVER_URL + "/drivers";
   private USER_URL = environment.SERVER_URL + "/users";
-
+  private pollingPedestrian: any;
 
   constructor(public http: HttpClient, 
     private userProvider: UserProvider
@@ -50,7 +50,6 @@ export class DriverProvider {
 
   getMatchingDriversAround(user: User) {
     console.log(user);
-    
     return this.http
       .put<User[]>(`${environment.SERVER_URL}/getmatchingdrivers`, user);
   }
