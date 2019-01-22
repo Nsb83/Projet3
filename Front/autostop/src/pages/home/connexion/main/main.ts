@@ -1,5 +1,5 @@
-import { Component, ViewChild } from "@angular/core";
-import { MenuController, NavController, Platform } from "ionic-angular";
+import { Component, ViewChild, SimpleChanges } from "@angular/core";
+import { MenuController, NavController, Platform, Events } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -38,7 +38,8 @@ export class MainPage {
     public navCtrl: NavController,
     private userService: UserProvider,
     private token: TokenStorage,
-    private messageService: MessageProvider
+    private messageService: MessageProvider,
+    public events: Events
   ) { }
 
   ngOnInit() {
@@ -47,6 +48,11 @@ export class MainPage {
 
   ionViewWillEnter() {
   this.userService.getUser().subscribe(response => { this.user = response });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.userService.getUser().subscribe(response => { this.user = response });
+
   }
 
   onNavigate(page: any) {
@@ -84,10 +90,15 @@ export class MainPage {
       this.userService.getUser().subscribe(response => {
         this.user = response;
         console.log(this.updatedUser)
+        if(this.updatedUser.isVehiculed()){
+          this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.")
+        }
+        else{
+          this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
+        }
       });
-
-      this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
     });
+
   }
 
   SignOut() {
