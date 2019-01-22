@@ -14,7 +14,7 @@ export class RequestModalPage {
   testRating: number = 4;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.matchableUser = this.navParams.get('matchableUser');
+    this.matchableUser = this.navParams.get('matchUser');
   }
 
   closeModal(){
@@ -26,7 +26,7 @@ export class RequestModalPage {
   }
 
   ionViewDidLoad() {
-    // console.log(this.matchableUser);
+    console.log(this.matchableUser);
   }
 
 //Couleur d'étoiles dynamiques

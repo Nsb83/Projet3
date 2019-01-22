@@ -2,9 +2,9 @@ page-main{
   .custom {
 
     background: color($colors, menu) !important; /* This sets the background color*/
-    
+
     h3 {
-      color: white;  
+      color: white;
       display: block;
       text-align: center;
     }
@@ -13,7 +13,7 @@ page-main{
       background-color: white;
       margin: 0;
     }
-    
+
     .scroll-content {
       overflow-y: hidden;
       margin: 0;
@@ -30,8 +30,15 @@ page-main{
 
     .button {
       display: block;
-      margin: 20% auto 0 auto;
+      margin: 10% auto 0 auto;
     }
+
+    .toggle{
+      display: block;
+      margin: 0 auto 0 auto;
+    }
+
+
 
     .item {
       background-color: transparent; /*Transparent background-color for each item*/
@@ -39,5 +46,5 @@ page-main{
     }
 
   }
-  
+
 }
