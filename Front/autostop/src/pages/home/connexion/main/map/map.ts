@@ -320,15 +320,7 @@ export class MapPage {
 
     /////// route clickable DEV PURPOSE ONLY
     this.polyMatch.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      let position: LatLng = <LatLng>params[0];
-      let markerPoly: Marker = this.map.addMarkerSync({
-        position: position,
-        title: position.toUrlValue(),
-        disableAutoPan: true
-      });
       this.showMatchModal(driverInfos);
-
-      markerPoly.showInfoWindow();
     });
 
     this.map.moveCamera({
