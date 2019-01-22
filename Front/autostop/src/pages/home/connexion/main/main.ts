@@ -62,6 +62,7 @@ export class MainPage {
   chooseMode() {
     if(this.user.isVehiculed()){
       this.updatedUser = new User (
+        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),
@@ -75,6 +76,7 @@ export class MainPage {
 
     else{
       this.updatedUser = new User (
+        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),

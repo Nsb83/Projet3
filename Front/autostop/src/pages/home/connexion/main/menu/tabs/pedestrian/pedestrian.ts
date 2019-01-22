@@ -22,6 +22,7 @@ import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/Pe
 })
 export class PedestrianPage implements OnInit{
   user: User;
+  pedestrian: Pedestrian;
   pedestrianUpdate: Pedestrian;
   private updatePedestrian: FormGroup;
 
@@ -32,13 +33,14 @@ export class PedestrianPage implements OnInit{
     private formBuilder: FormBuilder, 
     private userService: UserProvider,
     private messageService: MessageProvider,
-    private pedestrianService: PedestrianProvider
-    ) {
-  }
+    private pedestrianService: PedestrianProvider) {}
+
+    userId = this.userService.getUserId();
 
   ngOnInit() {
     this.initForm();
-    this.userService.getUser().subscribe(response => { this.user = response});
+    this.pedestrian = this.pedestrianService.getPedestrian();
+
   }
 
   initForm() {
