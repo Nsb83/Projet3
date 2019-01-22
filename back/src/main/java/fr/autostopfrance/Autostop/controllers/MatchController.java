@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
+import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
 import fr.autostopfrance.Autostop.services.UserService;
@@ -31,9 +32,9 @@ public class MatchController {
 	UserService userService;
 	
 	@PutMapping (path = "/getmatchingdrivers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public List<User> getMatchingDriversAround(@RequestBody User pedestrian) {
+	public List<MatchingUserDetails> getMatchingDriversAround(@RequestBody User pedestrian) {
 		
-		List<User> matchingDrivers = new ArrayList<User>();
+		List<MatchingUserDetails> matchingDrivers = new ArrayList<MatchingUserDetails>();
 		
 		List<User> allDrivers = userService.findAllDrivers();
 		
@@ -43,7 +44,6 @@ public class MatchController {
 		
 		int searchRadius = pedestrian.getPedestrian().getSearchRadius();
 		
-		
 		for (User driver : allDrivers) {
 
 			EncodedPolyline driverOverviewPolyline = new EncodedPolyline(driver.getTrip().getItinerary());
@@ -51,7 +51,17 @@ public class MatchController {
 			List<LatLng> driverItinerary = driverOverviewPolyline.decodePath();
 			
 		    if (filterMatchService.filterItineraries(driverItinerary, pedestrianStartLatLng, searchRadius)) {
-		    	matchingDrivers.add(driver);
+		    	matchingDrivers.add(new MatchingUserDetails(driver.getPublicId(),
+		    												driver.getLastName(),
+		    												driver.getFirstName(),
+		    												driver.getPhone(),
+		    												driver.getSex(),
+		    												driver.getDateOfBirth(),
+		    												driver.isVehiculed(),
+		    												driver.getUploadPicture(),
+		    												driver.getDriver(),
+		    												driver.getTrip()
+		    												));
 		    }
 		}
 		
