@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9323308c-f11c-45c3-aa73-ef69003f10b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -315,12 +313,12 @@
       <workItem from="1547743761916" duration="1492000" />
       <workItem from="1547803420951" duration="1059000" />
       <workItem from="1548152260589" duration="4358000" />
-      <workItem from="1548187000683" duration="170000" />
+      <workItem from="1548187000683" duration="368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12768000" />
+    <option name="totallyTimeSpent" value="12966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -335,7 +333,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

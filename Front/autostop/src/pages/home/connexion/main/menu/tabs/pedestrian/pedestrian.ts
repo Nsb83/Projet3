@@ -60,12 +60,12 @@ export class PedestrianPage implements OnInit{
 
     this.pedestrianService.updatePedestrian(this.pedestrianUpdate).subscribe(() => {
       console.log(this.pedestrianUpdate)
-      this.userService.getUser();
+      this.pedestrian = this.pedestrianService.getPedestrian();
       this.messageService.myToastMethod("Vos préférences sont enregistrées")
     }, (error: HttpErrorResponse) => {
       console.log('Error: ', error);
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
     }
-    );
+    ); 
   }
 }
