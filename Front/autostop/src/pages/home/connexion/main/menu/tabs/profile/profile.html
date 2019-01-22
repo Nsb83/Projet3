@@ -1,8 +1,9 @@
 <!-- <ion-content padding> 
         <h2 padding>{{ user.firstName }}</h2> -->
 
-
+    
     <ion-content padding class="container">
+
         <form [formGroup]="updateProfil">
           <ion-item>
             <ion-input type="text" formControlName="lastName" value="{{ user.lastName }}" placeholder="Nom">
@@ -77,5 +78,5 @@
           </button>
         </form>
 
-    <page-distance></page-distance> 
+    
 </ion-content>

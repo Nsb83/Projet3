@@ -49,7 +49,8 @@ public class User {
         this.trip = new Trip();
     }
 
-    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password) {
+    public User (String publicId, String lastName, String firstName, String phone, String sex,
+                 LocalDate dateOfBirth, String email, String password) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -61,7 +62,8 @@ public class User {
         this.vehiculed = false;
     }
 
-    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, boolean vehiculed) {
+    public User (String publicId, String lastName, String firstName, String phone, String sex,
+                 LocalDate dateOfBirth, String email, String password, boolean vehiculed) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -74,7 +76,8 @@ public class User {
         
     }
 
-    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, String email, String password, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
+    public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth,
+                 String email, String password, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;

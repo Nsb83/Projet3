@@ -4,6 +4,7 @@ import { Pedestrian } from "./Pedestrian";
 import { Trip } from "./Trip";
 
 export class User {
+    private publicId: string;
     private lastName: string;
     private firstName: string;
     private phone: string;
@@ -19,6 +20,7 @@ export class User {
     // private account:Account;
 
     constructor(
+        publicId?:string,
         lastName?: string,
         firstName?: string,
         phone?: string,
@@ -28,6 +30,7 @@ export class User {
         password?:string,
         vehiculed?:boolean,
        ){
+        this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -38,6 +41,14 @@ export class User {
         this.vehiculed = vehiculed;
         // this.account = new Account(email, password);
        }
+
+    public getPublicId(): string {
+        return this.publicId;
+    }
+
+    public setPublicId(publicId: string): void {
+        this.publicId = publicId;
+    }
 
     public isVehiculed(){
       return this.vehiculed;
