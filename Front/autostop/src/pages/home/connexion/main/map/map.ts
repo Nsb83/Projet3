@@ -30,6 +30,7 @@ import {
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { Observable } from 'rxjs';
+import { DriverProvider } from '../../../../../providers/driver/driverProvider';
 
 
 // @IonicPage()
@@ -74,7 +75,8 @@ export class MapPage {
               public messageProvider: MessageProvider,
               public alrtCtrl: AlertController,
               public userProvider: UserProvider,
-              public tripProvider: TripProvider) {}
+              public tripProvider: TripProvider,
+              public driverProvider: DriverProvider) {}
 
   ngOnInit(){
     this.userProvider.getUser().subscribe(response => {
@@ -270,10 +272,17 @@ export class MapPage {
     matchModal.present();
   }
 
-  showMatchedUsersPoly(arrayTrips: Trip[]){
-    for(let i=0; i<=arrayTrips.length; i++){
-        this.showPoly(arrayTrips[i].itinerary);
-    }
+  showMatchedUsersPoly(){
+    this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers: any[]) => {
+      console.log(matchingDrivers);
+      
+      if (matchingDrivers.length) {
+        for(let i=0; i <= matchingDrivers.length; i++){
+          console.log(matchingDrivers[i]);
+          
+          this.showPoly(matchingDrivers[i].trip.itinerary);
+        }
+      }
+    });
   }
-
 }

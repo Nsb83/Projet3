@@ -3,6 +3,7 @@ package fr.autostopfrance.Autostop.services;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class MatchService {
 
 	private String apiKey = "AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44";
 	
-	public ArrayList<AlgoObject> getAlgoTable(ArrayList<LatLng> itinerary, LatLng pedestrianLatLng) {
+	public ArrayList<AlgoObject> getAlgoTable(List<LatLng> itinerary, LatLng pedestrianLatLng) {
 		
 		ArrayList<AlgoObject> response = new ArrayList<AlgoObject>();
 			

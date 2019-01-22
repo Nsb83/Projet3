@@ -18,27 +18,27 @@ public class FilterMatchService {
 	
 	public boolean filterItineraries(List<LatLng> driverItinerary, LatLng pedestrianLatLng, int searchRadius) {
 		
-//		ArrayList<LatLng> filteredItineraries = new ArrayList<LatLng>();
+		ArrayList<LatLng> filteredItineraries = new ArrayList<LatLng>();
 		
-//		ArrayList<AlgoObject> algoTable = matchService.getAlgoTable(driverItinerary, pedestrianLatLng);
-//		
-//		LatLng driverNearestStep = matchService.getNearestDriverStep(algoTable, pedestrianLatLng);
-//		System.out.println(" ");
-//		System.out.println("Driver nearest coordinate : " + driverNearestStep.toString());
-//		
-//		long distance = matchService.calculateDistance(pedestrianLatLng, driverNearestStep);
-//		System.out.println(" ");
-//		System.out.println("Distance between driver nearest coordinate and pedestrian : " + distance + " mètres");
-//		
-//		boolean areUsersMatchable = matchService.areUsersMatchable(searchRadius, distance);
-//		System.out.println(" ");
-//		System.out.println("Résultat algo : " + String.valueOf(areUsersMatchable));
+		ArrayList<AlgoObject> algoTable = matchService.getAlgoTable(driverItinerary, pedestrianLatLng);
 		
-//		return areUsersMatchable;
+		LatLng driverNearestStep = matchService.getNearestDriverStep(algoTable, pedestrianLatLng);
+		System.out.println(" ");
+		System.out.println("Driver nearest coordinate : " + driverNearestStep.toString());
+		
+		long distance = matchService.calculateDistance(pedestrianLatLng, driverNearestStep);
+		System.out.println(" ");
+		System.out.println("Distance between driver nearest coordinate and pedestrian : " + distance + " mètres");
+		
+		boolean areUsersMatchable = matchService.areUsersMatchable(searchRadius, distance);
+		System.out.println(" ");
+		System.out.println("Résultat algo : " + String.valueOf(areUsersMatchable));
+		
+		return areUsersMatchable;
 		
 		
 	// RETURN DE TEST POUR LA FONCTION MatchController.getMatchingDriversAround()
-		return true;
+//		return true;
 	}
 	
 
