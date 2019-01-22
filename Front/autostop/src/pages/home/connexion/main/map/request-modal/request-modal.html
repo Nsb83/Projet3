@@ -2,7 +2,7 @@
   <ion-grid>
       <ion-row>
           <ion-col col-6 offset-3>
-            <img class="avatarUser" [src]=matchableUser.imgUrl>
+            <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
           </ion-col>
         </ion-row>
         <ion-row>
@@ -21,7 +21,7 @@
             <ion-col>
                 <h3>Se rend à :</h3>
                 <p><ion-icon name="locate"></ion-icon>
-                    {{ testTrip }}
+                    {{ matchableUser.trip.destinationString }}
                 </p>
             </ion-col>
         </ion-row>
