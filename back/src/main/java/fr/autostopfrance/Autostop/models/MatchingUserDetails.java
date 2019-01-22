@@ -2,10 +2,6 @@ package fr.autostopfrance.Autostop.models;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-
 public class MatchingUserDetails {
 	
     private String publicId;
