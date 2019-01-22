@@ -277,7 +277,7 @@ export class MapPage {
       console.log(matchingDrivers);
       
       if (matchingDrivers.length) {
-        for(let i=0; i <= matchingDrivers.length; i++){
+        for(let i=0; i <= matchingDrivers.length -1; i++){
           console.log(matchingDrivers[i]);
           
           this.showPoly(matchingDrivers[i].trip.itinerary);
