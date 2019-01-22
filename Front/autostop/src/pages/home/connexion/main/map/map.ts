@@ -52,6 +52,8 @@ export class MapPage {
   validatedTrip: Trip;
   destinationILatLng: ILatLng;
   user: User;
+  polyMatch: Polyline;
+  arrayPolyMatched = [];
 
 
   option: MyLocationOptions = {
@@ -91,6 +93,10 @@ export class MapPage {
   }
 
   ngAfterViewChecked(){
+    this.setIconUser();
+  }
+
+  ngOnChanges() {
     this.setIconUser();
   }
 
@@ -173,7 +179,12 @@ export class MapPage {
       this.polyline.remove();
       this.markerDestination.remove();
     }
-    this.showPoly(routeJson);
+    if (this.arrayPolyMatched !== null){
+      for(let i=0; i <= this.arrayPolyMatched.length -1; i++){
+        this.arrayPolyMatched[i].remove();
+      }
+    }
+    this.showPoly(routeJson, '#258c3d');
   }
 
   getRouteJson(searchValue) {
@@ -181,19 +192,20 @@ export class MapPage {
   }
 
   ///////// Polylines ////////////////////
-  showPoly(polyRoute) {
+  showPoly(polyRoute, polyColor) {
       const decodePolyline = require('decode-google-map-polyline');
       this.arrayPoly = decodePolyline(polyRoute);
       // console.log(decodePolyline(polyRoute));
 
     this.polyline = this.map.addPolylineSync({
       points: this.arrayPoly,
-      color: '#258c3d',
+      color: polyColor,
       width: 5,
       geodesic: true,
       clickable: true
       // clickable a enlever, DEV PURPOSE ONLY
     })
+    console.log(this.polyline)
 
     /////// route clickable DEV PURPOSE ONLY
     this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
@@ -212,6 +224,9 @@ export class MapPage {
     });
 
   }
+    // FIN POLY
+    // fin route direction
+
   sendTrip() {
     this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
       let alert = this.alrtCtrl.create({
@@ -227,8 +242,6 @@ export class MapPage {
     })
   }
 
-    // FIN POLY
-    // fin route direction
 
   goToSpecificLocation() {
     let options: GeocoderRequest = {
@@ -262,27 +275,65 @@ export class MapPage {
       });
 
     markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-      this.showMatchModal();
+      // this.showMatchModal();
     });
   }
 
   // Show modal for matching request
-  showMatchModal() {
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchableUser: this.matchableUser });
+  showMatchModal(matchUser) {
+    const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
     matchModal.present();
   }
+
 
   showMatchedUsersPoly(){
     this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers: any[]) => {
       console.log(matchingDrivers);
 
       if (matchingDrivers.length) {
-        for(let i=0; i <= matchingDrivers.length; i++){
+        for(let i=0; i <= matchingDrivers.length -1; i++){
           console.log(matchingDrivers[i]);
 
-          this.showPoly(matchingDrivers[i].trip.itinerary);
+          this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
+          this.arrayPolyMatched[i]=this.polyMatch;
+          console.log(this.arrayPolyMatched)
         }
       }
     });
   }
+
+  showPolyMatch(polyRoute, polyColor, driverInfos) {
+    console.log(driverInfos);
+    const decodePolyline = require('decode-google-map-polyline');
+    this.arrayPoly = decodePolyline(polyRoute);
+    // console.log(decodePolyline(polyRoute));
+
+    this.polyMatch = this.map.addPolylineSync({
+      points: this.arrayPoly,
+      color: polyColor,
+      width: 5,
+      geodesic: true,
+      clickable: true,
+      driverInfos: driverInfos
+      // clickable a enlever, DEV PURPOSE ONLY
+    })
+
+    /////// route clickable DEV PURPOSE ONLY
+    this.polyMatch.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+      let position: LatLng = <LatLng>params[0];
+      let markerPoly: Marker = this.map.addMarkerSync({
+        position: position,
+        title: position.toUrlValue(),
+        disableAutoPan: true
+      });
+      this.showMatchModal(driverInfos);
+
+      markerPoly.showInfoWindow();
+    });
+
+    this.map.moveCamera({
+      'target': this.arrayPoly
+    });
+  }
+
 }
