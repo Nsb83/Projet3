@@ -1,7 +1,7 @@
 import { LinkingPage } from './linking/linking';
 import { MapPage } from './../../map';
 import { Component,NgModule } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 
 
@@ -27,7 +27,7 @@ export class ResponseModalPage {
   private percent;
   private fixTransform;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer, public viewCtrl: ViewController) {
     this.matchableUser = this.navParams.get('matchableUser');
   }
 
@@ -46,11 +46,12 @@ export class ResponseModalPage {
   }
 
   goToLinking(){
+    this.navCtrl.pop();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
   }
 
   cancelRequest(){
-    this.navCtrl.popAll();
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
@@ -59,10 +60,10 @@ export class ResponseModalPage {
 
 
   // timer code
-  
+
   ngOnInit() {
     this.initTimer();
-    
+
   }
 
   hasFinished() {

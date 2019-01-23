@@ -22,6 +22,7 @@ export class RequestModalPage {
   }
 
   sendRequest(){
+    this.viewCtrl.dismiss();
     this.navCtrl.push(ResponseModalPage, { matchableUser : this.matchableUser});
   }
 

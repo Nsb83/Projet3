@@ -50,6 +50,7 @@ ngOnInit(){
   }
 
   goToRate(){
+    this.navCtrl.pop();
     this.navCtrl.push(GiveRatingPage, { matchableUser : this.matchableUser});
   }
 

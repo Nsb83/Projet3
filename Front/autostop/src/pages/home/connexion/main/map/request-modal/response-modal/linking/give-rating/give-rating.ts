@@ -22,7 +22,7 @@ comment;
 starUrl = "./assets/imgs/stars/starEmptySm.png";
 
 evaluate() {
-  this.navCtrl.popAll();
+  this.navCtrl.pop();
 }
 
   rate(index: number) {
