@@ -48,6 +48,7 @@ export class MapPage {
   user: User;
   polyMatch: Polyline;
   arrayPolyMatched = [];
+  userChanged: boolean = false;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -67,25 +68,26 @@ export class MapPage {
               public events: Events) {
 
                 events.subscribe('user:changed', () => {
-                  console.log('Event user:changed emitted');
+                  this.userChanged = true;
                   setTimeout(() => {
                     this.userProvider.getUser().subscribe(response => {
                       this.user = response;
                     });
                   }, 500);
-                  
                 });
 
                 events.subscribe('menu:closed', () => {
-                  console.log('Event menu:closed emitted');
-                  this.setIconUser();
+                  if (this.userChanged){
+                    this.userChanged = false;
+                    this.setIconUser();
                     this.map.clear().then(() => {
                       this.map.moveCamera({
                         target: this.userPosition.latLng,
                         zoom: 15
                       });
-                  this.addMarkerAndCircle();
-                });
+                     this.addMarkerAndCircle();
+                  });
+                }
               });
             }
 
