@@ -42,7 +42,6 @@ export class ChoicePage {
 
   chooseDriverMode() {
       this.updatedUser = new User (
-      this.user.getPublicId(),
       this.user.getLastName(),
       this.user.getFirstName(),
       this.user.getPhone(),
@@ -51,6 +50,7 @@ export class ChoicePage {
       this.user.getEmail(),
       this.user.getPassword(),
       true,
+      this.user.getPublicId(),
     )
     this.driverInfos = this.driverProvider.getDriver();
     this.userService.updateUser(this.updatedUser).subscribe(() => {
@@ -67,7 +67,6 @@ export class ChoicePage {
 
   choosePedestrianMode() {
     this.updatedUser = new User (
-      this.user.getPublicId(),
       this.user.getLastName(),
       this.user.getFirstName(),
       this.user.getPhone(),
@@ -76,6 +75,7 @@ export class ChoicePage {
       this.user.getEmail(),
       this.user.getPassword(),
       false,
+      this.user.getPublicId(),
     )
     this.userService.updateUser(this.updatedUser).subscribe(() => {
       this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")

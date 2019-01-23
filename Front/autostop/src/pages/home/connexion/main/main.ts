@@ -58,7 +58,6 @@ export class MainPage {
 
     if(this.user.isVehiculed()){
       this.updatedUser = new User (
-        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),
@@ -67,12 +66,12 @@ export class MainPage {
         this.user.getEmail(),
         this.user.getPassword(),
         false,
+        this.user.getPublicId()
       );
     }
 
     else{
       this.updatedUser = new User (
-        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),
@@ -81,6 +80,7 @@ export class MainPage {
         this.user.getEmail(),
         this.user.getPassword(),
         true,
+        this.user.getPublicId()
       )
     }
 
