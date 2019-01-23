@@ -54,8 +54,6 @@ export class MainPage {
 
   chooseMode() {
 
-    this.events.publish('user:changed', '');
-
     if(this.user.isVehiculed()){
       this.updatedUser = new User (
         this.user.getLastName(),
@@ -85,9 +83,9 @@ export class MainPage {
     }
 
     this.userService.updateUser(this.updatedUser).subscribe(() => {
+      this.events.publish('user:changed', '');
       this.userService.getUser().subscribe(response => {
         this.user = response;
-        console.log(this.updatedUser)
         if(this.updatedUser.isVehiculed()){
           this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.")
         }

@@ -69,11 +69,9 @@ export class MapPage {
 
                 events.subscribe('user:changed', () => {
                   this.userChanged = true;
-                  setTimeout(() => {
                     this.userProvider.getUser().subscribe(response => {
-                      this.user = response;
-                    });
-                  }, 500);
+                    this.user = response;
+                  });
                 });
 
                 events.subscribe('menu:closed', () => {

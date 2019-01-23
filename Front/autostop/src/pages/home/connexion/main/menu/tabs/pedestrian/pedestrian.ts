@@ -41,7 +41,6 @@ export class PedestrianPage implements OnInit{
   ngOnInit() {
     this.initForm();
     this.pedestrian = this.pedestrianService.getPedestrian();
-
   }
 
   initForm() {
@@ -62,6 +61,7 @@ export class PedestrianPage implements OnInit{
     );
 
     this.pedestrianService.updatePedestrian(this.pedestrianUpdate).subscribe(() => {
+      this.events.publish('user:changed', '');
       console.log(this.pedestrianUpdate)
       this.pedestrian = this.pedestrianService.getPedestrian();
       this.messageService.myToastMethod("Vos préférences sont enregistrées")
