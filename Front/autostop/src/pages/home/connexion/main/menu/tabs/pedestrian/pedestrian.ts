@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { User } from '../../../../../../../models/User';
@@ -33,14 +33,14 @@ export class PedestrianPage implements OnInit{
     private formBuilder: FormBuilder, 
     private userService: UserProvider,
     private messageService: MessageProvider,
-    private pedestrianService: PedestrianProvider) {}
+    private pedestrianService: PedestrianProvider,
+    private events: Events) {}
 
     userId = this.userService.getUserId();
 
   ngOnInit() {
     this.initForm();
     this.pedestrian = this.pedestrianService.getPedestrian();
-
   }
 
   initForm() {
@@ -53,12 +53,15 @@ export class PedestrianPage implements OnInit{
     }
 
   validateForm(updatePedestrian) {
+    this.events.publish('user:changed', '');
+
     this.pedestrianUpdate = new Pedestrian(
       updatePedestrian.passengersNumber,
       updatePedestrian.searchRadius,
     );
 
     this.pedestrianService.updatePedestrian(this.pedestrianUpdate).subscribe(() => {
+      this.events.publish('user:changed', '');
       console.log(this.pedestrianUpdate)
       this.pedestrian = this.pedestrianService.getPedestrian();
       this.messageService.myToastMethod("Vos préférences sont enregistrées")

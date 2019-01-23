@@ -20,7 +20,6 @@ export class User {
     // private account:Account;
 
     constructor(
-        publicId?:string,
         lastName?: string,
         firstName?: string,
         phone?: string,
@@ -29,8 +28,8 @@ export class User {
         email?:string,
         password?:string,
         vehiculed?:boolean,
+        publicId?:string,
        ){
-        this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -39,7 +38,7 @@ export class User {
         this.email = email;
         this.password = password;
         this.vehiculed = vehiculed;
-        // this.account = new Account(email, password);
+        this.publicId = publicId;
        }
 
     public getPublicId(): string {
@@ -146,15 +145,4 @@ export class User {
     public getTrip() {
         return this.trip;
     }
-
-    // public setAccount(account: Account): void {
-    //     this.account = account;
-    // }
-
-    // public getAccount(): Account {
-    //     return this.account;
-    // }
-
-    // private account:Account;
-
 }

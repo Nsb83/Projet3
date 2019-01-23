@@ -16,8 +16,6 @@ import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
-import fr.autostopfrance.Autostop.models.Trip;
-import fr.autostopfrance.Autostop.models.User;
 
 @Service
 public class MatchService {

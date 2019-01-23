@@ -2,18 +2,14 @@ import { UserProvider } from './../../../../../providers/user/userProvider';
 import { RouteProvider } from './../../../../../providers/route/route';
 import { User } from './../../../../../models/User';
 import { RequestModalPage } from './request-modal/request-modal';
-import { SearchBarPage } from './search-bar/search-bar';
-import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams, IonicPage, ModalController, ShowWhen } from 'ionic-angular';
+import { Component, Input, OnChanges } from '@angular/core';
+import { NavController, AlertController, NavParams, ModalController, Events } from 'ionic-angular';
 import { Trip } from '../../../../../models/Trip';
 import { MessageProvider } from '../../../../../providers/Messages/MessageProvider';
 import {
   GoogleMaps,
   GoogleMap,
   GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
   Marker,
   Environment,
   Circle,
@@ -25,11 +21,9 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng,
-  LatLngBounds
+  ILatLng
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
-import { Observable } from 'rxjs';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
 
 
@@ -54,21 +48,13 @@ export class MapPage {
   user: User;
   polyMatch: Polyline;
   arrayPolyMatched = [];
-
+  userChanged: boolean = false;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
     // false network location (save battery)
     enableHighAccuracy: true
   };
-
-  matchableUser = new User("Doe", "John", "08 36 65 65 65", "male", "29/02/1948", "gegedarmon@mail.fr", "superpassword");
-  // Test data for request-modal
-
-  positionOtherUser  = {
-    lat: 45.682808,
-    lng: 4.641063000000031
-  }
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -78,7 +64,30 @@ export class MapPage {
               public alrtCtrl: AlertController,
               public userProvider: UserProvider,
               public tripProvider: TripProvider,
-              public driverProvider: DriverProvider) {}
+              public driverProvider: DriverProvider,
+              public events: Events) {
+
+                events.subscribe('user:changed', () => {
+                  this.userChanged = true;
+                    this.userProvider.getUser().subscribe(response => {
+                    this.user = response;
+                  });
+                });
+
+                events.subscribe('menu:closed', () => {
+                  if (this.userChanged){
+                    this.userChanged = false;
+                    this.setIconUser();
+                    this.map.clear().then(() => {
+                      this.map.moveCamera({
+                        target: this.userPosition.latLng,
+                        zoom: 15
+                      });
+                     this.addMarkerAndCircle();
+                  });
+                }
+              });
+            }
 
   ngOnInit(){
     this.userProvider.getUser().subscribe(response => {
@@ -89,14 +98,9 @@ export class MapPage {
   // Load map only after view is initialized
   ngAfterViewInit() {
     this.loadMap();
-    this.matchableUser.setImgUrl("./assets/imgs/profileImg1.png");
   }
 
   ngAfterViewChecked(){
-    this.setIconUser();
-  }
-
-  ngOnChanges() {
     this.setIconUser();
   }
 
@@ -105,7 +109,6 @@ export class MapPage {
       this.iconPath = "../assets/icon/driver.png";
     }
     else this.iconPath = "../assets/icon/thumb.png";
-
   }
 
   loadMap() {
@@ -127,6 +130,7 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
+      
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
@@ -140,17 +144,22 @@ export class MapPage {
             }
       });
 
-      // CERCLE
-      // création d'un objet avec lat et lng à partir d la géoloc
-      let center = this.userPosition.latLng;
-      // création du cercle avec comme centre la géoloc
-      let circle: Circle = this.map.addCircleSync({
-        center: center,
-        radius: 500,
-        strokeColor: "#258c3d",
-        // strokeWidth: 30, A QUOI CA SERT???
-        fillColor: "rgba(239, 244, 225, 0.45)"
-      });
+      if(!this.user.isVehiculed()) {
+        // CERCLE POUR PIÉTON
+        // création d'un objet avec lat et lng à partir de la géoloc
+        let center = this.userPosition.latLng;
+        let pedestrian = this.user.getPedestrian();
+
+        // let radius = this.user.getPedestrian().getSearchRadius();
+        // création du cercle avec comme centre la géoloc
+        let circle: Circle = this.map.addCircleSync({
+          center: center,
+          radius: pedestrian.searchRadius,
+          strokeColor: "#258c3d",
+          // strokeWidth: 30, A QUOI CA SERT???
+          fillColor: "rgba(239, 244, 225, 0.45)"
+        });
+      }
     }
 
   receiveMessage($event) {
@@ -158,13 +167,11 @@ export class MapPage {
     this.getRouteJson($event).subscribe(
       (data: any) => {
         if (data.status === "OK") {
-          console.log(data);
           this.validatedTrip  = new Trip(data.routes[0].legs[0].start_location,
                               data.routes[0].legs[0].end_address,
                               data.routes[0].legs[0].end_location,
                               data.routes[0].overview_polyline.points,
                               );
-                              console.log(this.validatedTrip);
           this.displayRoute(data.routes[0].overview_polyline.points);
           this.addMarkerAndCircle();
           this.goToSpecificLocation();
@@ -195,7 +202,6 @@ export class MapPage {
   showPoly(polyRoute, polyColor) {
       const decodePolyline = require('decode-google-map-polyline');
       this.arrayPoly = decodePolyline(polyRoute);
-      // console.log(decodePolyline(polyRoute));
 
     this.polyline = this.map.addPolylineSync({
       points: this.arrayPoly,
@@ -203,11 +209,8 @@ export class MapPage {
       width: 5,
       geodesic: true,
       clickable: true
-      // clickable a enlever, DEV PURPOSE ONLY
     })
-    console.log(this.polyline)
 
-    /////// route clickable DEV PURPOSE ONLY
     this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       let position: LatLng = <LatLng>params[0];
       let markerPoly: Marker = this.map.addMarkerSync({
@@ -224,8 +227,6 @@ export class MapPage {
     });
 
   }
-    // FIN POLY
-    // fin route direction
 
   sendTrip() {
     this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
@@ -262,21 +263,6 @@ export class MapPage {
               }
       })
     });
-
-    // Création faux marqueur autre utilisateur
-    let markerMatch : Marker = this.map.addMarkerSync({
-      'position': this.positionOtherUser,
-      icon: {url: "../assets/icon/driver.png",
-                size: {
-                  width: 32,
-                  height: 32
-                }
-              }
-      });
-
-    markerMatch.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-      // this.showMatchModal();
-    });
   }
 
   // Show modal for matching request
@@ -287,26 +273,21 @@ export class MapPage {
 
 
   showMatchedUsersPoly(){
-    this.driverProvider.getMatchingDriversAround(this.user).subscribe((matchingDrivers: any[]) => {
-      console.log(matchingDrivers);
+    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
+      console.log("Réponse get all matching drivers :", matchingDrivers);
 
       if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
-          console.log(matchingDrivers[i]);
-
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
           this.arrayPolyMatched[i]=this.polyMatch;
-          console.log(this.arrayPolyMatched)
         }
       }
     });
   }
 
   showPolyMatch(polyRoute, polyColor, driverInfos) {
-    console.log(driverInfos);
     const decodePolyline = require('decode-google-map-polyline');
     this.arrayPoly = decodePolyline(polyRoute);
-    // console.log(decodePolyline(polyRoute));
 
     this.polyMatch = this.map.addPolylineSync({
       points: this.arrayPoly,
@@ -315,10 +296,8 @@ export class MapPage {
       geodesic: true,
       clickable: true,
       driverInfos: driverInfos
-      // clickable a enlever, DEV PURPOSE ONLY
     })
 
-    /////// route clickable DEV PURPOSE ONLY
     this.polyMatch.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
       this.showMatchModal(driverInfos);
     });

@@ -1,4 +1,4 @@
-import { Component, ViewChild, SimpleChanges } from "@angular/core";
+import { Component, SimpleChanges } from "@angular/core";
 import { MenuController, NavController, Platform, Events } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -24,11 +24,9 @@ export class MainPage {
   legalNoticePage = LegalNoticePage;
   helpPage = HelpPage;
   contactPage = ContactPage;
-
   user: User;
   updatedUser: User;
-  private main = MainPage;
-
+  main = MainPage;
 
   constructor(
     platform: Platform,
@@ -47,12 +45,7 @@ export class MainPage {
   }
 
   ionViewWillEnter() {
-  this.userService.getUser().subscribe(response => { this.user = response });
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
     this.userService.getUser().subscribe(response => { this.user = response });
-
   }
 
   onNavigate(page: any) {
@@ -60,9 +53,9 @@ export class MainPage {
   }
 
   chooseMode() {
+
     if(this.user.isVehiculed()){
       this.updatedUser = new User (
-        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),
@@ -71,12 +64,12 @@ export class MainPage {
         this.user.getEmail(),
         this.user.getPassword(),
         false,
-      )
+        this.user.getPublicId()
+      );
     }
 
     else{
       this.updatedUser = new User (
-        this.user.getPublicId(),
         this.user.getLastName(),
         this.user.getFirstName(),
         this.user.getPhone(),
@@ -85,13 +78,14 @@ export class MainPage {
         this.user.getEmail(),
         this.user.getPassword(),
         true,
+        this.user.getPublicId()
       )
     }
 
     this.userService.updateUser(this.updatedUser).subscribe(() => {
+      this.events.publish('user:changed', '');
       this.userService.getUser().subscribe(response => {
         this.user = response;
-        console.log(this.updatedUser)
         if(this.updatedUser.isVehiculed()){
           this.messageService.myToastMethod("Vous êtes désormais connecté en tant que conducteur.")
         }
@@ -100,7 +94,10 @@ export class MainPage {
         }
       });
     });
+  }
 
+  menuClosed() {
+    this.events.publish('menu:closed', '');
   }
 
   SignOut() {
