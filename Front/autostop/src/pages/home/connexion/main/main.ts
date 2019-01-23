@@ -53,6 +53,9 @@ export class MainPage {
   }
 
   chooseMode() {
+
+    this.events.publish('user:changed', '');
+
     if(this.user.isVehiculed()){
       this.updatedUser = new User (
         this.user.getPublicId(),

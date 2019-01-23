@@ -66,19 +66,25 @@ export class MapPage {
               public driverProvider: DriverProvider,
               public events: Events) {
 
+                events.subscribe('user:changed', () => {
+                  console.log('Event user:changed emitted');
+                  setTimeout(() => {
+                    this.userProvider.getUser().subscribe(response => {
+                      this.user = response;
+                    });
+                  }, 500);
+                  
+                });
+
                 events.subscribe('menu:closed', () => {
-                  this.userProvider.getUser().subscribe(response => {
-                    this.user = response;
-                    setTimeout(() => {
-                      this.setIconUser();
+                  console.log('Event menu:closed emitted');
+                  this.setIconUser();
                     this.map.clear().then(() => {
                       this.map.moveCamera({
                         target: this.userPosition.latLng,
                         zoom: 15
                       });
-                      this.addMarkerAndCircle();
-                    });
-                    }, 500);
+                  this.addMarkerAndCircle();
                 });
               });
             }
@@ -124,8 +130,7 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
-    console.log(this.user);
-    
+      
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
@@ -144,8 +149,7 @@ export class MapPage {
         // création d'un objet avec lat et lng à partir de la géoloc
         let center = this.userPosition.latLng;
         let pedestrian = this.user.getPedestrian();
-        console.log(pedestrian);
-        
+
         // let radius = this.user.getPedestrian().getSearchRadius();
         // création du cercle avec comme centre la géoloc
         let circle: Circle = this.map.addCircleSync({
