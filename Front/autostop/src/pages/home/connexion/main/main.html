@@ -1,4 +1,4 @@
-<ion-menu side="left" [content]="content" background-color="menu">
+<ion-menu side="left" [content]="content" background-color="menu" (ionClose)="menuClosed()">
   <ion-content class="custom">
     <div *ngIf="user.imgUrl">
       <img padding id="avatarUser" [src]="user.imgUrl">
@@ -46,4 +46,4 @@
 
 <ion-nav #content [root]="rootPage"></ion-nav>
 
-<page-map></page-map>
+<page-map ></page-map>

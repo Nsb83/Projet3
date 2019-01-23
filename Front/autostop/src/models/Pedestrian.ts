@@ -1,6 +1,6 @@
 export class Pedestrian {
   private passengersNumber: number;
-  private searchRadius: number;
+  public searchRadius: number;
 
   constructor(passengersNumber?: number, searchRadius?: number) {
     this.passengersNumber = passengersNumber;

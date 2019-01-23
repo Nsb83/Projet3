@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,10 +32,12 @@ public class MatchController {
 	@Autowired
 	UserService userService;
 	
-	@PutMapping (path = "/getmatchingdrivers", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public List<MatchingUserDetails> getMatchingDriversAround(@RequestBody User pedestrian) {
+	@GetMapping (path = "/getmatchingdrivers/{publicId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public List<MatchingUserDetails> getMatchingDriversAround(@PathVariable("publicId") String publicId) {
 		
 		List<MatchingUserDetails> matchingDrivers = new ArrayList<MatchingUserDetails>();
+		
+		User pedestrian = userService.findById(publicId);
 		
 		List<User> allDrivers = userService.findAllDrivers();
 		
@@ -72,14 +75,5 @@ public class MatchController {
 		System.out.println("searchRadius: " + searchRadius);
 		
 		return matchingDrivers;
-	}
-	
-	@GetMapping (path = "/algomatch", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public boolean areUsersMatchable(ArrayList<LatLng> driverItinerary, LatLng pedestrianLatLng, Integer searchRadius) {
-
-		return filterMatchService.filterItineraries(driverItinerary, pedestrianLatLng, searchRadius);
-	}
-	
-	
-	
+	}	
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild, SimpleChanges } from "@angular/core";
+import { Component, SimpleChanges } from "@angular/core";
 import { MenuController, NavController, Platform, Events } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -24,11 +24,9 @@ export class MainPage {
   legalNoticePage = LegalNoticePage;
   helpPage = HelpPage;
   contactPage = ContactPage;
-
   user: User;
   updatedUser: User;
-  private main = MainPage;
-
+  main = MainPage;
 
   constructor(
     platform: Platform,
@@ -47,12 +45,7 @@ export class MainPage {
   }
 
   ionViewWillEnter() {
-  this.userService.getUser().subscribe(response => { this.user = response });
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
     this.userService.getUser().subscribe(response => { this.user = response });
-
   }
 
   onNavigate(page: any) {
@@ -71,7 +64,7 @@ export class MainPage {
         this.user.getEmail(),
         this.user.getPassword(),
         false,
-      )
+      );
     }
 
     else{
@@ -100,7 +93,10 @@ export class MainPage {
         }
       });
     });
+  }
 
+  menuClosed() {
+    this.events.publish('menu:closed', '');
   }
 
   SignOut() {
