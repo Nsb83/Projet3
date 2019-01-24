@@ -130,7 +130,7 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
-      
+
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
@@ -208,19 +208,19 @@ export class MapPage {
       color: polyColor,
       width: 5,
       geodesic: true,
-      clickable: true
+      // clickable: true
     })
 
-    this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      let position: LatLng = <LatLng>params[0];
-      let markerPoly: Marker = this.map.addMarkerSync({
-        position: position,
-        title: position.toUrlValue(),
-        disableAutoPan: true
-      });
+    // this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+    //   let position: LatLng = <LatLng>params[0];
+    //   let markerPoly: Marker = this.map.addMarkerSync({
+    //     position: position,
+    //     title: position.toUrlValue(),
+    //     disableAutoPan: true
+    //   });
 
-      markerPoly.showInfoWindow();
-    });
+    //   markerPoly.showInfoWindow();
+    // });
 
     this.map.moveCamera({
       'target': this.arrayPoly
@@ -240,6 +240,7 @@ export class MapPage {
         ]
       });
       alert.present();
+      this.showMatchedUsersPoly();
     })
   }
 
