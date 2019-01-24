@@ -52,7 +52,9 @@ export class ChoicePage {
       true,
       this.user.getPublicId(),
     )
-    this.driverInfos = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((data) => {
+      this.driverInfos = data;
+    });
     this.userService.updateUser(this.updatedUser).subscribe(() => {
       console.log(this.updatedUser)
       if(this.driverInfos.getModel() == null){
