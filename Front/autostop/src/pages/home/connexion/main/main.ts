@@ -102,7 +102,7 @@ export class MainPage {
 
   SignOut() {
     this.token.signOut();
-    this.messageService.myToastMethod("Au revoir !, Vous êtes désormais déconnecté")
+    this.messageService.myToastMethod("Au revoir ! Vous êtes désormais déconnecté")
     this.navCtrl.setRoot(HomePage);
     }
 }

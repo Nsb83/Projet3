@@ -35,11 +35,6 @@ export class ChoicePage {
       this.messageService.myToastMethod(`Bonjour ${this.user.getFirstName()}, vous êtes désormais connecté !`), 300)
       };
 
-      // this.userService.updateUser(this.userUpdate).subscribe(() => {
-      //   this.userService.getUser();
-      //   this.messageService.myToastMethod("Votre profil a été actualisé")
-      // }
-
   chooseDriverMode() {
       this.updatedUser = new User (
       this.user.getLastName(),
@@ -81,10 +76,6 @@ export class ChoicePage {
       this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
       this.navCtrl.push(this.main);
     });
-  }
-
-  ionViewDidLoad() {
-
   }
 
 }

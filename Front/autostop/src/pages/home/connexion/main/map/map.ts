@@ -131,7 +131,7 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
-      
+
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
@@ -226,19 +226,19 @@ export class MapPage {
       color: polyColor,
       width: 5,
       geodesic: true,
-      clickable: true
+      // clickable: true
     })
 
-    this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      let position: LatLng = <LatLng>params[0];
-      let markerPoly: Marker = this.map.addMarkerSync({
-        position: position,
-        title: position.toUrlValue(),
-        disableAutoPan: true
-      });
+    // this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+    //   let position: LatLng = <LatLng>params[0];
+    //   let markerPoly: Marker = this.map.addMarkerSync({
+    //     position: position,
+    //     title: position.toUrlValue(),
+    //     disableAutoPan: true
+    //   });
 
-      markerPoly.showInfoWindow();
-    });
+    //   markerPoly.showInfoWindow();
+    // });
 
     this.map.moveCamera({
       'target': this.arrayPoly
@@ -248,16 +248,32 @@ export class MapPage {
 
   sendTrip() {
     this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
-      let alert = this.alrtCtrl.create({
-        title: 'Trajet enregistré',
-        message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
-        buttons: [
-          {
-            text: "C'est compris !",
-          }
-        ]
-      });
-      alert.present();
+      if(this.user.isVehiculed()){
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+      }
+
+      else{
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: "Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.",
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+      }
+      this.showMatchedUsersPoly();
     })
   }
 
@@ -291,6 +307,12 @@ export class MapPage {
 
 
   showMatchedUsersPoly(){
+    if (this.arrayPolyMatched !== null){
+      for(let i=0; i <= this.arrayPolyMatched.length -1; i++){
+        this.arrayPolyMatched[i].remove();
+      }
+    }
+
     this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
       console.log("Réponse get all matching drivers :", matchingDrivers);
 
