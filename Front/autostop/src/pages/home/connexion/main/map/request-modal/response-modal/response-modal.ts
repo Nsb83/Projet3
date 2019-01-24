@@ -63,7 +63,6 @@ export class ResponseModalPage {
 
   ngOnInit() {
     this.initTimer();
-
   }
 
   hasFinished() {

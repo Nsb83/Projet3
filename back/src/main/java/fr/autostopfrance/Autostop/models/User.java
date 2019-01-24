@@ -41,16 +41,12 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Trip trip;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private MatchingEntity matchingEntity;
-
     public User () {
         this.vehiculed = false;
         this.uploadPicture = new UploadPicture();
         this.driver = new Driver();
         this.pedestrian = new Pedestrian();
         this.trip = new Trip();
-        this.matchingEntity = new MatchingEntity();
     }
 
     public User (String publicId, String lastName, String firstName, String phone, String sex,
@@ -81,8 +77,7 @@ public class User {
     }
 
     public User (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth,
-                 String email, String password, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip,
-                 MatchingEntity matchingEntity) {
+                 String email, String password, UploadPicture uploadPicture, Driver driver, Pedestrian pedestrian, Trip trip) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -95,7 +90,6 @@ public class User {
         this.driver = new Driver();
         this.pedestrian = new Pedestrian();
         this.trip = new Trip();
-        this.matchingEntity = new MatchingEntity();
     }
 
     public Long getId() {
@@ -208,14 +202,6 @@ public class User {
         this.trip = trip;
     }
 
-    public MatchingEntity getMatchingEntity() {
-        return matchingEntity;
-    }
-
-    public void setMatchingEntity(MatchingEntity matchingEntity) {
-        this.matchingEntity = matchingEntity;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -233,7 +219,6 @@ public class User {
                 ", driver=" + driver +
                 ", pedestrian=" + pedestrian +
                 ", trip=" + trip +
-                ", matchingEntity=" + matchingEntity +
                 '}';
     }
 }

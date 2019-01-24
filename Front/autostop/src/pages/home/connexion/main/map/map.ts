@@ -27,6 +27,8 @@ import {
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
 import { MatchingUserDetails } from '../../../../../models/MatchingUserDetails';
+import { Observable } from 'rxjs';
+import { PedestrianProvider } from '../../../../../providers/Pedestrian/PedestrianProvider';
 
 
 // @IonicPage()
@@ -51,6 +53,7 @@ export class MapPage {
   polyMatch: Polyline;
   arrayPolyMatched = [];
   userChanged: boolean = false;
+  pollingPedestrians: any;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -67,7 +70,8 @@ export class MapPage {
               public userProvider: UserProvider,
               public tripProvider: TripProvider,
               public driverProvider: DriverProvider,
-              public events: Events) {
+              public events: Events,
+              public pedestrianProvider: PedestrianProvider) {
 
                 events.subscribe('user:changed', () => {
                   this.userChanged = true;
@@ -260,6 +264,17 @@ export class MapPage {
           ]
         });
         alert.present();
+        this.pollingPedestrians = Observable.interval(5000)
+          .switchMap(() => this.pedestrianProvider.queryPedestrian())
+          .subscribe(
+            data => {
+              console.log(data);// see console you get output every 5 sec
+            },
+            error => {
+              console.log(error);
+              ;
+            }
+            );
       }
 
       else {
@@ -315,9 +330,7 @@ export class MapPage {
     }
 
     this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
-      console.log("Réponse get all matching drivers :", matchingDrivers);
-
-      if (matchingDrivers.length) {
+        if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
           this.arrayPolyMatched[i]=this.polyMatch;

@@ -10,6 +10,4 @@ import java.util.Set;
 @Repository
 public interface MatchingDAO extends JpaRepository<MatchingEntity, Long> {
     LinkedList<MatchingEntity> findByDriverPublicId(String driverPublicId);
-
-    MatchingEntity findByPedestrianPublicId(String pedestrianPublicId);
 }

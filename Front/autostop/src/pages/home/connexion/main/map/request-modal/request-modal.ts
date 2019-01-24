@@ -31,7 +31,7 @@ export class RequestModalPage {
   }
 
   sendRequest(){
-    let matchingEntity = new MatchingEntity(this.userProvider.getUserId(), this.matchableUser.publicId)
+    let matchingEntity = new MatchingEntity(this.matchableUser.publicId, this.userProvider.getUserId())
     this.pedestrianProvider.sendRequest(matchingEntity).subscribe((data) =>{
       console.log(data);
     });
