@@ -2,7 +2,7 @@ export class Driver {
     private licensePlate: string;
     private brand: string;
     private model: string;
-    public color: string;
+    private color: string;
     private imgCarUrl: string;
 
   constructor(
@@ -53,7 +53,7 @@ public getImgCarUrl(): string {
     return this.imgCarUrl;
 }
 
-public set ImgCarUrl(imgCarUrl: string){
+public setImgCarUrl(imgCarUrl: string): void {
     this.imgCarUrl = imgCarUrl;
 }
 }
