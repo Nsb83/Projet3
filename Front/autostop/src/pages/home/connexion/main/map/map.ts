@@ -21,7 +21,8 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng
+  ILatLng,
+  MarkerOptions
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
@@ -134,15 +135,32 @@ export class MapPage {
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
-      let markerGeoloc: Marker = this.map.addMarkerSync({
-        position: this.userPosition.latLng,
-        icon: {url: this.iconPath,
-              size: {
-                width: 32,
-                height: 32
+        let markerOptions: MarkerOptions;
+        if(this.user.isVehiculed()) {
+          markerOptions = {
+          position: this.userPosition.latLng,
+          icon: {url: "../assets/icon/driver.png",
+                size: {
+                  width: 32,
+                  height: 32
+                }
               }
             }
-      });
+        }
+        else {
+          markerOptions = {
+            animation: 'DROP',
+            position: this.userPosition.latLng,
+            icon: {url: "../assets/icon/thumb.png",
+                  size: {
+                    width: 53,
+                    height: 64
+                  }
+                }
+            }
+          }
+
+      let markerGeoloc: Marker = this.map.addMarkerSync(markerOptions);
 
       if(!this.user.isVehiculed()) {
         // CERCLE POUR PIÉTON
