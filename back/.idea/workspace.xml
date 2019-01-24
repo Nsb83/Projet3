@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9323308c-f11c-45c3-aa73-ef69003f10b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Utils/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Utils/environment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -39,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/TripService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -104,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="195">
               <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -163,9 +163,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,17 +221,17 @@
       <workItem from="1548152260589" duration="4358000" />
       <workItem from="1548187000683" duration="368000" />
       <workItem from="1548253231530" duration="2185000" />
+      <workItem from="1548323774520" duration="713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15151000" />
+    <option name="totallyTimeSpent" value="15864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="34" width="1920" height="981" extended-state="7" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1072572" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10832444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -371,6 +371,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -418,18 +425,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="195">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/TripService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
         </state>
       </provider>
     </entry>

@@ -33,6 +33,7 @@ export class DriverProvider {
     };
 
   updateDriver(driver: Driver){
+    console.log(driver);
     return this.http
       .put<Driver>(`${this.DRIVER_URL}/update/${this.userProvider.getUserId()}`, driver);
   }

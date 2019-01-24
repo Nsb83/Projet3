@@ -2,7 +2,7 @@ export class Driver {
     private licensePlate: string;
     private brand: string;
     private model: string;
-    public _color: string;
+    public color: string;
     private imgCarUrl: string;
 
   constructor(
@@ -14,7 +14,7 @@ export class Driver {
     this.licensePlate = licensePlate;
     this.brand = brand;
     this.model = model;
-    this._color = color;
+    this.color = color;
   }
 
 public getLicensePlate(): string {
@@ -41,12 +41,12 @@ public setModel(model: string): void {
     this.model = model;
 }
 
-public get color(): string {
+public getColor(): string {
     return this.color;
 }
 
 public setColor(color: string): void {
-    this._color = color;
+    this.color = color;
 }
 
 public getImgCarUrl(): string {
