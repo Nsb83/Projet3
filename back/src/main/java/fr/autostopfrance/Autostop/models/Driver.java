@@ -3,6 +3,7 @@ package fr.autostopfrance.Autostop.models;
 // import java.util.LinkedList;
 
 import javax.persistence.*;
+import java.util.LinkedList;
 
 
 @Entity
@@ -27,6 +28,8 @@ public class Driver
     private UploadPicture uploadPicture;
 
 
+    private LinkedList<MatchingEntity> requests;
+
     
     // private LinkedList<Trip> tripList;
 
@@ -43,13 +46,14 @@ public class Driver
         this.uploadPicture = new UploadPicture();
     }
 
-    public Driver(String licensePlate, String brand, String model, String color){
+    public Driver(String licensePlate, String brand, String model, String color, LinkedList<MatchingEntity> requests){
         // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.uploadPicture = new UploadPicture();
+        this.requests = requests;
     }
 
     public String getLicensePlate() {
@@ -100,6 +104,14 @@ public class Driver
 
     public void rateTrip(Pedestrian pedestrian, int note){
         
+    }
+
+    public LinkedList<MatchingEntity> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(LinkedList<MatchingEntity> requests) {
+        this.requests = requests;
     }
 
     @Override

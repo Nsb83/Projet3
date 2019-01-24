@@ -1,5 +1,6 @@
 package fr.autostopfrance.Autostop.security;
 
+import fr.autostopfrance.Autostop.services.DriverService;
 import fr.autostopfrance.Autostop.services.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -21,17 +22,22 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final DriverService driverService;
 
-    public WebSecurity (UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public WebSecurity (UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder, DriverService driverService) {
         this.userService = userService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.driverService = driverService;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors().and()
-                .csrf().disable().authorizeRequests()
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, SecurityConstants.DRIVER)
+                .permitAll()
                 .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
                 .permitAll()
                 .antMatchers(HttpMethod.GET, SecurityConstants.IMAGE_PROFILE)

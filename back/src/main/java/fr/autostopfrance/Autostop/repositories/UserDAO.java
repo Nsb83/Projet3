@@ -2,6 +2,7 @@ package fr.autostopfrance.Autostop.repositories;
 
 import java.util.List;
 
+import fr.autostopfrance.Autostop.models.MatchingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import fr.autostopfrance.Autostop.models.User;
@@ -13,4 +14,6 @@ public interface UserDAO extends JpaRepository <User, Long> {
     User findByPublicId(String publicId);
     
     List<User> findByVehiculed(boolean vehiculed);
+
+    User findByMatchingEntityDriverPublicId(String driverPublicId);
 }

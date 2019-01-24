@@ -1,19 +1,27 @@
 package fr.autostopfrance.Autostop.services;
 
-import fr.autostopfrance.Autostop.models.Driver;
-import fr.autostopfrance.Autostop.models.User;
+import fr.autostopfrance.Autostop.models.*;
+import fr.autostopfrance.Autostop.repositories.MatchingDAO;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
-import fr.autostopfrance.Autostop.models.UploadPicture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Set;
 
 @Service
 public class DriverService {
 
     @Autowired
     UserDAO userDAO;
+
+    @Autowired
+    MatchingDAO matchingDAO;
 
     public ResponseEntity<User> addOrUpdateDriver (String publicId, Driver driver) {
         System.out.println("Updating Driver " + publicId);
@@ -48,4 +56,35 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
+    public LinkedList<MatchingEntity> checkPedestrianRequest (String driverPublicId) {
+        LinkedList<MatchingEntity> matchingEntity = matchingDAO.findByDriverPublicId(driverPublicId);
+        System.out.println("Matcher " + driverPublicId);
+        if (matchingEntity == null)
+            throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
+
+        ArrayList<MatchingUserDetails> pedestrianList = new ArrayList<>();
+        ListIterator<MatchingEntity> it = matchingEntity.listIterator();
+        while(it.hasNext()){
+
+            String pedestrianId = it.next().getPedestrianPublicId();
+            User currentPedestrian = userDAO.findByPublicId(pedestrianId);
+            MatchingUserDetails pedestrian = new MatchingUserDetails();
+
+            pedestrianList.add(new MatchingUserDetails(
+                    pedestrian.getPublicId(),
+                            pedestrian.getLastName(),
+                            pedestrian.getFirstName(),
+                            pedestrian.getPhone(),
+                            pedestrian.getSex(),
+                            pedestrian.getDateOfBirth(),
+                            pedestrian.isVehiculed(),
+                            pedestrian.getUploadPicture(),
+                            pedestrian.getDriver(),
+                            pedestrian.getTrip()
+                    )
+            );
+        }
+        return matchingEntity;
+
+    }
 }
