@@ -67,9 +67,8 @@ public class DriverService {
         while(it.hasNext()){
 
             String pedestrianId = it.next().getPedestrianPublicId();
-            User currentPedestrian = userDAO.findByPublicId(pedestrianId);
-            MatchingUserDetails pedestrian = new MatchingUserDetails();
-
+            User pedestrian = userDAO.findByPublicId(pedestrianId);
+            
             pedestrianList.add(new MatchingUserDetails(
                     pedestrian.getPublicId(),
                             pedestrian.getLastName(),
