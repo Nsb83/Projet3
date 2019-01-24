@@ -46,7 +46,22 @@ export class VehiclePage implements OnInit{
 
   ngOnInit() {
     this.initForm();
-    this.driver = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver = response.driver;
+      if (this.driver.color == null) {
+        this.color = "#FFFFFF";
+      } else {
+        this.color = this.driver.color;
+      }
+      this.color = this.driver.color;
+      if (response.uploadPicture.fileDownloadUri !== null){
+        this.driver.ImgCarUrl = response.driver.uploadPicture.fileDownloadUri;
+      } else {
+        this.driver.ImgCarUrl = './assets/imgs/clio4.jpeg';
+      }
+    });
+    
+    
   }
 
 
@@ -72,6 +87,7 @@ export class VehiclePage implements OnInit{
       register.model,
       this.color,
     );
+    
     // this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
     this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{ 
       this.messageService.myToastMethod("Votre profil a bien été actualisé")
