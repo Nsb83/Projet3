@@ -8,14 +8,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Pedestrian } from '../../../../../../../models/Pedestrian';
 import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/PedestrianProvider';
 
-
-/**
- * Generated class for the PedestrianPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-pedestrian',
   templateUrl: 'pedestrian.html',
@@ -26,11 +18,10 @@ export class PedestrianPage implements OnInit{
   pedestrianUpdate: Pedestrian;
   private updatePedestrian: FormGroup;
 
-
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    private formBuilder: FormBuilder, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder,
     private userService: UserProvider,
     private messageService: MessageProvider,
     private pedestrianService: PedestrianProvider,
@@ -46,7 +37,7 @@ export class PedestrianPage implements OnInit{
   initForm() {
     this.updatePedestrian = this.formBuilder.group(
       {
-        searchRadius: [""], 
+        searchRadius: [""],
         passengersNumber: [""],
       },
     );
@@ -69,6 +60,6 @@ export class PedestrianPage implements OnInit{
       console.log('Error: ', error);
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
     }
-    ); 
+    );
   }
 }
