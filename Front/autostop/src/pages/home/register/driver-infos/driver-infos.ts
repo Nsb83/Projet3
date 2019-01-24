@@ -8,7 +8,8 @@ import { Driver } from './../../../../models/Driver';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { MessageProvider } from '../../../../providers/Messages/MessageProvider';
+import { MessageProvider } from '../../../../providers/Messages/MessageProvider'
+;
 import { TokenStorage } from '../../../../providers/auth/token.storage';
 import { UserProvider } from '../../../../providers/user/userProvider';
 
@@ -26,7 +27,7 @@ export class DriverInfosPage {
 
   currentFileUpload: File;
   selectedFiles: FileList;
-  driver:Driver;
+  driver:Driver = new Driver();
 
   constructor(public modal: ModalController,
               public navCtrl: NavController,
@@ -43,7 +44,14 @@ export class DriverInfosPage {
 
   ngOnInit() {
     this.initForm();
-    this.driver = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver.setBrand(response.driver.brand);
+      this.driver.setModel(response.driver.model);
+      this.driver.setLicensePlate(response.driver.licensePlate);
+      this.driver.setColor(response.driver.color);
+      console.log(this.driver);
+    });
+
   }
 
 

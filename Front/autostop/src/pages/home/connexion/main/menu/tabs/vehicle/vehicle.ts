@@ -46,7 +46,20 @@ export class VehiclePage implements OnInit{
 
   ngOnInit() {
     this.initForm();
-    this.driver = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver = response.driver;
+      if (this.driver.color == null || this.driver.color == undefined) {
+        this.color = "#FFFFFF";
+      } else {
+        this.color = this.driver.color;
+      }
+      this.color = this.driver.color;
+      if (response.uploadPicture.fileDownloadUri !== null){
+        this.driver.ImgCarUrl = response.driver.uploadPicture.fileDownloadUri;
+      } else {
+        this.driver.ImgCarUrl = './assets/imgs/clio4.jpeg';
+      }
+    });
   }
 
 

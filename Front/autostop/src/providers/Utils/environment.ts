@@ -5,7 +5,8 @@
 
 // for Android Emulator 
     // export const environment = { 
-    //      SERVER_URL :"http://10.0.2.2:8080" };
+      //    SERVER_URL :"http://10.0.2.2:8080" };
+
 
 
 
