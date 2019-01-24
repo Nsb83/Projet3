@@ -16,7 +16,7 @@ export class ChoicePage {
 
   private main = MainPage;
   private driveInfosPage = DriverInfosPage;
-  private driver: Driver = new Driver();
+  private driverInfos: Driver;
   private user:User;
   private updatedUser:User;
 
@@ -35,11 +35,6 @@ export class ChoicePage {
       this.messageService.myToastMethod(`Bonjour ${this.user.getFirstName()}, vous êtes désormais connecté !`), 300)
       };
 
-      // this.userService.updateUser(this.userUpdate).subscribe(() => {
-      //   this.userService.getUser();
-      //   this.messageService.myToastMethod("Votre profil a été actualisé")
-      // }
-
   chooseDriverMode() {
       this.updatedUser = new User (
       this.user.getLastName(),
@@ -52,11 +47,10 @@ export class ChoicePage {
       true,
       this.user.getPublicId(),
     )
-    this.driverProvider.getDriver().subscribe((response: any) => {
-      this.driver = response.driver;
-    });
+    this.driverInfos = this.driverProvider.getDriver();
     this.userService.updateUser(this.updatedUser).subscribe(() => {
-      if(this.driver.model == null){
+      console.log(this.updatedUser)
+      if(this.driverInfos.getModel() == null){
         this.navCtrl.push(this.driveInfosPage);
       }
       else {
@@ -82,10 +76,6 @@ export class ChoicePage {
       this.messageService.myToastMethod("Vous êtes désormais connecté en tant que piéton.")
       this.navCtrl.push(this.main);
     });
-  }
-
-  ionViewDidLoad() {
-
   }
 
 }
