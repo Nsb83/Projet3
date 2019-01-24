@@ -1,8 +1,15 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
-import { IonicApp, IonicErrorHandler, IonicModule, NavController, AlertController } from "ionic-angular";
+import {
+  IonicApp,
+  IonicErrorHandler,
+  IonicModule,
+  NavController,
+  AlertController
+} from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
+import { CallNumber } from "@ionic-native/call-number";
 
 // ***************************************
 //        IMPORTS DES PAGES IONIC
@@ -34,19 +41,18 @@ import { PedestrianPage } from "../pages/home/connexion/main/menu/tabs/pedestria
 
 import { GoogleMaps } from "@ionic-native/google-maps";
 import { DriverInfosPage } from "../pages/home/register/driver-infos/driver-infos";
-import { UserProvider } from '../providers/user/userProvider';
+import { UserProvider } from "../providers/user/userProvider";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { EmailComposer } from '@ionic-native/email-composer';
-import { RouteProvider } from '../providers/route/route';
+import { EmailComposer } from "@ionic-native/email-composer";
+import { RouteProvider } from "../providers/route/route";
 import { TokenInterceptor } from "./http-interceptors/token-interceptor";
-import { AuthService } from '../providers/auth/auth.service';
-import { TokenStorage } from '../providers/auth/token.storage'
+import { AuthService } from "../providers/auth/auth.service";
+import { TokenStorage } from "../providers/auth/token.storage";
 import { ImageProvider } from "../providers/Image/imageProvider";
-import { DriverProvider } from '../providers/driver/driverProvider';
+import { DriverProvider } from "../providers/driver/driverProvider";
 import { MessageProvider } from "../providers/Messages/MessageProvider";
 import { TripProvider } from "../providers/trip/trip";
 import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
-
 
 @NgModule({
   declarations: [
@@ -125,7 +131,8 @@ import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
     MessageProvider,
     RouteProvider,
     TripProvider,
-    PedestrianProvider
+    PedestrianProvider,
+    CallNumber
   ]
 })
 export class AppModule {}

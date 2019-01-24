@@ -20,6 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/call-number": "^5.0.0",
     "@ionic-native/core": "^4.17.0",
     "@ionic-native/email-composer": "^4.18.0",
     "@ionic-native/google-maps": "^4.15.1",
@@ -30,6 +31,7 @@
     "angular-svg-round-progressbar": "^1.1.1",
     "bowser": "2.0.0-beta.3",
     "browse": "0.4.0",
+    "call-number": "1.0.1",
     "cordova-android": "^7.1.0",
     "cordova-android-support-gradle-release": "^2.0.1",
     "cordova-browser": "5.0.4",
@@ -73,7 +75,8 @@
       "cordova-plugin-email-composer": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      },
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "browser",
