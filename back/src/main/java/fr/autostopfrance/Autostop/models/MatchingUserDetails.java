@@ -5,25 +5,15 @@ import java.time.LocalDate;
 public class MatchingUserDetails {
 	
     private String publicId;
-    
     private String lastName;
-    
     private String firstName;
-    
     private String phone;
-    
     private String sex;
-    
     private LocalDate dateOfBirth;
-    
     private boolean vehiculed;
-
     private UploadPicture uploadPicture;
-
     private Driver driver;
-
     private Pedestrian pedestrian;
-
     private Trip trip;
 
 	public MatchingUserDetails() {
@@ -33,7 +23,8 @@ public class MatchingUserDetails {
         this.trip = new Trip();
 	}
 	
-	public MatchingUserDetails (String publicId, String lastName, String firstName, String phone, String sex, LocalDate dateOfBirth, boolean vehiculed) {
+	public MatchingUserDetails (String publicId, String lastName, String firstName, String phone, String sex,
+								LocalDate dateOfBirth, boolean vehiculed) {
         this.publicId = publicId;
         this.lastName = lastName;
         this.firstName = firstName;
