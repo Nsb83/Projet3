@@ -51,6 +51,7 @@ export class DriverInfosPage {
       this.driver.setColor(response.driver.color);
       console.log(this.driver);
     });
+
   }
 
 

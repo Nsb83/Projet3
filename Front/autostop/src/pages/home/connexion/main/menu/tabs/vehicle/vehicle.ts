@@ -60,8 +60,6 @@ export class VehiclePage implements OnInit{
         this.driver.ImgCarUrl = './assets/imgs/clio4.jpeg';
       }
     });
-    
-    
   }
 
 
@@ -87,7 +85,6 @@ export class VehiclePage implements OnInit{
       register.model,
       this.color,
     );
-    
     // this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
     this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{ 
       this.messageService.myToastMethod("Votre profil a bien été actualisé")

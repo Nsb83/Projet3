@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { UserProvider } from '../user/userProvider';
 import { User } from '../../models/User';
 import { environment } from '../Utils/environment';
-import { Observable } from 'rxjs';
 const TOKEN_KEY = 'AuthToken';
 
 // const httpOptions = {
@@ -27,13 +26,24 @@ export class DriverProvider {
     private userProvider: UserProvider
     ) {}
 
-    getDriver():Observable<Driver> {
-      return this.http
-        .get<Driver>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`);
-    };
+  getDriver() {
+    const driver: Driver = new Driver();
+    this.http
+      .get<User>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`).subscribe((response: any) => {
+        driver.setBrand(response.driver.brand);
+        driver.setModel(response.driver.model);
+        driver.setLicensePlate(response.driver.licensePlate);
+        driver.setColor(response.driver.color);
+        if (response.uploadPicture.fileDownloadUri !== null) {
+          driver.setImgCarUrl(response.driver.uploadPicture.fileDownloadUri);
+        } else {
+          driver.setImgCarUrl('./assets/imgs/clio4.jpeg');
+        }
+    });
+    return driver;
+  };
 
   updateDriver(driver: Driver){
-    console.log(driver);
     return this.http
       .put<Driver>(`${this.DRIVER_URL}/update/${this.userProvider.getUserId()}`, driver);
   }

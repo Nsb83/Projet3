@@ -21,7 +21,8 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng
+  ILatLng,
+  MarkerOptions
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
@@ -130,19 +131,36 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
-      
+
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
-      let markerGeoloc: Marker = this.map.addMarkerSync({
-        position: this.userPosition.latLng,
-        icon: {url: this.iconPath,
-              size: {
-                width: 32,
-                height: 32
+        let markerOptions: MarkerOptions;
+        if(this.user.isVehiculed()) {
+          markerOptions = {
+          position: this.userPosition.latLng,
+          icon: {url: "../assets/icon/driver.png",
+                size: {
+                  width: 32,
+                  height: 32
+                }
               }
             }
-      });
+        }
+        else {
+          markerOptions = {
+            animation: 'DROP',
+            position: this.userPosition.latLng,
+            icon: {url: "../assets/icon/thumb.png",
+                  size: {
+                    width: 53,
+                    height: 64
+                  }
+                }
+            }
+          }
+
+      let markerGeoloc: Marker = this.map.addMarkerSync(markerOptions);
 
       if(!this.user.isVehiculed()) {
         // CERCLE POUR PIÉTON
@@ -208,19 +226,19 @@ export class MapPage {
       color: polyColor,
       width: 5,
       geodesic: true,
-      clickable: true
+      // clickable: true
     })
 
-    this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      let position: LatLng = <LatLng>params[0];
-      let markerPoly: Marker = this.map.addMarkerSync({
-        position: position,
-        title: position.toUrlValue(),
-        disableAutoPan: true
-      });
+    // this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+    //   let position: LatLng = <LatLng>params[0];
+    //   let markerPoly: Marker = this.map.addMarkerSync({
+    //     position: position,
+    //     title: position.toUrlValue(),
+    //     disableAutoPan: true
+    //   });
 
-      markerPoly.showInfoWindow();
-    });
+    //   markerPoly.showInfoWindow();
+    // });
 
     this.map.moveCamera({
       'target': this.arrayPoly
@@ -230,16 +248,32 @@ export class MapPage {
 
   sendTrip() {
     this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
-      let alert = this.alrtCtrl.create({
-        title: 'Trajet enregistré',
-        message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
-        buttons: [
-          {
-            text: "C'est compris !",
-          }
-        ]
-      });
-      alert.present();
+      if(this.user.isVehiculed()){
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+      }
+
+      else{
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: "Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.",
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+      }
+      this.showMatchedUsersPoly();
     })
   }
 
@@ -255,10 +289,10 @@ export class MapPage {
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
-      icon: {url: this.iconPath,
+      icon: {url: "../assets/icon/endTripPin.png",
                 size: {
-                  width: 32,
-                  height: 32
+                  width: 50,
+                  height: 30
                 }
               }
       })
@@ -273,6 +307,12 @@ export class MapPage {
 
 
   showMatchedUsersPoly(){
+    if (this.arrayPolyMatched !== null){
+      for(let i=0; i <= this.arrayPolyMatched.length -1; i++){
+        this.arrayPolyMatched[i].remove();
+      }
+    }
+
     this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
       console.log("Réponse get all matching drivers :", matchingDrivers);
 
