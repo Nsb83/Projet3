@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9323308c-f11c-45c3-aa73-ef69003f10b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Utils/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Utils/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -233,7 +229,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17133000" />
+    <option name="totallyTimeSpent" value="17345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="296" y="261" width="1440" height="900" extended-state="1" />

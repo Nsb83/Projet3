@@ -1,7 +1,7 @@
 export class Driver {
     private licensePlate: string;
     private brand: string;
-    private model: string;
+    public model: string;
     public color: string;
     private imgCarUrl: string;
 
