@@ -26,6 +26,7 @@ import {
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
+import { MatchingUserDetails } from '../../../../../models/MatchingUserDetails';
 
 
 // @IonicPage()
@@ -313,7 +314,7 @@ export class MapPage {
       }
     }
 
-    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
+    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
       console.log("Réponse get all matching drivers :", matchingDrivers);
 
       if (matchingDrivers.length) {

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { UserProvider } from '../user/userProvider';
 import { User } from '../../models/User';
 import { environment } from '../Utils/environment';
+import { MatchingUserDetails } from '../../models/MatchingUserDetails';
 const TOKEN_KEY = 'AuthToken';
 
 // const httpOptions = {
@@ -50,7 +51,7 @@ export class DriverProvider {
 
   getMatchingDriversAround() {
     return this.http
-      .get<User[]>(`${environment.SERVER_URL}/getmatchingdrivers/${this.userProvider.getUserId()}`);
+      .get<MatchingUserDetails[]>(`${environment.SERVER_URL}/getmatchingdrivers/${this.userProvider.getUserId()}`);
   }
 
 }
