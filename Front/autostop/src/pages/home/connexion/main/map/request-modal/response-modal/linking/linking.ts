@@ -37,9 +37,7 @@ export class LinkingPage {
 
 
 ngOnInit(){
-  this.driverProvider.getDriver().subscribe((data) => {
-    this.driver = data
-  });
+  this.driver = this.driverProvider.getDriver();
 }
 
   //Couleur d'étoiles dynamiques

@@ -43,9 +43,7 @@ export class DriverInfosPage {
 
   ngOnInit() {
     this.initForm();
-    this.driverProvider.getDriver().subscribe((data) => {
-      this.driver = data;
-    });
+    this.driver = this.driverProvider.getDriver();
   }
 
 
