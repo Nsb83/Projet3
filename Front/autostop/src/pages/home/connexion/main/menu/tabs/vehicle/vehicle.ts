@@ -48,7 +48,7 @@ export class VehiclePage implements OnInit{
     this.initForm();
     this.driverProvider.getDriver().subscribe((response: any) => {
       this.driver = response.driver;
-      if (this.driver.color == null) {
+      if (this.driver.color == null || this.driver.color == undefined) {
         this.color = "#FFFFFF";
       } else {
         this.color = this.driver.color;

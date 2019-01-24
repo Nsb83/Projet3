@@ -57,7 +57,7 @@ export class ChoicePage {
     });
     this.userService.updateUser(this.updatedUser).subscribe(() => {
       console.log(this.updatedUser)
-      if(this.driverInfos.getModel() == null){
+      if(this.driverInfos.getModel == null){
         this.navCtrl.push(this.driveInfosPage);
       }
       else {
