@@ -56,7 +56,8 @@ public class UserService implements UserDetailsService {
                 user.getUploadPicture(),
                 user.getDriver(),
                 user.getPedestrian(),
-                user.getTrip()
+                user.getTrip(),
+                user.getMatchingEntity()
                 );
 
         _user.setPublicId(publicUserId);
