@@ -1,6 +1,7 @@
 import { ResponseModalPage } from './response-modal/response-modal';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { PedestrianProvider } from '../../../../../../providers/Pedestrian/PedestrianProvider';
 
 @Component({
   selector: 'page-request-modal',
@@ -13,7 +14,10 @@ export class RequestModalPage {
   testTrip: string = "Chemin de la Plaine, Thurins";
   testRating: number = 4;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public viewCtrl: ViewController,
+              private pedestrianProvider: PedestrianProvider) {
     this.matchableUser = this.navParams.get('matchUser');
   }
 
@@ -24,6 +28,7 @@ export class RequestModalPage {
   sendRequest(){
     this.viewCtrl.dismiss();
     this.navCtrl.push(ResponseModalPage, { matchableUser : this.matchableUser});
+    this.pedestrianProvider.sendRequest(this.matchableUser.publicId);
   }
 
   ionViewDidLoad() {

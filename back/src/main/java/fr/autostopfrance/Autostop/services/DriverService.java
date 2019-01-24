@@ -56,13 +56,13 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
-    public LinkedList<MatchingEntity> checkPedestrianRequest (String driverPublicId) {
+    public LinkedList<MatchingUserDetails> checkPedestrianRequest (String driverPublicId) {
         LinkedList<MatchingEntity> matchingEntity = matchingDAO.findByDriverPublicId(driverPublicId);
         System.out.println("Matcher " + driverPublicId);
         if (matchingEntity == null)
             throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
 
-        ArrayList<MatchingUserDetails> pedestrianList = new ArrayList<>();
+        LinkedList<MatchingUserDetails> pedestrianList = new LinkedList<MatchingUserDetails>();
         ListIterator<MatchingEntity> it = matchingEntity.listIterator();
         while(it.hasNext()){
 
@@ -84,7 +84,7 @@ public class DriverService {
                     )
             );
         }
-        return matchingEntity;
+        return pedestrianList;
 
     }
 }

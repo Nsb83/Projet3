@@ -32,4 +32,8 @@ export class PedestrianProvider {
       return this.http
         .put<Pedestrian>(`${this.PEDESTRIAN_URL}/update/${this.userProvider.getUserId()}`, pedestrian);
     }
+
+    sendRequest(driverId) {
+      return this.http.post(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, driverId);
+    }
 }

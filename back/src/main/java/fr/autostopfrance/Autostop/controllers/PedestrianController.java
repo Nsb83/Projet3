@@ -24,7 +24,4 @@ public class PedestrianController {
     public void registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
         pedestrianService.registerMatchingDriver(publicId, matchingEntity);
     }
-
-
-
 }
