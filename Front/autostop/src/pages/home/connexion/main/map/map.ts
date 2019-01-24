@@ -273,10 +273,10 @@ export class MapPage {
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
-      icon: {url: this.iconPath,
+      icon: {url: "../assets/icon/endTripPin.png",
                 size: {
-                  width: 32,
-                  height: 32
+                  width: 50,
+                  height: 30
                 }
               }
       })
