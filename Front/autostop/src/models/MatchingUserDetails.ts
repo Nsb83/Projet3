@@ -1,22 +1,19 @@
-import { Account } from "./Account";
 import { Driver } from "./Driver";
 import { Pedestrian } from "./Pedestrian";
 import { Trip } from "./Trip";
 
-export class User {
-    private publicId: string;
+export class MatchingUserDetails {
+    public publicId: string;
     private lastName: string;
     private firstName: string;
     private phone: string;
-    private imgUrl: string;
     private sex: string;
     private dateOfBirth: string;
-    private email: string;
-    private password: string;
     private vehiculed: boolean;
+    private uploadPicture: any;
     private driver: Driver;
     private pedestrian: Pedestrian;
-    private trip: Trip;
+    public trip: Trip;
 
     constructor(
         lastName?: string,
@@ -24,22 +21,26 @@ export class User {
         phone?: string,
         sex?: string,
         dateOfBirth?: string,
-        email?:string,
-        password?:string,
         vehiculed?:boolean,
-        publicId?:string,
+        uploadPicture?:any,
+        driver?:Driver,
+        pedestrian?:Pedestrian,
+        trip?: Trip,
+        publicId?: string
        ){
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
         this.sex = sex;
         this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.password = password;
         this.vehiculed = vehiculed;
+        this.uploadPicture = uploadPicture;
+        this.driver = driver;
+        this.pedestrian = pedestrian;
+        this.trip = trip;
         this.publicId = publicId;
        }
-
+       
     public getPublicId(): string {
         return this.publicId;
     }
@@ -56,25 +57,8 @@ export class User {
       this.vehiculed = vehiculed;
     }
 
-    public getEmail(): string {
-        return this.email;
-    }
-
-    public setEmail(email: string): void {
-        this.email = email;
-    }
-
-    public getPassword(): string {
-        return this.password;
-    }
-
-    public setPassword(password: string): void {
-        this.password = password;
-    }
-
-
-   public getLastName(): string {
-    return this.lastName;
+    public getLastName(): string {
+        return this.lastName;
     }
 
     public setLastName(lastName: string): void {
@@ -97,12 +81,12 @@ export class User {
         this.phone = phone;
     }
 
-    public getImgUrl(): string {
-        return this.imgUrl;
+    public getUploadPicture(): string {
+        return this.uploadPicture;
     }
 
-    public setImgUrl(imgUrl: string): void {
-        this.imgUrl = imgUrl;
+    public setUploadPicture(uploadPicture: any): void {
+        this.uploadPicture = uploadPicture;
     }
 
     public getSex(): string {

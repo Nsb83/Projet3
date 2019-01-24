@@ -26,6 +26,7 @@ import {
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
+import { MatchingUserDetails } from '../../../../../models/MatchingUserDetails';
 
 
 // @IonicPage()
@@ -247,8 +248,8 @@ export class MapPage {
   }
 
   sendTrip() {
-    this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
-      if(this.user.isVehiculed()){
+    this.tripProvider.updateTrip(this.validatedTrip).subscribe(() => {
+      if(this.user.isVehiculed()) {
         let alert = this.alrtCtrl.create({
           title: 'Trajet enregistré',
           message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
@@ -261,7 +262,7 @@ export class MapPage {
         alert.present();
       }
 
-      else{
+      else {
         let alert = this.alrtCtrl.create({
           title: 'Trajet enregistré',
           message: "Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.",
@@ -272,8 +273,8 @@ export class MapPage {
           ]
         });
         alert.present();
+        this.showMatchedUsersPoly();
       }
-      this.showMatchedUsersPoly();
     })
   }
 
@@ -313,7 +314,7 @@ export class MapPage {
       }
     }
 
-    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
+    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
       console.log("Réponse get all matching drivers :", matchingDrivers);
 
       if (matchingDrivers.length) {
