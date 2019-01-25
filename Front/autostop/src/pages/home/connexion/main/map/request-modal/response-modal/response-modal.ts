@@ -144,6 +144,7 @@ export class ResponseModalPage {
         this.timerTick();
       } else {
         this.timer.hasFinished = true;
+        this.navCtrl.pop();
       }
     }, 1000);
   }
