@@ -19,6 +19,7 @@ import com.google.maps.model.LatLng;
 import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
+import fr.autostopfrance.Autostop.services.PedestrianService;
 import fr.autostopfrance.Autostop.services.UserService;
 
 @RestController
@@ -31,6 +32,9 @@ public class MatchController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	PedestrianService pedestrianService;
 	
 	@GetMapping (path = "/getmatchingdrivers/{publicId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<MatchingUserDetails> getMatchingDriversAround(@PathVariable("publicId") String publicId) {
@@ -76,4 +80,9 @@ public class MatchController {
 		
 		return matchingDrivers;
 	}	
+	
+	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
+		return pedestrianService.getMatchingEntityStatus(id);
+	}
 }

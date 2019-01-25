@@ -52,6 +52,9 @@ export class ResponseModalPage {
 
   ngOnInit() {
     this.initTimer();
+    if (this.matchableUser.vehiculed) {
+      
+    }
   }
 
 
