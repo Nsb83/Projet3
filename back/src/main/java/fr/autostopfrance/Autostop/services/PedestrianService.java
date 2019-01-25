@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
+import java.util.Optional;
 
 @Service
 public class PedestrianService {
@@ -49,5 +50,13 @@ public class PedestrianService {
         matchingDAO.save(_matchingEntity);
 //        matchingEntities.addLast(_matchingEntity);
         return _matchingEntity;
+    }
+    
+    public boolean getMatchingEntityStatus(Long id) {
+    	Optional<MatchingEntity> matchingEntity = matchingDAO.findById(id);
+    	
+    	MatchingEntity _matchingEntity = matchingEntity.get();
+    	
+    	return _matchingEntity.isAccepted();
     }
 }

@@ -17,6 +17,8 @@ export class RequestModalPage {
   // test variables
   testRating: number = 4;
 
+  matchingEntityId: number;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
@@ -33,11 +35,15 @@ export class RequestModalPage {
 
   sendRequest(){
     let matchingEntity = new MatchingEntity(this.matchableUser.publicId, this.userProvider.getUserId())
-    this.pedestrianProvider.sendRequest(matchingEntity).subscribe((data) => {
+    this.pedestrianProvider.sendRequest(matchingEntity).subscribe((data: any) => {
       console.log(data);
+      this.matchingEntityId = data.id;
+      this.viewCtrl.dismiss();
+      this.navCtrl.push(ResponseModalPage, { 
+                                            matchableUser : this.matchableUser,
+                                            matchingEntityId : this.matchingEntityId
+                                          });
     });
-    this.viewCtrl.dismiss();
-    this.navCtrl.push(ResponseModalPage, { matchableUser : this.matchableUser});
   }
 
   ionViewDidLoad() {
