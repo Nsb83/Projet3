@@ -1,7 +1,6 @@
 package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.Driver;
-import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;

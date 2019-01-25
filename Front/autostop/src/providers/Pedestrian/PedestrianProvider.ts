@@ -17,6 +17,7 @@ export class PedestrianProvider {
     private user: User;
     private pedestrian: Pedestrian;
     private PEDESTRIAN_URL = environment.SERVER_URL + "/pedestrian";
+    private DRIVER_URL = environment.SERVER_URL + "/drivers";
     private USER_URL = environment.SERVER_URL + "/users";
 
   
@@ -41,5 +42,9 @@ export class PedestrianProvider {
 
     sendRequest(matchingEntity) {
       return this.http.put(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, matchingEntity, httpOptions);
+    }
+
+    queryPedestrian(){
+      return this.http.get(`${this.DRIVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
     }
 }

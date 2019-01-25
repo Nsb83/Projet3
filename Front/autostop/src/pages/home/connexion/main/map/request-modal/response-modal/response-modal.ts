@@ -1,8 +1,9 @@
 import { LinkingPage } from './linking/linking';
 import { MapPage } from './../../map';
 import { Component,NgModule } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatchingUserDetails } from '../../../../../../../models/MatchingUserDetails';
 
 
 export interface CountdownTimer {
@@ -26,15 +27,14 @@ export class ResponseModalPage {
   private transform;
   private percent;
   private fixTransform;
+  matchableUser: MatchingUserDetails;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer, public viewCtrl: ViewController, private events: Events) {
     this.matchableUser = this.navParams.get('matchableUser');
   }
 
-  matchableUser;
 
   // test variables
-  testTrip: string = "Chemin de la Plaine, Thurins";
   testRating: number = 4;
 
   //Couleur d'étoiles dynamiques
@@ -45,26 +45,26 @@ export class ResponseModalPage {
     else return "./assets/imgs/stars/starEmptySm.png";
   }
 
-  goToLinking(){
-    this.navCtrl.pop();
-    this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
-  }
-
-  cancelRequest(){
-    this.navCtrl.pop();
-  }
-
   ionViewDidLoad() {
     this.startTimer();
   }
 
 
-  // timer code
-
   ngOnInit() {
     this.initTimer();
-
   }
+
+
+  declineRequest() {
+    this.events.publish('request:declined');
+    this.navCtrl.pop();
+  }
+
+  acceptRequest() {
+    this.navCtrl.pop();
+    this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
+  }
+
 
   hasFinished() {
     // place here  function to launch when timer finished

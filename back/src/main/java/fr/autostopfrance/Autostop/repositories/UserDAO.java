@@ -14,6 +14,4 @@ public interface UserDAO extends JpaRepository <User, Long> {
     User findByPublicId(String publicId);
     
     List<User> findByVehiculed(boolean vehiculed);
-
-    User findByMatchingEntityDriverPublicId(String driverPublicId);
 }

@@ -11,12 +11,6 @@ import { Driver } from '../../../../../../../../models/Driver';
 })
 export class LinkingPage {
   matchableUser;
-  car = {
-    model: "Clio 3 Initiale",
-    color: "noire",
-    brand: "Renault",
-    imgCar: "./assets/imgs/clio4.jpeg"
-  }
 
   driver:Driver;
   testRating: number = 4;

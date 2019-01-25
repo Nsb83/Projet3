@@ -70,17 +70,17 @@ public class DriverService {
             User pedestrian = userDAO.findByPublicId(pedestrianId);
             
             pedestrianList.add(new MatchingUserDetails(
-                    pedestrian.getPublicId(),
-                            pedestrian.getLastName(),
-                            pedestrian.getFirstName(),
-                            pedestrian.getPhone(),
-                            pedestrian.getSex(),
-                            pedestrian.getDateOfBirth(),
-                            pedestrian.isVehiculed(),
-                            pedestrian.getUploadPicture(),
-                            pedestrian.getDriver(),
-                            pedestrian.getTrip()
-                    )
+                                                        pedestrian.getPublicId(),
+                                                        pedestrian.getLastName(),
+                                                        pedestrian.getFirstName(),
+                                                        pedestrian.getPhone(),
+                                                        pedestrian.getSex(),
+                                                        pedestrian.getDateOfBirth(),
+                                                        pedestrian.isVehiculed(),
+                                                        pedestrian.getUploadPicture(),
+                                                        pedestrian.getDriver(),
+                                                        pedestrian.getTrip()
+                                                    )
             );
         }
         return pedestrianList;
