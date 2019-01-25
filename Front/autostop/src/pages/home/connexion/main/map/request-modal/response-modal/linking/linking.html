@@ -3,13 +3,13 @@
     <ion-row>
       <ion-col *ngIf="!this.matchableUser.vehiculed" col-10 offset-1>
         <h3>
-          Vous avec bien acceptée la demande de {{ matchableUser.lastName }}
+          Vous avec bien accepté la demande de {{ matchableUser.lastName }}
           {{ matchableUser.firstName }}
         </h3>
       </ion-col>
       <ion-col *ngIf="this.matchableUser.vehiculed" col-10 offset-1>
         <h3>
-          Votre demande a bien été acceptée par {{ matchableUser.lastName }}
+          Votre demande a bien été accepté par {{ matchableUser.lastName }}
           {{ matchableUser.firstName }}
         </h3>
       </ion-col>
