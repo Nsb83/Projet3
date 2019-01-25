@@ -57,5 +57,6 @@ export class LinkingPage {
       let tel = "12345678890";
       window.open(`tel:${tel}`, "_system");
     }, 100);
+    this.navCtrl.pop();
   }
 }
