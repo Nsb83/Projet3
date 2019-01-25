@@ -100,8 +100,8 @@ export class MapPage {
               });
 
               events.subscribe('request:declined', () => {
-                this.modalShowed = false;
-                this.sendTrip();
+                // this.modalShowed = false;
+                // this.sendTrip();
               });
             }
 
@@ -354,6 +354,8 @@ export class MapPage {
     }
 
     this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
+      console.log("Searching for pedestrians");
+      
         if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
