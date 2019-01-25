@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { DriverProvider } from "../../../../../../../../providers/driver/driverProvider";
 import { Driver } from "../../../../../../../../models/Driver";
-import { CallNumber } from "@ionic-native/call-number";
+// import { CallNumber } from "@ionic-native/call-number";
 
 @Component({
   selector: "page-linking",
@@ -11,12 +11,6 @@ import { CallNumber } from "@ionic-native/call-number";
 })
 export class LinkingPage {
   matchableUser;
-  car = {
-    model: "Clio 3 Initiale",
-    color: "noire",
-    brand: "Renault",
-    imgCar: "./assets/imgs/clio4.jpeg"
-  };
 
   driver: Driver;
   testRating: number = 4;
@@ -29,7 +23,7 @@ export class LinkingPage {
   }
 
   constructor(
-    private callNumber: CallNumber,
+    // public callNumber: CallNumber,
     public navCtrl: NavController,
     public navParams: NavParams,
     public driverProvider: DriverProvider
@@ -59,9 +53,9 @@ export class LinkingPage {
   }
 
   call() {
-    this.callNumber
-      .callNumber("18001010101", true)
-      .then(res => console.log("Launched dialer!", res))
-      .catch(err => console.log("Error launching dialer", err));
+    setTimeout(() => {
+      let tel = "12345678890";
+      window.open(`tel:${tel}`, "_system");
+    }, 100);
   }
 }

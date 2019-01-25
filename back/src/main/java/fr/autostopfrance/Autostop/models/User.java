@@ -206,6 +206,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", publicId='" + publicId + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", phone='" + phone + '\'' +
@@ -220,6 +221,5 @@ public class User {
                 ", trip=" + trip +
                 '}';
     }
-
 }
 

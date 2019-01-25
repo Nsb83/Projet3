@@ -1,51 +1,60 @@
 <ion-content padding>
-
   <ion-grid>
-      <ion-row>
-        <ion-col col-10 offset-1>
-            <h3>Votre demande a bien été acceptée par {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h3>
-        </ion-col>
-      </ion-row>
-        <ion-row>
-            <ion-col col-6 offset-3>
-                <img class="avatarUser" [src]=driver.imgUrl>
-            </ion-col>
-          </ion-row>
-        <ion-row>
-          <ion-col col-8 offset-2>
-              <img class="stars"
-              [src]="getStar(num)"
-              *ngFor="let num of [1,2,3,4,5]">
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-4 offset-4>
-              <img class="avatarUser" [src]=driver.imgCarUrl>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-6 offset-3>
-              <h3>{{ car.brand }} {{ car.model }} {{ car.color }}
-              </h3>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-10 offset-1>
-                <button ion-button full color="button" icon-start>
-                    <ion-icon name="call"></ion-icon>Appeller
-                </button>
-            </ion-col>
-        </ion-row>
-
-        <ion-row>
-            <ion-col col-10 offset-1>
-                <button ion-button  full color="button" icon-start>
-                    <ion-icon name="mail"></ion-icon>Envoyer un SMS
-                </button>
-          </ion-col>
-        </ion-row>
-        <button ion-button (click)="goToRate()" icon-start>
-            <ion-icon name="star"></ion-icon>Noter le trajet
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <h3>
+          Votre demande a bien été acceptée par {{ matchableUser.lastName }}
+          {{ matchableUser.firstName }}
+        </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 offset-3>
+        <img
+          class="avatarUser"
+          [src]="matchableUser.uploadPicture.fileDownloadUri"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8 offset-2>
+        <img
+          class="stars"
+          [src]="getStar(num)"
+          *ngFor="let num of [1, 2, 3, 4, 5]"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 offset-4>
+        <img
+          class="avatarUser"
+          [src]="matchableUser.driver.uploadPicture.fileDownloadUri"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 offset-3>
+        <h3>{{ car.brand }} {{ car.model }} {{ car.color }}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <button ion-button full color="button" icon-start>
+          <ion-icon name="call"></ion-icon>Appeller
         </button>
-    </ion-grid>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <button ion-button full color="button" icon-start>
+          <ion-icon name="mail"></ion-icon>Envoyer un SMS
+        </button>
+      </ion-col>
+    </ion-row>
+    <button ion-button (click)="goToRate()" icon-start>
+      <ion-icon name="star"></ion-icon>Noter le trajet
+    </button>
+  </ion-grid>
 </ion-content>

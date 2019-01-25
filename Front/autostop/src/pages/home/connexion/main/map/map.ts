@@ -21,10 +21,17 @@ import {
   Geocoder,
   LatLng,
   Polyline,
-  ILatLng
+  ILatLng,
+  MarkerOptions
 } from "@ionic-native/google-maps";
 import { TripProvider } from '../../../../../providers/trip/trip';
 import { DriverProvider } from '../../../../../providers/driver/driverProvider';
+import { MatchingUserDetails } from '../../../../../models/MatchingUserDetails';
+import { Observable } from 'rxjs';
+import { PedestrianProvider } from '../../../../../providers/Pedestrian/PedestrianProvider';
+import { ObserveOnOperator } from 'rxjs/operators/observeOn';
+import { takeWhile } from 'rxjs/operators';
+import { ResponseModalPage } from './request-modal/response-modal/response-modal';
 
 
 // @IonicPage()
@@ -49,6 +56,9 @@ export class MapPage {
   polyMatch: Polyline;
   arrayPolyMatched = [];
   userChanged: boolean = false;
+  pollingPedestrians: any;
+  requestingDrivers: MatchingUserDetails[];
+  modalShowed: boolean = false;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -65,7 +75,8 @@ export class MapPage {
               public userProvider: UserProvider,
               public tripProvider: TripProvider,
               public driverProvider: DriverProvider,
-              public events: Events) {
+              public events: Events,
+              public pedestrianProvider: PedestrianProvider) {
 
                 events.subscribe('user:changed', () => {
                   this.userChanged = true;
@@ -87,12 +98,21 @@ export class MapPage {
                   });
                 }
               });
+
+              events.subscribe('request:declined', () => {
+                this.modalShowed = false;
+                this.sendTrip();
+              });
             }
 
   ngOnInit(){
     this.userProvider.getUser().subscribe(response => {
       this.user = response;
     });
+  }
+
+  ngOnDestroy() {
+    this.pollingPedestrians.unsubscribe();
   }
 
   // Load map only after view is initialized
@@ -130,19 +150,36 @@ export class MapPage {
   }
 
   addMarkerAndCircle() {
-      
+
       // MARKER
       // Création d'un marqueur et son ajout à map avec la géoloc
       // Possibilité de passer un objet Options en param
-      let markerGeoloc: Marker = this.map.addMarkerSync({
-        position: this.userPosition.latLng,
-        icon: {url: this.iconPath,
-              size: {
-                width: 32,
-                height: 32
+        let markerOptions: MarkerOptions;
+        if(this.user.isVehiculed()) {
+          markerOptions = {
+          position: this.userPosition.latLng,
+          icon: {url: "../assets/icon/driver.png",
+                size: {
+                  width: 32,
+                  height: 32
+                }
               }
             }
-      });
+        }
+        else {
+          markerOptions = {
+            animation: 'DROP',
+            position: this.userPosition.latLng,
+            icon: {url: "../assets/icon/thumb.png",
+                  size: {
+                    width: 53,
+                    height: 64
+                  }
+                }
+            }
+          }
+
+      let markerGeoloc: Marker = this.map.addMarkerSync(markerOptions);
 
       if(!this.user.isVehiculed()) {
         // CERCLE POUR PIÉTON
@@ -208,19 +245,19 @@ export class MapPage {
       color: polyColor,
       width: 5,
       geodesic: true,
-      clickable: true
+      // clickable: true
     })
 
-    this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      let position: LatLng = <LatLng>params[0];
-      let markerPoly: Marker = this.map.addMarkerSync({
-        position: position,
-        title: position.toUrlValue(),
-        disableAutoPan: true
-      });
+    // this.polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+    //   let position: LatLng = <LatLng>params[0];
+    //   let markerPoly: Marker = this.map.addMarkerSync({
+    //     position: position,
+    //     title: position.toUrlValue(),
+    //     disableAutoPan: true
+    //   });
 
-      markerPoly.showInfoWindow();
-    });
+    //   markerPoly.showInfoWindow();
+    // });
 
     this.map.moveCamera({
       'target': this.arrayPoly
@@ -229,17 +266,50 @@ export class MapPage {
   }
 
   sendTrip() {
-    this.tripProvider.updateTrip(this.validatedTrip).subscribe(()=>{
-      let alert = this.alrtCtrl.create({
-        title: 'Trajet enregistré',
-        message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
-        buttons: [
-          {
-            text: "C'est compris !",
-          }
-        ]
-      });
-      alert.present();
+    this.tripProvider.updateTrip(this.validatedTrip).subscribe(() => {
+      if(this.user.isVehiculed()) {
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: 'Votre trajet a été enregistré, les autostoppeurs peuvent maintenant vous envoyer des demandes de prise en charge.',
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+        this.modalShowed = false;
+        this.pollingPedestrians = Observable.interval(7500)
+          .pipe(takeWhile(() => !this.modalShowed))
+          .switchMap(() => this.pedestrianProvider.queryPedestrian())
+          .subscribe(
+            (data: MatchingUserDetails[])=> {
+              this.requestingDrivers = data;
+              if (this.requestingDrivers.length) {
+                this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${this.requestingDrivers[0].firstName} ${this.requestingDrivers[0].lastName[0]}. !`, 7000);
+                this.showMatchModal(this.requestingDrivers[0]);
+                this.modalShowed = true;
+              }
+            },
+            error => {
+              this.messageProvider.myToastMethod("Patientez...");
+              console.log(error);
+            });
+        }
+
+      else {
+        let alert = this.alrtCtrl.create({
+          title: 'Trajet enregistré',
+          message: "Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.",
+          buttons: [
+            {
+              text: "C'est compris !",
+            }
+          ]
+        });
+        alert.present();
+        this.showMatchedUsersPoly();
+      }
     })
   }
 
@@ -255,10 +325,10 @@ export class MapPage {
       this.markerDestination = this.map.addMarkerSync({
       'position': results[0].position,
       'title': JSON.stringify(results[0].extra.lines),
-      icon: {url: this.iconPath,
+      icon: {url: "../assets/icon/endTripPin.png",
                 size: {
-                  width: 32,
-                  height: 32
+                  width: 50,
+                  height: 30
                 }
               }
       })
@@ -267,16 +337,24 @@ export class MapPage {
 
   // Show modal for matching request
   showMatchModal(matchUser) {
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
-    matchModal.present();
+    if(!this.user.isVehiculed()) {
+      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
+      matchModal.present();
+    } else {
+      this.navCtrl.push(ResponseModalPage, { matchableUser: matchUser });
+    }
   }
 
 
   showMatchedUsersPoly(){
-    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: any[]) => {
-      console.log("Réponse get all matching drivers :", matchingDrivers);
+    if (this.arrayPolyMatched !== null){
+      for(let i=0; i <= this.arrayPolyMatched.length -1; i++){
+        this.arrayPolyMatched[i].remove();
+      }
+    }
 
-      if (matchingDrivers.length) {
+    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
+        if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
           this.arrayPolyMatched[i]=this.polyMatch;

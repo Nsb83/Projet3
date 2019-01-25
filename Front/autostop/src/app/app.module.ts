@@ -9,7 +9,7 @@ import {
 } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
-import { CallNumber } from "@ionic-native/call-number";
+// import { CallNumber } from "@ionic-native/call-number";
 
 // ***************************************
 //        IMPORTS DES PAGES IONIC
@@ -83,6 +83,7 @@ import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
     DriverInfosPage
   ],
   imports: [
+   
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: "top" })
@@ -120,6 +121,7 @@ import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
     AuthService,
     SplashScreen,
     EmailComposer,
+    // CallNumber,
     GoogleMaps,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UserProvider,
@@ -131,8 +133,8 @@ import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
     MessageProvider,
     RouteProvider,
     TripProvider,
-    PedestrianProvider,
-    CallNumber
+    PedestrianProvider
+    
   ]
 })
 export class AppModule {}

@@ -6,19 +6,21 @@
 
 </ion-header>
 
-
 <ion-content padding>
 
   <ion-grid>
     <ion-row class="row">
-      <ion-col>
-          <h3>Votre demande a bien été envoyée à {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h3>
+      <ion-col *ngIf="matchableUser.vehiculed">
+          <h3>Votre demande a bien été envoyée à {{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}.</h3>
+      </ion-col>
+      <ion-col *ngIf="!matchableUser.vehiculed">
+        <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}. vous a envoyé une demande !</h3>
       </ion-col>
     </ion-row>
     <ion-row class="row">
-        <ion-col>
-            <img class="avatarUser" [src]=matchableUser.imgUrl>
-        </ion-col>
+      <ion-col>
+        <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
+      </ion-col>
       </ion-row>
     <ion-row class="row">
       <ion-col>
@@ -47,8 +49,17 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <button ion-button  full color="danger" (click)="cancelRequest()">Annuler</button>
-  <button ion-button full color="button" (click)="goToLinking()">Demande acceptée (dev shit)</button>
+  <ion-row>
+    <ion-col col-10 offset-1 *ngIf="!matchableUser.vehiculed">
+      <button ion-button full color="button" (click)="acceptRequest()">Accepter la demande</button>
+    </ion-col>
+    <ion-col col-10 offset-1>
+      <button ion-button  full color="danger" (click)="declineRequest()">Annuler</button>
+    </ion-col>
+  </ion-row>
+  
 
 
 </ion-content>
+
+
