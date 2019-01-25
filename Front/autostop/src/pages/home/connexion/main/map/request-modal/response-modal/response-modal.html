@@ -16,6 +16,12 @@
       <ion-col *ngIf="!matchableUser.vehiculed">
         <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}. vous a envoyé une demande !</h3>
       </ion-col>
+      <ion-col>
+        <h3>Se rend à :</h3>
+        <p><ion-icon name="locate"></ion-icon>
+            {{ matchableUser.trip.destinationString }}
+        </p>
+    </ion-col>
     </ion-row>
     <ion-row class="row">
       <ion-col>
