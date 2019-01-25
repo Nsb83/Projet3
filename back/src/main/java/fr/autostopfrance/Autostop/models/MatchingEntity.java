@@ -12,6 +12,7 @@ public class MatchingEntity {
     private Long id;
     private String driverPublicId;
     private String pedestrianPublicId;
+    private boolean accepted;
 
 //    @ManyToOne
 //    private Driver driver;
@@ -38,4 +39,14 @@ public class MatchingEntity {
     public void setPedestrianPublicId(String pedestrianPublicId) {
         this.pedestrianPublicId = pedestrianPublicId;
     }
+
+	public boolean isAccepted() {
+		return accepted;
+	}
+
+	public void setAccepted(boolean accepted) {
+		this.accepted = accepted;
+	}
+    
+    
 }
