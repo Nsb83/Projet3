@@ -4,6 +4,9 @@ import { Component,NgModule } from '@angular/core';
 import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatchingUserDetails } from '../../../../../../../models/MatchingUserDetails';
+import { Observable } from 'rxjs';
+import { takeWhile } from 'rxjs/operators';
+import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/PedestrianProvider';
 
 
 export interface CountdownTimer {
@@ -28,9 +31,19 @@ export class ResponseModalPage {
   private percent;
   private fixTransform;
   matchableUser: MatchingUserDetails;
+  pollingMatchingEntity: any;
+  matchingEntityChanged: boolean = false;
+  matchingEntityId: number;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer, public viewCtrl: ViewController, private events: Events) {
-    this.matchableUser = this.navParams.get('matchableUser');
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private sanitizer: DomSanitizer,
+              public viewCtrl: ViewController,
+              private events: Events,
+              private pedestrianProvider: PedestrianProvider) {
+              this.matchableUser = this.navParams.get('matchableUser');
+              this.matchingEntityId = this.navParams.get('matchingEntityId');
   }
 
 
@@ -53,7 +66,21 @@ export class ResponseModalPage {
   ngOnInit() {
     this.initTimer();
     if (this.matchableUser.vehiculed) {
-      
+      this.pollingMatchingEntity = Observable.interval(1000)
+          .pipe(takeWhile(() => !this.matchingEntityChanged))
+          .switchMap(() => this.pedestrianProvider.checkMatchingEntity(this.matchingEntityId))
+          .subscribe(
+            (data: boolean)=> {
+              this.matchingEntityChanged = data;
+              console.log("Checking for matching Entity");
+              console.log("Data:", data);
+              if (data) {
+                this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser})
+              }
+            },
+            error => {
+              console.log(error);
+            });
     }
   }
 

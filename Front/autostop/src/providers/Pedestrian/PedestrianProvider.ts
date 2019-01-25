@@ -47,4 +47,8 @@ export class PedestrianProvider {
     queryPedestrian(){
       return this.http.get(`${this.DRIVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
     }
+
+    checkMatchingEntity(matchingEntityId){
+      return this.http.get(`${environment.SERVER_URL}/getmatchingentity/${matchingEntityId}`)
+    }
 }
