@@ -29,6 +29,9 @@ import { DriverProvider } from '../../../../../providers/driver/driverProvider';
 import { MatchingUserDetails } from '../../../../../models/MatchingUserDetails';
 import { Observable } from 'rxjs';
 import { PedestrianProvider } from '../../../../../providers/Pedestrian/PedestrianProvider';
+import { ObserveOnOperator } from 'rxjs/operators/observeOn';
+import { takeWhile } from 'rxjs/operators';
+import { ResponseModalPage } from './request-modal/response-modal/response-modal';
 
 
 // @IonicPage()
@@ -54,6 +57,8 @@ export class MapPage {
   arrayPolyMatched = [];
   userChanged: boolean = false;
   pollingPedestrians: any;
+  requestingDrivers: MatchingUserDetails[];
+  modalShowed: boolean = false;
 
   option: MyLocationOptions = {
     // true use GPS as much as possible (lot battery)
@@ -93,12 +98,21 @@ export class MapPage {
                   });
                 }
               });
+
+              events.subscribe('request:declined', () => {
+                this.modalShowed = false;
+                this.sendTrip();
+              });
             }
 
   ngOnInit(){
     this.userProvider.getUser().subscribe(response => {
       this.user = response;
     });
+  }
+
+  ngOnDestroy() {
+    this.pollingPedestrians.unsubscribe();
   }
 
   // Load map only after view is initialized
@@ -264,18 +278,24 @@ export class MapPage {
           ]
         });
         alert.present();
-        this.pollingPedestrians = Observable.interval(5000)
+        this.modalShowed = false;
+        this.pollingPedestrians = Observable.interval(7500)
+          .pipe(takeWhile(() => !this.modalShowed))
           .switchMap(() => this.pedestrianProvider.queryPedestrian())
           .subscribe(
-            data => {
-              console.log(data);// see console you get output every 5 sec
+            (data: MatchingUserDetails[])=> {
+              this.requestingDrivers = data;
+              if (this.requestingDrivers.length) {
+                this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${this.requestingDrivers[0].firstName} ${this.requestingDrivers[0].lastName[0]}. !`, 7000);
+                this.showMatchModal(this.requestingDrivers[0]);
+                this.modalShowed = true;
+              }
             },
             error => {
+              this.messageProvider.myToastMethod("Patientez...");
               console.log(error);
-              ;
-            }
-            );
-      }
+            });
+        }
 
       else {
         let alert = this.alrtCtrl.create({
@@ -317,8 +337,12 @@ export class MapPage {
 
   // Show modal for matching request
   showMatchModal(matchUser) {
-    const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
-    matchModal.present();
+    if(!this.user.isVehiculed()) {
+      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
+      matchModal.present();
+    } else {
+      this.navCtrl.push(ResponseModalPage, { matchableUser: matchUser });
+    }
   }
 
 

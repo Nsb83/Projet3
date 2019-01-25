@@ -1,10 +1,11 @@
 import { ResponseModalPage } from './response-modal/response-modal';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { PedestrianProvider } from '../../../../../../providers/Pedestrian/PedestrianProvider';
 import { MatchingEntity } from '../../../../../../models/MatchingEntity';
 import { UserProvider } from '../../../../../../providers/user/userProvider';
 import { MatchingUserDetails } from '../../../../../../models/MatchingUserDetails';
+import { LinkingPage } from './response-modal/linking/linking';
 
 @Component({
   selector: 'page-request-modal',
@@ -14,14 +15,14 @@ export class RequestModalPage {
   matchableUser: MatchingUserDetails;
 
   // test variables
-  testTrip: string = "Chemin de la Plaine, Thurins";
   testRating: number = 4;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               private pedestrianProvider: PedestrianProvider,
-              private userProvider: UserProvider) {
+              private userProvider: UserProvider,
+              private events: Events) {
 
     this.matchableUser = this.navParams.get('matchUser');
   }

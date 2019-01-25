@@ -3,17 +3,17 @@ import { Pedestrian } from "./Pedestrian";
 import { Trip } from "./Trip";
 
 export class MatchingUserDetails {
-    public publicId: string;
-    private lastName: string;
-    private firstName: string;
-    private phone: string;
-    private sex: string;
-    private dateOfBirth: string;
-    private vehiculed: boolean;
-    private uploadPicture: any;
-    private driver: Driver;
-    private pedestrian: Pedestrian;
-    public trip: Trip;
+    publicId: string;
+    lastName: string;
+    firstName: string;
+    phone: string;
+    sex: string;
+    dateOfBirth: string;
+    vehiculed: boolean;
+    uploadPicture: any;
+    driver: Driver;
+    pedestrian: Pedestrian;
+    trip: Trip;
 
     constructor(
         lastName?: string,
