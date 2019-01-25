@@ -41,7 +41,7 @@ export class PedestrianProvider {
     }
 
     sendRequest(matchingEntity) {
-      return this.http.put(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, matchingEntity, httpOptions);
+      return this.http.post(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, matchingEntity, httpOptions);
     }
 
     queryPedestrian(){

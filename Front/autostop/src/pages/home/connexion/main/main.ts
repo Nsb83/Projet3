@@ -101,6 +101,7 @@ export class MainPage {
   }
 
   SignOut() {
+    this.events.publish('user:logout');
     this.token.signOut();
     this.messageService.myToastMethod("Au revoir ! Vous êtes désormais déconnecté")
     this.navCtrl.setRoot(HomePage);

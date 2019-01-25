@@ -44,7 +44,7 @@ public class PedestrianService {
         MatchingEntity _matchingEntity = new MatchingEntity(
                 matchingEntity.getDriverPublicId(),
                 matchingEntity.getPedestrianPublicId()
-        );
+    			);
 
         matchingDAO.save(_matchingEntity);
 //        matchingEntities.addLast(_matchingEntity);

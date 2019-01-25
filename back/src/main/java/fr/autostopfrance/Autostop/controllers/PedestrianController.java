@@ -2,9 +2,11 @@ package fr.autostopfrance.Autostop.controllers;
 
 import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.Pedestrian;
+import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.PedestrianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,8 +22,8 @@ public class PedestrianController {
         pedestrianService.addOrUpdatePedestrian(publicId, pedestrian);
     }
 
-    @PutMapping(path = "/matchingDriver/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public void registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
-        pedestrianService.registerMatchingDriver(publicId, matchingEntity);
+    @PostMapping(path = "/matchingDriver/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
+        return pedestrianService.registerMatchingDriver(publicId, matchingEntity);
     }
 }

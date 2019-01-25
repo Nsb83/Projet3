@@ -2,6 +2,7 @@ export class MatchingEntity {
 
     private driverPublicId: String;
     private pedestrianPublicId: String;
+    accepted: boolean;
 
     constructor(driverPublicId: String, pedestrianPublicId: String){
         this.driverPublicId = driverPublicId;
