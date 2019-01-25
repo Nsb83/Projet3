@@ -47,6 +47,14 @@ public class MatchingEntity {
 	public void setAccepted(boolean accepted) {
 		this.accepted = accepted;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
     
     
 }

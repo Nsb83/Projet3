@@ -99,6 +99,10 @@ export class MapPage {
                 }
               });
 
+              events.subscribe('user:logout'), () => {
+                this.modalShowed = true;
+              }
+
               events.subscribe('request:declined', () => {
                 // this.modalShowed = false;
                 // this.sendTrip();
