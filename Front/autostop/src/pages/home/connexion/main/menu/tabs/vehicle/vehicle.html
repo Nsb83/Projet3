@@ -1,5 +1,8 @@
 
-<ion-content *ngIf="driver" padding class="container">
+<ion-content  padding class="container">
+    <!-- <div *ngIf="driver.imgCarUrl"> -->
+        <img padding id="carImage" [src]="driver.imgCarUrl">
+      <!-- </div> -->
   <form [formGroup]="register">
 
     <ion-item>

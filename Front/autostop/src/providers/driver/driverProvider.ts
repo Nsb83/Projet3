@@ -29,8 +29,17 @@ export class DriverProvider {
     ) {}
 
   getDriver():Observable<Driver> {
-    return this.http
-      .get<Driver>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`);
+    const driver: Driver = new Driver();
+    this.http
+      .get<User>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`).subscribe((response: any) => {
+        driver.setLicensePlate(response.driver.licensePlate);
+        driver.setBrand(response.driver.brand);
+        driver.setModel(response.driver.model);
+        driver.setColor(response.driver.color);
+        driver.setImgCarUrl(response.driver.uploadPicture.fileDownloadUri);
+      });
+      
+      return Observable.of(driver);
   };
 
   updateDriver(driver: Driver){

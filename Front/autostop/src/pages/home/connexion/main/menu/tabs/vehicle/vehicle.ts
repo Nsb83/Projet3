@@ -14,6 +14,7 @@ import { MessageProvider } from '../../../../../../../providers/Messages/Message
 import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
 import { HttpErrorResponse } from '@angular/common/http';
+import { User } from '../../../../../../../models/User';
 
 @Component({
   selector: 'page-vehicle',
@@ -30,6 +31,7 @@ export class VehiclePage implements OnInit{
   currentFileUpload: File;
   selectedFiles: FileList;
   driver:Driver;
+  user: User;
 
   constructor(public modal: ModalController,
               public navCtrl: NavController,
@@ -45,23 +47,27 @@ export class VehiclePage implements OnInit{
   userId = this.userService.getUserId();
 
   ngOnInit() {
-    this.initForm();
-    this.driverProvider.getDriver().subscribe((response: any) => {
-      this.driver = response.driver;
-      if (this.driver.color == null || this.driver.color == undefined) {
-      } else {
-        this.color = this.driver.color;
-      }
-      this.color = this.driver.color;
-      if (response.uploadPicture.fileDownloadUri !== null){
-        this.driver.ImgCarUrl = response.driver.uploadPicture.fileDownloadUri;
-      } else {
-        this.driver.ImgCarUrl = './assets/imgs/clio4.jpeg';
-      }
+    this.initForm()
+   
+    this.driverProvider.getDriver().subscribe(response => { 
+      this.driver = response
+      // this.driver = response.driver;
+      // this.color = this.driver.color,console.log("DriverProvider" + this.driver)
+      // if (this.driver.color == null || this.driver.color == undefined) {
+      // } else {
+      //   this.color = this.driver.color;
+      // }
+      // if (response.uploadPicture.fileDownloadUri !== null){
+      //   this.driver.ImgCarUrl = response.driver.uploadPicture.fileDownloadUri;
+      // } else {
+      //   this.driver.ImgCarUrl = './assets/imgs/clio4.jpeg';
+      // }
+     
+     
+      
     });
+    
   }
-
-
 
   initForm() {
     this.register = this.formBuilder.group(

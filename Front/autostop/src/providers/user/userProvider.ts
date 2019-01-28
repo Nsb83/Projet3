@@ -40,6 +40,7 @@ export class UserProvider {
     const user: User = new User();
     this.http
       .get<User>(`${environment.SERVER_URL}/users/find/${this.getUserId()}`).subscribe((response: any) => {
+        
         user.setPublicId(response.publicId);
         user.setLastName(response.lastName);
         user.setFirstName(response.firstName);
@@ -57,7 +58,9 @@ export class UserProvider {
         user.setDriver(response.driver);
         user.setPedestrian(response.pedestrian);
         user.setTrip(response.trip);
+        
       });
+      console.log("UserProvider" + user)
     return Observable.of(user);
   };
 

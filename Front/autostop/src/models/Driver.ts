@@ -55,7 +55,7 @@ public getImgCarUrl(): string {
     return this.imgCarUrl;
 }
 
-public set ImgCarUrl(imgCarUrl: string) {
+public setImgCarUrl(imgCarUrl: string) {
     this.imgCarUrl = imgCarUrl;
 }
 }
