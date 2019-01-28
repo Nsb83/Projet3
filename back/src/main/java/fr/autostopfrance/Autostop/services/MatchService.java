@@ -15,6 +15,7 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
+import com.google.maps.model.TravelMode;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
 import fr.autostopfrance.Autostop.models.MatchingEntity;
@@ -75,8 +76,9 @@ public class MatchService {
 		long distance = -1;
 		
 		DistanceMatrix results;
+		
 		try {
-			results = DistanceMatrixApi.getDistanceMatrix(context, origins, destinations).await();
+			results = DistanceMatrixApi.getDistanceMatrix(context, origins, destinations).mode(TravelMode.WALKING).await();
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			System.out.println(gson.toJson(results));
 			distance = results.rows[0].elements[0].distance.inMeters;
