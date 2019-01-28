@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
+import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
+import fr.autostopfrance.Autostop.services.MatchService;
 import fr.autostopfrance.Autostop.services.PedestrianService;
 import fr.autostopfrance.Autostop.services.UserService;
 
@@ -35,6 +37,9 @@ public class MatchController {
 	
 	@Autowired
 	PedestrianService pedestrianService;
+	
+	@Autowired
+	MatchService matchService;
 	
 	@GetMapping (path = "/getmatchingdrivers/{publicId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<MatchingUserDetails> getMatchingDriversAround(@PathVariable("publicId") String publicId) {
@@ -71,18 +76,17 @@ public class MatchController {
 		    												));
 		    }
 		}
-		
-		System.out.println("pedestrianStartLatLng: " + pedestrianStartLatLng.toString());
 
-		System.out.println("pedestrianLastLatLng: " + pedestrianLastLatLng.toString());
-
-		System.out.println("searchRadius: " + searchRadius);
-		
 		return matchingDrivers;
 	}	
 	
 	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
-		return pedestrianService.getMatchingEntityStatus(id);
+		return matchService.getMatchingEntityStatus(id);
 	}
+	
+	@PostMapping(path = "/createMatchingEntity/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
+        return matchService.registerMatchingDriver(publicId, matchingEntity);
+    }
 }

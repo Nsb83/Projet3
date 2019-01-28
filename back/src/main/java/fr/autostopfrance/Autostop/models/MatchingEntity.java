@@ -14,9 +14,6 @@ public class MatchingEntity {
     private String pedestrianPublicId;
     private boolean accepted;
 
-//    @ManyToOne
-//    private Driver driver;
-
     public MatchingEntity() {}
 
     public MatchingEntity(String driverPublicId, String pedestrianPublicId) {
@@ -55,6 +52,14 @@ public class MatchingEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-    
-    
+
+    @Override
+    public String toString() {
+        return "MatchingEntity{" +
+                "id=" + id +
+                ", driverPublicId='" + driverPublicId + '\'' +
+                ", pedestrianPublicId='" + pedestrianPublicId + '\'' +
+                ", accepted=" + accepted +
+                '}';
+    }
 }

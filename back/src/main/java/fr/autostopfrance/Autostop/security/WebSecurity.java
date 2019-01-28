@@ -22,12 +22,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final DriverService driverService;
 
     public WebSecurity (UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder, DriverService driverService) {
         this.userService = userService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.driverService = driverService;
     }
 
     @Override

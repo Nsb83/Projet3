@@ -6,6 +6,7 @@ import { MatchingUserDetails } from '../../../../../../../models/MatchingUserDet
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/PedestrianProvider';
+import { MatchProvider } from '../../../../../../../providers/match/matchProvider';
 
 
 export interface CountdownTimer {
@@ -40,7 +41,7 @@ export class ResponseModalPage {
               private sanitizer: DomSanitizer,
               public viewCtrl: ViewController,
               private events: Events,
-              private pedestrianProvider: PedestrianProvider) {
+              private matchProvider: MatchProvider) {
               this.matchableUser = this.navParams.get('matchableUser');
               this.matchingEntityId = this.navParams.get('matchingEntityId');
   }
@@ -55,7 +56,7 @@ export class ResponseModalPage {
     if (this.matchableUser.vehiculed) {
       this.pollingMatchingEntity = Observable.interval(1000)
           .pipe(takeWhile(() => !this.matchingEntityChanged))
-          .switchMap(() => this.pedestrianProvider.checkMatchingEntity(this.matchingEntityId))
+          .switchMap(() => this.matchProvider.checkMatchingEntity(this.matchingEntityId))
           .subscribe(
             (data: boolean)=> {
               this.matchingEntityChanged = data;

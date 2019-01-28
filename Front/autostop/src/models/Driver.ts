@@ -1,20 +1,22 @@
 export class Driver {
     private licensePlate: string;
     private brand: string;
-    private model: string;
-    private color: string;
+    public model: string;
+    public color: string;
     private imgCarUrl: string;
 
   constructor(
     licensePlate?: string,
     brand?: string,
     model?: string,
-    color?: string)
+    color?: string,
+    imgCarUrl?: string)
   {
     this.licensePlate = licensePlate;
     this.brand = brand;
     this.model = model;
     this.color = color;
+    this.imgCarUrl = imgCarUrl;
   }
 
   public getLicensePlate(): string {
@@ -53,7 +55,7 @@ export class Driver {
       return this.imgCarUrl;
   }
 
-  public setImgCarUrl(imgCarUrl: string): void {
-      this.imgCarUrl = imgCarUrl;
-  }
+public set ImgCarUrl(imgCarUrl: string) {
+    this.imgCarUrl = imgCarUrl;
+}
 }

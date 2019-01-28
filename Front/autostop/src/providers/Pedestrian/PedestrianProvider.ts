@@ -5,13 +5,6 @@ import { environment } from "../Utils/environment";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { UserProvider } from "../user/userProvider";
 
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  })
-};
-
 @Injectable()
 export class PedestrianProvider {
     private PEDESTRIAN_URL = environment.SERVER_URL + "/pedestrian";
@@ -38,15 +31,8 @@ export class PedestrianProvider {
         .put<Pedestrian>(`${this.PEDESTRIAN_URL}/update/${this.userProvider.getUserId()}`, pedestrian);
     }
 
-    sendRequest(matchingEntity) {
-      return this.http.post(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, matchingEntity, httpOptions);
-    }
-
     queryPedestrian(){
       return this.http.get(`${this.DRIVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
     }
 
-    checkMatchingEntity(matchingEntityId){
-      return this.http.get(`${environment.SERVER_URL}/getmatchingentity/${matchingEntityId}`)
-    }
 }

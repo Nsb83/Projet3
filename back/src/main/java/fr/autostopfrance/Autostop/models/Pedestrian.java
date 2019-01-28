@@ -17,7 +17,6 @@ public class Pedestrian {
     }
 
     public Pedestrian (int passengersNumber, int searchRadius) {
-//        super();
         this.passengersNumber = passengersNumber;
         this.searchRadius = searchRadius;
 
@@ -46,5 +45,14 @@ public class Pedestrian {
 
     public void setSearchRadius(int searchRadius) {
         this.searchRadius = searchRadius;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedestrian{" +
+                "id=" + id +
+                ", passengersNumber=" + passengersNumber +
+                ", searchRadius=" + searchRadius +
+                '}';
     }
 }

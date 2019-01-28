@@ -11,6 +11,7 @@ import { User } from "../../../../models/User";
 import { UserProvider } from "../../../../providers/user/userProvider";
 import { HomePage } from "../../home";
 import { MessageProvider } from "../../../../providers/Messages/MessageProvider";
+import { TokenStorage } from "../../../../providers/auth/token.storage";
 
 @Component({
   selector: "page-main",
@@ -25,7 +26,7 @@ export class MainPage {
   user: User;
   updatedUser: User;
   main = MainPage;
-  token;
+  // token: Token;
 
   constructor(
     platform: Platform,
@@ -34,7 +35,8 @@ export class MainPage {
     public navCtrl: NavController,
     private userService: UserProvider,
     private messageService: MessageProvider,
-    public events: Events
+    public events: Events,
+    private token: TokenStorage,
   ) { }
 
   ngOnInit() {

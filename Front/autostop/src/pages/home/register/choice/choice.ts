@@ -16,7 +16,7 @@ export class ChoicePage {
 
   private main = MainPage;
   private driveInfosPage = DriverInfosPage;
-  private driverInfos: Driver;
+  private driver: Driver = new Driver();
   private user:User;
   private updatedUser:User;
 
@@ -46,9 +46,11 @@ export class ChoicePage {
       true,
       this.user.getPublicId(),
     )
-    this.driverInfos = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver = response.driver;
+    });
     this.userService.updateUser(this.updatedUser).subscribe(() => {
-      if(this.driverInfos.getModel() == null){
+      if(this.driver.model == null){
         this.navCtrl.push(this.driveInfosPage);
       }
       else {

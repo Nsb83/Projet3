@@ -25,7 +25,7 @@ export class DriverInfosPage {
 
   currentFileUpload: File;
   selectedFiles: FileList;
-  driver:Driver;
+  driver:Driver = new Driver();
 
   constructor(public modal: ModalController,
               public navCtrl: NavController,
@@ -41,7 +41,12 @@ export class DriverInfosPage {
 
   ngOnInit() {
     this.initForm();
-    this.driver = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver.setBrand(response.driver.brand);
+      this.driver.setModel(response.driver.model);
+      this.driver.setLicensePlate(response.driver.licensePlate);
+      this.driver.setColor(response.driver.color);
+    });
   }
 
 
