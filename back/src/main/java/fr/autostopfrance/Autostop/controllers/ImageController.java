@@ -37,28 +37,16 @@ public class ImageController {
     @PostMapping(path = "/uploadFile/{idUser}")
     public UploadPicture uploadUserPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
         UploadPicture profilePic = storageService.creatingFileObject(publicId, file);
-
         userService.updatePicture(publicId, profilePic);
-
         return profilePic;
     }
 
     @PostMapping("/uploadFile/drivers/{idUser}")
     public UploadPicture uploadCarPicture(@PathVariable("idUser") String publicId, @RequestParam("file") MultipartFile file) {
         UploadPicture carPic = storageService.creatingFileObject(publicId, file);
-
         driverService.postCarPicture(publicId, carPic);
-
         return carPic;
     }
-
-//    @PostMapping("/uploadMultipleFiles")
-//    public List<UploadPicture> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
-//        return Arrays.asList(files)
-//                .stream()
-//                .map(file -> uploadFile(file))
-//                .collect(Collectors.toList());
-//    }
 
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {

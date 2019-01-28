@@ -30,17 +30,13 @@ public class UserService implements UserDetailsService {
     @Autowired
     Utils utils;
 
-    public List<User> findUsers() {
-        return userDAO.findAll();
-    }
-    
     public List<User> findAllDrivers() {
         return userDAO.findByVehiculed(true);
     }
     
     public User postUser(User user) {
 
-        if(userDAO.findByEmail(user.getEmail()) != null) throw new RuntimeException("Cet email existe déjà");
+        if(userDAO.findByEmail(user.getEmail()) != null) throw new RuntimeException("This Email already exist");
 
         String publicUserId = utils.generateUserId(20);
 

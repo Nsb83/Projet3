@@ -1,6 +1,5 @@
 package fr.autostopfrance.Autostop.services;
 
-import fr.autostopfrance.Autostop.models.Driver;
 import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.Pedestrian;
 import fr.autostopfrance.Autostop.models.User;
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
 import java.util.Optional;
 
 @Service
@@ -36,11 +34,6 @@ public class PedestrianService {
 
     public MatchingEntity registerMatchingDriver (String pedestrianPublicId, MatchingEntity matchingEntity) {
         System.out.println("Updating MatchingEntity" + matchingEntity);
-//
-//        String matchingDriverId = matchingEntity.getDriverPublicId();
-//        User user = userDAO.findByPublicId(matchingDriverId);
-//        Driver driver = user.getDriver();
-//        LinkedList<MatchingEntity> matchingEntities = driver.getRequests();
 
         MatchingEntity _matchingEntity = new MatchingEntity(
                 matchingEntity.getDriverPublicId(),
@@ -48,7 +41,6 @@ public class PedestrianService {
     			);
 
         matchingDAO.save(_matchingEntity);
-//        matchingEntities.addLast(_matchingEntity);
         return _matchingEntity;
     }
     
