@@ -47,7 +47,7 @@ export class ChoicePage {
       this.user.getPublicId(),
     )
     this.driverProvider.getDriver().subscribe((response: any) => {
-      this.driver = response.driver;
+      this.driver = response;
     });
     this.userService.updateUser(this.updatedUser).subscribe(() => {
       if(this.driver.model == null){
