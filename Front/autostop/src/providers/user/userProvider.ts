@@ -60,7 +60,6 @@ export class UserProvider {
         user.setTrip(response.trip);
         
       });
-      console.log("UserProvider" + user)
     return Observable.of(user);
   };
 
