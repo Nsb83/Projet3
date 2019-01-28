@@ -33,6 +33,7 @@ import { ObserveOnOperator } from 'rxjs/operators/observeOn';
 import { takeWhile } from 'rxjs/operators';
 import { ResponseModalPage } from './request-modal/response-modal/response-modal';
 import { MatchProvider } from '../../../../../providers/match/matchProvider';
+import { MatchingEntity } from '../../../../../models/MatchingEntity';
 
 
 // @IonicPage()
@@ -58,7 +59,7 @@ export class MapPage {
   arrayPolyMatched = [];
   userChanged: boolean = false;
   pollingPedestrians: any;
-  requestingDrivers: MatchingUserDetails[];
+  requestingMatchingEntities: MatchingEntity[];
   modalShowed: boolean = false;
 
   option: MyLocationOptions = {
@@ -287,14 +288,18 @@ export class MapPage {
         this.modalShowed = false;
         this.pollingPedestrians = Observable.interval(7500)
           .pipe(takeWhile(() => !this.modalShowed))
-          .switchMap(() => this.pedestrianProvider.queryPedestrian())
+          .switchMap(() => this.matchProvider.queryPedestrian())
           .subscribe(
-            (data: MatchingUserDetails[])=> {
-              this.requestingDrivers = data;
-              if (this.requestingDrivers.length) {
-                this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${this.requestingDrivers[0].firstName} ${this.requestingDrivers[0].lastName[0]}. !`, 7000);
-                this.showMatchModal(this.requestingDrivers[0]);
-                this.modalShowed = true;
+            (data: MatchingEntity[])=> {
+              console.log(data);
+              this.requestingMatchingEntities = data;
+              if (this.requestingMatchingEntities.length) {
+                this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId())
+                  .subscribe((matchingPedestrian: MatchingUserDetails) => {
+                    this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${matchingPedestrian.firstName} ${matchingPedestrian.lastName[0]}. !`, 7000);
+                    this.showMatchModal(matchingPedestrian);
+                    this.modalShowed = true;
+                });
               }
             },
             error => {

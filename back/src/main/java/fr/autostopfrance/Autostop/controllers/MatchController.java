@@ -1,6 +1,7 @@
 package fr.autostopfrance.Autostop.controllers;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +78,6 @@ public class MatchController {
 		    												));
 		    }
 		}
-
 		return matchingDrivers;
 	}
 	
@@ -95,4 +95,9 @@ public class MatchController {
 	public MatchingEntity updateMatchingEntity(@PathVariable("matchingEntityId") Long id, @RequestBody MatchingEntity matchingEntity) {
 		return matchService.updateMatchingEntity(id, matchingEntity);
 	}
+	
+	@GetMapping(path = "/queryPedestrian/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
+    public LinkedList<MatchingEntity> findById(@PathVariable("idUser") String driverPublicId) {
+        return matchService.checkPedestrianRequest(driverPublicId);
+    }
 }

@@ -2,6 +2,7 @@ package fr.autostopfrance.Autostop.services;
 
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.UserDAO;
+import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.UploadPicture;
 import fr.autostopfrance.Autostop.utils.Utils;
 import org.springframework.beans.BeanUtils;
@@ -120,6 +121,22 @@ public class UserService implements UserDetailsService {
         if(user == null) throw new UsernameNotFoundException(email);
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
+
+	public MatchingUserDetails getMatchingUserDetails(String publicId) {
+		User user = userDAO.findByPublicId(publicId);
+		MatchingUserDetails matchingUserDetails = new MatchingUserDetails(	user.getPublicId(),
+																			user.getLastName(),
+																			user.getFirstName(),
+																			user.getPhone(),
+																			user.getSex(),
+																			user.getDateOfBirth(),
+																			user.isVehiculed(),
+																			user.getUploadPicture(),
+																			user.getDriver(),
+																			user.getTrip()
+																			);
+		return matchingUserDetails;
+	}
 
 
 }

@@ -1,27 +1,27 @@
 export class MatchingEntity {
 
-    private driverPublicId: String;
-    private pedestrianPublicId: String;
     accepted: boolean;
 
-    constructor(driverPublicId: String, pedestrianPublicId: String){
+    constructor(driverPublicId: string, pedestrianPublicId: string){
         this.driverPublicId = driverPublicId;
         this.pedestrianPublicId = pedestrianPublicId;
     }
 
-    public getDriverPublicId(){
+    public get driverPublicId(){
         return this.driverPublicId;
     }
 
-    public setDriverPublicId(driverPublicId) {
+    public set driverPublicId(driverPublicId) {
         this.driverPublicId = driverPublicId;
     }
 
-    public getPedestrianublicId() {
+    public get pedestrianPublicId() {
         return this.pedestrianPublicId;
     }
 
-    public setPedestrianPublicId(pedestrianPublicId) {
+    public set pedestrianPublicId(pedestrianPublicId) {
         this.pedestrianPublicId = pedestrianPublicId;
     }
+    
+    
 }

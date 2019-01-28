@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/User';
 import { environment } from '../Utils/environment';
 import { Observable } from 'rxjs';
+import { MatchingUserDetails } from '../../models/MatchingUserDetails';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -57,5 +58,10 @@ export class UserProvider {
   updateUser(user: User) {
     return this.http
       .put<User>(`${environment.SERVER_URL}/users/update/${this.getUserId()}`, user);
+  }
+
+  getMatchingUserDetails(publicId: string) {
+    return this.http
+      .get<MatchingUserDetails>(`${environment.SERVER_URL}/users/getMatchingUserDetails/${publicId}`);
   }
 }

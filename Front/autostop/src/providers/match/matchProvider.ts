@@ -32,4 +32,7 @@ export class MatchProvider {
       .get<MatchingUserDetails[]>(`${environment.SERVER_URL}/getmatchingdrivers/${this.userProvider.getUserId()}`);
   }
 
+  queryPedestrian(){
+    return this.http.get(`${environment.SERVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
+  }
 }
