@@ -8,6 +8,8 @@ import java.util.ListIterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -147,5 +149,11 @@ public class MatchService {
         return matchingEntities;
 
     }
+
+	public ResponseEntity<String> deleteMatchingEntity(Long id) {
+		Optional<MatchingEntity> matchingEntity = matchingDAO.findById(id);
+        matchingDAO.delete(matchingEntity.get());
+        return new ResponseEntity<>("MatchingEntity with id=" + id + " has been deleted!", HttpStatus.OK);
+	}
 	
 }

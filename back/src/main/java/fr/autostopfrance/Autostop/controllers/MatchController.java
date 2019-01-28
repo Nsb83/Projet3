@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -99,5 +101,10 @@ public class MatchController {
 	@GetMapping(path = "/queryPedestrian/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
     public LinkedList<MatchingEntity> findById(@PathVariable("idUser") String driverPublicId) {
         return matchService.checkPedestrianRequest(driverPublicId);
+    }
+	
+	@DeleteMapping(path = "/deleteMatchingEntity/{matchingEntityId}", produces = {  MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<String> deleteUser(@PathVariable("matchingEntityId") Long id){
+        return matchService.deleteMatchingEntity(id);
     }
 }
