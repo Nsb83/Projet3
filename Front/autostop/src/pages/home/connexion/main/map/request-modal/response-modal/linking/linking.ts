@@ -32,7 +32,9 @@ export class LinkingPage {
   }
 
   ngOnInit() {
-    this.driver = this.driverProvider.getDriver();
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver = response;
+    });
   }
 
   //Couleur d'étoiles dynamiques
