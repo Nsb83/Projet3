@@ -286,7 +286,7 @@ export class MapPage {
         });
         alert.present();
         this.modalShowed = false;
-        this.pollingPedestrians = Observable.interval(7500)
+        this.pollingPedestrians = Observable.interval(1000)
           .pipe(takeWhile(() => !this.modalShowed))
           .switchMap(() => this.matchProvider.queryPedestrian())
           .subscribe(
