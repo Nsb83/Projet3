@@ -1,6 +1,5 @@
 import { LinkingPage } from './linking/linking';
-import { MapPage } from './../../map';
-import { Component,NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatchingUserDetails } from '../../../../../../../models/MatchingUserDetails';
@@ -35,7 +34,7 @@ export class ResponseModalPage {
   pollingMatchingEntity: any;
   matchingEntityChanged: boolean = false;
   matchingEntityId: number;
-  
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -45,18 +44,6 @@ export class ResponseModalPage {
               private matchProvider: MatchProvider) {
               this.matchableUser = this.navParams.get('matchableUser');
               this.matchingEntityId = this.navParams.get('matchingEntityId');
-  }
-
-
-  // test variables
-  testRating: number = 4;
-
-  //Couleur d'étoiles dynamiques
-  getStar(num){
-    if (num< this.testRating){
-      return "./assets/imgs/stars/starFullSm.png";
-    }
-    else return "./assets/imgs/stars/starEmptySm.png";
   }
 
   ionViewDidLoad() {
@@ -73,14 +60,11 @@ export class ResponseModalPage {
           .subscribe(
             (data: boolean)=> {
               this.matchingEntityChanged = data;
-              console.log("Checking for matching Entity");
-              console.log("Data:", data);
               if (data) {
                 this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser})
               }
             },
             error => {
-              console.log(error);
             });
     }
   }
@@ -98,7 +82,6 @@ export class ResponseModalPage {
 
 
   hasFinished() {
-    // place here  function to launch when timer finished
     return this.timer.hasFinished;
   }
   initProgressBar() {
@@ -160,5 +143,13 @@ export class ResponseModalPage {
     secondsString = (seconds < 10) ? '0' + seconds : seconds.toString();
     return minutesString + ':' + secondsString;
   }
-  // timer code end
+
+    // //Couleur d'étoiles dynamiques
+  // getStar(num){
+  //   if (num< this.testRating){
+  //     return "./assets/imgs/stars/starFullSm.png";
+  //   }
+  //   else return "./assets/imgs/stars/starEmptySm.png";
+  // }
+
 }
