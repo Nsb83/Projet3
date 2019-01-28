@@ -195,7 +195,21 @@ public class MatchingUserDetails {
 	public void setTrip(Trip trip) {
 		this.trip = trip;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "MatchingUserDetails{" +
+				"publicId='" + publicId + '\'' +
+				", lastName='" + lastName + '\'' +
+				", firstName='" + firstName + '\'' +
+				", phone='" + phone + '\'' +
+				", sex='" + sex + '\'' +
+				", dateOfBirth=" + dateOfBirth +
+				", vehiculed=" + vehiculed +
+				", uploadPicture=" + uploadPicture +
+				", driver=" + driver +
+				", pedestrian=" + pedestrian +
+				", trip=" + trip +
+				'}';
+	}
 }

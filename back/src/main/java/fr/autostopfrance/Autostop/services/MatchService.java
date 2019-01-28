@@ -2,7 +2,6 @@ package fr.autostopfrance.Autostop.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -73,13 +72,10 @@ public class MatchService {
 			System.out.println(gson.toJson(results));
 			distance = results.rows[0].elements[0].distance.inMeters;
 		} catch (ApiException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

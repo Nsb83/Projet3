@@ -32,9 +32,6 @@ public class TripService {
 		currentUser.getTrip().setDestinationString(trip.getDestinationString());
 		currentUser.getTrip().setDestinationLatLng(trip.getDestinationLatLng());
 		currentUser.getTrip().setItinerary(trip.getItinerary());
-
-//		
-//		System.out.println(gson.toJson(currentUser));
 		
 		userDAO.save(currentUser);
 		return new ResponseEntity<>(currentUser, HttpStatus.OK);

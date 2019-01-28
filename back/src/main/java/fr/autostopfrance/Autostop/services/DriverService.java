@@ -9,10 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-import java.util.Set;
 
 @Service
 public class DriverService {
@@ -27,7 +25,6 @@ public class DriverService {
         System.out.println("Updating Driver " + publicId);
         User currentUser = userDAO.findByPublicId(publicId);
 
-//        User currentUser = currentUserOptional.get();
         currentUser.getDriver().setBrand(driver.getBrand());
         currentUser.getDriver().setModel(driver.getModel());
         currentUser.getDriver().setColor(driver.getColor());
@@ -39,13 +36,10 @@ public class DriverService {
 
     public ResponseEntity<User> postCarPicture (String publicId, UploadPicture uploadPicture) {
         User currentUser = userDAO.findByPublicId(publicId);
-//        User currentUser = new User();
         if (currentUser != null) {
-//            currentUser = currentUserOptional.get();
             Driver driver = currentUser.getDriver();
             UploadPicture fileResponse = driver.getUploadPicture();
 
-            System.out.println(fileResponse);
             fileResponse.setFileName(uploadPicture.getFileName());
             fileResponse.setFileDownloadUri(uploadPicture.getFileDownloadUri());
             fileResponse.setFileType(uploadPicture.getFileType());

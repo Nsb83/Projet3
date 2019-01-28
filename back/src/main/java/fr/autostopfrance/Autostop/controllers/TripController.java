@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.autostopfrance.Autostop.models.Driver;
 import fr.autostopfrance.Autostop.models.Trip;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.TripService;

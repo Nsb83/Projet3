@@ -1,6 +1,5 @@
 package fr.autostopfrance.Autostop.models;
 
-// import java.util.LinkedList;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -8,9 +7,7 @@ import java.util.LinkedList;
 
 @Entity
 @Table(name="driver")
-public class Driver
-//        extends Profile
-{
+public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,18 +24,14 @@ public class Driver
     @OneToOne(cascade = CascadeType.ALL)
     private UploadPicture uploadPicture;
 
-
     private LinkedList<MatchingEntity> requests;
 
-    
-    // private LinkedList<Trip> tripList;
 
     public Driver () {
         this.uploadPicture = new UploadPicture();
     }
 
     public Driver(String licensePlate, String brand, String model, String color, UploadPicture uploadPicture){
-        // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -47,7 +40,6 @@ public class Driver
     }
 
     public Driver(String licensePlate, String brand, String model, String color, LinkedList<MatchingEntity> requests){
-        // super();
         this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
@@ -116,7 +108,14 @@ public class Driver
 
     @Override
     public String toString() {
-        return "Driver{" + licensePlate + brand + model + color + '}';
+        return "Driver{" +
+                "id=" + id +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", uploadPicture=" + uploadPicture +
+                ", requests=" + requests +
+                '}';
     }
-
 }

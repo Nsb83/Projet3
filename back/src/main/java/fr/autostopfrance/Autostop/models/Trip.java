@@ -2,7 +2,6 @@ package fr.autostopfrance.Autostop.models;
 
 import javax.persistence.*;
 
-import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
 import java.util.ArrayList;

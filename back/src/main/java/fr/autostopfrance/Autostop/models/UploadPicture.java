@@ -1,7 +1,5 @@
 package fr.autostopfrance.Autostop.models;
 
-import fr.autostopfrance.Autostop.models.User;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,14 +12,6 @@ public class UploadPicture {
         private String fileDownloadUri;
         private String fileType;
         private long size;
-
-//        @OneToOne
-//        @JoinColumn(name = "userId", referencedColumnName = "id")
-//        private User user;
-
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
 
         public UploadPicture(){}
 
@@ -66,5 +56,16 @@ public class UploadPicture {
 
     public void setSize(long size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "UploadPicture{" +
+                "id=" + id +
+                ", fileName='" + fileName + '\'' +
+                ", fileDownloadUri='" + fileDownloadUri + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", size=" + size +
+                '}';
     }
 }
