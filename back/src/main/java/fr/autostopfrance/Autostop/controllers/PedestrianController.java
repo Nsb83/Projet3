@@ -21,9 +21,4 @@ public class PedestrianController {
     public void addOrUpdatePedestrian(@PathVariable("idUser") String publicId, @RequestBody Pedestrian pedestrian){
         pedestrianService.addOrUpdatePedestrian(publicId, pedestrian);
     }
-
-    @PostMapping(path = "/matchingDriver/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
-        return pedestrianService.registerMatchingDriver(publicId, matchingEntity);
-    }
 }

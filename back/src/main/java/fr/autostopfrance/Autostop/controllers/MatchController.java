@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.maps.model.EncodedPolyline;
 import com.google.maps.model.LatLng;
 
+import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
@@ -85,4 +87,9 @@ public class MatchController {
 	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
 		return pedestrianService.getMatchingEntityStatus(id);
 	}
+	
+	@PostMapping(path = "/createMatchingEntity/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
+        return pedestrianService.registerMatchingDriver(publicId, matchingEntity);
+    }
 }
