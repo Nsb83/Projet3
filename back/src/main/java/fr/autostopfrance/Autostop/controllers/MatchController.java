@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,7 +79,7 @@ public class MatchController {
 		}
 
 		return matchingDrivers;
-	}	
+	}
 	
 	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
@@ -89,4 +90,9 @@ public class MatchController {
     public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
         return matchService.registerMatchingDriver(publicId, matchingEntity);
     }
+	
+	@PutMapping(path="/updateMatchingEntity/{matchingEntityId}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public MatchingEntity updateMatchingEntity(@PathVariable("matchingEntityId") Long id, @RequestBody MatchingEntity matchingEntity) {
+		return matchService.updateMatchingEntity(id, matchingEntity);
+	}
 }

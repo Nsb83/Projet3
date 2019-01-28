@@ -121,5 +121,18 @@ public class MatchService {
     	
     	return _matchingEntity.isAccepted();
     }
+
+	public MatchingEntity updateMatchingEntity(Long id, MatchingEntity matchingEntity) {
+		
+		Optional<MatchingEntity> optionalMatchingEntity = matchingDAO.findById(id);
+		
+		MatchingEntity _matchingEntity = optionalMatchingEntity.get();
+		
+		_matchingEntity.setAccepted(matchingEntity.isAccepted());
+		
+		matchingDAO.save(_matchingEntity);
+		
+		return _matchingEntity;
+	}
 	
 }
