@@ -9,12 +9,14 @@ export class Driver {
     licensePlate?: string,
     brand?: string,
     model?: string,
-    color?: string)
+    color?: string,
+    imgCarUrl?: string)
   {
     this.licensePlate = licensePlate;
     this.brand = brand;
     this.model = model;
     this.color = color;
+    this.imgCarUrl = imgCarUrl;
   }
 
 public getLicensePlate(): string {
