@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../Utils/environment';
 import { UserProvider } from '../user/userProvider';
 import { MatchingUserDetails } from '../../models/MatchingUserDetails';
+import { MatchingEntity } from '../../models/MatchingEntity';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,12 +28,16 @@ export class MatchProvider {
     return this.http.get(`${environment.SERVER_URL}/getmatchingentity/${matchingEntityId}`)
   }
 
+  updateMatchingEntity(matchingEntity: any) {
+    return this.http.put(`${environment.SERVER_URL}/updateMatchingEntity/${matchingEntity.id}`, matchingEntity);
+  }
+
   getMatchingDriversAround() {
     return this.http
       .get<MatchingUserDetails[]>(`${environment.SERVER_URL}/getmatchingdrivers/${this.userProvider.getUserId()}`);
   }
 
-  queryPedestrian(){
+  queryPedestrian() {
     return this.http.get(`${environment.SERVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
   }
 }

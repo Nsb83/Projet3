@@ -1,5 +1,7 @@
 export class MatchingEntity {
 
+    driverPublicId: string;
+    pedestrianPublicId: string;
     accepted: boolean;
 
     constructor(driverPublicId: string, pedestrianPublicId: string){
@@ -7,21 +9,20 @@ export class MatchingEntity {
         this.pedestrianPublicId = pedestrianPublicId;
     }
 
-    public get driverPublicId(){
+    public getDriverPublicId(){
         return this.driverPublicId;
     }
 
-    public set driverPublicId(driverPublicId) {
+    public setDriverPublicId(driverPublicId) {
         this.driverPublicId = driverPublicId;
     }
 
-    public get pedestrianPublicId() {
+    public getPedestrianPublicId() {
         return this.pedestrianPublicId;
     }
 
-    public set pedestrianPublicId(pedestrianPublicId) {
+    public setPedestrianPublicId(pedestrianPublicId) {
         this.pedestrianPublicId = pedestrianPublicId;
     }
-    
     
 }

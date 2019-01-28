@@ -33,11 +33,10 @@ export class RequestModalPage {
   sendRequest(){
     let matchingEntity = new MatchingEntity(this.matchableUser.publicId, this.userProvider.getUserId())
     this.matchProvider.sendRequest(matchingEntity).subscribe((data: any) => {
-      this.matchingEntityId = data.id;
       this.viewCtrl.dismiss();
       this.navCtrl.push(ResponseModalPage, {
                                             matchableUser : this.matchableUser,
-                                            matchingEntityId : this.matchingEntityId
+                                            matchingEntity : data
                                           });
     });
   }

@@ -294,10 +294,10 @@ export class MapPage {
               console.log(data);
               this.requestingMatchingEntities = data;
               if (this.requestingMatchingEntities.length) {
-                this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId())
+                this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId)
                   .subscribe((matchingPedestrian: MatchingUserDetails) => {
                     this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${matchingPedestrian.firstName} ${matchingPedestrian.lastName[0]}. !`, 7000);
-                    this.showMatchModal(matchingPedestrian);
+                    this.showMatchModal(matchingPedestrian, this.requestingMatchingEntities[0]);
                     this.modalShowed = true;
                 });
               }
@@ -347,13 +347,11 @@ export class MapPage {
   }
 
   // Show modal for matching request
-  showMatchModal(matchUser) {
-    if(!this.user.isVehiculed()) {
-      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
-      matchModal.present();
-    } else {
-      this.navCtrl.push(ResponseModalPage, { matchableUser: matchUser });
-    }
+  showMatchModal(matchUser, matchingEntity) {
+    this.navCtrl.push(ResponseModalPage, {
+                                          matchableUser : matchUser,
+                                          matchingEntity : matchingEntity
+    });
   }
 
 
@@ -390,7 +388,8 @@ export class MapPage {
     })
 
     this.polyMatch.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      this.showMatchModal(driverInfos);
+      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser: driverInfos });
+      matchModal.present();
     });
 
     this.map.moveCamera({
