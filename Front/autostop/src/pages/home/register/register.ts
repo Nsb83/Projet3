@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { User } from "../../../models/User";
-import { ChoicePage } from "./choice/choice";
 import { UserProvider } from "../../../providers/user/userProvider";
 import { ConnexionPage } from "../connexion/connexion";
-import { HttpResponse, HttpEventType, HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 import { MessageProvider } from "../../../providers/Messages/MessageProvider";
 
 @Component({
@@ -21,7 +20,6 @@ export class RegisterPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    private alertCtrl: AlertController,
     private userService: UserProvider,
     private messageService: MessageProvider
   ) {}
@@ -73,7 +71,6 @@ export class RegisterPage implements OnInit {
       this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`)
       this.navCtrl.push(ConnexionPage);
     }, (error: HttpErrorResponse) => {
-      console.log('Error: ', error);
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
     }
     );

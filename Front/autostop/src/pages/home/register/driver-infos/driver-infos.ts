@@ -1,7 +1,6 @@
 import { MainPage } from './../../connexion/main/main';
 import { ImageProvider } from './../../../../providers/Image/imageProvider';
 import { DriverProvider } from './../../../../providers/driver/driverProvider';
-import { AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Driver } from './../../../../models/Driver';
@@ -32,7 +31,6 @@ export class DriverInfosPage {
               public navCtrl: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
-              private alertCtrl: AlertController,
               private driverProvider: DriverProvider,
               private messageService: MessageProvider,
               private token: TokenStorage,
@@ -58,7 +56,6 @@ export class DriverInfosPage {
         imgCar: ["", Validators.required],
 
       },
-      // { validator: this.passwordControl("password", "passwordConfirmation") }
     );
   }
 
@@ -69,7 +66,6 @@ export class DriverInfosPage {
       register.model,
       this.color,
     );
-    // this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
     this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{
       this.messageService.myToastMethod("Votre profil a bien été actualisé")
     }, (error: HttpErrorResponse) => {
@@ -81,8 +77,6 @@ export class DriverInfosPage {
 
 
   }
-
-  ionViewDidLoad() {}
 
   prepareColorSelector() {
 		setTimeout(() => {
@@ -106,39 +100,32 @@ export class DriverInfosPage {
 		}, 100);
 	}
 
-	isHexColor(color) {
-		let hexColorRegEx = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
-		return hexColorRegEx.test(color);
-	}
+  isHexColor(color) {
+    let hexColorRegEx = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+    return hexColorRegEx.test(color);
+  }
 
-	selectColor(color) {
-		let buttonElements = document.querySelectorAll('div.alert-radio-group button.colorselect');
-		for (let index = 0; index < buttonElements.length; index++) {
-			let buttonElement = buttonElements[index];
-			buttonElement.classList.remove('colorselected');
-			if (buttonElement.classList.contains('color_' + color.slice(1, 7))) {
-				buttonElement.classList.add('colorselected');
-			}
-		}
-	}
-
-	setColor(color) {
-		console.log('Selected Color is', color);
-	}
-
-    //For uploading image during dev
-    selectFile(event) {
-      this.selectedFiles = event.target.files;
+  selectColor(color) {
+    let buttonElements = document.querySelectorAll('div.alert-radio-group button.colorselect');
+    for (let index = 0; index < buttonElements.length; index++) {
+      let buttonElement = buttonElements[index];
+      buttonElement.classList.remove('colorselected');
+      if (buttonElement.classList.contains('color_' + color.slice(1, 7))) {
+        buttonElement.classList.add('colorselected');
+      }
     }
-    onUpload() {
-      this.currentFileUpload = this.selectedFiles.item(0);
-      this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
-          console.log('File is completely uploaded!');
-        }, (error: HttpErrorResponse) => {
-          console.log('Error: ', error);
-          this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
-        }
-          )
-      this.currentFileUpload = undefined;
-    }
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  onUpload() {
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+      }, (error: HttpErrorResponse) => {
+        this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+      });
+    this.currentFileUpload = undefined;
+  }
 }

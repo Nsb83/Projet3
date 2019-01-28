@@ -2,7 +2,7 @@ import { Driver } from './../../../../models/Driver';
 import { DriverProvider } from './../../../../providers/driver/driverProvider';
 import { MessageProvider } from './../../../../providers/Messages/MessageProvider';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { MainPage } from '../../connexion/main/main';
 import { UserProvider } from '../../../../providers/user/userProvider';
 import { DriverInfosPage } from '../driver-infos/driver-infos';
@@ -24,7 +24,6 @@ export class ChoicePage {
               public navParams: NavParams,
               private userService: UserProvider,
               private driverProvider: DriverProvider,
-              private alertCtrl: AlertController,
               private messageService: MessageProvider
               ) {
   }
@@ -49,7 +48,6 @@ export class ChoicePage {
     )
     this.driverInfos = this.driverProvider.getDriver();
     this.userService.updateUser(this.updatedUser).subscribe(() => {
-      console.log(this.updatedUser)
       if(this.driverInfos.getModel() == null){
         this.navCtrl.push(this.driveInfosPage);
       }

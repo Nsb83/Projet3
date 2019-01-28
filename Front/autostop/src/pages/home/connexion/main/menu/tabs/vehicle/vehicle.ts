@@ -1,9 +1,6 @@
-import { MainPage } from './../../../main';
-import { ChoicePage } from './../../../../../register/choice/choice';
 import { DriverProvider } from '../../../../../../../providers/driver/driverProvider';
 import { Driver } from './../../../../../../../models/Driver';
 import { Validators } from '@angular/forms';
-import { AlertController } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { OnInit } from '@angular/core';
@@ -11,7 +8,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
-import { TokenStorage } from '../../../../../../../providers/auth/token.storage';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -24,8 +20,6 @@ export class VehiclePage implements OnInit{
 	color: string = '#d435a2';
   private driverInfos: Driver;
   private register: FormGroup;
-  private main = MainPage;
-  private tokenId;
 
   currentFileUpload: File;
   selectedFiles: FileList;
@@ -35,10 +29,8 @@ export class VehiclePage implements OnInit{
               public navCtrl: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
-              private alertCtrl: AlertController,
               private driverProvider: DriverProvider,
               private messageService: MessageProvider,
-              private token: TokenStorage,
               private imageProvider: ImageProvider,
               private userService: UserProvider) { }
 
@@ -61,7 +53,6 @@ export class VehiclePage implements OnInit{
         imgCar: ["", Validators.required],
 
       },
-      // { validator: this.passwordControl("password", "passwordConfirmation") }
     );
   }
 
@@ -72,20 +63,14 @@ export class VehiclePage implements OnInit{
       register.model,
       this.color,
     );
-    // this.messageService.myAlertMethod("Bienvenue !", "Vous êtes désormais connecté en tant que conducteur. Recherchez votre trajet et prennez du monde sur votre trajet.", false);
-    this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{ 
+    this.driverProvider.updateDriver(this.driverInfos).subscribe(()=>{
       this.messageService.myToastMethod("Votre profil a bien été actualisé")
-    }, (error: HttpErrorResponse) => {
-      console.log('Error: ', error);
+      }, (error: HttpErrorResponse) => {
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
-    }
-      );
-    // this.navCtrl.push(this.main);
+    });
 
 
   }
-
-  ionViewDidLoad() {}
 
   prepareColorSelector() {
 		setTimeout(() => {
@@ -125,23 +110,17 @@ export class VehiclePage implements OnInit{
 		}
 	}
 
-	setColor(color) {
-		console.log('Selected Color is', color);
-	}
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
 
-    //For uploading image during dev
-    selectFile(event) {
-      this.selectedFiles = event.target.files;
-    }
-    onUpload() {
-      this.currentFileUpload = this.selectedFiles.item(0);
-      this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
-          console.log('File is completely uploaded!');
-        }, (error: HttpErrorResponse) => {
-          console.log('Error: ', error);
-          this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
-        }
-          )
-      this.currentFileUpload = undefined;
-    }
+  onUpload() {
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+      }, (error: HttpErrorResponse) => {
+        this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+      }
+        )
+    this.currentFileUpload = undefined;
+  }
 }
