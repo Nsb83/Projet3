@@ -21,10 +21,4 @@ public class DriverController {
     public void addOrUpdateDriver(@PathVariable("idUser") String publicId, @RequestBody Driver driver){
         driverService.addOrUpdateDriver(publicId, driver);
     }
-
-    @GetMapping(path = "/queryPedestrian/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
-    public LinkedList<MatchingUserDetails> findById(@PathVariable("idUser") String driverPublicId) {
-        return driverService.checkPedestrianRequest(driverPublicId);
-    }
-
 }

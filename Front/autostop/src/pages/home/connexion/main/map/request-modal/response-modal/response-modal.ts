@@ -33,7 +33,7 @@ export class ResponseModalPage {
   matchableUser: MatchingUserDetails;
   pollingMatchingEntity: any;
   matchingEntityChanged: boolean = false;
-  matchingEntityId: number;
+  matchingEntity: any;
 
 
   constructor(public navCtrl: NavController,
@@ -43,7 +43,7 @@ export class ResponseModalPage {
               private events: Events,
               private matchProvider: MatchProvider) {
               this.matchableUser = this.navParams.get('matchableUser');
-              this.matchingEntityId = this.navParams.get('matchingEntityId');
+              this.matchingEntity = this.navParams.get('matchingEntity');
   }
 
   ionViewDidLoad() {
@@ -56,7 +56,7 @@ export class ResponseModalPage {
     if (this.matchableUser.vehiculed) {
       this.pollingMatchingEntity = Observable.interval(1000)
           .pipe(takeWhile(() => !this.matchingEntityChanged))
-          .switchMap(() => this.matchProvider.checkMatchingEntity(this.matchingEntityId))
+          .switchMap(() => this.matchProvider.checkMatchingEntity(this.matchingEntity.id))
           .subscribe(
             (data: boolean)=> {
               this.matchingEntityChanged = data;
@@ -76,6 +76,13 @@ export class ResponseModalPage {
   }
 
   acceptRequest() {
+    console.log("Matching entity non typée : ", this.matchingEntity);
+    
+    let newMatchingEntity = this.matchingEntity;
+    newMatchingEntity.accepted = true;
+    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
+      console.log("Réponse de la requête http.put : ", res);
+    });
     this.navCtrl.pop();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
   }

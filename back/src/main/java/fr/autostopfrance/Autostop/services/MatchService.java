@@ -2,10 +2,13 @@ package fr.autostopfrance.Autostop.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -19,6 +22,8 @@ import com.google.maps.model.TravelMode;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
 import fr.autostopfrance.Autostop.models.MatchingEntity;
+import fr.autostopfrance.Autostop.models.MatchingUserDetails;
+import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.MatchingDAO;
 
 
@@ -120,6 +125,27 @@ public class MatchService {
     	MatchingEntity _matchingEntity = matchingEntity.get();
     	
     	return _matchingEntity.isAccepted();
+    }
+
+	public MatchingEntity updateMatchingEntity(Long id, MatchingEntity matchingEntity) {
+		
+		Optional<MatchingEntity> optionalMatchingEntity = matchingDAO.findById(id);
+		MatchingEntity _matchingEntity = optionalMatchingEntity.get();
+		_matchingEntity.setAccepted(matchingEntity.isAccepted());
+		
+		matchingDAO.save(_matchingEntity);
+		
+		return _matchingEntity;
+	}
+	
+	public LinkedList<MatchingEntity> checkPedestrianRequest (String driverPublicId) {
+        LinkedList<MatchingEntity> matchingEntities = matchingDAO.findByDriverPublicId(driverPublicId);
+        System.out.println("Matcher " + driverPublicId);
+        if (matchingEntities == null)
+            throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
+        
+        return matchingEntities;
+
     }
 	
 }

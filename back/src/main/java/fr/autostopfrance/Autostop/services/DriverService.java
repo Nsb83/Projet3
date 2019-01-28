@@ -49,35 +49,4 @@ public class DriverService {
         }
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
-
-    public LinkedList<MatchingUserDetails> checkPedestrianRequest (String driverPublicId) {
-        LinkedList<MatchingEntity> matchingEntity = matchingDAO.findByDriverPublicId(driverPublicId);
-        System.out.println("Matcher " + driverPublicId);
-        if (matchingEntity == null)
-            throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
-
-        LinkedList<MatchingUserDetails> pedestrianList = new LinkedList<MatchingUserDetails>();
-        ListIterator<MatchingEntity> it = matchingEntity.listIterator();
-        while(it.hasNext()){
-
-            String pedestrianId = it.next().getPedestrianPublicId();
-            User pedestrian = userDAO.findByPublicId(pedestrianId);
-            
-            pedestrianList.add(new MatchingUserDetails(
-                                                        pedestrian.getPublicId(),
-                                                        pedestrian.getLastName(),
-                                                        pedestrian.getFirstName(),
-                                                        pedestrian.getPhone(),
-                                                        pedestrian.getSex(),
-                                                        pedestrian.getDateOfBirth(),
-                                                        pedestrian.isVehiculed(),
-                                                        pedestrian.getUploadPicture(),
-                                                        pedestrian.getDriver(),
-                                                        pedestrian.getTrip()
-                                                    )
-            );
-        }
-        return pedestrianList;
-
-    }
 }

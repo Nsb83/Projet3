@@ -30,9 +30,4 @@ export class PedestrianProvider {
       return this.http
         .put<Pedestrian>(`${this.PEDESTRIAN_URL}/update/${this.userProvider.getUserId()}`, pedestrian);
     }
-
-    queryPedestrian(){
-      return this.http.get(`${this.DRIVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
-    }
-
 }
