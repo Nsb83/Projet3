@@ -32,6 +32,7 @@ import { PedestrianProvider } from '../../../../../providers/Pedestrian/Pedestri
 import { ObserveOnOperator } from 'rxjs/operators/observeOn';
 import { takeWhile } from 'rxjs/operators';
 import { ResponseModalPage } from './request-modal/response-modal/response-modal';
+import { MatchProvider } from '../../../../../providers/match/matchProvider';
 
 
 // @IonicPage()
@@ -76,7 +77,8 @@ export class MapPage {
               public tripProvider: TripProvider,
               public driverProvider: DriverProvider,
               public events: Events,
-              public pedestrianProvider: PedestrianProvider) {
+              public pedestrianProvider: PedestrianProvider,
+              private matchProvider: MatchProvider) {
 
                 events.subscribe('user:changed', () => {
                   this.userChanged = true;
@@ -357,7 +359,7 @@ export class MapPage {
       }
     }
 
-    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
+    this.matchProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
       console.log("Searching for pedestrians");
       
         if (matchingDrivers.length) {
