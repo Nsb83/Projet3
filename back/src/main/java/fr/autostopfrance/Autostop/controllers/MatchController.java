@@ -20,6 +20,7 @@ import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.FilterMatchService;
+import fr.autostopfrance.Autostop.services.MatchService;
 import fr.autostopfrance.Autostop.services.PedestrianService;
 import fr.autostopfrance.Autostop.services.UserService;
 
@@ -36,6 +37,9 @@ public class MatchController {
 	
 	@Autowired
 	PedestrianService pedestrianService;
+	
+	@Autowired
+	MatchService matchService;
 	
 	@GetMapping (path = "/getmatchingdrivers/{publicId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<MatchingUserDetails> getMatchingDriversAround(@PathVariable("publicId") String publicId) {
@@ -78,11 +82,11 @@ public class MatchController {
 	
 	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
-		return pedestrianService.getMatchingEntityStatus(id);
+		return matchService.getMatchingEntityStatus(id);
 	}
 	
 	@PostMapping(path = "/createMatchingEntity/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public MatchingEntity registerMatchingDriver (@PathVariable("idUser") String publicId, @RequestBody MatchingEntity matchingEntity) {
-        return pedestrianService.registerMatchingDriver(publicId, matchingEntity);
+        return matchService.registerMatchingDriver(publicId, matchingEntity);
     }
 }

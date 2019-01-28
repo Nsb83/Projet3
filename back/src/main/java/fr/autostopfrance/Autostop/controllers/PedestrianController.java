@@ -1,6 +1,5 @@
 package fr.autostopfrance.Autostop.controllers;
 
-import fr.autostopfrance.Autostop.models.MatchingEntity;
 import fr.autostopfrance.Autostop.models.Pedestrian;
 import fr.autostopfrance.Autostop.services.PedestrianService;
 import org.springframework.beans.factory.annotation.Autowired;
