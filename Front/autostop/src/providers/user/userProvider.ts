@@ -13,12 +13,6 @@ const httpOptions = {
 @Injectable()
 export class UserProvider {
 
-  private user: User;
-  private userId;
-  private localUser: User;
-
-  // private isVehiculed: boolean;
-
   constructor(public http: HttpClient) {
   }
 
@@ -28,7 +22,6 @@ export class UserProvider {
 
   setUserId(userId) {
     localStorage.setItem("userId", userId);
-    this.userId = userId;
   }
 
   createUser(user: User) {

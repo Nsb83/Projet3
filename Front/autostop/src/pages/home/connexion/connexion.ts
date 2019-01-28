@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { MainPage } from "./main/main";
-import { LostPasswordPage } from "../lost-password/lost-password";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Credentials } from "../../../models/Credentials";
 import { UserProvider } from "../../../providers/user/userProvider";
@@ -18,7 +17,6 @@ import { User } from "../../../models/User";
 })
 export class ConnexionPage implements OnInit {
   main = MainPage;
-  lostPasswordPage = LostPasswordPage;
 
 
   private connexion: FormGroup;
@@ -28,7 +26,7 @@ export class ConnexionPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    private authService: AuthService, 
+    private authService: AuthService,
     private token: TokenStorage,
     private messageService: MessageProvider,
     private userProvider: UserProvider
@@ -60,14 +58,8 @@ export class ConnexionPage implements OnInit {
         this.userProvider.getUser().subscribe(response => { this.user = response});
         this.navCtrl.push(ChoicePage);
       }, (error: HttpErrorResponse) => {
-        console.log('Error: ', error);
         this.messageService.myToastMethod(`Une erreur est survenue, veuillez vérifier vos identifiants de connexion.`);
-      }
-    );
-  }
-
-  onNavigate2(page) {
-    this.navCtrl.push(page);
+      });
   }
 
 }

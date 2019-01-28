@@ -7,15 +7,11 @@ import { environment } from '../Utils/environment';
 
 @Injectable()
 export class TripProvider {
-
-  private trip: Trip;
-
   private TRIP_URL = environment.SERVER_URL + "/trips";
   private USER_URL = environment.SERVER_URL + "/users";
 
 
   constructor(public http: HttpClient, private userProvider: UserProvider) {
-    console.log('Hello TripProvider Provider');
   }
 
   getTrip(){

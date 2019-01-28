@@ -361,7 +361,7 @@ export class MapPage {
 
     this.matchProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
       console.log("Searching for pedestrians");
-      
+
         if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);

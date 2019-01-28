@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse
-} from '@angular/common/http';
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import { Observable } from 'rxjs';
 import { TokenStorage } from '../../providers/auth/token.storage';
-import { ToastController } from 'ionic-angular';
-
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
@@ -14,10 +11,7 @@ const TOKEN_HEADER_KEY = 'Authorization';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(
-    private tokenStorage: TokenStorage, 
-    private toastCtrl: ToastController
-  ) { }
+  constructor(private tokenStorage: TokenStorage) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReq = req;
@@ -27,7 +21,6 @@ export class TokenInterceptor implements HttpInterceptor {
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, token) });
     }
 
-    // return next.handle(authReq);
     return next.handle(authReq);
   }
 }
