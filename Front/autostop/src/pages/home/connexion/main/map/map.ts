@@ -32,6 +32,8 @@ import { PedestrianProvider } from '../../../../../providers/Pedestrian/Pedestri
 import { ObserveOnOperator } from 'rxjs/operators/observeOn';
 import { takeWhile } from 'rxjs/operators';
 import { ResponseModalPage } from './request-modal/response-modal/response-modal';
+import { MatchProvider } from '../../../../../providers/match/matchProvider';
+import { MatchingEntity } from '../../../../../models/MatchingEntity';
 
 
 // @IonicPage()
@@ -57,7 +59,7 @@ export class MapPage {
   arrayPolyMatched = [];
   userChanged: boolean = false;
   pollingPedestrians: any;
-  requestingDrivers: MatchingUserDetails[];
+  requestingMatchingEntities: MatchingEntity[];
   modalShowed: boolean = false;
 
   option: MyLocationOptions = {
@@ -76,7 +78,8 @@ export class MapPage {
               public tripProvider: TripProvider,
               public driverProvider: DriverProvider,
               public events: Events,
-              public pedestrianProvider: PedestrianProvider) {
+              public pedestrianProvider: PedestrianProvider,
+              private matchProvider: MatchProvider) {
 
                 events.subscribe('user:changed', () => {
                   this.userChanged = true;
@@ -283,16 +286,20 @@ export class MapPage {
         });
         alert.present();
         this.modalShowed = false;
-        this.pollingPedestrians = Observable.interval(7500)
+        this.pollingPedestrians = Observable.interval(1000)
           .pipe(takeWhile(() => !this.modalShowed))
-          .switchMap(() => this.pedestrianProvider.queryPedestrian())
+          .switchMap(() => this.matchProvider.queryPedestrian())
           .subscribe(
-            (data: MatchingUserDetails[])=> {
-              this.requestingDrivers = data;
-              if (this.requestingDrivers.length) {
-                this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${this.requestingDrivers[0].firstName} ${this.requestingDrivers[0].lastName[0]}. !`, 7000);
-                this.showMatchModal(this.requestingDrivers[0]);
-                this.modalShowed = true;
+            (data: MatchingEntity[])=> {
+              console.log(data);
+              this.requestingMatchingEntities = data;
+              if (this.requestingMatchingEntities.length) {
+                this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId)
+                  .subscribe((matchingPedestrian: MatchingUserDetails) => {
+                    this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${matchingPedestrian.firstName} ${matchingPedestrian.lastName[0]}. !`, 7000);
+                    this.showMatchModal(matchingPedestrian, this.requestingMatchingEntities[0]);
+                    this.modalShowed = true;
+                });
               }
             },
             error => {
@@ -340,13 +347,11 @@ export class MapPage {
   }
 
   // Show modal for matching request
-  showMatchModal(matchUser) {
-    if(!this.user.isVehiculed()) {
-      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser });
-      matchModal.present();
-    } else {
-      this.navCtrl.push(ResponseModalPage, { matchableUser: matchUser });
-    }
+  showMatchModal(matchUser, matchingEntity) {
+    this.navCtrl.push(ResponseModalPage, {
+                                          matchableUser : matchUser,
+                                          matchingEntity : matchingEntity
+    });
   }
 
 
@@ -357,9 +362,9 @@ export class MapPage {
       }
     }
 
-    this.driverProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
+    this.matchProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
       console.log("Searching for pedestrians");
-      
+
         if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
@@ -383,7 +388,8 @@ export class MapPage {
     })
 
     this.polyMatch.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
-      this.showMatchModal(driverInfos);
+      const matchModal = this.modalCtrl.create(RequestModalPage, { matchUser: driverInfos });
+      matchModal.present();
     });
 
     this.map.moveCamera({

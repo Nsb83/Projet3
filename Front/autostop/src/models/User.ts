@@ -1,4 +1,3 @@
-import { Account } from "./Account";
 import { Driver } from "./Driver";
 import { Pedestrian } from "./Pedestrian";
 import { Trip } from "./Trip";

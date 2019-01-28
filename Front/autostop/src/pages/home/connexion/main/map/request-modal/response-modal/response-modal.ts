@@ -1,12 +1,12 @@
 import { LinkingPage } from './linking/linking';
-import { MapPage } from './../../map';
-import { Component,NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatchingUserDetails } from '../../../../../../../models/MatchingUserDetails';
 import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/PedestrianProvider';
+import { MatchProvider } from '../../../../../../../providers/match/matchProvider';
 
 
 export interface CountdownTimer {
@@ -33,29 +33,17 @@ export class ResponseModalPage {
   matchableUser: MatchingUserDetails;
   pollingMatchingEntity: any;
   matchingEntityChanged: boolean = false;
-  matchingEntityId: number;
-  
+  matchingEntity: any;
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private sanitizer: DomSanitizer,
               public viewCtrl: ViewController,
               private events: Events,
-              private pedestrianProvider: PedestrianProvider) {
+              private matchProvider: MatchProvider) {
               this.matchableUser = this.navParams.get('matchableUser');
-              this.matchingEntityId = this.navParams.get('matchingEntityId');
-  }
-
-
-  // test variables
-  testRating: number = 4;
-
-  //Couleur d'étoiles dynamiques
-  getStar(num){
-    if (num< this.testRating){
-      return "./assets/imgs/stars/starFullSm.png";
-    }
-    else return "./assets/imgs/stars/starEmptySm.png";
+              this.matchingEntity = this.navParams.get('matchingEntity');
   }
 
   ionViewDidLoad() {
@@ -68,18 +56,15 @@ export class ResponseModalPage {
     if (this.matchableUser.vehiculed) {
       this.pollingMatchingEntity = Observable.interval(1000)
           .pipe(takeWhile(() => !this.matchingEntityChanged))
-          .switchMap(() => this.pedestrianProvider.checkMatchingEntity(this.matchingEntityId))
+          .switchMap(() => this.matchProvider.checkMatchingEntity(this.matchingEntity.id))
           .subscribe(
             (data: boolean)=> {
               this.matchingEntityChanged = data;
-              console.log("Checking for matching Entity");
-              console.log("Data:", data);
               if (data) {
                 this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser})
               }
             },
             error => {
-              console.log(error);
             });
     }
   }
@@ -91,13 +76,19 @@ export class ResponseModalPage {
   }
 
   acceptRequest() {
+    console.log("Matching entity non typée : ", this.matchingEntity);
+    
+    let newMatchingEntity = this.matchingEntity;
+    newMatchingEntity.accepted = true;
+    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
+      console.log("Réponse de la requête http.put : ", res);
+    });
     this.navCtrl.pop();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
   }
 
 
   hasFinished() {
-    // place here  function to launch when timer finished
     return this.timer.hasFinished;
   }
   initProgressBar() {
@@ -159,5 +150,13 @@ export class ResponseModalPage {
     secondsString = (seconds < 10) ? '0' + seconds : seconds.toString();
     return minutesString + ':' + secondsString;
   }
-  // timer code end
+
+    // //Couleur d'étoiles dynamiques
+  // getStar(num){
+  //   if (num< this.testRating){
+  //     return "./assets/imgs/stars/starFullSm.png";
+  //   }
+  //   else return "./assets/imgs/stars/starEmptySm.png";
+  // }
+
 }

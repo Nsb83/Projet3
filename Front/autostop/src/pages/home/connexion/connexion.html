@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar> <ion-title>connexion</ion-title> </ion-navbar>
+  <ion-navbar> <ion-title>Connexion</ion-title> </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -24,12 +24,8 @@
       color="button"
       type="submit"
       [disabled]="!connexion.valid"
-      (click)="validateForm(connexion.value)"
-    >
+      (click)="validateForm(connexion.value)">
       CONNEXION
     </button>
   </form>
-  <div>
-    <a (click)="onNavigate2(lostPasswordPage)">Mot de passe oublié ?</a>
-  </div>
 </ion-content>

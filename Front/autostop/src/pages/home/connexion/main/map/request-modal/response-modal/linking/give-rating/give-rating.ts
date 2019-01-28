@@ -52,8 +52,4 @@ evaluate() {
     else return "./assets/imgs/stars/starEmptySm.png";
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GiveRatingPage');
-  }
-
 }

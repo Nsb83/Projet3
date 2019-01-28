@@ -19,41 +19,41 @@ export class Driver {
     this.imgCarUrl = imgCarUrl;
   }
 
-public getLicensePlate(): string {
-    return this.licensePlate;
-}
+  public getLicensePlate(): string {
+      return this.licensePlate;
+  }
 
-public setLicensePlate(licensePlate: string): void {
-    this.licensePlate = licensePlate;
-}
+  public setLicensePlate(licensePlate: string): void {
+      this.licensePlate = licensePlate;
+  }
 
-public getBrand(): string {
-    return this.brand;
-}
+  public getBrand(): string {
+      return this.brand;
+  }
 
-public setBrand(brand: string): void {
-    this.brand = brand;
-}
+  public setBrand(brand: string): void {
+      this.brand = brand;
+  }
 
-public getModel(): string {
-    return this.model;
-}
+  public getModel(): string {
+      return this.model;
+  }
 
-public setModel(model: string): void {
-    this.model = model;
-}
+  public setModel(model: string): void {
+      this.model = model;
+  }
 
-public getColor(): string {
-    return this.color;
-}
+  public getColor(): string {
+      return this.color;
+  }
 
-public setColor(color: string): void {
-    this.color = color;
-}
+  public setColor(color: string): void {
+      this.color = color;
+  }
 
-public getImgCarUrl(): string {
-    return this.imgCarUrl;
-}
+  public getImgCarUrl(): string {
+      return this.imgCarUrl;
+  }
 
 public setImgCarUrl(imgCarUrl: string) {
     this.imgCarUrl = imgCarUrl;

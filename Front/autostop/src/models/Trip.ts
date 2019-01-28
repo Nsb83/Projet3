@@ -1,4 +1,4 @@
-import { LatLng, ILatLng } from "@ionic-native/google-maps";
+import { ILatLng } from "@ionic-native/google-maps";
 
 export class Trip {
     origin: ILatLng;

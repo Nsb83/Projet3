@@ -7,8 +7,7 @@
           icon-only
           clear
           color="white"
-          (click)="onToggleMenu()"
-        >
+          (click)="onToggleMenu()">
           <ion-icon name="menu" color="dark"></ion-icon>
         </button>
       </ion-col>
@@ -18,8 +17,8 @@
           type="search"
           name="search"
           placeholder="search"
-          (keyup.enter)="submitSearch(search.value)"
-        ></ion-input>
+          (keyup.enter)="submitSearch(search.value)">
+        </ion-input>
       </ion-col>
       <ion-col col-auto no-padding>
         <button
@@ -27,8 +26,7 @@
           icon-only
           clear
           color="light"
-          (click)="submitSearch(search.value)"
-        >
+          (click)="submitSearch(search.value)">
           <ion-icon name="search" color="dark"></ion-icon>
         </button>
       </ion-col>

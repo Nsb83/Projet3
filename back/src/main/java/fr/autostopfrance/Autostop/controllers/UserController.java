@@ -1,5 +1,6 @@
 package fr.autostopfrance.Autostop.controllers;
 
+import fr.autostopfrance.Autostop.models.MatchingUserDetails;
 import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,13 @@ public class UserController {
 
     @GetMapping(path = "/find/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
     public User findById(@PathVariable("idUser") String publicId) {
-        return userService.findById(publicId);}
+        return userService.findById(publicId);
+    }
+    
+    @GetMapping(path = "/getMatchingUserDetails/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
+    public MatchingUserDetails getMatchingUserDetails(@PathVariable("idUser") String publicId) {
+        return userService.getMatchingUserDetails(publicId);
+    }
 
     @DeleteMapping(path = "/delete/{idUser}", consumes = {  MediaType.APPLICATION_JSON_VALUE })
     public void deleteUser(@PathVariable("idUser") String publicId){

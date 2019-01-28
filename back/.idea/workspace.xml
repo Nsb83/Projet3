@@ -2,8 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82677993-70bd-41d3-9fe5-863fc832b134" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/match/matchProvider.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/4ga5rl8mQSQzOQXHlXymC1_elle_vignette.281102.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/4ga5rl8mQSQzOQXHlXymlogowild.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/CjaZn8L46eF0VXib4MgGMultipla.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/CjaZn8L46eF0VXib4MgGisaac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/f561ZG46qtxxbaX4LBi9deer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/tG6eR4jp7Rfei3hd01kupixelJn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/zzzQk8ElzvaHjoCwhvr5isaac.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/http-interceptors/token-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/http-interceptors/token-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/assets/routeMaison.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/MatchingEntity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/MatchingEntity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/Trip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/Trip.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/map.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/map.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/give-rating/give-rating.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/give-rating/give-rating.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/contact/contact.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/ratings/ratings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/ratings/ratings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Pedestrian/PedestrianProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Pedestrian/PedestrianProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/route/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/route/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/trip/trip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/trip/trip.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/MatchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -35,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="525">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -46,7 +119,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -56,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -100,10 +172,20 @@
               <item name="Autostop" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -153,17 +235,17 @@
       <updated>1548672547671</updated>
       <workItem from="1548672549075" duration="1006000" />
       <workItem from="1548692332955" duration="176000" />
+      <workItem from="1548693019261" duration="631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1182000" />
+    <option name="totallyTimeSpent" value="1813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -173,7 +255,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28554216" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28554216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -226,6 +308,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java">
@@ -237,15 +333,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="525">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>

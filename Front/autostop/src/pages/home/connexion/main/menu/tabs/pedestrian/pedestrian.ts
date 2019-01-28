@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { User } from '../../../../../../../models/User';
 import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
@@ -53,11 +53,9 @@ export class PedestrianPage implements OnInit{
 
     this.pedestrianService.updatePedestrian(this.pedestrianUpdate).subscribe(() => {
       this.events.publish('user:changed', '');
-      console.log(this.pedestrianUpdate)
       this.pedestrian = this.pedestrianService.getPedestrian();
       this.messageService.myToastMethod("Vos préférences sont enregistrées")
     }, (error: HttpErrorResponse) => {
-      console.log('Error: ', error);
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
     }
     );

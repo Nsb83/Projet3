@@ -2,8 +2,13 @@ package fr.autostopfrance.Autostop.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -13,11 +18,21 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
+import com.google.maps.model.TravelMode;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
+import fr.autostopfrance.Autostop.models.MatchingEntity;
+import fr.autostopfrance.Autostop.models.MatchingUserDetails;
+import fr.autostopfrance.Autostop.models.User;
+import fr.autostopfrance.Autostop.repositories.MatchingDAO;
+
 
 @Service
 public class MatchService {
+	
+	@Autowired
+    MatchingDAO matchingDAO;
+
 
 	private String apiKey = "AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44";
 	
@@ -66,8 +81,9 @@ public class MatchService {
 		long distance = -1;
 		
 		DistanceMatrix results;
+		
 		try {
-			results = DistanceMatrixApi.getDistanceMatrix(context, origins, destinations).await();
+			results = DistanceMatrixApi.getDistanceMatrix(context, origins, destinations).mode(TravelMode.WALKING).await();
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			System.out.println(gson.toJson(results));
 			distance = results.rows[0].elements[0].distance.inMeters;
@@ -89,5 +105,47 @@ public class MatchService {
 			return false;
 		}
 	}
+	
+
+    public MatchingEntity registerMatchingDriver (String pedestrianPublicId, MatchingEntity matchingEntity) {
+        System.out.println("Updating MatchingEntity" + matchingEntity);
+
+        MatchingEntity _matchingEntity = new MatchingEntity(
+                matchingEntity.getDriverPublicId(),
+                matchingEntity.getPedestrianPublicId()
+    			);
+
+        matchingDAO.save(_matchingEntity);
+        return _matchingEntity;
+    }
+    
+    public boolean getMatchingEntityStatus(Long id) {
+    	Optional<MatchingEntity> matchingEntity = matchingDAO.findById(id);
+    	
+    	MatchingEntity _matchingEntity = matchingEntity.get();
+    	
+    	return _matchingEntity.isAccepted();
+    }
+
+	public MatchingEntity updateMatchingEntity(Long id, MatchingEntity matchingEntity) {
+		
+		Optional<MatchingEntity> optionalMatchingEntity = matchingDAO.findById(id);
+		MatchingEntity _matchingEntity = optionalMatchingEntity.get();
+		_matchingEntity.setAccepted(matchingEntity.isAccepted());
+		
+		matchingDAO.save(_matchingEntity);
+		
+		return _matchingEntity;
+	}
+	
+	public LinkedList<MatchingEntity> checkPedestrianRequest (String driverPublicId) {
+        LinkedList<MatchingEntity> matchingEntities = matchingDAO.findByDriverPublicId(driverPublicId);
+        System.out.println("Matcher " + driverPublicId);
+        if (matchingEntities == null)
+            throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
+        
+        return matchingEntities;
+
+    }
 	
 }

@@ -1,8 +1,7 @@
-import { Component, SimpleChanges } from "@angular/core";
-import { MenuController, NavController, Platform, Events } from "ionic-angular";
+import { Component } from "@angular/core";
+import { NavController, Platform, Events } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
-
 import { TabsPage } from "./menu/tabs/tabs";
 import { RatingsPage } from "./menu/ratings/ratings";
 import { LegalNoticePage } from "./menu/legal-notice/legal-notice";
@@ -10,9 +9,9 @@ import { HelpPage } from "./menu/help/help";
 import { ContactPage } from "./menu/contact/contact";
 import { User } from "../../../../models/User";
 import { UserProvider } from "../../../../providers/user/userProvider";
-import { TokenStorage } from '../../../../providers/auth/token.storage';
 import { HomePage } from "../../home";
 import { MessageProvider } from "../../../../providers/Messages/MessageProvider";
+import { TokenStorage } from "../../../../providers/auth/token.storage";
 
 @Component({
   selector: "page-main",
@@ -27,17 +26,17 @@ export class MainPage {
   user: User;
   updatedUser: User;
   main = MainPage;
+  // token: Token;
 
   constructor(
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    private menuCtrl: MenuController,
     public navCtrl: NavController,
     private userService: UserProvider,
-    private token: TokenStorage,
     private messageService: MessageProvider,
-    public events: Events
+    public events: Events,
+    private token: TokenStorage,
   ) { }
 
   ngOnInit() {
