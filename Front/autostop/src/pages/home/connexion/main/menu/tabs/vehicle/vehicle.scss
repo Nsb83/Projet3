@@ -1,4 +1,14 @@
 page-vehicle {
+ .container {
+    #carImage{
+        display: block;
+        margin: 0 auto 0 auto;
+        width: 200px;
+        height: auto;
+        // overflow: hidden;
+        // border-radius: 50%;
+      }
+    }
   ion-item{
     margin-left:10px;
     }
