@@ -37,10 +37,4 @@ export class DriverProvider {
     return this.http
       .put<Driver>(`${this.DRIVER_URL}/update/${this.userProvider.getUserId()}`, driver);
   }
-
-  getMatchingDriversAround() {
-    return this.http
-      .get<MatchingUserDetails[]>(`${environment.SERVER_URL}/getmatchingdrivers/${this.userProvider.getUserId()}`);
-  }
-
 }

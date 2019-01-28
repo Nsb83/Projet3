@@ -53,6 +53,7 @@ import { DriverProvider } from "../providers/driver/driverProvider";
 import { MessageProvider } from "../providers/Messages/MessageProvider";
 import { TripProvider } from "../providers/trip/trip";
 import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
+import { MatchProvider } from '../providers/match/matchProvider';
 
 @NgModule({
   declarations: [
@@ -133,7 +134,8 @@ import { PedestrianProvider } from "../providers/Pedestrian/PedestrianProvider";
     MessageProvider,
     RouteProvider,
     TripProvider,
-    PedestrianProvider
+    PedestrianProvider,
+    MatchProvider
     
   ]
 })

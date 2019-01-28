@@ -6,6 +6,7 @@ import { MatchingEntity } from '../../../../../../models/MatchingEntity';
 import { UserProvider } from '../../../../../../providers/user/userProvider';
 import { MatchingUserDetails } from '../../../../../../models/MatchingUserDetails';
 import { LinkingPage } from './response-modal/linking/linking';
+import { MatchProvider } from '../../../../../../providers/match/matchProvider';
 
 @Component({
   selector: 'page-request-modal',
@@ -24,6 +25,7 @@ export class RequestModalPage {
               public viewCtrl: ViewController,
               private pedestrianProvider: PedestrianProvider,
               private userProvider: UserProvider,
+              private matchProvider: MatchProvider,
               private events: Events) {
 
     this.matchableUser = this.navParams.get('matchUser');
@@ -35,7 +37,7 @@ export class RequestModalPage {
 
   sendRequest(){
     let matchingEntity = new MatchingEntity(this.matchableUser.publicId, this.userProvider.getUserId())
-    this.pedestrianProvider.sendRequest(matchingEntity).subscribe((data: any) => {
+    this.matchProvider.sendRequest(matchingEntity).subscribe((data: any) => {
       console.log(data);
       this.matchingEntityId = data.id;
       this.viewCtrl.dismiss();

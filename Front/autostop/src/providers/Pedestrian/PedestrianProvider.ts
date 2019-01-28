@@ -40,15 +40,8 @@ export class PedestrianProvider {
         .put<Pedestrian>(`${this.PEDESTRIAN_URL}/update/${this.userProvider.getUserId()}`, pedestrian);
     }
 
-    sendRequest(matchingEntity) {
-      return this.http.post(`${this.PEDESTRIAN_URL}/matchingDriver/${this.userProvider.getUserId()}`, matchingEntity, httpOptions);
-    }
-
     queryPedestrian(){
       return this.http.get(`${this.DRIVER_URL}/queryPedestrian/${this.userProvider.getUserId()}`)
     }
 
-    checkMatchingEntity(matchingEntityId){
-      return this.http.get(`${environment.SERVER_URL}/getmatchingentity/${matchingEntityId}`)
-    }
 }

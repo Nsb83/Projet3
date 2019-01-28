@@ -3,7 +3,9 @@ package fr.autostopfrance.Autostop.services;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -15,9 +17,16 @@ import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.LatLng;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
+import fr.autostopfrance.Autostop.models.MatchingEntity;
+import fr.autostopfrance.Autostop.repositories.MatchingDAO;
+
 
 @Service
 public class MatchService {
+	
+	@Autowired
+    MatchingDAO matchingDAO;
+
 
 	private String apiKey = "AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44";
 	
@@ -89,5 +98,26 @@ public class MatchService {
 			return false;
 		}
 	}
+	
+
+    public MatchingEntity registerMatchingDriver (String pedestrianPublicId, MatchingEntity matchingEntity) {
+        System.out.println("Updating MatchingEntity" + matchingEntity);
+
+        MatchingEntity _matchingEntity = new MatchingEntity(
+                matchingEntity.getDriverPublicId(),
+                matchingEntity.getPedestrianPublicId()
+    			);
+
+        matchingDAO.save(_matchingEntity);
+        return _matchingEntity;
+    }
+    
+    public boolean getMatchingEntityStatus(Long id) {
+    	Optional<MatchingEntity> matchingEntity = matchingDAO.findById(id);
+    	
+    	MatchingEntity _matchingEntity = matchingEntity.get();
+    	
+    	return _matchingEntity.isAccepted();
+    }
 	
 }
