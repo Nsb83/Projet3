@@ -9,6 +9,12 @@ export class MessageProvider {
                 public toastCtrl: ToastController
               ) {}
 
+    /**
+     * Service to display an alert
+     * @param title
+     * @param message
+     * @param handler
+     */
     myAlertMethod(title: string, message: string, handler: any) {
       let confirm = this.alertCtrl.create({
         title: title,
@@ -24,6 +30,12 @@ export class MessageProvider {
       confirm.present();
     }
 
+    /**
+     * Service to display a toast
+     * @param message
+     * @param duration
+     * @param position
+     */
     myToastMethod(message: string, duration = 3000, position?: string) {
       let toast = this.toastCtrl.create({
         message: message,
