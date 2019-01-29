@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +23,14 @@ import com.google.maps.model.TravelMode;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
 import fr.autostopfrance.Autostop.models.MatchingEntity;
-import fr.autostopfrance.Autostop.models.MatchingUserDetails;
-import fr.autostopfrance.Autostop.models.User;
 import fr.autostopfrance.Autostop.repositories.MatchingDAO;
 
-
+/**
+ * Service with all the methods used to "match" pedestrian and drivers.
+ * <p>
+ * Also contains methods in charge of doing CRUD operations with {@link MatchingEntity}
+ * <p><b> Note: Google apiKey needed
+ */	
 @Service
 public class MatchService {
 	
@@ -44,7 +46,7 @@ public class MatchService {
 	 * The argument itinerary is a List of {@link LatLng} from the driver's route.
 	 * The argument pedestrianLatLng is the location of the pedestrian we want the driver's itinerary to be compared to. 
 	 *
-	 * @param  itinerary  an absolute URL giving the base location of the image
+	 * @param  itinerary  a List of LatLng describing the driver's route
 	 * @param  pedestrianLatLng the location of the pedestrian
 	 * @return      an array of AlgoObject
 	 * @see         AlgoObject
@@ -219,8 +221,6 @@ public class MatchService {
     }
 
 	/**
-	 * Deletes a {@link MatchingEntity} from the database.
-	 *
 	 * @param  		
 	 * @see			MatchingEntity
 	 * @see 		MatchingDAO
