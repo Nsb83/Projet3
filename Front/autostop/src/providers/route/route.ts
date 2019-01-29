@@ -5,12 +5,18 @@ import { Injectable } from '@angular/core';
 export class RouteProvider {
 
   url;
-  data;
 
   constructor(public http: HttpClient) {
     console.log('Hello RouteProvider Provider');
   }
 
+  /**
+   * Call at google maps direction API with start and end Lat Lng values.
+   *
+   * Use of a proxy to avoid CORS errors
+   * @param start
+   * @param end
+   */
   getRoute(start, end) {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const urlGoogle = "https://maps.googleapis.com";

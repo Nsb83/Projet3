@@ -1,7 +1,6 @@
 import { ResponseModalPage } from './response-modal/response-modal';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
-import { PedestrianProvider } from '../../../../../../providers/Pedestrian/PedestrianProvider';
 import { MatchingEntity } from '../../../../../../models/MatchingEntity';
 import { UserProvider } from '../../../../../../providers/user/userProvider';
 import { MatchingUserDetails } from '../../../../../../models/MatchingUserDetails';
@@ -18,7 +17,6 @@ export class RequestModalPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
-              private pedestrianProvider: PedestrianProvider,
               private userProvider: UserProvider,
               private matchProvider: MatchProvider,
               private events: Events) {
