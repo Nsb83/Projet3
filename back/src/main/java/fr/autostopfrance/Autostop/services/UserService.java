@@ -34,7 +34,14 @@ public class UserService implements UserDetailsService {
     public List<User> findAllDrivers() {
         return userDAO.findByVehiculed(true);
     }
-    
+
+    /**
+     * Create a new User and store it in database
+     *
+     * @param user (sent by front)
+     * @return new User
+     */
+
     public User postUser(User user) {
 
         if(userDAO.findByEmail(user.getEmail()) != null) throw new RuntimeException("This Email already exist");
@@ -61,11 +68,25 @@ public class UserService implements UserDetailsService {
         return _user;
     }
 
+    /**
+     * Delete User from database. Used for development purpose but wasn't implemented in front due to lack of time
+     *
+     * @param publicId
+     *
+     */
+
     public ResponseEntity<String> deleteUser(String publicId) {
         User user = userDAO.findByPublicId(publicId);
         userDAO.delete(user);
         return new ResponseEntity<>("User has been deleted!", HttpStatus.OK);
     }
+
+    /**
+     * Find a user in database using his public Id
+     *
+     * @param publicId
+     * @return User
+     */
 
     public User findById(String publicId) {
         User user = userDAO.findByPublicId(publicId);
@@ -73,6 +94,14 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("User with ID: " + publicId + " not found");
         return user;
     }
+
+    /**
+     * Update existing User in database
+     *
+     * @param publicId
+     * @param user
+     *
+     */
 
     public ResponseEntity<User> updateUser (String publicId, User user) {
         System.out.println("Updating User " + publicId);
@@ -95,6 +124,14 @@ public class UserService implements UserDetailsService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
+    /**
+     * Update User profile picture ; update was chosen as the picture shall not be mandatory for register
+     *
+     * @param publicId
+     * @param uploadPicture
+     *
+     */
+
     public ResponseEntity<User> updatePicture (String publicId, UploadPicture uploadPicture) {
         User currentUser = userDAO.findByPublicId(publicId);
 
@@ -107,6 +144,14 @@ public class UserService implements UserDetailsService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
+    /**
+     * Find a user in database using his email address
+     *
+     * @see fr.autostopfrance.Autostop.security.AuthenticationFilter
+     * @param email
+     *
+     */
+
     public User getUser(String email) {
         User user = userDAO.findByEmail(email);
         if(user == null) throw new UsernameNotFoundException(email);
@@ -115,12 +160,15 @@ public class UserService implements UserDetailsService {
         return returnValue;
     }
 
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userDAO.findByEmail(email);
         if(user == null) throw new UsernameNotFoundException(email);
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
+
+
 
 	public MatchingUserDetails getMatchingUserDetails(String publicId) {
 		User user = userDAO.findByPublicId(publicId);

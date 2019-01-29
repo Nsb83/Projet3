@@ -5,6 +5,15 @@ import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
 import java.util.Random;
 
+/**
+ * Generate a random Id for User
+ * in order to avoid using Mysql Id
+ *
+ * @see UserService
+ *
+ * @return String
+ */
+
 @Service
 public class Utils {
     private final Random RANDOM = new SecureRandom();

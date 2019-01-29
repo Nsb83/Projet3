@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Made to allow users to rate their trip ; Not implemented in front by lack of time
+ */
+
 public class Evaluation {
 
     private int rating;

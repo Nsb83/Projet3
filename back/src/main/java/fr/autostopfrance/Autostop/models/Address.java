@@ -1,5 +1,9 @@
 package fr.autostopfrance.Autostop.models;
 
+/**
+ * Made to allow users to save their favorite address. Not implemented in front by lack of time.
+ */
+
 public class Address {
     private int number;
     private String street;

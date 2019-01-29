@@ -34,6 +34,13 @@ public class DriverService {
         return new ResponseEntity<>(currentUser, HttpStatus.OK);
     }
 
+    /**
+     * Upload car picture for driver
+     *
+     * @param publicId
+     * @param uploadPicture
+     */
+
     public ResponseEntity<User> postCarPicture (String publicId, UploadPicture uploadPicture) {
         User currentUser = userDAO.findByPublicId(publicId);
         if (currentUser != null) {
