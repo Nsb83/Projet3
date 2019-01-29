@@ -1,7 +1,13 @@
 package fr.autostopfrance.Autostop.models;
 
 import com.google.maps.model.LatLng;
-
+/**
+ * Object with a "proximity index" attribute used in the matching algorithm. 
+ * The proximityIndex attribute is calculated when comparing two {@link LatLng}.
+ * It is the sum of absolute differences in latitude and longitude.
+ *
+ * @see 		LatLng
+ */	
 public class AlgoObject {
 	
 	private LatLng coordinate;

@@ -56,7 +56,7 @@ public class MatchController {
 		
 		LatLng pedestrianStartLatLng = pedestrian.getTrip().getOrigin();
 		
-		LatLng pedestrianLastLatLng = pedestrian.getTrip().getDestinationLatLng();
+//		LatLng pedestrianLastLatLng = pedestrian.getTrip().getDestinationLatLng();
 		
 		int searchRadius = pedestrian.getPedestrian().getSearchRadius();
 		
@@ -82,6 +82,7 @@ public class MatchController {
 		}
 		return matchingDrivers;
 	}
+	
 	
 	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
