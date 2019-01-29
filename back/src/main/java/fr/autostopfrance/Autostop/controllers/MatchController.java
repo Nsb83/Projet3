@@ -45,6 +45,15 @@ public class MatchController {
 	@Autowired
 	MatchService matchService;
 	
+	/**
+	 * Returns list of {@link MatchingUserDetails} using the {@link FilterMatchService} to launch the algorithm.
+	 * <p>
+	 * This method gets called with an Http.get request when a pedestrian validates his trip.
+	 *
+	 * @param  publicId	pedestrian's publicId
+	 * @return 		list of matching users (drivers)
+	 * @see 		FilterMatchService
+	 */	
 	@GetMapping (path = "/getmatchingdrivers/{publicId}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<MatchingUserDetails> getMatchingDriversAround(@PathVariable("publicId") String publicId) {
 		
@@ -56,6 +65,7 @@ public class MatchController {
 		
 		LatLng pedestrianStartLatLng = pedestrian.getTrip().getOrigin();
 		
+//  	TO RETRIEVE ENDING POINT OF PEDESTRIAN TRIP
 //		LatLng pedestrianLastLatLng = pedestrian.getTrip().getDestinationLatLng();
 		
 		int searchRadius = pedestrian.getPedestrian().getSearchRadius();

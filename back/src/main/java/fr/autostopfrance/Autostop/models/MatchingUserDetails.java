@@ -2,6 +2,11 @@ package fr.autostopfrance.Autostop.models;
 
 import java.time.LocalDate;
 
+/**
+ * Implemented when sending user details to other users when they match.
+ * <p>
+ * Example in {@link MatchController}.
+ */	
 public class MatchingUserDetails {
 	
     private String publicId;

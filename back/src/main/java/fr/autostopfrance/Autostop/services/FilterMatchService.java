@@ -10,15 +10,27 @@ import com.google.maps.model.LatLng;
 
 import fr.autostopfrance.Autostop.models.AlgoObject;
 
+/**
+ * Service with the one and only method designed to perform the match algorithm.
+ */	
 @Service
 public class FilterMatchService {
 	
 	@Autowired
 	MatchService matchService;
 	
+	/**
+	 * Returns boolean if driver & pedestrian match.
+	 * <p>
+	 * This method is the one in charge of the match algorithm and makes use of the {@link MatchService} methods.
+	 *
+	 * @param  
+	 * @return 
+	 * @see         AlgoObject
+	 * @see 		LatLng
+	 * @see 		MatchService
+	 */	
 	public boolean filterItineraries(List<LatLng> driverItinerary, LatLng pedestrianLatLng, int searchRadius) {
-		
-		ArrayList<LatLng> filteredItineraries = new ArrayList<LatLng>();
 		
 		ArrayList<AlgoObject> algoTable = matchService.getAlgoTable(driverItinerary, pedestrianLatLng);
 		

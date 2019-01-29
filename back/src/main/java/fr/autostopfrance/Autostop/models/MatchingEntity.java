@@ -5,6 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * A matchingEntity gets created when a pedestrian asks a driver for a trip.
+ * <p>
+ * It is not yet joined with any other table.
+ *
+ * @param  accepted true if driver accepted pedestrian's request, false by default
+ * 
+ * @see         Driver
+ * @see 		Pedestrian
+ */	
 @Entity
 public class MatchingEntity {
     @Id
