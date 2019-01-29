@@ -15,11 +15,11 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-6 offset-3>
-        <img
-          class="avatarUser"
-          [src]="matchableUser.uploadPicture.fileDownloadUri"
-        />
+      <ion-col col-6 offset-3 *ngIf="this.matchableUser.uploadPicture.fileDownloadUri!=null" >
+        <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
+      </ion-col>
+      <ion-col col-6 offset-3 *ngIf="this.matchableUser.uploadPicture.fileDownloadUri==null" >
+        <img class="avatarUser" src="../../../../../../../../assets/imgs/profileImg1.png">
       </ion-col>
     </ion-row>
     <!-- <ion-row>
@@ -31,17 +31,19 @@
         </ion-row> -->
     <ion-row>
       <ion-col *ngIf="this.matchableUser.vehiculed" col-4 offset-4>
-        <img
+        <div>
+          <img
+          *ngIf="matchableUser.driver.uploadPicture.fileDownloadUri!=null"
           class="avatarUser"
           [src]="matchableUser.driver.uploadPicture.fileDownloadUri"
-        />
+          />
+        </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col *ngIf="this.matchableUser.vehiculed" col-6 offset-3>
         <h3>
-          {{ matchableUser.driver.brand }} {{ matchableUser.driver.model }}
-          {{ matchableUser.driver.color }}
+          {{ this.matchableUser.driver.brand }} {{ this.matchableUser.driver.model }} {{ this.matchableUser.driver.licensePlate }}
         </h3>
       </ion-col>
     </ion-row>

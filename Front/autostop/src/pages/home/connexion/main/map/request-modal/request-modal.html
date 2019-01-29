@@ -1,9 +1,13 @@
 <ion-content padding>
   <ion-grid>
       <ion-row>
-          <ion-col col-6 offset-3>
+          <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri!=null" >
             <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
           </ion-col>
+          <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri==null" >
+            <img class="avatarUser" src="../../../../../../assets/imgs/profileImg1.png">
+          </ion-col>
+          <img src="" >
         </ion-row>
         <ion-row>
           <ion-col col-10 offset-3>

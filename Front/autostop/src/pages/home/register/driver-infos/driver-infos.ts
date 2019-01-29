@@ -42,11 +42,7 @@ export class DriverInfosPage {
   ngOnInit() {
     this.initForm();
     this.driverProvider.getDriver().subscribe((response: any) => {
-      this.driver.setBrand(response.driver.brand);
-      this.driver.setModel(response.driver.model);
-      this.driver.setLicensePlate(response.driver.licensePlate);
-      this.driver.setColor(response.driver.color);
-    });
+      this.driverInfos = response });
   }
 
 
