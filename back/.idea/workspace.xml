@@ -2,81 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82677993-70bd-41d3-9fe5-863fc832b134" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/match/matchProvider.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4ga5rl8mQSQzOQXHlXymC1_elle_vignette.281102.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/4ga5rl8mQSQzOQXHlXymlogowild.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/CjaZn8L46eF0VXib4MgGMultipla.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/CjaZn8L46eF0VXib4MgGisaac.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/f561ZG46qtxxbaX4LBi9deer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/tG6eR4jp7Rfei3hd01kupixelJn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/zzzQk8ElzvaHjoCwhvr5isaac.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/app/http-interceptors/token-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/app/http-interceptors/token-interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/assets/routeMaison.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/Driver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/MatchingEntity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/MatchingEntity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/Trip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/Trip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/connexion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/map.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/map.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/request-modal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/give-rating/give-rating.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/give-rating/give-rating.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/linking/linking.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/request-modal/response-modal/response-modal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/favorites-sb/favorites-sb.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/map/search-bar/search-bar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/contact/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/contact/contact.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/help/help.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/legal-notice/legal-notice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/menu.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/ratings/ratings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/ratings/ratings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/distance/distance.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/pedestrian/pedestrian.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/profile/profile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/tabs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/connexion/main/menu/tabs/vehicle/vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/home.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/lost-password/lost-password.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/choice/choice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/driver-infos/driver-infos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/pages/home/register/register.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/Pedestrian/PedestrianProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/Pedestrian/PedestrianProvider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/driver/driverProvider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/route/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/route/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/trip/trip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/trip/trip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front/autostop/src/providers/user/userProvider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/MatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Address.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,28 +14,181 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/DriverController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/exception/MyFileNotFoundException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="75">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/MatchingDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+            <state relative-caret-position="75">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/AuthenticationFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+              <folding>
+                <element signature="e#2962#2963#0" expanded="true" />
+                <element signature="e#2987#2988#0" expanded="true" />
+                <element signature="e#3021#3022#0" expanded="true" />
+                <element signature="e#3049#3050#0" expanded="true" />
+                <element signature="e#3084#3085#0" expanded="true" />
+                <element signature="e#3115#3116#0" expanded="true" />
+                <element signature="e#3163#3164#0" expanded="true" />
+                <element signature="e#3203#3204#0" expanded="true" />
+                <element signature="e#3238#3239#0" expanded="true" />
+                <element signature="e#3269#3270#0" expanded="true" />
+                <element signature="e#3317#3318#0" expanded="true" />
+                <element signature="e#3357#3358#0" expanded="true" />
+                <element signature="e#3393#3394#0" expanded="true" />
+                <element signature="e#3425#3426#0" expanded="true" />
+                <element signature="e#3475#3476#0" expanded="true" />
+                <element signature="e#3517#3518#0" expanded="true" />
+                <element signature="e#3549#3550#0" expanded="true" />
+                <element signature="e#3577#3578#0" expanded="true" />
+                <element signature="e#3619#3620#0" expanded="true" />
+                <element signature="e#3653#3654#0" expanded="true" />
+                <element signature="e#3683#3684#0" expanded="true" />
+                <element signature="e#3709#3710#0" expanded="true" />
+                <element signature="e#3747#3748#0" expanded="true" />
+                <element signature="e#3777#3778#0" expanded="true" />
+                <element signature="e#3818#3819#0" expanded="true" />
+                <element signature="e#3852#3853#0" expanded="true" />
+                <element signature="e#3909#3910#0" expanded="true" />
+                <element signature="e#3955#3956#0" expanded="true" />
+                <element signature="e#3987#3988#0" expanded="true" />
+                <element signature="e#4015#4016#0" expanded="true" />
+                <element signature="e#4057#4058#0" expanded="true" />
+                <element signature="e#4091#4092#0" expanded="true" />
+                <element signature="e#4126#4127#0" expanded="true" />
+                <element signature="e#4157#4158#0" expanded="true" />
+                <element signature="e#4205#4206#0" expanded="true" />
+                <element signature="e#4245#4246#0" expanded="true" />
+                <element signature="e#4310#4311#0" expanded="true" />
+                <element signature="e#4360#4361#0" expanded="true" />
+                <element signature="e#4462#4463#0" expanded="true" />
+                <element signature="e#4491#4492#0" expanded="true" />
+                <element signature="e#4535#4536#0" expanded="true" />
+                <element signature="e#4571#4572#0" expanded="true" />
+                <element signature="e#4612#4613#0" expanded="true" />
+                <element signature="e#4645#4646#0" expanded="true" />
+                <element signature="e#4701#4702#0" expanded="true" />
+                <element signature="e#4745#4746#0" expanded="true" />
+                <element signature="e#4781#4782#0" expanded="true" />
+                <element signature="e#4813#4814#0" expanded="true" />
+                <element signature="e#4864#4865#0" expanded="true" />
+                <element signature="e#4906#4907#0" expanded="true" />
+                <element signature="e#4935#4936#0" expanded="true" />
+                <element signature="e#4962#4963#0" expanded="true" />
+                <element signature="e#5000#5001#0" expanded="true" />
+                <element signature="e#5032#5033#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/UploadPicture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Trip.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/MatchingEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Evaluation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
+              <folding>
+                <element signature="e#463#464#0" expanded="true" />
+                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#529#530#0" expanded="true" />
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
+                <element signature="e#699#700#0" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Address.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="96" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+              <folding>
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#790#791#0" expanded="true" />
+                <element signature="e#826#827#0" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#879#880#0" expanded="true" />
+                <element signature="e#914#915#0" expanded="true" />
+                <element signature="e#944#945#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+                <element signature="e#1042#1043#0" expanded="true" />
+                <element signature="e#1074#1075#0" expanded="true" />
+                <element signature="e#1108#1109#0" expanded="true" />
+                <element signature="e#1138#1139#0" expanded="true" />
+                <element signature="e#1184#1185#0" expanded="true" />
+                <element signature="e#1222#1223#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,6 +197,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Evaluation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Address.java" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
@@ -129,7 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,13 +271,58 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Autostop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Back" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Autostop" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,6 +332,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548772777605" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -236,16 +374,18 @@
       <workItem from="1548672549075" duration="1006000" />
       <workItem from="1548692332955" duration="176000" />
       <workItem from="1548693019261" duration="631000" />
+      <workItem from="1548771095183" duration="1677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1813000" />
+    <option name="totallyTimeSpent" value="3490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -255,7 +395,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28554216" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28554216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -264,7 +404,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.32891566" />
@@ -331,17 +471,293 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/PedestrianController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/MatchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding>
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/utils/FileStorageProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.1.RELEASE/spring-security-core-5.1.1.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2280">
+          <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/UserLoginRequestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/SecurityConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/AuthorizationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/WebSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/controllers/ImageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/DriverService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/PedestrianService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/services/StorageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-519">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/SpringApplicationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/exception/FileStorageException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/exception/MyFileNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/MatchingDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/repositories/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/security/AuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding>
+            <element signature="e#2962#2963#0" expanded="true" />
+            <element signature="e#2987#2988#0" expanded="true" />
+            <element signature="e#3021#3022#0" expanded="true" />
+            <element signature="e#3049#3050#0" expanded="true" />
+            <element signature="e#3084#3085#0" expanded="true" />
+            <element signature="e#3115#3116#0" expanded="true" />
+            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#3203#3204#0" expanded="true" />
+            <element signature="e#3238#3239#0" expanded="true" />
+            <element signature="e#3269#3270#0" expanded="true" />
+            <element signature="e#3317#3318#0" expanded="true" />
+            <element signature="e#3357#3358#0" expanded="true" />
+            <element signature="e#3393#3394#0" expanded="true" />
+            <element signature="e#3425#3426#0" expanded="true" />
+            <element signature="e#3475#3476#0" expanded="true" />
+            <element signature="e#3517#3518#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
+            <element signature="e#3577#3578#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#3653#3654#0" expanded="true" />
+            <element signature="e#3683#3684#0" expanded="true" />
+            <element signature="e#3709#3710#0" expanded="true" />
+            <element signature="e#3747#3748#0" expanded="true" />
+            <element signature="e#3777#3778#0" expanded="true" />
+            <element signature="e#3818#3819#0" expanded="true" />
+            <element signature="e#3852#3853#0" expanded="true" />
+            <element signature="e#3909#3910#0" expanded="true" />
+            <element signature="e#3955#3956#0" expanded="true" />
+            <element signature="e#3987#3988#0" expanded="true" />
+            <element signature="e#4015#4016#0" expanded="true" />
+            <element signature="e#4057#4058#0" expanded="true" />
+            <element signature="e#4091#4092#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
+            <element signature="e#4157#4158#0" expanded="true" />
+            <element signature="e#4205#4206#0" expanded="true" />
+            <element signature="e#4245#4246#0" expanded="true" />
+            <element signature="e#4310#4311#0" expanded="true" />
+            <element signature="e#4360#4361#0" expanded="true" />
+            <element signature="e#4462#4463#0" expanded="true" />
+            <element signature="e#4491#4492#0" expanded="true" />
+            <element signature="e#4535#4536#0" expanded="true" />
+            <element signature="e#4571#4572#0" expanded="true" />
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#4645#4646#0" expanded="true" />
+            <element signature="e#4701#4702#0" expanded="true" />
+            <element signature="e#4745#4746#0" expanded="true" />
+            <element signature="e#4781#4782#0" expanded="true" />
+            <element signature="e#4813#4814#0" expanded="true" />
+            <element signature="e#4864#4865#0" expanded="true" />
+            <element signature="e#4906#4907#0" expanded="true" />
+            <element signature="e#4935#4936#0" expanded="true" />
+            <element signature="e#4962#4963#0" expanded="true" />
+            <element signature="e#5000#5001#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/UploadPicture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/MatchingEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Evaluation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
+          <folding>
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/autostopfrance/Autostop/models/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="96" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+          <folding>
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#790#791#0" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1222#1223#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

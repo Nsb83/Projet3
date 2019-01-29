@@ -26,8 +26,13 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
+
+    /**
+     * Dev trolling :)
+     */
     @Column(name = "vehiculed")
     private boolean vehiculed;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     private UploadPicture uploadPicture;
