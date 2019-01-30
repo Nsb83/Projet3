@@ -9,7 +9,7 @@ import { NavController, NavParams,ModalController } from 'ionic-angular';
 import { UserProvider } from '../../../../../../../providers/user/userProvider';
 import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 import { ImageProvider } from '../../../../../../../providers/Image/imageProvider';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { User } from '../../../../../../../models/User';
 
 @Component({
@@ -134,7 +134,7 @@ export class VehiclePage implements OnInit{
 
   onUpload() {
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(() => {
       }, (error: HttpErrorResponse) => {
         this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
       }

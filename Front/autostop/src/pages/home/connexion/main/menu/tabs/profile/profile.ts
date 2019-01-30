@@ -77,6 +77,7 @@ export class ProfilePage implements OnInit {
   onUpload() {
     this.currentFileUpload = this.selectedFiles.item(0);
     this.imageProvider.pushFileToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+
       })
     this.currentFileUpload = undefined;
   }

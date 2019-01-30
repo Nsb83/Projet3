@@ -25,11 +25,15 @@ export class MatchProvider {
   }
 
   checkMatchingEntity(matchingEntityId){
-    return this.http.get(`${environment.SERVER_URL}/getmatchingentity/${matchingEntityId}`)
+    return this.http.get(`${environment.SERVER_URL}/getMatchingEntity/${matchingEntityId}`)
   }
 
   updateMatchingEntity(matchingEntity: any) {
     return this.http.put(`${environment.SERVER_URL}/updateMatchingEntity/${matchingEntity.id}`, matchingEntity);
+  }
+
+  deleteMatchingEntity(matchingEntityId){
+    return this.http.delete(`${environment.SERVER_URL}/deleteMatchingEntity/${matchingEntityId}`)
   }
 
   getMatchingDriversAround() {

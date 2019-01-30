@@ -349,7 +349,6 @@ export class MapPage {
           .switchMap(() => this.matchProvider.queryPedestrian())
           .subscribe(
             (data: MatchingEntity[])=> {
-              console.log(data);
               this.requestingMatchingEntities = data;
               if (this.requestingMatchingEntities.length) {
                 this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId)
@@ -361,10 +360,9 @@ export class MapPage {
               }
             },
             error => {
-              this.messageProvider.myToastMethod("Patientez...");
               console.log(error);
             });
-        }
+          }
 
       else {
         let alert = this.alrtCtrl.create({
@@ -409,7 +407,7 @@ export class MapPage {
 
         if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
-          this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#b6cb4c', matchingDrivers[i]);
+          this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#66245A', matchingDrivers[i]);
           this.arrayPolyMatched[i]=this.polyMatch;
         }
       }

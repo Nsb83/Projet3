@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { PedestrianProvider } from '../../../../../../../providers/Pedestrian/PedestrianProvider';
 import { MatchProvider } from '../../../../../../../providers/match/matchProvider';
+import { MessageProvider } from '../../../../../../../providers/Messages/MessageProvider';
 
 
 export interface CountdownTimer {
@@ -35,12 +36,12 @@ export class ResponseModalPage {
   matchingEntityChanged: boolean = false;
   matchingEntity: any;
 
-
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private sanitizer: DomSanitizer,
               public viewCtrl: ViewController,
               private events: Events,
+              private messageProvider: MessageProvider,
               private matchProvider: MatchProvider) {
               this.matchableUser = this.navParams.get('matchableUser');
               this.matchingEntity = this.navParams.get('matchingEntity');
@@ -58,13 +59,30 @@ export class ResponseModalPage {
           .pipe(takeWhile(() => !this.matchingEntityChanged))
           .switchMap(() => this.matchProvider.checkMatchingEntity(this.matchingEntity.id))
           .subscribe(
-            (data: boolean)=> {
-              this.matchingEntityChanged = data;
-              if (data) {
+            (data: any)=> {
+              if (data.accepted){
+                this.matchingEntityChanged = data.accepted;
+                this.matchProvider.deleteMatchingEntity(this.matchingEntity.id).subscribe(() => {
+
+                }, error => {
+                  console.log(error);
+                });
                 this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser})
               }
+              if (data.declined){
+                this.matchingEntityChanged = data.declined;
+                this.matchProvider.deleteMatchingEntity(this.matchingEntity.id).subscribe(() => {
+
+                }, error => {
+                  console.log(error);
+                });
+                this.messageProvider.myAlertMethod("Désolé,", "La situation du conducteur ne permet pas de vous prendre en charge, cherchez un autre conducteur !", false);
+                this.navCtrl.pop();
+                }
             },
             error => {
+              console.log(error);
+              
             });
     }
   }
@@ -72,25 +90,44 @@ export class ResponseModalPage {
 
   declineRequest() {
     this.events.publish('request:declined');
+    let newMatchingEntity = this.matchingEntity;
+    console.log(this.matchingEntity);
+    
+    newMatchingEntity.declined = true;
+    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
+      console.log(this.matchingEntity);
+
+    }, (error) => {
+      console.log(error);
+    });
     this.navCtrl.pop();
   }
 
-  acceptRequest() {
-    console.log("Matching entity non typée : ", this.matchingEntity);
-    
+  cancelRequest() {
+    this.matchProvider.deleteMatchingEntity(this.matchingEntity.id).subscribe(() => {
+
+    }, error => {
+      console.log(error);
+    });
+    this.navCtrl.pop();
+  }
+
+  acceptRequest() {    
     let newMatchingEntity = this.matchingEntity;
     newMatchingEntity.accepted = true;
     this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
-      console.log("Réponse de la requête http.put : ", res);
+
+    }, (error) => {
+      console.log(error);
     });
     this.navCtrl.pop();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
   }
 
-
   hasFinished() {
     return this.timer.hasFinished;
   }
+
   initProgressBar() {
     this.percent = 100;
     this.increment = 180 / 100;
