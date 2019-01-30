@@ -7,6 +7,15 @@ page-map {
     left: 0;
     z-index: 0;
   }
+  #validateButton{
+    margin: auto;
+    display: block
+  }
+  #matchedButton{
+    margin: auto;
+    display: block;
+
+  }
 }
 
 SearchBarPageComponent {

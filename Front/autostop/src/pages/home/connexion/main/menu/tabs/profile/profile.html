@@ -1,1 +1,66 @@
-<ion-content padding> <page-distance></page-distance> </ion-content>
+<ion-content padding class="container">
+
+  <form [formGroup]="updateProfil">
+    <ion-item>
+      <ion-input type="text" formControlName="lastName" value="{{ user.lastName }}" placeholder="Nom">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="firstName"
+        value="{{ user.firstName }}"
+        placeholder="Prénom"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="tel"
+        formControlName="phone"
+        value="{{ user.phone }}"
+        placeholder="Téléphone"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="email"
+        formControlName="email"
+        value="{{ user.email }}"
+        placeholder="Adresse mail"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="sex"
+        value="{{ user.sex }}"
+        placeholder="Sexe"
+      ></ion-input>
+    </ion-item>
+    <ion-item id="dateOfBirth">
+      <ion-datetime
+        placeholder="{{ user.dateOfBirth }}"
+        displayFormat="DD/MM/YYYY"
+        pickerFormat="DD/MM/YYYY"
+        min="1918"
+        [(ngModel)]="myDate"
+        formControlName="dateOfBirth"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <input type="file" (change)="selectFile($event)">
+    </ion-item>
+    <button ion-button (click)="onUpload()">Upload!</button>
+
+    <button
+      ion-button
+      full
+      color="button"
+      type="submit"
+      [disabled]="!updateProfil.valid"
+      (click)="validateForm(updateProfil.value)">
+      Mettre à jour
+    </button>
+  </form>
+
+</ion-content>

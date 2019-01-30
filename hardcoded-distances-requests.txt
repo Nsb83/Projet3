@@ -1,0 +1,3 @@
+Google Api key : AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44
+
+https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&mode=walking&origins=45.746434,4.8264295&destinations=enc:c|evGuen\a@OUMg@WYOCC{CoBWSUQKGe@a@ECQMAAA?CC?AIEMKi@g@k@k@SSKK:&key=AIzaSyBhqCcaN5OfApXOWr_1b2VkIBQqIwPQK44

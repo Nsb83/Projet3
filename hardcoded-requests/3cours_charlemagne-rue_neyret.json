@@ -1,0 +1,415 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJLW6iSsnr9EcRMrHJd5eAHiQ",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJJ2ZuiQLr9EcRCkEokR8OY-M",
+         "types" : [ "route" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 45.7716059,
+               "lng" : 4.8384591
+            },
+            "southwest" : {
+               "lat" : 45.7339147,
+               "lng" : 4.8166419
+            }
+         },
+         "copyrights" : "Données cartographiques ©2019 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "6,1 km",
+                  "value" : 6091
+               },
+               "duration" : {
+                  "text" : "15 minutes",
+                  "value" : 888
+               },
+               "end_address" : "Rue Neyret, 69001 Lyon, France",
+               "end_location" : {
+                  "lat" : 45.77140300000001,
+                  "lng" : 4.830154299999999
+               },
+               "start_address" : "112 Cours Charlemagne, 69002 Lyon, France",
+               "start_location" : {
+                  "lat" : 45.7408128,
+                  "lng" : 4.8191109
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0,9 km",
+                        "value" : 860
+                     },
+                     "duration" : {
+                        "text" : "3 minutes",
+                        "value" : 174
+                     },
+                     "end_location" : {
+                        "lat" : 45.7339147,
+                        "lng" : 4.8184396
+                     },
+                     "html_instructions" : "Prendre la direction \u003cb\u003esud-ouest\u003c/b\u003e sur \u003cb\u003eCours Charlemagne\u003c/b\u003e vers \u003cb\u003eRue Paul Montrochet\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "awdvGmfl\\RNJJJHfA|@zAlAlCvB`CfB`@T`@Rf@P`@J^DXDV@TB\\@l@AX?x@ORGp@Ql@Y~FsBVK@?\\GVc@@C@EDMJc@H]H["
+                     },
+                     "start_location" : {
+                        "lat" : 45.7408128,
+                        "lng" : 4.8191109
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,2 km",
+                        "value" : 239
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 42
+                     },
+                     "end_location" : {
+                        "lat" : 45.7358004,
+                        "lng" : 4.8198774
+                     },
+                     "html_instructions" : "Tourner à \u003cb\u003egauche\u003c/b\u003e vers \u003cb\u003eA7\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "}kcvGgbl\\c@_@MOKKEC][_@Ya@][WUQKIIGKIc@Ww@a@ECCA[E"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7339147,
+                        "lng" : 4.8184396
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1,4 km",
+                        "value" : 1417
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 76
+                     },
+                     "end_location" : {
+                        "lat" : 45.7467418,
+                        "lng" : 4.8292296
+                     },
+                     "html_instructions" : "Rejoindre \u003cb\u003eA7\u003c/b\u003e",
+                     "maneuver" : "merge",
+                     "polyline" : {
+                        "points" : "wwcvGgkl\\}LyJ}NsLcEcDuIcH}@u@cCmBsC_CaBsAwAiAe@e@][YUEEQMo@i@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7358004,
+                        "lng" : 4.8198774
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 349
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 25
+                     },
+                     "end_location" : {
+                        "lat" : 45.7495004,
+                        "lng" : 4.8313581
+                     },
+                     "html_instructions" : "Prendre la sortie à \u003cb\u003egauche\u003c/b\u003e en direction de \u003cb\u003eLyon-Centre\u003c/b\u003e",
+                     "maneuver" : "ramp-left",
+                     "polyline" : {
+                        "points" : "c|evGuen\\a@OUMg@WYOCC{CoBWSUQKGe@a@ECQMAAA?CC?AIEMKi@g@k@k@SSKK"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7467418,
+                        "lng" : 4.8292296
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,6 km",
+                        "value" : 595
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 87
+                     },
+                     "end_location" : {
+                        "lat" : 45.7542859,
+                        "lng" : 4.834772
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eQuai du Dr Gailleton\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "kmfvG_sn\\k@g@]YOMGESQa@Wm@]OKi@[AAiBcA_GkDu@c@e@_@_@[KIAA}@k@i@[_B}@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7495004,
+                        "lng" : 4.8313581
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 342
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 28
+                     },
+                     "end_location" : {
+                        "lat" : 45.75705199999999,
+                        "lng" : 4.836672
+                     },
+                     "html_instructions" : "Rester sur la file de \u003cb\u003egauche\u003c/b\u003e pour continuer sur \u003cb\u003eQuai du Dr Gailleton\u003c/b\u003e",
+                     "maneuver" : "keep-left",
+                     "polyline" : {
+                        "points" : "ikgvGiho\\{Aq@k@k@WWg@_@iBiAYQ[OqAu@gB_AEC"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7542859,
+                        "lng" : 4.834772
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,7 km",
+                        "value" : 735
+                     },
+                     "duration" : {
+                        "text" : "2 minutes",
+                        "value" : 106
+                     },
+                     "end_location" : {
+                        "lat" : 45.7635016,
+                        "lng" : 4.8384591
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eQuai Jules Courmont\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "q|gvGeto\\]OAAOGMGKGIE{Bs@gA]e@OSIUK]QUKYIo@Kw@Ow@KA?WIQC[EEAg@IwAWsAQiAKoBSa@AK?mACO@c@Ag@@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.75705199999999,
+                        "lng" : 4.836672
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 330
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 44
+                     },
+                     "end_location" : {
+                        "lat" : 45.7664696,
+                        "lng" : 4.8383186
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eQuai Jean Moulin\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "{divGk_p\\W@G?m@BW?e@@eDFsA?qCHy@@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7635016,
+                        "lng" : 4.8384591
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 265
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 48
+                     },
+                     "end_location" : {
+                        "lat" : 45.7688436,
+                        "lng" : 4.838223500000001
+                     },
+                     "html_instructions" : "Tourner légèrement à \u003cb\u003edroite\u003c/b\u003e vers \u003cb\u003ePlace Tolozan\u003c/b\u003e",
+                     "maneuver" : "turn-slight-right",
+                     "polyline" : {
+                        "points" : "mwivGo~o\\o@Iy@?[Bm@Bc@BY@UBiADyA@m@B"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7664696,
+                        "lng" : 4.8383186
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,1 km",
+                        "value" : 127
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 44
+                     },
+                     "end_location" : {
+                        "lat" : 45.7696568,
+                        "lng" : 4.8373186
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà gauche\u003c/b\u003e sur \u003cb\u003ePlace Tolozan\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "gfjvG{}o\\IJAB?BCNQh@AN?DADGVGFCBA@A?A@A?C@C?E?I@QBIBI@IBGDQH"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7688436,
+                        "lng" : 4.838223500000001
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,1 km",
+                        "value" : 107
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 28
+                     },
+                     "end_location" : {
+                        "lat" : 45.7705357,
+                        "lng" : 4.8367681
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eGrande Rue des Feuillants\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "kkjvGgxo\\e@Tw@f@qAn@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7696568,
+                        "lng" : 4.8373186
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,1 km",
+                        "value" : 98
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 40
+                     },
+                     "end_location" : {
+                        "lat" : 45.7698719,
+                        "lng" : 4.8359409
+                     },
+                     "html_instructions" : "Prendre \u003cb\u003eà gauche\u003c/b\u003e sur \u003cb\u003ePlace Croix-Paquet\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "{pjvGyto\\FPDJJL^f@jApA"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7705357,
+                        "lng" : 4.8367681
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,2 km",
+                        "value" : 197
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 51
+                     },
+                     "end_location" : {
+                        "lat" : 45.7716059,
+                        "lng" : 4.8356642
+                     },
+                     "html_instructions" : "Prendre complètement \u003cb\u003eà droite\u003c/b\u003e sur \u003cb\u003eMontée Saint-Sébastien\u003c/b\u003e",
+                     "maneuver" : "turn-sharp-right",
+                     "polyline" : {
+                        "points" : "uljvGsoo\\I@s@F}AFE?iAE]Ca@Lo@`@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7698719,
+                        "lng" : 4.8359409
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,3 km",
+                        "value" : 315
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 73
+                     },
+                     "end_location" : {
+                        "lat" : 45.7713096,
+                        "lng" : 4.8316282
+                     },
+                     "html_instructions" : "\u003cb\u003eMontée Saint-Sébastien\u003c/b\u003e tourne à \u003cb\u003egauche\u003c/b\u003e et devient \u003cb\u003eRue Imbert-Colomès\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "qwjvG{mo\\HhBJtDNdEFnCH~BBn@"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7716059,
+                        "lng" : 4.8356642
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0,1 km",
+                        "value" : 115
+                     },
+                     "duration" : {
+                        "text" : "1 minute",
+                        "value" : 22
+                     },
+                     "end_location" : {
+                        "lat" : 45.77140300000001,
+                        "lng" : 4.830154299999999
+                     },
+                     "html_instructions" : "Continuer sur \u003cb\u003eRue Neyret\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "uujvGutn\\?T@HAH?LANCj@AJIfD"
+                     },
+                     "start_location" : {
+                        "lat" : 45.7713096,
+                        "lng" : 4.8316282
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "awdvGmfl\\rBbBhFdE`CfB`@ThAd@`APdBLfAAlAWp@Ql@YvG_C^GXg@\\uAH[c@_@Y[eBwAgA{@mBgA_@G{\\mX{UkRuFsE}BoBoAeAo@i@a@O}@e@qEwCcBoA[WuBsBaBuAsBsAuKmG{AcAk@e@iEgC{Aq@k@k@_Aw@cC{AmBeAmCuAi@WeCy@mBm@}As@iAUoB[YIm@IyEu@yD_@m@AiDAeBDkEHsA?qCHy@@o@IuABaCLcDFm@BIJAFUx@Kr@OLw@LSDYN}A|@qAn@FPPXjBxB}@HcBFgBIa@Lo@`@T~GVtINnEGrAKrD"
+         },
+         "summary" : "A7",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

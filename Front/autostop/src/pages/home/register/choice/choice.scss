@@ -1,0 +1,31 @@
+page-choice {
+    .scroll-content {
+        overflow-y: hidden;
+    }
+
+    #logo {
+        margin-top: 40%;
+        img {
+          height: 100px;
+          width: auto;
+          margin: auto;
+          display: block;
+        }
+      }
+
+    #choicePage {
+        color: color($colors, secondary);
+        .title {
+            display: block;
+            margin: auto;
+            width: 75%;
+            margin-top: 20px;
+        }
+        background: color($colors, home);
+
+        .choiceIcons {
+            filter: drop-shadow(1px 2px 3px rgb(80, 102, 70));
+            width: 70px;
+        }
+    }
+}

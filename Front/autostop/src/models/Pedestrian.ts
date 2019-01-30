@@ -1,7 +1,25 @@
 export class Pedestrian {
-    passengerNumber: number;
+  private passengersNumber: number;
+  public searchRadius: number;
 
-  constructor( passengerNumber: number){
-    this.passengerNumber = passengerNumber;
+  constructor(passengersNumber?: number, searchRadius?: number) {
+    this.passengersNumber = passengersNumber;
+    this.searchRadius = searchRadius;
+  }
+
+  public getPassengersNumber(): number {
+    return this.passengersNumber;
+  }
+
+  public setPassengersNumber(passengersNumber: number): void {
+    this.passengersNumber = passengersNumber;
+  }
+
+  public getSearchRadius(): number {
+    return this.searchRadius;
+  }
+
+  public setSearchRadius(searchRadius: number): void {
+    this.searchRadius = searchRadius;
   }
 }

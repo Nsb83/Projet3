@@ -1,51 +1,55 @@
-import { GiveRatingPage } from './give-rating/give-rating';
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { DriverProvider } from "../../../../../../../../providers/driver/driverProvider";
+import { Driver } from "../../../../../../../../models/Driver";
+// import { CallNumber } from "@ionic-native/call-number";
 
 @Component({
-  selector: 'page-linking',
-  templateUrl: 'linking.html',
+  selector: "page-linking",
+  templateUrl: "linking.html"
 })
 export class LinkingPage {
   matchableUser;
-  car = {
-    model: "Clio 3 Initiale",
-    color: "noire",
-    brand: "Renault",
-    imgCar: "./assets/imgs/clio4.jpeg"
+  driver: Driver;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public driverProvider: DriverProvider
+  ) {
+    this.matchableUser = this.navParams.get("matchableUser");
   }
 
-  testImgUrl: string = "./assets/imgs/profileImg.jpg";
-  testRating: number = 4;
-
-  //Couleur d'étoiles dynamiques
-  getStar(num){
-    if (num< this.testRating){
-      return "./assets/imgs/stars/starFullSm.png";
-    }
-    else return "./assets/imgs/stars/starEmptySm.png";
+  ngOnInit() {
+    this.driverProvider.getDriver().subscribe((response: any) => {
+      this.driver = response;
+    });
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.matchableUser = this.navParams.get('matchableUser');
+  call() {
+    setTimeout(() => {
+      let tel = "12345678890";
+      window.open(`tel:${tel}`, "_system");
+    }, 100);
+    this.navCtrl.pop();
   }
 
-  //Couleur d'étoiles dynamiques
-  starRate;
-  getColor(num){
-    if (num < this.matchableUser.rating){
-      return '#b6cb4c';
-    }
-    else return 'grey';
-  }
+      // //Couleur d'étoiles dynamiques
+  // getStar(num) {
+  //   if (num < this.testRating) {
+  //     return "./assets/imgs/stars/starFullSm.png";
+  //   } else return "./assets/imgs/stars/starEmptySm.png";
+  // }
+  // //Couleur d'étoiles dynamiques
+  // starRate;
+  // getColor(num) {
+  //   if (num < this.matchableUser.rating) {
+  //     return "#b6cb4c";
+  //   } else return "grey";
+  // }
 
-  goToRate(){
-    this.navCtrl.push(GiveRatingPage, { matchableUser : this.matchableUser});
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LinkingPage');
-  }
-
+  // goToRate() {
+  //   this.navCtrl.pop();
+  //   this.navCtrl.push(GiveRatingPage, { matchableUser: this.matchableUser });
+  // }
 }

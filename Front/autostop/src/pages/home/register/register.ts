@@ -1,23 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
-import { MainPage } from "../connexion/main/main";
 import { User } from "../../../models/User";
+import { UserProvider } from "../../../providers/user/userProvider";
+import { ConnexionPage } from "../connexion/connexion";
+import { HttpErrorResponse } from "@angular/common/http";
+import { MessageProvider } from "../../../providers/Messages/MessageProvider";
 
 @Component({
   selector: "page-register",
   templateUrl: "register.html"
 })
 export class RegisterPage implements OnInit {
-  main = MainPage;
-  newUser: User;
 
+  private newUser: User;
   private register: FormGroup;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
-    private alertCtrl: AlertController
+    private userService: UserProvider,
+    private messageService: MessageProvider
   ) {}
 
   ngOnInit() {
@@ -30,7 +34,7 @@ export class RegisterPage implements OnInit {
         lastName: ["", Validators.required],
         firstName: ["", Validators.required],
         phone: ["", Validators.required],
-        mail: ["", Validators.compose([Validators.email, Validators.required])],
+        email: ["", Validators.compose([Validators.email, Validators.required])],
         sex: ["", Validators.required],
         dateOfBirth: ["", Validators.required],
         password: ["", Validators.required],
@@ -58,21 +62,17 @@ export class RegisterPage implements OnInit {
       register.lastName,
       register.firstName,
       register.phone,
-      register.mail,
       register.sex,
-      register.dateOfBirth
+      register.dateOfBirth,
+      register.email,
+      register.password
     );
-    let alert = this.alertCtrl.create({
-      title:
-        "Nouveau compte créé pour " +
-        this.newUser.lastName +
-        ", " +
-        this.newUser.firstName,
-      subTitle:
-        "Tel. : " + this.newUser.phone + ", Mail : " + this.newUser.mail,
-      buttons: ["Ok"]
-    });
-    alert.present();
-    this.navCtrl.push(MainPage);
+    this.userService.createUser(this.newUser).subscribe(() => {
+      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`)
+      this.navCtrl.push(ConnexionPage);
+    }, (error: HttpErrorResponse) => {
+      this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
+    }
+    );
   }
 }

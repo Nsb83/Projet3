@@ -1,6 +1,63 @@
 page-main{
-  .avatarUser{
-    border-radius: 50%;
-    // width: 50vw;
+  .custom {
+
+    background: color($colors, menu) !important; /* This sets the background color*/
+
+    h3 {
+      color: white;
+      display: block;
+      text-align: center;
+    }
+
+    hr {
+      background-color: white;
+      margin: 0;
+    }
+
+    .scroll-content {
+      overflow-y: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #avatarUser{
+      display: block;
+      margin: 10% auto 0 auto;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+
+    .button {
+      display: block;
+      margin: 0 auto 0 auto;
+    }
+
+    .toggle{
+      display: block;
+      margin: 0 auto 0 auto;
+    }
+
+
+
+    .item {
+      background-color: transparent; /*Transparent background-color for each item*/
+      color: white;    /*Text color for each item*/
+    }
+
+    .toggle-ios.toggle-checked.vehiculed-toggle .toggle-inner {
+      background-image: "../../../../assets/imgs/choicePage/driverIcon.png";
+      background-repeat: no-repeat;
+      background-size: 80%;
+      background-color: white;
+      background-position: center;
   }
+
+  .toggle-ios.toggle-checked.vehiculed-toggle .toggle-icon {
+      background-color: #0082FF;
+  }
+
+  }
+
 }

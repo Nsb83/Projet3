@@ -1,21 +1,27 @@
 import { ResponseModalPage } from './response-modal/response-modal';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, Events } from 'ionic-angular';
+import { MatchingEntity } from '../../../../../../models/MatchingEntity';
+import { UserProvider } from '../../../../../../providers/user/userProvider';
+import { MatchingUserDetails } from '../../../../../../models/MatchingUserDetails';
+import { MatchProvider } from '../../../../../../providers/match/matchProvider';
 
 @Component({
   selector: 'page-request-modal',
   templateUrl: 'request-modal.html',
 })
 export class RequestModalPage {
-  matchableUser;
+  matchableUser: MatchingUserDetails;
+  matchingEntityId: number;
 
-  // test variables
-  testTrip: string = "Chemin de la Plaine, Thurins";
-  testImgUrl: string = "./assets/imgs/profileImg.jpg";
-  testRating: number = 4;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public viewCtrl: ViewController,
+              private userProvider: UserProvider,
+              private matchProvider: MatchProvider,
+              private events: Events) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.matchableUser = this.navParams.get('matchableUser');
+    this.matchableUser = this.navParams.get('matchUser');
   }
 
   closeModal(){
@@ -23,19 +29,22 @@ export class RequestModalPage {
   }
 
   sendRequest(){
-    this.navCtrl.push(ResponseModalPage, { matchableUser : this.matchableUser});
+    let matchingEntity = new MatchingEntity(this.matchableUser.publicId, this.userProvider.getUserId())
+    this.matchProvider.sendRequest(matchingEntity).subscribe((data: any) => {
+      this.viewCtrl.dismiss();
+      this.navCtrl.push(ResponseModalPage, {
+                                            matchableUser : this.matchableUser,
+                                            matchingEntity : data
+                                          });
+    });
   }
 
-  ionViewDidLoad() {
-    console.log(this.matchableUser);
-  }
-
-//Couleur d'étoiles dynamiques
-  getStar(num){
-    if (num< this.testRating){
-      return "./assets/imgs/stars/starFullSm.png";
-    }
-    else return "./assets/imgs/stars/starEmptySm.png";
-  }
+// //Couleur d'étoiles dynamiques
+//   getStar(num){
+//     if (num< this.testRating){
+//       return "./assets/imgs/stars/starFullSm.png";
+//     }
+//     else return "./assets/imgs/stars/starEmptySm.png";
+//   }
 
 }

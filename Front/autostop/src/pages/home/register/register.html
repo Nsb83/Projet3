@@ -1,9 +1,3 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar> <ion-title>Créer un compte</ion-title> </ion-navbar>
 </ion-header>
@@ -31,23 +25,21 @@
     <ion-item>
       <ion-input
         type="email"
-        formControlName="mail"
+        formControlName="email"
         placeholder="Adresse email"
       ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input
-        type="text"
-        formControlName="sex"
-        placeholder="Sexe"
-      ></ion-input>
+      <ion-label>Sexe</ion-label>
+      <ion-select formControlName="sex" interface="popover">
+        <ion-option value="Homme">Homme</ion-option>
+        <ion-option value="Femme">Femme</ion-option>
+      </ion-select>
     </ion-item>
     <ion-item id="dateOfBirth">
       <ion-datetime
         placeholder="Date de naissance"
         displayFormat="DD/MM/YYYY"
-        min="1918"
-        max="2000-12-07"
         formControlName="dateOfBirth"
       ></ion-datetime>
     </ion-item>
@@ -72,8 +64,7 @@
       color="button"
       type="submit"
       [disabled]="!register.valid"
-      (click)="validateForm(register.value)"
-    >
+      (click)="validateForm(register.value)">
       CRÉER
     </button>
   </form>

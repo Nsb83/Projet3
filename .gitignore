@@ -30,7 +30,9 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 .history/
-
+workspace.xml
+.attach_pid*
+.factorypath
 
 # Compiled source #
 ###################

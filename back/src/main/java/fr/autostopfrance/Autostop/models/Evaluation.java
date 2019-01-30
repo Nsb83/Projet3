@@ -1,8 +1,20 @@
 package fr.autostopfrance.Autostop.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * Made to allow users to rate their trip ; Not implemented in front by lack of time
+ */
+
 public class Evaluation {
+
     private int rating;
     private String comment;
+
+    public Evaluation() {}
 
     public Evaluation(int rating, String comment){
         this.rating = rating;

@@ -1,42 +1,62 @@
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>Conducteur</ion-title>
-  </ion-navbar>
-
-</ion-header>
- -->
-
 <ion-content padding>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-10 offset-1>
-          <h3>Votre demande a bien été envoyée à {{ matchableUser.lastName }}  {{ matchableUser.firstName }}</h3>
+    <ion-row class="row">
+      <ion-col *ngIf="matchableUser.vehiculed">
+          <h3>Votre demande a bien été envoyée à {{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}.</h3>
+      </ion-col>
+      <ion-col *ngIf="!matchableUser.vehiculed">
+        <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}. vous a envoyé une demande !</h3>
+        <h3>Se rend à :</h3>
+        <p><ion-icon name="locate"></ion-icon>
+            {{ matchableUser.trip.destinationString }}
+        </p>
       </ion-col>
     </ion-row>
-    <ion-row>
-        <ion-col col-6 offset-3>
-            <img class="avatarUser" [src]=testImgUrl>
-        </ion-col>
-      </ion-row>
-    <ion-row>
-        <ion-col col-8 offset-2>
-            <img class="stars"
-            [src]="getStar(num)"
-            *ngFor="let num of [1,2,3,4,5]">
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col col-10 offset-1>
-              <button ion-button full color="button" (click)="goToLinking()">Demande acceptée</button>
-          </ion-col>
-      </ion-row>
-
-      <ion-row>
-          <ion-col col-10 offset-1>
-              <button ion-button  full color="danger" (click)="cancelRequest()">Annuler</button>
-        </ion-col>
-      </ion-row>
+    <ion-row class="row">
+      <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri!=null" >
+        <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
+      </ion-col>
+      <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri==null" >
+        <img class="avatarUser" src="../../../../../../../assets/imgs/profileImg1.png">
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <!-- <ion-col>
+          <img class="stars"
+          [src]="getStar(num)"
+          *ngFor="let num of [1,2,3,4,5]">
+      </ion-col> -->
+    </ion-row>
+    <ion-row class="row">
+      <ion-col>
+        <div class="radial-progress" data-progress="0">
+          <div class="circle">
+              <div class="mask full" [style.transform]="transform">
+              <div class="fill" [style.transform]="transform"></div>
+              </div>
+              <div class="mask half">
+              <div class="fill" [style.transform]="transform"></div>
+              <div class="fill fix" [style.transform]="fixTransform"></div>
+              </div>
+              <div class="shadow"></div>
+          </div>
+          <div class="inset">
+              <div class="percentage">{{timer.displayTime}}</div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
   </ion-grid>
+  <ion-row>
+    <ion-col col-10 offset-1 *ngIf="!matchableUser.vehiculed">
+      <button ion-button full color="button" (click)="acceptRequest()">Accepter la demande</button>
+    </ion-col>
+    <ion-col col-10 offset-1>
+      <button ion-button  full color="danger" (click)="declineRequest()">Annuler</button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>
+
+
