@@ -37,8 +37,6 @@ public class DriverService {
     /**
      * Upload car picture for driver
      *
-     * @param publicId
-     * @param uploadPicture
      */
 
     public ResponseEntity<User> postCarPicture (String publicId, UploadPicture uploadPicture) {
