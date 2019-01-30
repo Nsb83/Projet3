@@ -23,8 +23,12 @@ public class MatchingEntity {
     private String driverPublicId;
     private String pedestrianPublicId;
     private boolean accepted;
+    private boolean declined;
 
-    public MatchingEntity() {}
+    public MatchingEntity() {
+    	this.accepted = false;
+    	this.declined = false;
+    }
 
     public MatchingEntity(String driverPublicId, String pedestrianPublicId) {
         this.driverPublicId = driverPublicId;
@@ -63,13 +67,22 @@ public class MatchingEntity {
 		this.id = id;
 	}
 
-    @Override
+    public boolean isDeclined() {
+		return declined;
+	}
+
+	public void setDeclined(boolean declined) {
+		this.declined = declined;
+	}
+
+	@Override
     public String toString() {
         return "MatchingEntity{" +
                 "id=" + id +
                 ", driverPublicId='" + driverPublicId + '\'' +
                 ", pedestrianPublicId='" + pedestrianPublicId + '\'' +
-                ", accepted=" + accepted +
+                ", accepted=" + accepted + '\'' +
+                ", declined=" + declined +
                 '}';
     }
 }
