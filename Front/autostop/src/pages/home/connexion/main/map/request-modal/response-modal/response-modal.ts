@@ -75,13 +75,17 @@ export class ResponseModalPage {
     this.navCtrl.pop();
   }
 
-  acceptRequest() {
-    console.log("Matching entity non typée : ", this.matchingEntity);
-    
+  cancelRequest() {
+
+  }
+
+  acceptRequest() {    
     let newMatchingEntity = this.matchingEntity;
     newMatchingEntity.accepted = true;
     this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
-      console.log("Réponse de la requête http.put : ", res);
+
+    }, (error) => {
+      console.log(error);
     });
     this.navCtrl.pop();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});

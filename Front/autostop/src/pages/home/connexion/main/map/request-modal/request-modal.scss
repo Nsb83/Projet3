@@ -1,10 +1,22 @@
 page-request-modal {
 
+  text-align: center;
+
   .avatarUser{
     border-radius: 50%;
     width: 50vw;
   }
+
   .goToRow{
     margin-top : 5%;
+  }
+
+  #direction {
+    background-color: #EDEDED;
+    padding: 10px;
+
+    h4 {
+      margin: 0;
+    }
   }
 }

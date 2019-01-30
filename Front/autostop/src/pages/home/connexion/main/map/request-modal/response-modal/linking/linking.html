@@ -1,27 +1,32 @@
 <ion-content padding>
   <ion-grid>
-    <ion-row>
-      <ion-col *ngIf="!this.matchableUser.vehiculed" col-10 offset-1>
-        <h3>
-          Vous avez bien accepté la demande de {{ matchableUser.lastName }}
-          {{ matchableUser.firstName }}
-        </h3>
-      </ion-col>
-      <ion-col *ngIf="this.matchableUser.vehiculed" col-10 offset-1>
-        <h3>
-          Votre demande a bien été acceptée par {{ matchableUser.lastName }}
-          {{ matchableUser.firstName }}
-        </h3>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6 offset-3 *ngIf="this.matchableUser.uploadPicture.fileDownloadUri!=null" >
-        <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
-      </ion-col>
-      <ion-col col-6 offset-3 *ngIf="this.matchableUser.uploadPicture.fileDownloadUri==null" >
-        <img class="avatarUser" src="../../../../../../../../assets/imgs/profileImg1.png">
-      </ion-col>
-    </ion-row>
+    <div *ngIf="!matchableUser.vehiculed">
+      <h3> Vous avez bien accepté la demande de : </h3>
+      <ion-row>
+        <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri!=null" >
+          <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
+        </ion-col>
+        <ion-col col-6 offset-3 *ngIf="matchableUser.uploadPicture.fileDownloadUri==null" >
+          <img class="avatarUser" src="../../../../../../../../assets/imgs/profileImg1.png">
+        </ion-col>
+      </ion-row>
+      <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}.</h3>
+    </div>
+    <div *ngIf="this.matchableUser.vehiculed">
+      <h3>
+        Votre demande a été acceptée par : 
+      </h3>
+      <ion-row>
+        <ion-col *ngIf="this.matchableUser.uploadPicture.fileDownloadUri!=null" >
+          <img class="avatarUser" [src]="matchableUser.uploadPicture.fileDownloadUri">
+        </ion-col>
+        <ion-col *ngIf="this.matchableUser.uploadPicture.fileDownloadUri==null" >
+          <img class="avatarUser" src="../../../../../../../../assets/imgs/profileImg1.png">
+        </ion-col>
+      </ion-row>
+      <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}.</h3>
+    </div>
+      
     <!-- <ion-row>
           <ion-col col-8 offset-2>
               <img class="stars"
@@ -29,28 +34,27 @@
               *ngFor="let num of [1,2,3,4,5]">
           </ion-col>
         </ion-row> -->
-    <ion-row>
-      <ion-col *ngIf="this.matchableUser.vehiculed" col-4 offset-4>
-        <div>
-          <img
-          *ngIf="matchableUser.driver.uploadPicture.fileDownloadUri!=null"
-          class="avatarUser"
-          [src]="matchableUser.driver.uploadPicture.fileDownloadUri"
-          />
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col *ngIf="this.matchableUser.vehiculed" col-6 offset-3>
-        <h3>
-          {{ this.matchableUser.driver.brand }} {{ this.matchableUser.driver.model }} {{ this.matchableUser.driver.licensePlate }}
-        </h3>
-      </ion-col>
-    </ion-row>
+    <div *ngIf="this.matchableUser.vehiculed">
+      <img
+      *ngIf="matchableUser.driver.uploadPicture.fileDownloadUri!=null"
+      class="carpicture"
+      [src]="matchableUser.driver.uploadPicture.fileDownloadUri"
+      />
+      <ion-row>
+        <ion-col col-10 offset-1>
+          <div id="carinfos">
+            <h4>
+              {{ this.matchableUser.driver.brand }} {{ this.matchableUser.driver.model }}
+            </h4>
+            <h5>{{ this.matchableUser.driver.licensePlate }}</h5>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
     <ion-row>
       <ion-col col-10 offset-1>
         <button ion-button full color="button" icon-start (click)="call()">
-          <ion-icon name="call"></ion-icon>Appeller {{ matchableUser.phone }}
+          <ion-icon name="call"></ion-icon>Appeler {{ matchableUser.phone }}
         </button>
       </ion-col>
     </ion-row>
