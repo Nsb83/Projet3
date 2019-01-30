@@ -353,9 +353,6 @@ export class MapPage {
               if (this.requestingMatchingEntities.length) {
                 this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId)
                   .subscribe((matchingPedestrian: MatchingUserDetails) => {
-                    
-                    console.log(matchingPedestrian);
-                    
                     this.showMatchModal(matchingPedestrian, this.requestingMatchingEntities[0]);
                     this.modalShowed = true;
                 });
