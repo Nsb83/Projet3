@@ -178,12 +178,12 @@ public class MatchService {
 	 * @see			MatchingEntity
 	 * @see 		MatchingDAO
 	 */	
-    public boolean getMatchingEntityStatus(Long id) {
+    public MatchingEntity getMatchingEntity(Long id) {
     	Optional<MatchingEntity> matchingEntity = matchingDAO.findById(id);
     	
     	MatchingEntity _matchingEntity = matchingEntity.get();
     	
-    	return _matchingEntity.isAccepted();
+    	return _matchingEntity;
     }
     
     /**
@@ -196,6 +196,7 @@ public class MatchService {
 		Optional<MatchingEntity> optionalMatchingEntity = matchingDAO.findById(id);
 		MatchingEntity _matchingEntity = optionalMatchingEntity.get();
 		_matchingEntity.setAccepted(matchingEntity.isAccepted());
+		_matchingEntity.setDeclined(matchingEntity.isDeclined());
 		
 		matchingDAO.save(_matchingEntity);
 		
@@ -217,7 +218,6 @@ public class MatchService {
             throw new UsernameNotFoundException("No travel asked for " + driverPublicId + " yet!");
         
         return matchingEntities;
-
     }
 
 	/**

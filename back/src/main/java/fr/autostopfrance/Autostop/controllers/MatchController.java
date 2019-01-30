@@ -93,10 +93,9 @@ public class MatchController {
 		return matchingDrivers;
 	}
 	
-	
-	@GetMapping (path = "/getmatchingentity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean getMatchingEntityStatus(@PathVariable("matchingEntityId") Long id) {
-		return matchService.getMatchingEntityStatus(id);
+	@GetMapping (path = "/getMatchingEntity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public MatchingEntity getMatchingEntity(@PathVariable("matchingEntityId") Long id) {
+		return matchService.getMatchingEntity(id);
 	}
 	
 	@PostMapping(path = "/createMatchingEntity/{idUser}", consumes = { MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -109,13 +108,13 @@ public class MatchController {
 		return matchService.updateMatchingEntity(id, matchingEntity);
 	}
 	
+	@DeleteMapping(path = "/deleteMatchingEntity/{matchingEntityId}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<String> deleteMatchingEntity(@PathVariable("matchingEntityId") Long id){
+        return matchService.deleteMatchingEntity(id);
+    }
+	
 	@GetMapping(path = "/queryPedestrian/{idUser}", produces =  { MediaType.APPLICATION_JSON_VALUE })
     public LinkedList<MatchingEntity> findById(@PathVariable("idUser") String driverPublicId) {
         return matchService.checkPedestrianRequest(driverPublicId);
-    }
-	
-	@DeleteMapping(path = "/deleteMatchingEntity/{matchingEntityId}", produces = {  MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<String> deleteUser(@PathVariable("matchingEntityId") Long id){
-        return matchService.deleteMatchingEntity(id);
     }
 }
