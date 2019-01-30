@@ -1,8 +1,26 @@
 page-linking {
 
+  text-align: center;
+
   .avatarUser{
     border-radius: 50%;
-    width: 50vw;
+    max-width: 200px;
   }
 
+  .carpicture{
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    max-width: 150px;
+  }
+
+  #carinfos {
+    margin: 10px;
+    background-color: #EDEDED;
+    padding: 10px;
+
+    h4, h5{
+      margin: 0;
+    }
+  }
 }
