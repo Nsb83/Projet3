@@ -68,7 +68,7 @@ export class RegisterPage implements OnInit {
       register.password
     );
     this.userService.createUser(this.newUser).subscribe(() => {
-      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez vous désormais connecter.`)
+      this.messageService.myToastMethod(`Bienvenue ${this.newUser.getFirstName()} ! Merci pour votre inscription, vous pouvez désormais vous connecter.`)
       this.navCtrl.push(ConnexionPage);
     }, (error: HttpErrorResponse) => {
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);

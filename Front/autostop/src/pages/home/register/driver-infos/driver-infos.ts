@@ -123,7 +123,7 @@ export class DriverInfosPage {
 
   onUpload() {
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(event => {
+    this.imageProvider.pushCarPictureToStorage(this.userId, this.currentFileUpload).subscribe(() => {
       }, (error: HttpErrorResponse) => {
         this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
       });
