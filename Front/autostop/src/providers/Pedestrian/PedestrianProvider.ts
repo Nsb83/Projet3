@@ -4,6 +4,7 @@ import { Pedestrian } from "../../models/Pedestrian";
 import { environment } from "../Utils/environment";
 import { HttpClient } from "@angular/common/http";
 import { UserProvider } from "../user/userProvider";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class PedestrianProvider {
@@ -13,14 +14,14 @@ export class PedestrianProvider {
 
     constructor(public http: HttpClient, private userProvider: UserProvider) {}
 
-    getPedestrian() {
+    getPedestrian(): Observable<Pedestrian> {
       const pedestrian: Pedestrian = new Pedestrian();
       this.http
         .get<User>(`${this.USER_URL}/find/${this.userProvider.getUserId()}`).subscribe((response: any) => {
           pedestrian.setPassengersNumber(response.pedestrian.passengersNumber);
           pedestrian.setSearchRadius(response.pedestrian.searchRadius)
       });
-      return pedestrian;
+      return Observable.of(pedestrian);
     };
 
     updatePedestrian(pedestrian: Pedestrian){

@@ -99,8 +99,8 @@ export class MapPage {
               }
 
               events.subscribe('request:declined', () => {
-                // this.modalShowed = false;
-                // this.sendTrip();
+                this.modalShowed = false;
+                this.sendTrip();
               });
             }
 
@@ -348,12 +348,11 @@ export class MapPage {
           .pipe(takeWhile(() => !this.modalShowed))
           .switchMap(() => this.matchProvider.queryPedestrian())
           .subscribe(
-            (data: MatchingEntity[])=> {
+            (data: MatchingEntity[]) => {              
               this.requestingMatchingEntities = data;
               if (this.requestingMatchingEntities.length) {
                 this.userProvider.getMatchingUserDetails(this.requestingMatchingEntities[0].pedestrianPublicId)
                   .subscribe((matchingPedestrian: MatchingUserDetails) => {
-                    this.messageProvider.myToastMethod(`Vous avez une demande de prise en charge de ${matchingPedestrian.firstName} ${matchingPedestrian.lastName[0]}. !`, 7000);
                     this.showMatchModal(matchingPedestrian, this.requestingMatchingEntities[0]);
                     this.modalShowed = true;
                 });
@@ -365,16 +364,7 @@ export class MapPage {
           }
 
       else {
-        let alert = this.alrtCtrl.create({
-          title: 'Trajet enregistré',
-          message: "Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.",
-          buttons: [
-            {
-              text: "C'est compris !",
-            }
-          ]
-        });
-        alert.present();
+        this.messageProvider.myToastMethod("Votre trajet a été enregistré, cherchez maintenant le trajet d'un automobiliste qui vous convient.", 7000);
         this.showMatchedUsersPoly();
       }
     })
@@ -403,8 +393,6 @@ export class MapPage {
     }
 
     this.matchProvider.getMatchingDriversAround().subscribe((matchingDrivers: MatchingUserDetails[]) => {
-      console.log("Searching for pedestrians");
-
         if (matchingDrivers.length) {
         for(let i=0; i <= matchingDrivers.length -1; i++){
           this.showPolyMatch(matchingDrivers[i].trip.itinerary, '#66245A', matchingDrivers[i]);
