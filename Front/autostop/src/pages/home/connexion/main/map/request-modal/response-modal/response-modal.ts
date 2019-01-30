@@ -67,6 +67,7 @@ export class ResponseModalPage {
                 }, error => {
                   console.log(error);
                 });
+                this.hasFinished();
                 this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser})
               }
               if (data.declined){
@@ -77,30 +78,25 @@ export class ResponseModalPage {
                   console.log(error);
                 });
                 this.messageProvider.myAlertMethod("Désolé,", "La situation du conducteur ne permet pas de vous prendre en charge, cherchez un autre conducteur !", false);
-                this.navCtrl.pop();
+                this.hasFinished();
                 }
             },
             error => {
               console.log(error);
-              
             });
     }
   }
 
-
   declineRequest() {
     this.events.publish('request:declined');
-    let newMatchingEntity = this.matchingEntity;
-    console.log(this.matchingEntity);
-    
+    let newMatchingEntity = this.matchingEntity;    
     newMatchingEntity.declined = true;
-    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
-      console.log(this.matchingEntity);
+    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe(() => {
 
     }, (error) => {
       console.log(error);
     });
-    this.navCtrl.pop();
+    this.hasFinished();
   }
 
   cancelRequest() {
@@ -109,23 +105,24 @@ export class ResponseModalPage {
     }, error => {
       console.log(error);
     });
-    this.navCtrl.pop();
+    this.hasFinished();
   }
 
   acceptRequest() {    
     let newMatchingEntity = this.matchingEntity;
     newMatchingEntity.accepted = true;
-    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe((res) => {
+    this.matchProvider.updateMatchingEntity(newMatchingEntity).subscribe(() => {
 
     }, (error) => {
       console.log(error);
     });
-    this.navCtrl.pop();
+    this.hasFinished();
     this.navCtrl.push(LinkingPage, { matchableUser : this.matchableUser});
   }
 
   hasFinished() {
-    return this.timer.hasFinished;
+    this.timer.runTimer = false;
+    this.navCtrl.pop();
   }
 
   initProgressBar() {
@@ -172,7 +169,14 @@ export class ResponseModalPage {
         this.timerTick();
       } else {
         this.timer.hasFinished = true;
-        this.navCtrl.pop();
+        if (this.matchableUser.vehiculed) {
+          this.matchProvider.deleteMatchingEntity(this.matchingEntity.id).subscribe(() => {
+
+          }, error => {
+            console.log(error);
+          });
+        }
+        this.hasFinished();
       }
     }, 1000);
   }

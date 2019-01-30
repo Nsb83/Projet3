@@ -17,6 +17,8 @@ export class PedestrianPage implements OnInit{
   pedestrian: Pedestrian;
   pedestrianUpdate: Pedestrian;
   private updatePedestrian: FormGroup;
+  userId = this.userService.getUserId();
+  passengersNumber: number;
 
   constructor(
     public navCtrl: NavController,
@@ -27,11 +29,13 @@ export class PedestrianPage implements OnInit{
     private pedestrianService: PedestrianProvider,
     private events: Events) {}
 
-    userId = this.userService.getUserId();
 
   ngOnInit() {
     this.initForm();
-    this.pedestrian = this.pedestrianService.getPedestrian();
+    this.pedestrianService.getPedestrian().subscribe((data: any) => {
+      this.pedestrian = data;
+      this.passengersNumber = data.passengersNumber
+    });
   }
 
   initForm() {
@@ -53,7 +57,9 @@ export class PedestrianPage implements OnInit{
 
     this.pedestrianService.updatePedestrian(this.pedestrianUpdate).subscribe(() => {
       this.events.publish('user:changed', '');
-      this.pedestrian = this.pedestrianService.getPedestrian();
+      this.pedestrianService.getPedestrian().subscribe((response) => {
+        this.pedestrian = response;
+      });
       this.messageService.myToastMethod("Vos préférences sont enregistrées")
     }, (error: HttpErrorResponse) => {
       this.messageService.myToastMethod(`Une erreur est survenue, veuillez réessayer`);
