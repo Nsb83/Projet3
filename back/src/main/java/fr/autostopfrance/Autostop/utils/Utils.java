@@ -9,9 +9,8 @@ import java.util.Random;
  * Generate a random Id for User
  * in order to avoid using Mysql Id
  *
- * @see UserService
+ * @see fr.autostopfrance.Autostop.services.UserService
  *
- * @return String
  */
 
 @Service
