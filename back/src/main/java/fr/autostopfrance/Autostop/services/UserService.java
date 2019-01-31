@@ -181,6 +181,7 @@ public class UserService implements UserDetailsService {
 																			user.isVehiculed(),
 																			user.getUploadPicture(),
 																			user.getDriver(),
+																			user.getPedestrian(),
 																			user.getTrip()
 																			);
 		return matchingUserDetails;

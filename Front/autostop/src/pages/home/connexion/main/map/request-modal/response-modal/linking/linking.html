@@ -11,6 +11,9 @@
         </ion-col>
       </ion-row>
       <h3>{{ matchableUser.firstName }} {{ matchableUser.lastName[0] }}.</h3>
+      <div *ngIf="matchableUser.pedestrian.passengersNumber > 1">
+        <h5>({{ matchableUser.pedestrian.passengersNumber }} passagers)</h5>
+      </div>
     </div>
     <div *ngIf="this.matchableUser.vehiculed">
       <h3>
@@ -41,13 +44,12 @@
       [src]="matchableUser.driver.uploadPicture.fileDownloadUri"
       />
       <ion-row>
-        <ion-col col-10 offset-1>
-          <div id="carinfos">
-            <h4>
-              {{ this.matchableUser.driver.brand }} {{ this.matchableUser.driver.model }}
-            </h4>
-            <h5>{{ this.matchableUser.driver.licensePlate }}</h5>
-          </div>
+        <ion-col class="carinfos" col-5 offset-1>
+          <h4>{{ matchableUser.driver.brand }} {{ matchableUser.driver.model }}</h4>
+          <h5>{{ this.matchableUser.driver.licensePlate }}</h5>
+        </ion-col>
+        <ion-col class="carinfos" col-5>
+          <div id="carcolor" [style.backgroundColor]='matchableUser.driver.color'></div>
         </ion-col>
       </ion-row>
     </div>

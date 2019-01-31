@@ -26,6 +26,11 @@
           </h4>
         </div>
       </ion-col>
+      <ion-col *ngIf="!matchableUser.vehiculed">
+        <div *ngIf="matchableUser.pedestrian.passengersNumber > 1">
+          <h5>({{ matchableUser.pedestrian.passengersNumber }} passagers)</h5>
+        </div>
+      </ion-col>
     </ion-row>
     <ion-row>
       <!-- <ion-col>

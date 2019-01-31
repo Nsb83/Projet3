@@ -10,7 +10,7 @@
           </ion-item>
         <ion-item>
           <ion-label>Nombre de passagers : {{ pedestrian.passengersNumber }}</ion-label>
-          <ion-select formControlName="passengersNumber" interface="popover">
+          <ion-select formControlName="passengersNumber" [(ngModel)]="passengersNumber" interface="popover">
               <ion-option value=1>1</ion-option>
               <ion-option value=2>2</ion-option>
               <ion-option value=3>3</ion-option>
